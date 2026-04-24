@@ -1,0 +1,522 @@
+Website :
+User/tradies Home: :
+● Users can install the application by clicking on the Apple Store or Play Store buttons.
+● User can see or search the jobs with location .
+● In this page , employer site button is shown . By click on the employer site button it
+redirect on the employers (company ) page.
+Employer site Home :
+● Users can install the application by clicking on the Apple Store or Play Store buttons.
+● From the top-right buttons, users can log in or register as a Company or Subuser.
+● Users can explore the available monthly and yearly subscription plans. .
+● If user want to buy the subscription then click on the choose plan button it will redirect
+on the login page (If user is not register ,they need register firstly) .
+● If the company user is already logged in, clicking the Choose Plan button redirects them
+to the Dashboard
+About :
+This page provides information about Tradehook.
+Services :
+This page provides Services information about Tradhook like mobile , web (Mobile for tradies
+/web for company).
+Contact :
+For any queries or questions related to Tradehook, users can submit a form with the following
+details:
+Mandatory: First Name, Last Name, Email, Subject, and Message
+Optional: Phone number
+User Types & Workflows
+Tradehook supports four types of users:
+1. Company
+2. Subuser
+3. Admin
+4. Tradies
+Flow for Company Users within the Web panel:
+Register as Company:
+● Users must fill in all mandatory company details: First Name, Last Name, Email, Phone,
+Address, and ABN/ACN.
+● After submitting, a verification email is sent to set up a password.
+● Once the password is set, the user is redirected to the Login page.
+Login as Company:
+● For login , company users need to input a registered email address and password .
+● Upon successful login, they are directed to the Dashboard. .
+Forgot password :
+● Click the Forgot Password link on the login page.
+● Enter the registered email and click the Reset button.
+● A reset email is sent, and once the password is reset, the user is redirected to the Login
+page.
+ Feedback Popup:
+● The feedback popup will appear days after(according to the admin panel setting section)
+for users as per their registration date. Also, it will be shown next 3 days as well
+according to the set days if users do not save the feedback, after that popup will
+disappear without consideration of the user submitting any feedback or not.
+● Once a company submits feedback:
+○ The feedback is saved.
+○ The popup will no longer appear for that user.
+● If the company has not submitted feedback:
+○ The feedback popup will appear when company user login again.
+Dashboard :
+In the dashboard , show the total number of jobs , number of ongoing jobs , number of
+upcoming jobs , number of completed jobs and number of endorsement posts .
+Dashboard displays ongoing jobs , upcoming job , complete jobs and Job status graph .
+At the top right corner, two buttons are displayed: New Jobs and Jobs. Clicking on the New Jobs
+button redirects the user to the Create Job page, while clicking the Jobs button redirects to the
+Job Posted page..
+Options in Dashboard :
+● Search Bar: Search across all company-related content.
+● Notifications: Displays all notifications relevant to the company.
+● Messages: Shows chat history with all users
+Profile icon: Reveals 3 options:
+● My Profile → Redirects to the Profile page
+● Need Help? → Redirects to the Contact Us page
+● Sign Out → Logs out the company user .
+Left Side Menu: Tapping on the menu icon reveals a navigation panel on the left side of the top
+bar. The following options are available to Company users:
+Dashboard: Redirects the user to the main dashboard screen.
+Post New Job: Opens the job creation page.
+Jobs: Navigates to the Jobs screen to view and manage posted jobs.
+Endorsement Posts: Redirects to the Endorsement Posts screen.
+Sub User: Navigates to the Sub User management page.
+Subscription: Redirects to the Subscription Plans page.
+Profile: Opens the user’s Profile screen.
+Logout: Logs the Company user out of the application.
+Messages: Opens the Messaging interface for communication.
+Notifications: Displays the Notification screen with relevant alerts.
+Post New Job:
+When the user selects "Post New Job", they will be redirected to the Post New Job screen.
+Mandatory fields include:
+● Title,Skill Category,Experience Range,Number of Tradies,Status ,Company
+Address,Job Address,Start Date,End Date,Payment Range
+Optional fields include:
+● Upload Picture and Additional Notes
+From the Status field, the user can select either Approved or Draft:
+● Jobs marked as Approved will appear under the New tab.
+● Jobs marked as Draft will appear under the Draft tab.
+A Preview button is available at the top-right corner, allowing the user to see how the job post
+will be displayed before publishing.
+Jobs :
+Draft Jobs :
+All jobs saved as drafts by the Company user will appear under the Draft tab.
+Open Jobs :
+• Lists all new posted jobs by company.
+• On the click of the action view button ,the Company can see all details about that job .
+• On clicking the location button , company users redirect on the google map . 
+Job detail page in open jobs:
+• Click on the tick, Company can hire that Tradie .
+• Click on the reject icon , Company can reject that Tradie.
+• Click on the message icon and it will start a direct chat with the Tradie.
+• Click on the Tradie’s name to view their profile and shared posts. .
+• Click on the report icon to flag the Tradie if necessary.
+• Click on the star feedback ,the company can give the rating and feedback of the tradie .
+Upcoming Jobs :
+● A Company can also create a job on the same day, even if the number of required
+employees is fewer than the number of hired Tradies.
+● A Withdrawal button appears at the top-right corner of the job detail page.
+● If a job is withdrawn less than 48 hours before the scheduled start time, the
+Company's average rating will be reduced by half a star.
+Job detail page in open jobs:
+• Click on the reject icon , Company can reject that Tradie.
+•Click on the message icon and it will start a direct chat with the Tradie.
+• Click on name of any tradie , see their profile and posts .
+• By click on an extended date , the company can extend the job for the tradie.
+• Click on the report icon to flag the Tradie if necessary. .
+• By click on star feedback ,the company can give the rating and feedback of the tradie .
+Ongoing Jobs :
+● This section displays a list of all jobs currently in progress, as posted by the
+Company.
+● A cron job runs on an hourly basis to monitor job activity. It checks for any job
+whose start date is the current date.
+● If at least one Tradie has been hired, the job is automatically moved to the
+Ongoing tab.
+● Additionally, if a Company (or Agency) creates a job scheduled for today and
+successfully hires all required Tradies, that job is also transitioned to Ongoing
+status automatically.
+Job detail page in Ongoing jobs:
+• Click on the reject icon , Company can reject that Tradie.
+• Click on the message icon and it will start a direct chat with the Tradie .
+• By clicking on the name of any tradie , the company can see their profile and posts .
+• By clicking on an extended date, the company can extend the job for tradie.
+• By clicking on the report icon to flag the Tradie if necessary. .
+• By clicking on star feedback ,the company can give the rating and feedback of tradie .
+Complete Jobs :
+● This section displays a list of all jobs marked as Completed
+● After 48 hours from the job’s end date, a “Complete Job” button becomes visible
+at the top-right corner of the job detail page.
+● If a Tradie has not marked the job as complete within this 48-hour window, the
+Company has the authority to manually mark the job as Completed by clicking
+the “Complete Job” button.
+Job detail page in open jobs:
+• Click on the reject icon, and the company can reject the tradie.
+• Click on the flag icon , and the company can report the tradie with reason .
+• Click on the star button , the company can give the rating and feedback of tradie .
+• Click on the message icon , it will start a direct chat with the Tradie.
+Endorsement post : Company users can view the list of posts shared by Tradies related to their
+company profile. For each post, the Company has the following interaction options:
+View Button: Click to see full post details including content and any attached media.
+Like Button: Click to like and show appreciation for the post.
+By clicking on the comment button , the company can write the comment on that post .
+Subusers :
+• A company can add sub users by providing the following details i.e. name, location,
+company, Email address ,status,action.
+• Under action, company can change their profile status from block to unblock and delete
+the subuser.
+• A Company is allowed to add up to five Sub Users in total.
+• To add a new Sub User, click the “New Sub User” button and fill out the required
+information to complete the addition..
+Subscription :
+Company users can view their current subscription status and have the option to renew an
+existing plan.
+If a user does not have an active subscription, they must first select a plan from the
+available subscription list to access detailed information ( Subscription type, number of
+job post limit for company to be able to post on platform) with option “ Choose plan
+button ” to pay online to activate the subscription plan.
+• Once payment is successfully processed, the Company user can begin posting jobs for
+Tradies on the platform.
+• Company users can buy a monthly or yearly plan after switching the “monthly button” 
+or “yearly button “.
+Every new Company user is automatically granted a 14-day free trial plan upon
+registration.
+Profile:
+The Profile Page presents all key details related to both the Company and the associated
+Company User.
+At the right top , edit profile button admin can change first name , last name , email, mobile ,
+profile picture , company name , about company , company address , facebook url , Instagram url
+, linkedin url , company logo and password .
+Notifications:
+Shows a list of all notifications received related to the Company .
+Message:
+Shows a list of Chats or receives any message from a new user .
+Flow for Admin within the Web panel:
+Login as Admin:
+For login as Admin you need to input email address and password .
+Email Address:Dev.aprai@tapdigi.com
+Password: apr_800#
+After entering the details Admin can login and redirect on the Dashboard .
+Dashboard :
+In the Dashboard , shows number of registered tradies , Number of registered companies ,
+number of jobs posted , number of skill categories , number of badges , total number of
+subscription .
+Dashboard display Registered companies ,Register tradies , Subscription Expired this month and
+subscription this month graph .
+At the right top New subscription plan and skill categories are shown .On the click of the new
+subscription plan , it will redirect to the add subscription plan page and on click jobs button , it
+redirects to the skill categories page .
+Options in Dashboard :
+Search : From the search bar ,users can search anything related to the admin .
+Notifications: Displays a list of all notifications related to admin .
+Message : Display all the chat with all users is shown .
+Profile icon : Click on the profile icon 3 options are shown i.e My profile , Clear cache ,Need
+help ? and sign out button .
+● Click on the My profile and it redirects to the profile page .
+● Click on clear cache, admin can clear cache of website .
+● Click on need help? It redirect on the contact us page
+● Click on the sign out company user logout from the screen .
+Menu: Tapping on the menu icon reveals options on the left side of the top bar.
+Admin will be shown the below mentioned menu options:
+Dashboard: Redirect back to dashboard screen
+Jobs: Navigates to jobs screen .
+Companies: Redirect to Company page .
+Subusers: Redirect to subusers screen.
+Tradies: Redirect to tradies Screen.
+Post over Wall: Redirect to Post over wall screen .
+Subscription: There are 3 options is shown by click on the subscription:
+● Plans: Navigates to plans screen .
+● Add-on Plans: Navigates to Add-on page screen .
+● Subscribers: Navigates to Subscribers page .
+Skill Categories: Redirect to Skill categories screen.
+Badges: Navigates to Badges page.
+Feedback : Super admin will display all submitted feedback from companies and tradies.
+Settings: There are 2 options is shown on by clock on thr settings ;
+● General: redirect to web settings page .
+● SMTP: redirect to smtp settings page .
+Profile: Redirect to Profile page.
+Logout: Admin logout from the screen .
+Message : Open the Message screen .
+Notifications: Open the Notification screen.
+Jobs :
+Draft Jobs :
+All drafted Jobs show in the draft tab.
+Open Jobs :
+• List of new posted jobs by all companies.
+• On clicking the action view button ,the Company can see all details about that job .
+• On clicking the location button , company users redirect on the google map . 
+Upcoming Jobs :
+• Shows upcoming jobs with details and hired employees.
+Ongoing Jobs :
+• Lists ongoing jobs with details and hired employees.
+Complete Jobs :
+• Displays a list of all completed jobs by all Companies.
+Companies :
+● Displays a list of all registered companies with logo , name , location , created on
+, hired employees, no. of jobs , rating ,actions.
+● From action , the admin can change their profile status from block to unblock,
+view all details and delete the company.
+● Admin can filter the companies on the basis of rating , reports , jobs and
+subscribe .
+● At top right , From search bar admin can search companies with email , location
+and companies name .
+● Red flag show for reported companies .On click of red flag admin can see the
+report reason.
+Subusers:
+● Display a list of all sub users with name , location, company , Email address ,
+status ,action.
+● From action , Admin can change their profile status from block to unblock and
+delete the Subuser.
+● At top right , From the search bar admin can search companies with email ,
+location and Subuser name .
+Tradies:
+● Displays a list of all registered Tradies with profile image , name , Skill category ,
+job completed , location , badge , rating ,actions.
+● From action , admin can change their profile status from block to unblock, view
+all details .
+● Admin can filter the companies on the basis of skill categories, rating , reports
+and badge .
+● At top right , From Search bar Admin can search companies with email , location
+and company name .
+● Red flag show for reported Tradies .On click of red flag admin can see the report
+reason.
+Post over wall :
+• In this , show all posted photos or videos by tradie in application.
+• Admin can View and delete the post .
+Subscription:
+Subscription Plans:
+• Displays all added plans and you can change their status deactivate to activate and edit
+the plans .
+• At the right top , new subscription plan button you add the new plan for monthly and
+yearly .
+• If nobody buy any plans then admin can delete that plans .
+Add -on plans:
+• Display all the feature add in pay-as-you-go plan and edit and delete the feature .
+• At the right top, new ad-on button you add the new feature in pay-as-you-go plan.
+Subcribers:
+• Display lists of all subscribers with their plan, frequency(no. of days ) , organisation, job
+posting , talent match , start date , end date .
+• Admin can filter out with expiring this week , expiring this month , expired subscription
+, subscribers this month .
+Skill Categories:
+• The display lists all skill categories and the admin can edit the skill category .
+• At the right top, a new skill category button adds the new skill category.
+• From the search bar you can search any skill category.
+Badges:
+• Display lists all badges and admin can edit .
+• If any tradie cannot use the badges then admin can deactivate and delete the badges .
+• At the right top , a new badge button admin can add a new badge .
+Feedback:
+● The Feedback page will display all submitted feedback from companies and tradies.
+○ Click on the all tap ,show all user feedback .
+○ Click on the companies tap ,show companies user feedback
+○ Click on the Tradies tap , show tradies user feedback
+● By clicking the View button, the super admin can view individual feedback entries.
+Settings;
+General settings :
+● Admin can change the website logo , website name ,website favicon, email , location
+,Facebook link , Instagram link and linkedin link for the whole website .
+● Admin can also change settings for feedback popup for companies and tradies
+For companies:
+● Number of Days: Allows the admin to select how many days after registration the 
+feedback popup should appear for new users.
+● Status: Allows the admin to enable or disable the feedback popup form.
+For Tradies:
+● Number of Days: Allows the admin to select how many days after registration the 
+feedback popup should appear for new tradies.
+● Status: Allows the admin to enable or disable the feedback popup form.
+The feedback popup is scheduled based on the number of days set by the admin—such as 1, 2, or
+3 days after a tradie's registration. If no feedback is submitted, the popup will continue to appear
+for three consecutive days from the first display. After that, it will automatically disappear,
+regardless of whether the user has responded.
+In the feedback popup settings for Tradies or Companies, if the admin sets the number of days to
+zero, the status should automatically be disabled tradies or companies.
+SMTP settings:
+Admin can change the details of SMTP like SMTP username , SMTP password ,SMTP from
+email , SMTP host , SMTP port , SMTP encryption .
+Profile:
+In the profile page , show all details about the admin.
+At the right top , the “Edit Profile” button allows the admin to update their first name, last
+name, email, mobile number, profile picture, and password..
+Logout:
+Admin can logout from the screen .
+Flow for Sub Users within the Web panel:
+Company users can add subuser under their company , after adding email sent in your register
+email for a set password .
+Login as Sub Users:
+For login , Sub users need to input a registered email address and password .
+After entering the details Sub user can login and redirect on the Dashboard .
+Forgot password :
+If the Sub user forgot their password then click on the forgot password link on the login page .
+After clicking on the forgot password ,it redirects to the Forgot password page . The Sub user
+enters the register email and clicks on the reset button . Email sent to register email for reset
+password .
+Once the password is set , the Sub user redirects to the Login page .
+Dashboard :
+In the dashboard , show the total number of jobs , number of ongoing jobs , number of
+upcoming jobs , number of complete jobs and number of endorsement posts .
+Dashboard displays ongoing jobs , upcoming jobs , complete jobs and Job status graph .
+At the top of the right side new jobs and jobs button is shown .Click on the new jobs button ,it
+redirects on the create job page and on click jobs button , it redirects on the job posted page .
+Options in Dashboard :
+Search : From the search bar ,users can search anything related to the Subuser .
+Notifications: Displays a list of all notifications related to Subuser .
+Message : Display all the chat with all users is shown .
+Profile icon: Click on the profile icon 3 options is shown i.e My profile , Need help ? and sign
+out button .
+● Click on the My profile it redirect on the profile page
+● Click on need help? It redirect on the contact us page
+● Click on the sign out company sub user logout from screen .
+Menu: Tapping on the menu icon reveals options on the left side of the top bar.
+Sub user will be shown the below mentioned menu options:
+Dashboard: Redirect back to dashboard screen .
+Post new job: Redirect to job create page .
+Jobs: Navigates to jobs screen .
+Endorsement posts: Redirect to the Endorsement post screen.
+Profile: Displays the profile screen .
+Logout : Company user logout from the screen .
+Message : Open the Message screen .
+Notifications: Open the Notification screen.
+Jobs :
+Draft Jobs :
+All drafted Jobs show in the draft tab.
+Open Jobs :
+• Lists all new posted jobs by Subusers.
+• On click the action view button ,Subuser can see all detail about that job .
+• On click the location button , Subuser user redirect on the google map . 
+Job detail page in open jobs:
+• Click on the tick ,Sub user can hired that Tradie .
+• Click on the reject icon , Sub user can reject that Tradie.
+• Click on the message icon , Sub user doing chat with tradie .
+• Click on the name of tradie , see their profile and posts .
+• By clicking on the report icon , Sub user can report that tradie .
+• By clicking on star feedback ,Sub users can give the rating and feedback of tradie .
+Upcoming Jobs :
+• Sub user creates a job for future dates and hires any tradie .
+• Sub users create job on the same day and no. of employees is less than hired employees
+.
+Job detail page in open jobs:
+• Click on the reject icon , Subuser can reject that Tradie.
+• Click on the message icon , Subuser chatting with tradie .
+• Click on the name of any tradie , see their profile and posts .
+• By clicking on an extended date , Subuser can job extend for tradie.
+• By clicking on the report icon , Subuser can report that tradie .
+• By clicking on star feedback ,Subuser can give the rating and feedback of tradie .
+Ongoing Jobs :
+• Displays a list of all ongoing jobs posted by the Sub user .
+• A cron job runs every hour. It checks if there is any job whose start date is today. If any
+hiring has happened for that job, it moves the job to ongoing.
+• When a Sub user creates a job with today's date and hires all the required tradies, the job
+also moves to ongoing.
+Job detail page in Ongoing jobs:
+• Click on the reject icon ,Sub user can reject that Tradie.
+• Click on the message icon , Sub user doing chat with tradie .
+• Click on name of any tradie , see their profile and posts .
+• By click on extended date , Subuser can job extend for tradie.
+• By click on report icon , Subuser can report that tradie .
+• By click on star feedback ,Subuser can give the rating and feedback of tradie .
+Complete Jobs :
+• Displays a list of all completed jobs by the Subuser.
+Job detail page in open jobs:
+• Click on the reject icon, Subuser can reject the tradie.
+• Click on the flag icon , Subuser can report the tradie with reason .
+• Click on the star button , Subuser can give the rating and feedback of tradie .
+• Click on the message icon , Subuser user doing chat with tradie .
+Endorsement post :
+• View the list of posts posted by tradie realty to their company profile. Subuser can Like,
+comment, and view .
+• By clicking on the view button , the Subuser can see all details of the post .
+• By clicking on the like button , Subuser can like the post .
+• By clicking on the comment button , Subuser can write the comment on that post .
+Profile:
+In the profile page , show all the details about the Subuser.
+At the right top , edit profile button Subuser can change first name , last name , email, mobile ,
+profile picture and password .
+Logout:
+Subuser can logout from the screen .
+Mobile App flow for Tradies:
+1. Download and Installation: Users can download and install the app from both the App Store
+and Play Store.
+2. Splash Screen: On tapping the app icon, Tradies would be greeted with a splash screen
+displaying the app's logo.
+3. Login Screen: Existing Tradies can log in using registered email and password .
+New Tradie will be redirected to the "Create Account " option on the login screen.
+4. Registration:
+• Tradies selecting "Create Account " will redirect to the registration screen, Tradie will
+input their personal details like First name, last name, email address, phone number,
+address, ABN and password , click on the terms and condition and submit all detail
+by clicking on the register button .
+• After clicking on the register button, , an OTP will be sent to the registered email
+address.
+• Once the OTP is entered, the Tradie is redirected to the Information Page. On the
+information page, mandatory fields are first name , last name , email address, phone
+number, address, ABN ,skill , Experience Range and Non mandatory fields are
+Trade License and other certificates. After filling in the details, the Tradie can save
+the information.
+Feedback popup :
+● The feedback popup will appear days after(according to the admin panel setting section)
+for users as per their registration date. Also, it will be shown next 3 days as well
+according to the set days if users do not save the feedback, after that popup will
+disappear without consideration of whether the user is submitting any feedback or not.
+● Once a tradie submits feedback:
+○ The feedback is saved.
+○ The popup will no longer appear for that user.
+● If the tradie has not submitted feedback:
+○ If the user kills or closes the app, the feedback popup will re-appear upon
+reopening.
+Home Screen:
+• After a successful login or registration, the Home Screen displays a list of activities
+related to the user's connections/friends, along with job posts and ads from
+companies that best match the user's profile.
+• Users can select any activity related to their connections from the list and view details.
+• Users can like/dislike and comment on posts.
+Home Screen Options:
+Menu: Tapping on the menu icon will display options on the left side of the top bar.
+Notifications: Display a list of all notifications related to jobs posted by companies.
+Location button: Allows Tradies to search for jobs. Filters can be applied to narrow down job
+listings by category. Users can view job details and apply directly.
+Bottom bar menu: The Bottom bar menu will consist of the below mentioned options:
+Home : Take users back to the main home screen.
+Create post (+) : Navigate to the create post page .
+Messages : Open the Messages screen.
+Works: Open the Jobs screen.
+Profile: Opens the user's Profile screen.
+Left Menu Options: User will be shown below mentioned menu options as:
+Settings : Settings will consist of the below mentioned options:
+1. Account
+● Delete Account: Deactivate the account .
+● Change Password: Change the password of the account.
+2. Feed Preferences : Select your preferences and selected preferences post show in the
+home page.
+3. Notification :
+Message Notification : Toggle message notifications on or off..
+Contact Us : Redirect to the Contact page .
+About Us : Redirect to the About Us page
+Help & Feedback : Redirect to the Help and feedback form .
+Terms & Conditions : Navigates to the Terms and conditions page .
+Privacy Policy : Navigates to the Privacy policy page .
+Logout: Logs the Tradie out of the app.
+Message:
+● All chat messages are displayed in this section.
+● A plus (+) button at the bottom allows Tradies to search for connections and invite other
+Tradies
+● At the right top , the Friend icon is shown. Click on the friend icon two tabs is shown:
+ Friend list : Display all friends, users can remove friends or send messages to your friend .
+ Friend Request : Shows incoming friend requests from other Tradies, with options to
+accept or reject.
+Create post (+) :
+● Tradie can create a post by adding a title, post description, location , skill and tag any
+company or tradie for endorsement .
+● For adding posts, one photo or one video , post title , post description are mandatory
+fields.
+● The skill , tag of any company or connection for endorsement are non mandatory/
+optional fields.
+Work:
+Applied: Displays all jobs the Tradie has applied for.
+Upcoming: Shows upcoming jobs accepted by the company, with details and options to 
+withdraw. If tradie withdraws job prior 48 hours then half rating average detected from tradie
+profile .
+Ongoing: Displays a list of ongoing jobs for the tradie , with option to view details and 
+withdraw from a job.
+Complete: Displays a list of all completed jobs, allowing tradie to view job details and provide
+ratings to the company. Tradie can also report to the company .
+Profile:
+Profile Screen: The Profile screen displays the user's personal details, including skills and
+experience. It also provides options to manage posts and edit profile information..
+Posts :
+● Tradies can view all posts they have created. These posts are visible to their connections,
+and companies can review both the tradie's profile and posts.
+● Tradies can edit their posts within 2 days of publishing and have the option to delete
+them at any time.

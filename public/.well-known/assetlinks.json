@@ -1,0 +1,14 @@
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "au.com.tradehook.tradehookapp",
+            "sha256_cert_fingerprints": [
+        "94:EC:71:11:59:75:D8:A3:EF:E2:80:0C:C6:F3:73:9F:51:1A:2A:67:E2:D6:4B:24:67:07:D6:6A:1D:4F:2E:A9"
+            ]
+        }
+    }
+]

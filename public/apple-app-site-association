@@ -1,0 +1,14 @@
+{
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appID": "7JUYJKB25Y.au.com.tradehook.tradehookapp",
+                "paths": [
+                    "NOT /_/*",
+                    "/*"
+                ]
+            }
+        ]
+    }
+}
