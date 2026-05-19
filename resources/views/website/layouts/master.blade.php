@@ -13,13 +13,12 @@ $model = Setting::setting();
   <title>@yield('title') | {{$model['name_of_website']}}</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
   <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('css/bootstrap-icons.min.css') }}" rel="stylesheet">
   <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
   <link href="{{ asset('css/slider.css') }}" rel="stylesheet">
-
-
-
   <link rel="stylesheet" type="text/css" href="{{ asset('css/slick.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('css/slick-theme.css') }}">
   @yield('css')
@@ -94,7 +93,7 @@ $model = Setting::setting();
     <div class="container">
       <div class="row align-items-center">
         <div class="col-md-4 col-lg-3 footer-logo">
-          <a href="/"><img src="{{ $model['website_logo'] }}" /></a>
+          <a href="/"><img src="{{ $model['website_logo'] }}" width="100"/></a>
         </div>
         <div class="col-md-5 col-lg-7 text-center">
           Need Support? - <b>{{$model['support_email']}}</b>
@@ -122,6 +121,7 @@ $model = Setting::setting();
     </div>
   </footer>
   <link href="{{ asset('fortawesome/css/all.min.css') }}" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="{{ asset('js/bootstrap.min.js') }}"></script>
   <script src="{{ asset('js/main.js') }}"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -161,180 +161,6 @@ $model = Setting::setting();
       opacity: 1;
     }
   </style>
-<script>
-$(function () {
-
-    const $slider = $('.center_slider1');
-
-    let cachedSlides = null;
-    let playLock = false;
-
-    /* ---------- CACHE REAL SLIDES ---------- */
-    function getRealSlides(slick) {
-        if (!cachedSlides) {
-            cachedSlides = $(slick.$slides).not('.slick-cloned');
-        }
-        return cachedSlides;
-    }
-
-    /* ---------- PAUSE ALL (NO FLICKER RESET) ---------- */
-    function pauseAll(slick) {
-        getRealSlides(slick)
-            .find('video.video-control.playing')
-            .each(function () {
-
-                this.pause();
-
-                // Reset only non-center videos
-                if (!$(this).closest('.slick-slide').hasClass('slick-center')) {
-                    this.currentTime = 0;
-                }
-
-                this.classList.remove('playing');
-            });
-    }
-
-    /* ---------- SAFE PLAY (FLICKER FREE) ---------- */
-    function safePlay(video) {
-        if (!video) return;
-
-        if (!video.dataset.optimized) {
-            video.muted = true;
-            video.playsInline = true;
-            video.preload = "metadata";
-            video.dataset.optimized = "1";
-        }
-
-        const startPlay = () => {
-            requestAnimationFrame(() => {
-                const p = video.play();
-                if (p) p.catch(() => setTimeout(startPlay, 200));
-                video.classList.add('playing');
-            });
-        };
-
-        if (video.readyState >= 2) {
-            startPlay();
-        } else {
-            video.addEventListener('loadeddata', startPlay, { once: true });
-        }
-    }
-
-    /* ---------- PRELOAD ONLY NEAR SLIDES ---------- */
-    function preloadSlides(slick, index) {
-
-        const slides = getRealSlides(slick);
-        const len = slides.length;
-
-        [index, (index + 1) % len, (index - 1 + len) % len].forEach(i => {
-
-            const v = slides.eq(i).find('video.video-control').get(0);
-
-            if (v && !v.dataset.loaded) {
-                v.preload = "auto";
-                v.load();
-                v.dataset.loaded = "1";
-            }
-        });
-    }
-
-    /* ---------- PLAY CENTER VIDEO ---------- */
-    function playCenterVideo(slick, currentSlide = 0) {
-
-        if (playLock) return;
-        playLock = true;
-
-        pauseAll(slick);
-        preloadSlides(slick, currentSlide);
-
-        const video = getRealSlides(slick)
-            .filter('.slick-center')
-            .find('video.video-control')
-            .get(0);
-
-        safePlay(video);
-
-        setTimeout(() => playLock = false, 120);
-    }
-
-    /* ---------- CLONE VIDEO FIX ---------- */
-    function syncClones() {
-        document.querySelectorAll('.slick-cloned video').forEach(v => {
-            v.muted = true;
-            v.playsInline = true;
-        });
-    }
-
-    /* ---------- EVENTS ---------- */
-    $slider.on('init', (e, slick) => {
-        cachedSlides = null;
-        syncClones();
-        playCenterVideo(slick);
-    });
-
-    $slider.on('afterChange', (e, slick, current) => {
-        playCenterVideo(slick, current);
-    });
-
-    $slider.on('mousedown touchstart swipe', function () {
-        const slick = $slider.slick('getSlick');
-        playCenterVideo(slick, slick.currentSlide);
-    });
-
-    /* ---------- SLICK INIT ---------- */
-    $slider.slick({
-        centerMode: true,
-        centerPadding: '60px',
-        slidesToShow: 5,
-        infinite: true,
-        dots: true,
-        arrows: false,
-        autoplay: true,
-        autoplaySpeed: 5000,
-        pauseOnHover: false,
-        pauseOnFocus: false,
-        responsive: [
-            { breakpoint: 1500, settings: { slidesToShow: 5 } },
-            { breakpoint: 1025, settings: { slidesToShow: 3 } },
-            { breakpoint: 575,  settings: { slidesToShow: 1, centerPadding: '35px' } }
-        ]
-    });
-
-    /* ---------- RESIZE OPTIMIZED ---------- */
-    let resizeTimer;
-
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimer);
-
-        resizeTimer = setTimeout(() => {
-            if ($slider.hasClass('slick-initialized')) {
-                $slider.slick('setPosition');
-            }
-        }, 250);
-    });
-
-});
-</script>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const video = document.getElementById("banner-video");
-      if (!video) return;
-
-      const tryPlay = () => {
-        video.play().catch(err => {
-          console.warn("Autoplay blocked, retrying...", err);
-          setTimeout(tryPlay, 200);
-        });
-      };
-
-      video.muted = true;
-      video.playsInline = true;
-
-      tryPlay();
-    });
-  </script>
-
 </body>
 
 </html>

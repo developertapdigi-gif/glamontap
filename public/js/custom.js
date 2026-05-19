@@ -76,3 +76,4 @@ stars.slice(val,5).attr("class" , "far fa-fw fa-star" );
         $(".starrate span.ctrl").width($(".starrate span.cont").width());
         $(".starrate span.ctrl").height($(".starrate span.cont").height());
         });
+

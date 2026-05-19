@@ -18,7 +18,6 @@ $model = Setting::setting();
   <link href="{{ asset('css/admin.css') }}?v={{ filemtime(public_path('css/admin.css')) }}" rel="stylesheet">
   <link href="{{ asset('css/slider.css') }}" rel="stylesheet">
   <link href="{{ asset('fortawesome/css/all.min.css') }}" rel="stylesheet" />
-
   <link rel="stylesheet" type="text/css" href="{{ asset('css/slick.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('css/slick-theme.css') }}">
   @yield('css')
@@ -80,7 +79,7 @@ $model = Setting::setting();
     <div class="container">
       <div class="row align-items-center">
         <div class="col-md-4 col-lg-3 footer-logo">
-          <a href="/"><img src="{{ $model['website_logo'] }}" /></a>
+          <a href="/"><img src="{{ $model['website_logo'] }}" width = "100" /></a>
         </div>
         <div class="col-md-5 col-lg-7 text-center">
           Need Support? - <b>{{$model['support_email']}}</b>
@@ -113,164 +112,6 @@ $model = Setting::setting();
   <script src="{{ asset('js/slick.min.js') }}" type="text/javascript" charset="utf-8"></script>
   @yield('script')
   <div class="loader" style="display: none;"></div>
-<script>
-$(function () {
-
-  const $slider = $('.center_slider');
-  let realSlides = null;
-
-  /* ---------- CACHE REAL SLIDES ---------- */
-  function getSlides(slick){
-    if(!realSlides){
-      realSlides = $(slick.$slides).not('.slick-cloned');
-    }
-    return realSlides;
-  }
-
-  /* ---------- PRELOAD CENTER + NEXT (iOS SAFE) ---------- */
-  function preloadVideos(slick){
-    const slides = getSlides(slick);
-    const centerIndex = slides.index(slides.filter('.slick-center'));
-    const nextIndex = (centerIndex + 1) % slides.length;
-
-    [centerIndex, nextIndex].forEach(i=>{
-      const video = slides.eq(i).find('video.video-control').get(0);
-      if(video && video.readyState === 0){
-        video.preload = "metadata"; // IMPORTANT for iOS
-        try{ video.load(); }catch(e){}
-      }
-    });
-  }
-
-  /* ---------- SYNC CLONES ---------- */
-  function syncCenterClone(slick){
-    const $center = getSlides(slick)
-      .filter('.slick-center')
-      .find('video.video-control');
-
-    if(!$center.length) return;
-
-    const video = $center.get(0);
-    const src = $center.find('source').attr('src');
-
-    $(`.slick-cloned source[src="${src}"]`).each(function(){
-      const cloneVideo = this.parentElement;
-      cloneVideo.muted = true;
-      cloneVideo.playsInline = true;
-
-      try{
-        if(cloneVideo.readyState === 0) cloneVideo.load();
-        cloneVideo.currentTime = video.currentTime || 0;
-      }catch(e){}
-    });
-  }
-
-  /* ---------- PLAY CENTER (FULL iOS FIX) ---------- */
-  function playCenterVideoOptimized(slick){
-
-    const slides = getSlides(slick);
-
-    /* pause all */
-    slides.find('video.video-control').each(function(){
-      this.pause();
-    });
-
-    const $centerSlide = slides.filter('.slick-center');
-    const video = $centerSlide.find('video.video-control').get(0);
-
-    if(!video) return;
-
-    /* iOS autoplay requirements */
-    video.muted = true;
-    video.playsInline = true;
-    video.setAttribute("playsinline","");
-    video.setAttribute("webkit-playsinline","");
-
-    /* FORCE LOAD when active (main fix) */
-    if(video.readyState < 2){
-      const source = video.querySelector('source');
-      if(source){
-        const src = source.getAttribute('src');
-        video.src = src;
-        try{ video.load(); }catch(e){}
-      }
-    }
-
-    const playNow = ()=> video.play().catch(()=>{});
-
-    if(video.readyState >= 2){
-      playNow();
-    }else{
-      video.addEventListener("loadeddata", playNow, {once:true});
-    }
-
-    syncCenterClone(slick);
-
-    $('.center_slider video').removeClass('active-border');
-    $(video).addClass('active-border');
-  }
-
-  /* ---------- EVENTS ---------- */
-  $slider.on('init', function(e,slick){
-    realSlides = null;
-    setTimeout(()=>{
-      preloadVideos(slick);
-      playCenterVideoOptimized(slick);
-    },80); // iOS timing fix
-  });
-
-  $slider.on('afterChange', function(e,slick){
-    preloadVideos(slick);
-    playCenterVideoOptimized(slick);
-  });
-
-  $slider.on('mousedown touchstart swipe', function(){
-    const slick = $slider.slick('getSlick');
-    if(!slick.autoplaying) slick.slickPlay();
-    playCenterVideoOptimized(slick);
-  });
-
-  /* ---------- SLICK ---------- */
-  $slider.slick({
-    centerMode:true,
-    centerPadding:'0px',
-    slidesToShow:1,
-    infinite:true,
-    dots:true,
-    arrows:false,
-    autoplay:true,
-    autoplaySpeed:5000,
-    pauseOnHover:false,
-    pauseOnFocus:false,
-    variableWidth:true,
-    responsive:[
-      { breakpoint:480, settings:{slidesToShow:1}}
-    ]
-  });
-
-  /* ---------- RESIZE FIX ---------- */
-  let resizeTimer;
-  $(window).on('resize orientationchange',function(){
-    clearTimeout(resizeTimer);
-    resizeTimer=setTimeout(()=>{
-      if($slider.hasClass('slick-initialized')){
-        $slider.slick('setPosition');
-      }
-    },150);
-  });
-
-  /* ---------- TAB VISIBILITY ---------- */
-  document.addEventListener('visibilitychange',function(){
-    if(document.visibilityState==='visible'){
-      const slick=$slider.slick('getSlick');
-      playCenterVideoOptimized(slick);
-    }
-  });
-
-  setTimeout(()=>$(".alert").alert('close'),5000);
-
-});
-</script>
 </body>
 
 </html>
