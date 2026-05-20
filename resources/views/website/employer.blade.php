@@ -29,9 +29,9 @@ Home
         <h2>company</h2>
     </div>
     
-    <div class="posts-grid">
+    <div class="container">
         @forelse($company as $com)
-        <article class="post-card">
+        <div class="post-card">
             @if($com->profile_picture )
             <div class="post-image">
                 <img src="{{ asset($com->profile_picture) }}" alt="{{ $com->first_name }}">
@@ -49,7 +49,8 @@ Home
                 
                 <p class="post-excerpt">{{ Str::limit($com->address ?? $com->address, 150) }}</p>
             </div>
-        </article>
+        </div>
+
         @empty
         <div class="no-posts">
             <i class="fas fa-newspaper"></i>

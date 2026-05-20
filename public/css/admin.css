@@ -94,7 +94,7 @@ footer.skill-website-footer a,.reserved a {
     color: #636364;
 }
 footer.skill-website-footer a:hover,.reserved a:hover {
-    color: #004aad;
+    color: #612d8a;
 }
 @keyframes slideflash { 
     100% { top: 30px; }    
@@ -937,7 +937,9 @@ body .job-card:hover {
 .section-space {
 	padding: 80px 0px;
 }
-
+.apply-toggle .toggle-btn.active {
+    color: #612d8a;
+}
 
 
 
@@ -978,7 +980,7 @@ body .job-card:hover {
 
 .left-login-top-text h1 {
 	font-size: 40px;
-	color: #004aad;
+	color: #612d8a;
 	/* font-family: proximaNovaBold; */
 	line-height: 40pt;
 	font-weight: 700;
@@ -1047,7 +1049,7 @@ body .job-card:hover {
 		position: absolute;
 		right: 6px;
 		top: 6px;
-		color: #004aad;
+		color: #612d8a;
     	background-color: #fff;
     	padding: 3px 8px;
     	border-radius: 6px;
@@ -1103,7 +1105,7 @@ body .job-card:hover {
 }
 
 .switch-field input:checked + label {
-    background-color: #004aad;
+    background-color: #612d8a;
     box-shadow: none;
     color: #fff;
 }
@@ -1182,7 +1184,7 @@ div.job-detail-page:last-child {
 	min-width: unset;
 }
 .hired {
-	background-color: #004aad;
+	background-color: #612d8a;
     padding: 10px 30px;
     border-radius: 9px;
     width: 100%;
@@ -1190,7 +1192,7 @@ div.job-detail-page:last-child {
 }
 .hired:hover {
 	color: #fff;
-	background-color: #0355c3;
+	background-color: #612d8a;
 	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .detail-job-result img {
@@ -1427,7 +1429,7 @@ div.job-detail-page:last-child {
 }
 
 .form-check-input:checked {
-	background: #004aad;
+	background: #612d8a;
 }
 
 .form-check-input {
@@ -1545,7 +1547,7 @@ header {
 
 .top-content a.btn-white {
 	/* background-color: #fff;
-	color: #004aad; */
+	color: #612d8a; */
 	background-color: #000;
 	color: #fff;
     border-color: #fff;
@@ -1876,7 +1878,7 @@ header {
 	.navmenu .dropdown ul a:hover,
 	.navmenu .dropdown ul .active:hover,
 	.navmenu .dropdown ul li:hover>a {
-		color: #004aad;
+		color: #612d8a;
 	}
 
 	.navmenu .dropdown:hover>ul {
@@ -2204,7 +2206,7 @@ header {
 }
 
 .banner h3 {
-	color: #004aad;
+	color: #612d8a;
 	font-size: 20px;
 	margin-bottom: 25px;
 	font-weight: 400;
@@ -2517,9 +2519,9 @@ header {
 
 .skill-sub-footer-icons p.blue-circle {
 
-	background-color: #004aad !important;
+	background-color: #612d8a !important;
 
-	border-color: #004aad !important;
+	border-color: #612d8a !important;
 }
 .skill-sub-footer-icons p:hover  i.bi-only-linkdin{
     background: url(../images/icons/svg/linkedin-white.svg) no-repeat;
@@ -2553,7 +2555,7 @@ header {
     color: #ffffff;
 }
 .applestore:hover,.googlestore:hover{
-	background-color: #004aad !important;
+	background-color: #612d8a !important;
 	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .playstore {
@@ -2601,7 +2603,7 @@ header {
 
 	border-radius: 50%;
 
-	background-color: #034bad
+	background-color: #612d8a
 }
 
 .carousel-item.active .skil-slide:nth-child(2) img {
@@ -3413,7 +3415,7 @@ scale:1.2
 
 	font-size: 28px;
 
-	color: #004aad;
+	color: #612d8a;
 
 	padding: 10px 25px 10px 0px;
 
@@ -3667,7 +3669,7 @@ scale:1.2
 
 
 .wrapper {
-	background-color: #ecf1fa;
+	background-color: #fdfbff;
 }
 
 
@@ -3792,8 +3794,8 @@ h2 {
 }
 
 .form-check-input:checked {
-	background-color: #034bad;
-	border-color: #034bad;
+	background-color: #612d8a;
+	border-color: #612d8a;
 }
 
 .dropdown-menu.show {
@@ -3861,7 +3863,7 @@ h2 {
 
 .chart-total {
 	font-size: 25px;
-	color: #034bad;
+	color: #612d8a;
 
 }
 
@@ -3915,7 +3917,7 @@ h2 {
 }
 
 .blue-button {
-	background-color: #034bad;
+	background-color: #612d8a;
 	margin-right: 13px;
 	color: #fff;
 }
@@ -3955,7 +3957,7 @@ h2 {
 }
 
 .page-link.active {
-	background-color: #0355c3;
+	background-color: #612d8a;
 	color: #fff;
 }
 
@@ -3977,7 +3979,7 @@ h2 {
 #sidebar {
 	min-width: 108px;
 	max-width: 108px;
-	background: #cadcef;
+	background: #fff9f9;
 	color: #fff;
 	-webkit-transition: all .3s;
 	-o-transition: all .3s;
@@ -4088,10 +4090,12 @@ h2 {
 
 #sidebar ul li a i {
 	display: block;
-
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 8px;
+}
+#sidebar ul.list-unstyled li a i, #sidebar ul.list-unstyled li a img {
+	filter: brightness(0) saturate(100%) invert(23%) sepia(63%) saturate(1462%) hue-rotate(247deg) brightness(83%) contrast(98%);
 }
 .leftnav.admin-leftbar li{
 	border-bottom: 0px;
@@ -4197,7 +4201,7 @@ h2 {
 #sidebar ul li a {
 	padding: 15px;
 	display: block;
-	color: #0355c3;
+	color: #612d8a;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
@@ -4207,7 +4211,7 @@ h2 {
 }
 
 .navbar-light {
-	background-color: #ecf1fa;
+	background-color: #fdfbff;
 	padding-top: 12px;
 }
 
@@ -4218,14 +4222,14 @@ h2 {
 }
 
 #sidebar ul li a:hover {
-	color: #0355c3
+	color: #431665;
 }
 
 #sidebar ul li.active>a {
 	background: 0 0;
-	color: #0355c3;
+	color: #612d8a;
 	border-bottom: 3px solid;
-	background-color: #ecf1fa !important;
+	background-color: #ffe9e9 !important;
 }
 
 
@@ -4368,7 +4372,7 @@ a[data-toggle=collapse] {
 }
 
 .edit-profile-color.bg-primary {
-	background-color: #034bad !important;
+	background-color: #612d8a !important;
 }
 .bg-success {
 	background-color: #202124 !important;
@@ -4632,15 +4636,15 @@ a[data-toggle=collapse] {
 
 .view-entry {
 	padding: 6px;
-	border: 1px solid #ecf1fa;
+	border: 1px solid #fff9f9;
 	border-radius: 50%;
-	background-color: #ecf1fa;
+	background-color: #fff9f9;
 }
 
 .view-entry.active,
 .view-entry:hover {
-	border: 1px solid #034bad;
-	background-color: #034bad;
+	border: 1px solid #612d8a;
+	background-color: #612d8a;
 	color: #fff;
 }
 
@@ -4713,7 +4717,7 @@ a[data-toggle=collapse] {
 
 .skill-table-action:hover {
 
-	background: #034bad;
+	background: #612d8a;
 
 	color: #fff;
 
@@ -4930,7 +4934,7 @@ a[data-toggle=collapse] {
 }
 
 .blue-card {
-	border-color: #034bad;
+	border-color: #612d8a;
 }
 
 .orange-card {
@@ -5045,7 +5049,7 @@ ul.notification-list li {
 	background-color: #fff;
 	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 	display: flex;
-	border-left: 3px solid #034bad;
+	border-left: 3px solid #612d8a;
 	border-radius: 5px;
 	margin-bottom: 20px;
 }
@@ -5072,7 +5076,7 @@ ul.notification-list li img {
 }
 .dashboard-table .view-entry{
 	margin-left: 8px;
-	color:#034bad;
+	color:#612d8a;
 }
 .dashboard-table .view-entry:hover{
 	color:#fff;
@@ -5195,13 +5199,13 @@ ul.notification-list li div:first {
 
 .page-item.active .page-link {
 
-	color: #034bad;
+	color: #612d8a;
 
 }
 
 .bi-sliders::before {
 
-	color: #034bad;
+	color: #612d8a;
 
 }
 
@@ -5245,7 +5249,7 @@ ul.notification-list li div:first {
 
 .amount {
 
-	color: #034bad;
+	color: #612d8a;
 
 	font-size: 14px;
 
@@ -5313,7 +5317,7 @@ ul.notification-list li div:first {
 
 	rotate: -45deg;
 
-	color: #0355c3;
+	color: #612d8a;
 
 	font-size: 34px;
 
@@ -5435,7 +5439,7 @@ ul.notification-list li div:first {
 
 .applestore {
 
-	background: #004aad;
+	background: #612d8a;
 
 }
 
@@ -5555,7 +5559,7 @@ ul.notification-list li div:first {
 
 	width: 120px;
 
-	background-color: #004aad;
+	background-color: #612d8a;
 
 	color: #fff;
 
@@ -5602,7 +5606,7 @@ ul.notification-list li div:first {
 
 	border-style: solid;
 
-	border-color: #004aad transparent transparent transparent;
+	border-color: #612d8a transparent transparent transparent;
 
 	transform: rotate(180deg);
 
@@ -5985,8 +5989,8 @@ a[data-tooltip]:hover::after {
 	font-size: 20px;
 }
 .blue-tag {
-	color: #004aad;
-	border: 4px solid #004aad;
+	color: #612d8a;
+	border: 4px solid #612d8a;
 }
 .blue-tag:before {
     content: "\f135";
@@ -6050,7 +6054,7 @@ a[data-tooltip]:hover::after {
 	border-bottom-right-radius: 9px;
   }
 .subscription-btn.blue-button {
-	background-color: #004aad;
+	background-color: #612d8a;
 	
 }
 
@@ -6099,7 +6103,7 @@ a[data-tooltip]:hover::after {
 }
 
 .blue-plan-detail i::before {
-	color: #004aad;
+	color: #612d8a;
 	background-color: #dfe8f5;
 }
 
@@ -6150,7 +6154,7 @@ a[data-tooltip]:hover::after {
 }
 
 .blue-plan-desc b {
-	color: #004aad;
+	color: #612d8a;
 }
 
 .notification-list img {
@@ -6182,7 +6186,7 @@ ul.leftnav-deepmenu>li>a {
 }
 
 .leftnav .dropdown:hover>ul {
-	background: rgba(236, 241, 250, 0.9);
+	background: rgb(249 243 243);
 	display:block !important;
 
 }
@@ -6261,7 +6265,7 @@ table.dataTable.no-footer{
 	margin-left: 7px;
 }
 .paginate_button.current{
-    background-color: #0355c3 !important;
+    background-color: #612d8a !important;
     color: #fff !important;
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
@@ -6294,7 +6298,7 @@ table.dataTable.no-footer{
 	display: none;
 }
 .white-button:hover{
-	background-color: #034bad;
+	background-color: #612d8a;
     color: #fff !important;
 }
 html{
@@ -6319,7 +6323,7 @@ table.dataTable thead>tr>th.sorting:after, table.dataTable thead>tr>th.sorting_a
 	display: none !important;
 }
 .page-item.active .page-link{
-	background-color: #0355c3;
+	background-color: #612d8a;
 	color: #fff;
 }
 /******************27 aug end****************************/
@@ -6336,7 +6340,7 @@ table.dataTable thead>tr>th.sorting:after, table.dataTable thead>tr>th.sorting_a
 	float: right;
 }
 .fa-sliders-h:before{
-	color: #0355c3 !important;
+	color: #612d8a !important;
 }
 .bg-warning{
     background-color: #fff !important;
@@ -6445,6 +6449,7 @@ select.no-border :focus,select.no-border :active{
 }
 .blue-button:hover{
 	color:#fff !important;
+	background-color: #431665;
 }
 .position-absolute.invisible{
 	left: 0 !important;
@@ -6559,7 +6564,7 @@ select.no-border{
 	font-size: 30px;
 }
 select[name="class_name"] option[value="blue"] {
-	background: #004aad;
+	background: #612d8a;
   }
   
   select[name="class_name"] option[value="red"] {
@@ -6642,7 +6647,7 @@ select[name="class_name"] option[value="blue"] {
 	float: right;
 }
 .plan-blue .price{
-    color: #004aad;
+    color: #612d8a;
 }
 
 .plan-header>i{
@@ -6694,13 +6699,13 @@ select[name="class_name"] option[value="blue"] {
 	}
 
 .plan-blue-button{
-	background-color: #004aad;
+	background-color: #612d8a;
     color: #fff;
 }	
 
 .plan-white-button{
 	background-color: #fff;
-    color: #004aad;
+    color: #612d8a;
 }
 .cross-icon{
     scale: 1.4;
@@ -6725,7 +6730,7 @@ select[name="class_name"] option[value="blue"] {
     border-radius: 6px;
 }
 .profile-detail a{
-    color:#004aad;
+    color:#612d8a;
 }
 .profile-detail-desc .white-background{
     border-radius: 6px;
@@ -6784,14 +6789,14 @@ select[name="class_name"] option[value="blue"] {
     margin-left: 0px;
 }
 .blue-font{
-    color: #004aad !important;
+    color: #612d8a !important;
 }
 .subscription-detail p{
     color:#636363;
 }
 .half-circle{
-    border-top: 8px solid #004aad;
-    border-right: 8px solid #004aad;
+    border-top: 8px solid #612d8a;
+    border-right: 8px solid #612d8a;
     border-bottom: 8px solid #dce1e7;
     border-left: 8px solid #dce1e7;
     border-radius: 50%;
@@ -6809,7 +6814,7 @@ select[name="class_name"] option[value="blue"] {
 .complete-per{
     position:absolute;
     font-weight: bold;
-    color: #004aad !important;
+    color: #612d8a !important;
     /* font-family: proximaNovaBold; */
 	font-weight: 700;
     left: 50%;
@@ -6887,7 +6892,7 @@ select[name="class_name"] option[value="blue"] {
   }
   
   input:checked + .slider {
-    background-color: #004aad;
+    background-color: #612d8a;
   }
   
   input:checked + .slider:before {
@@ -6936,16 +6941,16 @@ select[name="class_name"] option[value="blue"] {
     opacity: 1;
   }
   .blue-border{
-    border-color: #004aad !important;
+    border-color: #612d8a !important;
   }
   .skill-sub-plan{
     margin-bottom: 40px;
   }
   .blue-border-btn{
-    border:1px solid #004aad !important;
+    border:1px solid #612d8a !important;
     background-color: #fff;
     box-shadow: none;
-    color: #004aad;
+    color: #612d8a;
     padding: 9px 10px;
     margin-right: 5px;
   }
@@ -7059,7 +7064,7 @@ a.grey-button:hover{
     padding-right: 5px;
   }
   .page-view a i.view-active{
-	color: #034bad !important;
+	color: #612d8a !important;
   
   }
   .badge-black-button{
@@ -8945,7 +8950,7 @@ a.jobtab {
     border:1px solid transparent;
 }
 .app-image-indicators button.active{
-	background: #004aad !important;
+	background: #612d8a !important;
 
 }
 .app-image-indicators [data-bs-target]{
@@ -9062,7 +9067,7 @@ a.jobtab {
     border: none;
     font-size: 13px;
     line-height: 18px;
-    background-color: #034bad;
+    background-color: #612d8a;
     color: #fff;
 }
 .payment_success h4 {
@@ -9256,7 +9261,7 @@ html .tooltip-inner {
 }
 .tooltip.bs-tooltip-auto {
     --bs-tooltip-max-width: 351px;
-	--bs-tooltip-bg: #004aad;
+	--bs-tooltip-bg: #612d8a;
 	padding: 0px;
 }
 .password-tooltip1 {
