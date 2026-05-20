@@ -43,13 +43,21 @@ class SkillCategoriesController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'status' => 'nullable',
         ]);
-        $request->except(['_token', '_method']);
-        $input = $request->all();
+
+        $input = $request->except(['_token', '_method']);
+
+        if ($request->hasFile('image')) {
+            $fileName = time() . '_' . uniqid() . '.' . $request->image->extension();
+            $request->image->move(public_path('uploads/skill-categories'), $fileName);
+            $input['image'] = 'uploads/skill-categories/' . $fileName;
+        }
+
         $model = SkillCategory::create($input);
 
-        return redirect('skill-categories')->with('success', 'Skill Categories has been created successfully!');
+        return redirect('skill-categories')->with('success', 'Skill Category has been created successfully!');
     }
 
     /**
@@ -80,10 +88,25 @@ class SkillCategoriesController extends Controller
     public function update(Request $request, string $id)
     {
         $model  = SkillCategory::find($id);
-        $validator =  $request->validate([
+
+        $request->validate([
             'name' => 'required|unique:skill_categories,name,'.$model->id,
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-        $input       = $request->all();
+        
+        $input = $request->except(['_token', '_method']);
+
+        if ($request->hasFile('image')) {
+            if ($model->image && file_exists(public_path($model->image))) {
+                unlink(public_path($model->image));
+            }
+            $fileName = time() . '_' . uniqid() . '.' . $request->image->extension();
+            $request->image->move(public_path('uploads/skill-categories'), $fileName);
+            $input['image'] = 'uploads/skill-categories/' . $fileName;
+        } else {
+            unset($input['image']);
+        }
+
         $model->update($input);
         return redirect('skill-categories')->with('success', 'Skill Category has been updated successfully!');
     }
@@ -152,13 +175,21 @@ class SkillCategoriesController extends Controller
                 $buttons .= ' <a  href="' . route("skill-categories.edit", $value->id) . '"><i class="skill-table-action bi-pencil-square "></i></a>';
             }
             if ($user->can('admin-skillCategories-delete')) {
-                if(!empty($_skill->JobSkillCategory))
-                $buttons .= ' <button type="button" class="btn btn-icon btn-sm btn-color-dark" onclick="deleteRecord(' . $value->id . ')"><i class="skill-table-action bi-trash3-fill"></i>';
+                if (empty($value->JobSkillCategory)) {
+                    $buttons .= ' <button type="button" class="btn btn-icon btn-sm btn-color-dark" onclick="deleteRecord(' . $value->id . ')"><i class="skill-table-action bi-trash3-fill"></i></button>';
+                }
             }
+            $imageUrl = null;
+            if (!empty($value->image) && file_exists(public_path($value->image))) {
+                $imageUrl = asset($value->image);
+            }
+            $imageHtml = $imageUrl ? '<img src="' . $imageUrl . '" alt="' . e($value->name) . '" style="height:50px; width:50px; object-fit:cover; border-radius:6px;" />' : '<span class="text-muted">No image</span>';
+            $statusText = ($value->status == 1) ? 'Activate' : 'Deactivate';
             $data_arr[] = array(
               "id" => $value->id,
+              "image" => $imageHtml,
               "name" => $value->name,
-              "status" => $value->getStatusValue($value->status),
+              "status" => $statusText,
               "created_at" =>Date(config('app.date_format'),strtotime($value->created_at)),
               "buttons"=>$buttons
             );

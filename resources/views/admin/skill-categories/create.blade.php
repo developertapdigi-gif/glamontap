@@ -27,6 +27,18 @@ Add new Skill Category
                @enderror
             </div>
          </div>
+         
+         <div class="row">
+            <div class="col">
+               <label class="form-label">Image<span class="text-danger">*</span></label>
+               <div class="input-group">
+                  <input id="image" name="image" class="form-control @error('image') is-invalid @enderror" type="file">
+               </div>
+               @error('image')
+               <div class="alert alert-danger">{{ $message }}</div>
+               @enderror
+            </div>
+         </div>
          <div class="row ">
             <div class="col">
                <label class="form-label">Status<span class="text-danger"></span></label>

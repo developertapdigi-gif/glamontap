@@ -21,7 +21,7 @@
           @method('PUT')
             <div class="row">
               <div class="col">
-                <label class="form-label">First Name<span class="text-danger">*</span></label>
+                <label class="form-label">Name<span class="text-danger">*</span></label>
                 <div class="input-group">
                   <input id="name" name="name" class="form-control @error('name') is-invalid @enderror" type="text" value="{{ old('name') ?? $model->name }}">
                 </div>
@@ -29,9 +29,31 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
               </div>
+            </div>
 
             <div class="row">
+              <div class="col">
+                <label class="form-label">Image</label>
+                <div class="input-group">
+                  <input id="image" name="image" class="form-control @error('image') is-invalid @enderror" type="file" accept="image/*">
+                </div>
+                @error('image')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
 
+                @if(!empty($model->image) && file_exists(public_path($model->image)))
+                <div class="mt-2">
+                    <img id="current-image" src="{{ asset($model->image) }}" alt="{{ $model->name }}" class="img-thumbnail" style="max-height:150px;">
+                </div>
+                @else
+                <div class="mt-2">
+                    <img id="current-image" src="{{ asset('/images/icons/brand-logo1.png') }}" alt="No image" class="img-thumbnail" style="max-height:150px;">
+                </div>
+                @endif
+              </div>
+            </div>
+
+            <div class="row">
               <div class="col">
                 <label class="form-label">Status<span class="text-danger">*</span></label>
                 <div class="input-group">
@@ -72,12 +94,26 @@
                 required: true,
                 minlength: 3,
             },
-
+            image: {
+                required: false,
+            },
         },
 
         submitHandler: function(form) {
            form.submit();
         }
     });
+
+      // preview selected image
+      $('#image').on('change', function(e){
+        var input = this;
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function(e){
+            $('#current-image').attr('src', e.target.result);
+          };
+          reader.readAsDataURL(input.files[0]);
+        }
+      });
 </script>
 @endsection

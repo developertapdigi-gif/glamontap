@@ -12,6 +12,7 @@ class SkillCategory extends Model
     protected $fillable = [
         'name',
         'status',
+        'image',
     ];
 
     public static function getStatus(){

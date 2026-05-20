@@ -30,6 +30,7 @@ Home
     </div>
     
     <div class="container">
+      <div class="row">
         @forelse($company as $com)
         <div class="post-card">
             @if($com->profile_picture )
@@ -52,6 +53,7 @@ Home
         </div>
 
         @empty
+        </div>
         <div class="no-posts">
             <i class="fas fa-newspaper"></i>
             <p>No company found. Check back later!</p>

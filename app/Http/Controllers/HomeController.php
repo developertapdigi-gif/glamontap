@@ -36,6 +36,8 @@ class HomeController  extends Controller
 	    //}
 	} 
     $settings = Setting::first();
+    $skills = SkillCategory::where('status', 1)->get();
+
     $traders = User::where('user_type', 3)->where('first_name', '!=', '')->where('home_seen_trader',1)->get();
     /* if ($traders->count() < $minimumRecords) {
 	    $recordsToAdd = $minimumRecords - $traders->count();
@@ -54,7 +56,7 @@ class HomeController  extends Controller
     $mixjobs = Job::whereRaw("home_seen_job = 1 and DATE(start_date) >= '$today' and status!=4  and status!=3")->orderby('id', 'asc')->get();
     $mixtraders = User::where('user_type', 3)->where('first_name', '!=', '')->where('home_seen_trader',1)->orderBy('id', 'desc')->get();
     $merged = $mixtraders->merge($mixjobs);
-    return view('website.home',compact('jobs','traders','mixjobs','mixtraders','merged'));
+    return view('website.home',compact('jobs','traders','mixjobs','mixtraders','merged', 'skills'));
     }
 
     public function employer()
@@ -622,6 +624,24 @@ private function applySearchConditions($query, string $searchTerm, string $searc
     {
         $model  = Post::find($id);
         return view('website.search-detail-view')->with(['model'=>$model]);
+    }
+
+
+    public function showBySkill($skillId)
+    {
+        $skill = DB::table('skill_categories')->find($skillId);
+        if (!$skill) {
+            abort(404, 'Skill not found');
+        }
+
+        $tasks = DB::table('tasks')
+            ->where('skill_category', $skillId)
+            ->get();
+
+        // Fetch all skills for the sidebar
+        $allSkills = DB::table('skill_categories')->get();
+
+        return view('website.jobs-by-categories', compact('tasks', 'skill', 'allSkills'));
     }
 
 }

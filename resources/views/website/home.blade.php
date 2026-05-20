@@ -38,10 +38,10 @@ Home
                 <i class="fas fa-briefcase text-muted"></i>
                 <select class="form-select">
                   <option selected>All Categories</option>
-                  <option>Hair Styling</option>
-                  <option>Makeup Artist</option>
-                  <option>Esthetician</option>
-                  <option>Nail Tech</option>
+                  @foreach ($skills as $skill)
+                    <option>{{ $skill->name }}</option>
+                  @endforeach
+                 
                 </select>
               </div>
             </div>
@@ -77,15 +77,20 @@ Home
       <p class="text-muted">Explore high-demand roles across all sectors of the industry.</p>
     </div>
     <div class="row g-4 beauty-category">
+       @foreach ($skills as $skill)
       <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
-        <a href="job-list.html?q=Hair" class="text-decoration-none">
+        <a href="{{ route('skills.details', ['skillId' => $skill->id]) }} class="text-decoration-none">
+        {{-- <a href="{{ route('skills.details', ['skillId' => $skill->id]) }}" class="text-decoration-none"></a> --}}
           <div class="category-card shadow-sm h-100">
             <div class="cat-icon ci-green"><i class="fas fa-cut"></i></div>
-            <h6 class="font-heading">Hair Stylists</h6><small class="text-muted">45 open positions</small>
+            <h6 class="font-heading">{{ $skill->name }}</h6><small class="text-muted">45 open positions</small>
           </div>
         </a>
+        
       </div>
-      <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+      @endforeach
+
+      {{-- <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
         <a href="job-list.html?q=Makeup" class="text-decoration-none">
           <div class="category-card shadow-sm h-100">
             <div class="cat-icon ci-green"><i class="fas fa-paint-brush"></i></div>
@@ -150,7 +155,7 @@ Home
             <h6 class="font-heading">Massage Therapists</h6><small class="text-muted">25 open positions</small>
           </div>
         </a>
-      </div>
+      </div> --}}
     </div>
   </div>
 </section>

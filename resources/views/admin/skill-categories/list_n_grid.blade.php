@@ -35,6 +35,7 @@
                 <thead>
                     <tr>
                         <th>Id</th>
+                        <th>Image</th>
                         <th>Name</th>
                         <th>Status</th>
                         <th>Created On</th>
@@ -51,6 +52,11 @@
         @foreach($skill_categories as $_skill)
         <div class="col-md-6 col-lg-4 col-xl-3" id="delete-{{$_skill->id}}">
                         <div class="job-listing">
+                            @if($_skill->image)
+                                <div class="category-thumb mb-3 text-center">
+                                    <img src="{{ asset($_skill->image) }}" alt="{{ $_skill->name }}" class="img-fluid rounded" style="max-height:160px; width:auto; object-fit:cover;" />
+                                </div>
+                            @endif
                             <div class="d-flex justify-content-between align-items-start">
 
                                 <div class="sub-list">
@@ -95,9 +101,10 @@ $(document).ready(function() {
         $('#skill_count_value').append(JSON.parse(xhr.responseText).iTotalDisplayRecords); 
     }).DataTable({
         "columnDefs": [
-                {"className": "text-center", "targets": [4]},
-                {"targets": 4,"orderable": false},
+                {"className": "text-center", "targets": [1, 5]},
+                {"targets": 5,"orderable": false},
                 {"className":"d-none", "targets": [0]},
+                {"orderable": false, "targets": [1]},
             ],
          language: {
                 'paginate': {
@@ -113,6 +120,7 @@ $(document).ready(function() {
           },
           columns: [
             { data: 'id' },
+            { data: 'image' },
             { data: 'name' },
             { data: 'status' },
             { data: 'created_at' },
