@@ -14,37 +14,39 @@ Home
         <p class="lead text-dark mb-5 fs-5 opacity-75">Discover elite career opportunities in salons, spas, and fashion. <br>Join the community of top-tier beauty professionals today.</p>
 
         <div class="glass-search-container p-3 p-md-4" data-aos="fade-up" data-aos-delay="400">
-          <form action="job-list.html" class="row align-items-center">
+          <form action="{{ route('searchform') }}" class="row align-items-center">
             <div class="col-lg-3">
               <div class="search-input-group">
                 <i class="fas fa-search text-muted"></i>
-                <input type="text" id="heroSearchInput" class="form-control" placeholder="Job title">
+                <input type="text" id="heroSearchInput" name="search_input" class="form-control" placeholder="Job title">
               </div>
             </div>
             <div class="col-lg-3 border-start-md">
               <div class="search-input-group">
                 <i class="fas fa-map-marker-alt text-muted"></i>
-                <select id="heroLocationInput" class="form-select">
+                <input type="search" class="form-control search-field location-select" placeholder="Location" name="search_location">
+                {{-- <select id="heroLocationInput" class="form-select">
                   <option selected>All Cities</option>
                   <option>New York</option>
                   <option>London</option>
                   <option>Paris</option>
                   <option>Milan</option>
-                </select>
+                </select> --}}
               </div>
             </div>
             <div class="col-lg-3 border-start-md pe-0">
               <div class="search-input-group">
                 <i class="fas fa-briefcase text-muted"></i>
-                <select class="form-select">
+                <select class="form-select" name="search_category">
                   <option selected>All Categories</option>
                   @foreach ($skills as $skill)
-                    <option>{{ $skill->name }}</option>
+                    <option value="{{ $skill->id }}">{{ $skill->name }}</option>
                   @endforeach
                  
                 </select>
               </div>
             </div>
+             <input type="hidden" id="radio-one" name="search_type" value="1" />
             <div class="col-lg-3">
               <button type="submit" id="heroSearchBtn" class="btn btn-primary rounded-pill shadow-sm pulse-primary shine-effect">
                 Find Jobs
@@ -82,7 +84,8 @@ Home
         <a href="{{ route('skills.details', ['skillId' => $skill->id]) }} class="text-decoration-none">
         {{-- <a href="{{ route('skills.details', ['skillId' => $skill->id]) }}" class="text-decoration-none"></a> --}}
           <div class="category-card shadow-sm h-100">
-            <div class="cat-icon ci-green"><i class="fas fa-cut"></i></div>
+            <div class="cat-icon ci-green">
+              <img src="{{ asset($skill->image) }}" alt="{{ $skill->name }}" class="img-fluid rounded" style="max-height:160px; width:auto; object-fit:cover;" /></div>
             <h6 class="font-heading">{{ $skill->name }}</h6><small class="text-muted">45 open positions</small>
           </div>
         </a>
@@ -348,6 +351,7 @@ Home
 @endsection
 @section('script')
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     // Check if AOS library is loaded

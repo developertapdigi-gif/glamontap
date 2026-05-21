@@ -265,6 +265,7 @@ class HomeController  extends Controller
         'search_input' => 'nullable|string|max:255',
         'search_location' => 'nullable|string|max:255',
         'search_type' => 'nullable|integer|in:1,2,3',
+        
     ]);
 
     $searchTerm = $validated['search_input'] ?? '';
@@ -642,6 +643,18 @@ private function applySearchConditions($query, string $searchTerm, string $searc
         $allSkills = DB::table('skill_categories')->get();
 
         return view('website.jobs-by-categories', compact('tasks', 'skill', 'allSkills'));
+    }
+
+
+    public function showAllJobs()
+    {
+
+        $tasks = DB::table('tasks')
+            ->where('skill_category', $skillId)
+            ->get();
+
+
+        return view('website.all-jobs', compact('tasks'));
     }
 
 }
