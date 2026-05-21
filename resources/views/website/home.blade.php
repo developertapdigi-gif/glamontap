@@ -263,7 +263,7 @@ Home
             <p class="got-text-muted got-text-muted small got-mb-0">New profiles created every single day.</p>
           </div>
         </div>
-        <a href="candidates.html" class="btn got-btn got-btn-primary btn-primary got-rounded-pill px-5 got-py-3 got-fw-bold shine-effect">Create Your Profile</a>
+        <a href="{{ route('user.register') }}" class="btn got-btn got-btn-primary btn-primary got-rounded-pill px-5 got-py-3 got-fw-bold shine-effect">Create Your Profile</a>
       </div>
     </div>
   </div>
@@ -337,8 +337,7 @@ Home
                               </div>
                   
                             </a>
-
-    </div>
+                  </div>
                 </div>
             </div>
         </div>
