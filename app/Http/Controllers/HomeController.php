@@ -260,69 +260,71 @@ class HomeController  extends Controller
         return view('mobile.terms');
     }
     public function submitSearchForm(Request $request)
-{
-    $validated = $request->validate([
-        'search_input' => 'nullable|string|max:255',
-        'search_location' => 'nullable|string|max:255',
-        'search_type' => 'nullable|integer|in:1,2,3',
+    {
+        $validated = $request->validate([
+            'search_input' => 'nullable|string|max:255',
+            'search_location' => 'nullable|string|max:255',
+            'search_type' => 'nullable|integer|in:1,2,3',
+            'search_category' => 'nullable|integer',
+            
+        ]);
+
+        $searchTerm = $validated['search_input'] ?? '';
+        $searchLocation = $validated['search_location'] ?? '';
+        $searchType = $validated['search_type'] ?? '';
+        $searchCategory = $validated['search_category'] ?? '';
+        // echo $searchCategory;
+        /* if(!empty($searchTerm)){
+            $searchType = $validated['search_type'] ?? 1;
+        } */
         
-    ]);
+        $results = null;
+        $merged = [];
+        // Get matching skill IDs
+        $skillIds = $this->getMatchingSkillIds($searchTerm);
 
-    $searchTerm = $validated['search_input'] ?? '';
-    $searchLocation = $validated['search_location'] ?? '';
-    $searchType = $validated['search_type'] ?? '';
-    /* if(!empty($searchTerm)){
-        $searchType = $validated['search_type'] ?? 1;
-    } */
-    
-    $results = null;
-    $merged = [];
-    // Get matching skill IDs
-    $skillIds = $this->getMatchingSkillIds($searchTerm);
+        switch ($searchType) {
+            case 1: // Jobs only
+                $results = $this->getJobsQuery($searchTerm,$searchLocation, $skillIds,$searchType, $searchCategory);
+                if($results->count() == 0){
+                    $merged = $this->getJobsQuery("","", [] ,$searchType, $searchCategory);
+                }
+                break;
+                
+            case 2: // Traders only
+                $results = $this->getTradersQuery($searchTerm,$searchLocation, $skillIds,$searchType);
+                if($results->count() == 0){
+                    $merged = $this->getTradersQuery("", "",[] ,$searchType);
+                }
+                break;
+                
+            //case 3: // Combined results
+            default:
+            $searchType = 0;
+                $results = $this->combinedSearch($searchTerm, $searchLocation, $skillIds,$searchType, $searchCategory);
+                break;
+        }
+        
+        if(!($results->count()) && empty($request['search_type']) ){
+            $today  = date('Y-m-d 00:00:00');
+            $searchType = '';
+            $mixjobs =Job::with(['skillCategory', 'agency'])->whereRaw("home_seen_job = 1 and DATE(start_date) >= '$today' and status!=4  and status!=3")->orderByDesc('created_at');
+            $mixtraders = User::where('user_type', 3)->whereNotNull('first_name')->orderByDesc('created_at');
+            
+            $merged = $this->combinedSearchResult($mixjobs,$mixtraders);
+            //echo'<pre>';print_r($merged);die;
+            $searchType = $request['search_type'];
+        }/* else if(!count($results) && $request['search_type']){
 
-    switch ($searchType) {
-        case 1: // Jobs only
-            $results = $this->getJobsQuery($searchTerm,$searchLocation, $skillIds,$searchType);
-          
-            if($results->count() == 0){
-                $merged = $this->getJobsQuery("","", [] ,$searchType);
-            }
-            break;
-            
-        case 2: // Traders only
-            $results = $this->getTradersQuery($searchTerm,$searchLocation, $skillIds,$searchType);
-            if($results->count() == 0){
-                $merged = $this->getTradersQuery("", "",[] ,$searchType);
-            }
-            break;
-            
-        //case 3: // Combined results
-        default:
-        $searchType = 0;
-            $results = $this->combinedSearch($searchTerm, $searchLocation, $skillIds,$searchType);
-            break;
+        } */
+        return view('website.search-results', [
+            'results' => $results,
+            'searchType' => $searchType,
+            'searchTerm' => $searchTerm,
+            'text' => $searchType,
+            'merged'=>$merged
+        ]);
     }
-    
-    if(!($results->count()) && empty($request['search_type']) ){
-        $today  = date('Y-m-d 00:00:00');
-        $searchType = '';
-        $mixjobs =Job::with(['skillCategory', 'agency'])->whereRaw("home_seen_job = 1 and DATE(start_date) >= '$today' and status!=4  and status!=3")->orderByDesc('created_at');
-        $mixtraders = User::where('user_type', 3)->whereNotNull('first_name')->orderByDesc('created_at');
-        
-        $merged = $this->combinedSearchResult($mixjobs,$mixtraders);
-        //echo'<pre>';print_r($merged);die;
-        $searchType = $request['search_type'];
-    }/* else if(!count($results) && $request['search_type']){
-
-    } */
-    return view('website.search-results', [
-        'results' => $results,
-        'searchType' => $searchType,
-        'searchTerm' => $searchTerm,
-        'text' => $searchType,
-        'merged'=>$merged
-    ]);
-}
 
 private function getMatchingSkillIds(string $searchTerm): array
 {
@@ -340,7 +342,7 @@ private function getMatchingSkillIds(string $searchTerm): array
         ->toArray();
 }
 
-private function combinedSearch(string $searchTerm, string $searchLocation, array $skillIds,int $searchType)
+private function combinedSearch(string $searchTerm, string $searchLocation, array $skillIds,int $searchType )
 {
     // Get unpaginated query builders
     $jobsQuery = $this->getJobsQuery($searchTerm,$searchLocation, $skillIds,$searchType);
@@ -444,15 +446,16 @@ public function combinedSearchResult($queryJobs,$queryTraders){
     );
 }
 
-private function getJobsQuery(string $searchTerm, string $searchLocation, array $skillIds, int $searchType)
+private function getJobsQuery(string $searchTerm, string $searchLocation, array $skillIds, int $searchType, int $searchCategory)
 {
     $today  = date('Y-m-d 00:00:00');
     $query = Job::with(['skillCategory', 'agency'])
         ->whereRaw("home_seen_job = 1 and DATE(start_date) >= '$today' and status!=4  and status!=3")
+        ->when($searchCategory, fn($q) => $q->where('skill_category', $searchCategory))
         //->where('status', '>', 0)
         ->orderByDesc('created_at');
 
-    $this->applySearchConditions($query, $searchTerm, $searchLocation, $skillIds, [
+    $this->applySearchConditions($query, $searchTerm, $searchLocation, $skillIds,[
         'title'
     ],'location', 'skill_category');
     if($searchType){
@@ -637,6 +640,7 @@ private function applySearchConditions($query, string $searchTerm, string $searc
 
         $tasks = DB::table('tasks')
             ->where('skill_category', $skillId)
+            ->where('status', '=', 1)
             ->get();
 
         // Fetch all skills for the sidebar
@@ -650,9 +654,8 @@ private function applySearchConditions($query, string $searchTerm, string $searc
     {
 
         $tasks = DB::table('tasks')
-            ->where('skill_category', $skillId)
+            ->where('status', '=', 1)
             ->get();
-
 
         return view('website.all-jobs', compact('tasks'));
     }
