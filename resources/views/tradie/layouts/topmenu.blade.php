@@ -51,23 +51,38 @@ $unread = ChMessage::UnReadConversations(Auth::user()->id)->count();
                     </li>
                     <li><hr class="dropdown-divider"></li>
                     @foreach($messages as $_message)
-                    <li class="message-item">
                         @php
-                        $url = url('/').'/images/icons/Profile.svg';
-                        $otherUser = $_message->from_id == Auth::user()->id ? $_message->receiver : $_message->sender;
-                        if($otherUser->profile_picture && File::exists(public_path($otherUser->profile_picture))){
-                            $url = asset($otherUser->profile_picture);
-                        }
+                            $url = url('/') . '/images/icons/Profile.svg';
+
+                            $otherUser = $_message->from_id == Auth::user()->id
+                                ? $_message->receiver
+                                : $_message->sender;
+
+                            if (
+                                $otherUser &&
+                                $otherUser->profile_picture &&
+                                File::exists(public_path($otherUser->profile_picture))
+                            ) {
+                                $url = asset($otherUser->profile_picture);
+                            }
                         @endphp
-                        <a href="{{ route('user', $otherUser->id) }}" target="_blank">
-                            <img src="{{ $url }}" alt="" class="rounded-circle profile-image">
-                            <div>
-                                <h4>{{ $otherUser->first_name }}</h4>
-                                <p>{{ $_message->body }}</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li><hr class="dropdown-divider"></li>
+
+                        @if($otherUser)
+                            <li class="message-item">
+                                <a href="{{ route('user', $otherUser->id) }}" target="_blank">
+                                    <img src="{{ $url }}" alt="" class="rounded-circle profile-image">
+
+                                    <div>
+                                        <h4>{{ $otherUser->first_name }}</h4>
+                                        <p>{{ $_message->body }}</p>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                        @endif
                     @endforeach
                     <li class="dropdown-footer"><a href="/messages" target="_blank">Show all messages</a></li>
                 </ul>
