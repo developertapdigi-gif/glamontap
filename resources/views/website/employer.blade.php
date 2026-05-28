@@ -32,14 +32,14 @@ Home
     <div class="container">
       <div class="row">
         @forelse($company as $com)
-        <div class="post-card">
+        <div class="col-md-3">
             @if($com->profile_picture )
             <div class="post-image">
-                <img src="{{ asset($com->profile_picture) }}" alt="{{ $com->first_name }}">
+                <img src="{{ asset($com->profile_picture) }}" alt="{{ $com->first_name }}" width="100">
 
             </div>
              @else
-                <img src="{{ asset('uploads/profile/69df4100a8acd_WhatsApp Image 2026-02-09 at 1.12.43 PM.jpeg') }}" alt="{{ $com->first_name }}">
+                <img src="{{ asset('uploads/profile/69df4100a8acd_WhatsApp Image 2026-02-09 at 1.12.43 PM.jpeg') }}" alt="{{ $com->first_name }}" width="100%">
             @endif
             
             <div class="post-content">
