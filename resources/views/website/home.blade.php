@@ -86,7 +86,7 @@ Home
           <div class="category-card shadow-sm h-100">
             <div class="cat-icon ci-green">
               <img src="{{ asset($skill->image) }}" alt="{{ $skill->name }}" class="img-fluid rounded" style="max-height:160px; width:auto; object-fit:cover;" /></div>
-            <h6 class="font-heading">{{ $skill->name }}</h6><small class="text-muted">45 open positions</small>
+            <h6 class="font-heading">{{ $skill->name }}</h6><small class="text-muted">open positions</small>
           </div>
         </a>
         
@@ -227,7 +227,7 @@ Home
           <h2 class="display-5 got-fw-bold got-mb-4 font-heading got-text-white">Hire the Top 1% of <span class="got-text-white">Beauty Talent</span></h2>
           <p class="got-mb-5 opacity-90 fs-5">Post your job today and reach thousands of verified experts in hair, makeup, spa, and wellness.</p>
           <div class="d-flex got-gap-3">
-            <a href="employers.html" class="btn got-btn btn-white got-rounded-pill px-5 got-py-3 got-fw-bold got-text-primary bg-white shine-effect">Post a Job</a>
+            <a href="{{ route('user.register') }} " class="btn got-btn btn-white got-rounded-pill px-5 got-py-3 got-fw-bold got-text-primary bg-white shine-effect">Post a Job</a>
             <a href="about.html" class="btn got-btn got-btn-outline-primary btn-outline-light got-rounded-pill px-5 got-py-3 got-fw-bold">Learn More</a>
           </div>
         </div>

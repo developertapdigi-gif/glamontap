@@ -26,30 +26,31 @@ Home
 
   <section class="latest-section" id="latest-posts">
     <div class="section-header">
-        <h2>company</h2>
+       
     </div>
     
     <div class="container">
       <div class="row">
-        @forelse($company as $com)
+        @forelse($traders as $_trader)
         <div class="post-card">
-            @if($com->profile_picture )
+            @if($_trader->profile_picture)
             <div class="post-image">
-                <img src="{{ asset($com->profile_picture) }}" alt="{{ $com->first_name }}">
+                <img src="{{ asset($_trader->profile_picture) }}" alt="{{ $_trader->first_name }}">
 
             </div>
              @else
-                <img src="{{ asset('uploads/profile/69df4100a8acd_WhatsApp Image 2026-02-09 at 1.12.43 PM.jpeg') }}" alt="{{ $com->first_name }}">
+                <img src="{{ asset('uploads/profile/69df4100a8acd_WhatsApp Image 2026-02-09 at 1.12.43 PM.jpeg') }}" alt="{{ $_trader->first_name }}">
             @endif
-            
+            <a class = "job-outer swiper-slide" href ="{{route('get.resultdetail', [$_trader->id,2]) }}">
             <div class="post-content">
                 
                  <h3 class="post-title">
-                        {{ $com->first_name }}{{ $com->last_name }}
+                        {{ $_trader->first_name . " " . $_trader->last_name}}
                 </h3>
                 
-                <p class="post-excerpt">{{ Str::limit($com->address ?? $com->address, 150) }}</p>
+                <p class="post-excerpt">{{ $_trader->address }}</p>
             </div>
+            </a>
         </div>
 
         @empty
