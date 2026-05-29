@@ -29,7 +29,7 @@ Home
        
     </div>
     
-    <div class="container">
+    <div class="container employer-profile">
       <div class="row">
         @forelse($traders as $_trader)
         <div class="col-md-3">

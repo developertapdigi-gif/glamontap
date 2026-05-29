@@ -940,8 +940,27 @@ body .job-card:hover {
 .apply-toggle .toggle-btn.active {
     color: #612d8a;
 }
-
-
+.job-outer {
+	background: white;
+    /* border-radius: 12px; */
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    display: block;
+}
+.employer-profile .row{
+	row-gap: 30px;
+}
+.employer-profile img {
+    height: 220px;
+    object-position: top;	
+}
+.post-content h3 {
+	color: #000;
+	margin-bottom: 5px;
+}
 
 
 
@@ -7319,6 +7338,8 @@ i.person-gear::before{
     height: 220px;
     overflow: hidden;
     background: #f0f0f0;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
 }
 
 .post-image img {
@@ -7326,6 +7347,8 @@ i.person-gear::before{
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
 }
 
 .post-card:hover .post-image img {
