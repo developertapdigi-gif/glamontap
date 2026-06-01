@@ -6,9 +6,8 @@ Services
 <div class="top-content banner-outer">
         <div class="row skill-title text-center">
             <h1>
-            Showcase your skills, get matched with clients, and expand your home-service opportunities.  
+             Create your profile and start today!
             </h1>
-            <h3>  Create your profile and start today!</h3>
 
             <ul class="skill-breadcrumbs d-flex justify-content-center">
                 <li><a href="{{(session('employer_mode')?'/employer':'/')}}">Home</a> <i class="bi bi-arrow-right"></i></li>

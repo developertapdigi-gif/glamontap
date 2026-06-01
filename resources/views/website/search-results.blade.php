@@ -83,22 +83,23 @@ $placeholder = "";
           }
           
       @endphp
+      <div class="col-xl-3 col-lg-4 col-md-6 col-12">
           <a href="{{ route('get.resultdetail', [$item->id, $textvalue]) }}" 
-             class="col-xl-3 col-lg-4 col-md-6 col-12 scroll-card search-result job-outer">
+             class="scroll-card search-result job-outer">
             <img src="{{ $thumbnail }}">
             @if($item->type != 'trader' && $textvalue == 2)
-            <div class="job_tag"><span>{{$item->skillCategory?$item->skillCategory->name:''}}</span></div>
+            <!-- <div class="job_tag"><span>{{$item->skillCategory?$item->skillCategory->name:''}}</span></div> -->
             @endif
             @if($item->type === 'job' && $item->status != 7)
               <!-- <div class="job_tag"><span>New</span></div> -->
             @elseif($item->type === 'job')
             <!-- <div class="job_tag"><span>Job</span></div> -->
              @elseif($item->type === 'trader')
-             <div class="job_tag"><span>{{$item->skill_category}}</span></div>
+             <!-- <div class="job_tag"><span>{{$item->skill_category}}</span></div> -->
             @endif
             
-            <div class="job_card">
-              <h3>
+            <div class="job_card post-content">
+              <h3 class="post-title">
                 @if($item->type === 'job')
                 {{$item->title}}
                 @elseif($item->type === 'trader')
@@ -119,14 +120,15 @@ $placeholder = "";
               @endif
               
               <h5>{{  $text == 1?(Str::limit($item->location, 30)) : (Str::limit($item->location, 30)) }}</h5>
-              <h5>{{  $text == 2?(Str::limit($item->address, 30)) :''}}</h5>
+              <p class="post-excerpt">{{  $text == 2?(Str::limit($item->address, 30)) :''}}</p>
               @if($text == 1)
               @else
-                <h5>{{$text == 2 ? ($item->badge->name ?? '') : ($item->badge ?? '')}}</h5>
+                <!-- <h6>{{$text == 2 ? ($item->badge->name ?? '') : ($item->badge ?? '')}}</h6> -->
               @endif
               
             </div>
           </a>
+      </div>
         @endforeach
       </div>
     </div>
@@ -243,7 +245,7 @@ $placeholder = "";
     <div class="row about-blue-footer-right">
       <div class="col-xl-5 col-lg-4  col-md-0">
         <div class="abt-img-box">
-          <img class="abt-mob-img" src="../images/psd-images/mobile1.png" />
+          <img class="abt-mob-img" src="../images/psd-images/mobile1.webp" />
           <img class="abt-arrow-img" src="../images/psd-images/roll-arrow.png" />
         </div>
       </div>

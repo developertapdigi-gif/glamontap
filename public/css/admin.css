@@ -363,7 +363,7 @@ body .feature-card:hover,
 body .employer-card:hover,
 body .candidate-card:hover,
 body .job-card:hover {
-  transform: translateY(-10px) scale(1.02);
+  transform: translateY(-5px) scale(1.02);
   box-shadow: 0 25px 50px rgba(97, 45, 138, 0.1);
   border-color: rgba(97, 45, 138, 0.1);
 }
@@ -962,10 +962,24 @@ body .job-card:hover {
 	background-color: #612d8a;
 
 }
+.job-detailpage .row {
+	row-gap: 30px;
+}
 
+/* JOB & TALENT COMPONENTS
+   ------------------------------------------------------------- */
+.job-card { border-radius: 10px; padding: 24px; }
+.job-tag.full-time { background: rgba(97,45,138,0.1); color: var(--bs-primary); }
+.job-tag.part-time { background: rgba(230,48,138,0.1); color: var(--accent); }
 
-
-
+.job-post-prize {
+	color: #612d8a;
+	font-size: 18px;
+    font-weight: 500;
+}
+.job-img {
+	border-radius: 10px;
+}
 
 
 
@@ -1079,7 +1093,7 @@ body .job-card:hover {
 	}
 	.search-result.scroll-card img {
 		position: unset;
-		aspect-ratio: 1 / 1;
+		height: 220px;
 		width: 100%;
 		object-fit: cover;
 		object-position: top;
@@ -2196,7 +2210,7 @@ header {
 .banner h1,
 .skill-title h1 {
 	font-size: 38px;
-	color: #202124;
+	color: #612d8a;
 	/* font-family: proximaNovaBold; */
 	font-weight: bold;
 	margin-bottom: 10px;
@@ -2297,6 +2311,7 @@ header {
 .banner-outer {
 
 	margin-top: 99px;
+	background: linear-gradient(135deg, var(--light-bg) 0%, #F1E6F3 100%);
 }
 
 .banner-outer-2 {
@@ -3246,6 +3261,7 @@ scale:1.2
 	list-style: none;
 
 	background: #fff;
+	color: #612d8a;
 
 }
 
@@ -3291,11 +3307,11 @@ scale:1.2
 
 	list-style-type: none;
     margin-top: 25px;
-    margin-bottom: 0px;
+    margin-bottom: 50px;
 
 }
 .skill-breadcrumbs li a{
-	color: #212529;
+	color: #612d8a;
 }
 
 .overlap-image {
