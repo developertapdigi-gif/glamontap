@@ -85,8 +85,8 @@ Home
         {{-- <a href="{{ route('skills.details', ['skillId' => $skill->id]) }}" class="text-decoration-none"></a> --}}
           <div class="category-card shadow-sm h-100">
             <div class="cat-icon ci-green">
-              <img src="{{ asset($skill->image) }}" alt="{{ $skill->name }}" class="img-fluid rounded" style="max-height:160px; width:auto; object-fit:cover;" /></div>
-            <h6 class="font-heading">{{ $skill->name }}</h6><small class="text-muted">open positions</small>
+              <img src="{{ asset($skill->image) }}" alt="{{ $skill->name }}" class="img-fluid rounded"></div>
+            <h5 class="font-heading">{{ $skill->name }}</h5>
           </div>
         </a>
         
@@ -97,7 +97,7 @@ Home
         <a href="job-list.html?q=Makeup" class="text-decoration-none">
           <div class="category-card shadow-sm h-100">
             <div class="cat-icon ci-green"><i class="fas fa-paint-brush"></i></div>
-            <h6 class="font-heading">Makeup Artists</h6><small class="text-muted">28 open positions</small>
+            <h6 class="font-heading">Makeup Artists</h6>
           </div>
         </a>
       </div>
@@ -105,7 +105,7 @@ Home
         <a href="job-list.html?q=Nails" class="text-decoration-none">
           <div class="category-card shadow-sm h-100">
             <div class="cat-icon ci-green"><i class="fas fa-hand-sparkles"></i></div>
-            <h6 class="font-heading">Nail Technicians</h6><small class="text-muted">15 open positions</small>
+            <h6 class="font-heading">Nail Technicians</h6>
           </div>
         </a>
       </div>
@@ -123,7 +123,7 @@ Home
                 </g>
               </svg>
             </div>
-            <h6 class="font-heading">Esthetician</h6><small class="text-muted">22 open positions</small>
+            <h6 class="font-heading">Esthetician</h6>
           </div>
         </a>
       </div>
@@ -131,7 +131,7 @@ Home
         <a href="job-list.html?q=Manager" class="text-decoration-none">
           <div class="category-card shadow-sm h-100">
             <div class="cat-icon ci-green"><i class="fas fa-user-tie"></i></div>
-            <h6 class="font-heading">Salon Managers</h6><small class="text-muted">12 open positions</small>
+            <h6 class="font-heading">Salon Managers</h6>
           </div>
         </a>
       </div>
@@ -139,7 +139,7 @@ Home
         <a href="job-list.html?q=Spa" class="text-decoration-none">
           <div class="category-card shadow-sm h-100">
             <div class="cat-icon ci-green"><i class="fas fa-spa"></i></div>
-            <h6 class="font-heading">Spa Therapists</h6><small class="text-muted">30 open positions</small>
+            <h6 class="font-heading">Spa Therapists</h6>
           </div>
         </a>
       </div>
@@ -147,7 +147,7 @@ Home
         <a href="job-list.html?q=Lash" class="text-decoration-none">
           <div class="category-card shadow-sm h-100">
             <div class="cat-icon ci-green"><i class="fas fa-eye"></i></div>
-            <h6 class="font-heading">Lash Technicians</h6><small class="text-muted">18 open positions</small>
+            <h6 class="font-heading">Lash Technicians</h6>
           </div>
         </a>
       </div>
@@ -155,7 +155,7 @@ Home
         <a href="job-list.html?q=Massage" class="text-decoration-none">
           <div class="category-card shadow-sm h-100">
             <div class="cat-icon ci-green"><i class="fas fa-hot-tub"></i></div>
-            <h6 class="font-heading">Massage Therapists</h6><small class="text-muted">25 open positions</small>
+            <h6 class="font-heading">Massage Therapists</h6>
           </div>
         </a>
       </div> --}}
@@ -266,7 +266,7 @@ Home
             <p class="got-text-muted got-text-muted small got-mb-0">New profiles created every single day.</p>
           </div>
         </div>
-        <a href="{{ route('user.register') }}" class="btn got-btn got-btn-primary btn-primary got-rounded-pill px-5 got-py-3 got-fw-bold shine-effect">Create Your Profile</a>
+        <a href="{{ route('user.register') }}" class="btn got-btn got-btn-primary btn-primary got-rounded-pill got-py-3 got-fw-bold shine-effect">Create Your Profile</a>
       </div>
     </div>
   </div>
@@ -309,7 +309,7 @@ Home
         <div class="row about-blue-footer-right">
                 <div class="col-xl-5 col-lg-4  col-md-0">
                   <div class="abt-img-box">
-                  <img class="abt-mob-img" src="../images/psd-images/mobile1.png"/>
+                  <img class="abt-mob-img" src="../images/psd-images/mobile1.webp"/>
                   <img class="abt-arrow-img" src="../images/psd-images/roll-arrow.png"/>
                 </div>
                     </div>

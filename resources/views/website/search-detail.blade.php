@@ -310,7 +310,7 @@ $job = $job ?? null;
   </div>
   <div class="marquee-container marquee-space">
     <div class="row">
-      <h3 class="mb-2">Similar Tradies</h3>
+      <h3 class="mb-4">Similar Tradies</h3>
       @if(count($recent_jobs))
         @foreach($recent_jobs as $_recent_job)
           @php
@@ -320,17 +320,19 @@ $job = $job ?? null;
           $thumbnail = "https://cdn.prod.website-files.com/6390e14cc734a931f8327343/679c74b3164f379f7f08c8f3_679c74441827c33928d93627_Inner-image.jpeg";
           }
           @endphp
-        <a href="{{route('get.resultdetail', [$_recent_job->id,$text]) }}" class="col-lg-3 scroll-card search-result job-outer">
+          <div class ="col-md-3">
+        <a href="{{route('get.resultdetail', [$_recent_job->id,$text]) }}" class="scroll-card search-result job-outer">
 
           <img src="{{$thumbnail}}" />
           <!-- <div class="job_tag">
             <span>New</span>
           </div> -->
-          <div class="job_card">
-            <h3>{{$_recent_job->first_name ." ". $_recent_job->last_name}}</h3>
-            <h5>{{Str::limit($_recent_job->address,30)}}</h5>
+          <div class="job_card post-content">
+            <h3 class="post-title">{{$_recent_job->first_name ." ". $_recent_job->last_name}}</h3>
+            <p class="post-excerpt">{{Str::limit($_recent_job->address,30)}}</p>
           </div>
         </a>
+          </div>
         @endforeach
       @else
         <h5>No Result Found</h5>
