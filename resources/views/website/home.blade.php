@@ -111,7 +111,7 @@ Home
           {{-- <a href="{{ route('skills.details', ['skillId' => $skill->id]) }}" class="text-decoration-none"></a> --}}
         <div class="category-card shadow-sm h-100">
           <div class="cat-icon ci-green">
-            <img src="{{ asset($skill->image) }}" alt="{{ $skill->name }}" class="img-fluid rounded">
+            <img src="{{ asset($skill->image) }}" alt="{{ $skill->name }}" class="img-fluid">
           </div>
           <h5 class="font-heading">{{ $skill->name }}</h5>
         </div>

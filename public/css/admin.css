@@ -409,6 +409,8 @@ body .job-card:hover {
 	height: 170px;
 	object-fit: cover;
 	object-position: top;
+	border-top-left-radius: 12px;
+	border-top-right-radius: 12px;	
 }
 .category-card .font-heading {
 	margin-bottom: 10px;
