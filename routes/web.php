@@ -23,7 +23,7 @@ Route::get('/terms-condition', [HomeController::class, 'termsCondition'])->name(
 Route::get('search/results',[HomeController::class, 'submitSearchForm'])->name('searchform');
 Route::get('/post/{id}', [HomeController::class, 'show'])->name('post.show');
 Route::post('/post/{id}/react', [HomeController::class, 'react'])->middleware('auth');
-Route::get('/skills/{skillId}', [HomeController::class, 'showBySkill'])->name('skills.details');
+Route::get('/skills/{skillId?}', [HomeController::class, 'showBySkill'])->name('skills.details');
 #Route::get('/search-results', [HomeController::class, 'searchResult'])->name('searchResults');
 Route::get('search/details/{id}/{text}', [HomeController::class, 'showDetails'])->name('get.resultdetail');
 Route::get('trader/tradee-post-detail/{id}', [HomeController::class, 'showTraderPost'])->name('get.trader.post.detail');

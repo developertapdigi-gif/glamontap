@@ -28,7 +28,7 @@ $model = Setting::setting();
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid">
       <div class="top-content  position-relative d-flex align-items-center justify-content-between">
-        <a href="{{ url('/') }}?emp=1" class="logo d-flex align-items-center me-auto me-xl-0">
+        <a href="{{ url('/') }}" class="logo d-flex align-items-center me-auto me-xl-0">
           <!-- Uncomment the line below if you also wish to use an image logo -->
           <img src="{{ $model['website_logo'] }}" alt="">
 
@@ -60,12 +60,13 @@ $model = Setting::setting();
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
         <div class="btn-getstarted mobile-hide">
+          <a href="{{ url('/') }}" class="btn btn-primary btn-right-margin">View Jobs</a>
           @auth
-          <a href="{{ route('dashboard') }}" class="btn btn-primary btn-right-margin">Dashboard</a>
+          <a href="{{ route('dashboard') }}" class="btn btn-primary btn-white">Dashboard</a>
           @endauth
           @guest
-          <a href="{{ route('user.login') }}" class="btn btn-primary btn-right-margin">Login</a>
-          <a href="{{ route('user.register') }}" class="btn btn-primary btn-white">Register</a>
+          <a href="{{ route('user.login') }}" class="btn btn-primary btn-white">Login</a>
+          {{-- <a href="{{ route('user.register') }}" class="btn btn-primary btn-white">Register</a> --}}
           @endguest
         </div>
       </div>

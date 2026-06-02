@@ -631,22 +631,78 @@ private function applySearchConditions($query, string $searchTerm, string $searc
     }
 
 
-    public function showBySkill($skillId)
+   public function showBySkill($skillId = null)
     {
-        $skill = DB::table('skill_categories')->find($skillId);
-        if (!$skill) {
-            abort(404, 'Skill not found');
-        }
-
-        $tasks = DB::table('tasks')
-            ->where('skill_category', $skillId)
-            ->where('status', '=', 1)
+        // Get all tasks
+        $allTasks = DB::table('tasks')
+            ->where('status', 1)
             ->get();
 
-        // Fetch all skills for the sidebar
+        // Get all skills
         $allSkills = DB::table('skill_categories')->get();
 
-        return view('website.jobs-by-categories', compact('tasks', 'skill', 'allSkills'));
+        // Default values
+        $skill = null;
+        $taskByCategory = collect();
+
+        // If skill id exists
+        if ($skillId) {
+
+            $skill = DB::table('skill_categories')->find($skillId);
+
+            // Check skill exists
+            if (!$skill) {
+                abort(404, 'Skill not found');
+            }
+
+            // Category tasks
+            $taskByCategory = DB::table('tasks')
+                ->where('skill_category', $skillId)
+                ->where('status', 1)
+                ->get();
+        }
+
+        // $locations = DB::table('tasks')
+        // ->where('status', 1)
+        // ->whereNotNull('location')
+        // ->where('location', '!=', '')
+        // ->select('location')
+        // ->distinct()
+        // ->orderBy('location')
+        // ->pluck('location');
+        // dd($locations);
+
+        $locations = DB::table('tasks')
+        ->where('status', 1)
+        ->whereNotNull('location')
+        ->pluck('location')
+        ->map(function ($location) {
+
+        $parts = array_map('trim', explode(',', $location));
+
+        if(count($parts) >= 3) {
+
+            $city  = $parts[count($parts)-3];
+            $state = $parts[count($parts)-2];
+
+            return $city . ', ' . $state;
+        }
+
+        return $location;
+    })
+    ->unique()
+    ->values();
+
+        return view(
+            'website.jobs-by-categories',
+            compact(
+                'taskByCategory',
+                'skill',
+                'allSkills',
+                'allTasks',
+                'locations'
+            )
+        );
     }
 
 
