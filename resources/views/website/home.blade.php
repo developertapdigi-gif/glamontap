@@ -237,7 +237,7 @@ Home
           <li class="got-mb-3 d-flex got-align-items-center got-gap-3"><i class="fas fa-check-circle got-text-primary"></i> <span>Portfolio showcase for top-tier stylists</span></li>
           <li class="got-mb-3 d-flex got-align-items-center got-gap-3"><i class="fas fa-check-circle got-text-primary"></i> <span>Industry-leading career resources and tips</span></li>
         </ul>
-        <a href="job-list.html" class="btn got-btn got-btn-primary btn-primary got-rounded-pill got-py-3 got-fw-bold shine-effect">Explore All Jobs</a>
+        <a href="{{ route('skills.details') }}" class="btn got-btn got-btn-primary btn-primary got-rounded-pill got-py-3 got-fw-bold shine-effect">Explore All Jobs</a>
       </div>
     </div>
   </div>
@@ -322,7 +322,7 @@ Home
         </div>
       </div>
     </div>
-    <a href="job-list.html" class="btn mt-2 got-btn btn-outline-primary job-btn got-rounded-pill px-5 got-py-3 got-fw-bold" data-aos="fade-up">Browse Jobs &rarr;</a>
+    <a href="{{ route('skills.details') }}" class="btn mt-2 got-btn btn-outline-primary job-btn got-rounded-pill px-5 got-py-3 got-fw-bold" data-aos="fade-up">Browse Jobs &rarr;</a>
   </div>
 </section>
 
