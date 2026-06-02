@@ -350,7 +350,7 @@ $job = $job ?? null;
       <div class="row about-blue-footer-right">
         <div class="col-xl-5 col-lg-4  col-md-0">
           <div class="abt-img-box">
-            <img class="abt-mob-img" src="{{url('/')}}/images/psd-images/mobile1.png" />
+            <img class="abt-mob-img" src="{{url('/')}}/images/psd-images/mobile1.webp" />
             <img class="abt-arrow-img" src="{{url('/')}}/images/psd-images/roll-arrow.png" />
           </div>
         </div>
