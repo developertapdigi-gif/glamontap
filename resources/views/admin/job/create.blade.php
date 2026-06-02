@@ -120,13 +120,13 @@
               </div>
               <div class="{{$col}}">
                 @hasrole('admin')
-                <input type="hidden" id="status" name="status" value="7">
+                <input type="hidden" id="status" name="status" value="1">
                 @else
                     <label class="form-label">Status<span class="text-danger">*</span></label>
                     <div class="input-group">
                         <select name="status" class="form-control form-select @error('status') is-invalid @enderror" aria-label="status" id="status">                       
                         <option value="" @if(!old('status')) {{ 'selected' }} @endif>Select Status</option>
-                            @foreach ([0=>'Draft',2=>'Approval'] as $key=> $_status)
+                            @foreach ([0=>'Draft',1=>'Approval'] as $key=> $_status)
                                 <option value="{{ $key }}" @if($key === old('status')) {{ 'selected' }} @endif>{{ $_status }}</option>
                             @endforeach
                           </select>
