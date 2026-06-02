@@ -40,13 +40,13 @@ Home
                 <select class="form-select" name="search_category">
                   <option selected>All Categories</option>
                   @foreach ($skills as $skill)
-                    <option value="{{ $skill->id }}">{{ $skill->name }}</option>
+                  <option value="{{ $skill->id }}">{{ $skill->name }}</option>
                   @endforeach
-                 
+
                 </select>
               </div>
             </div>
-             <input type="hidden" id="radio-one" name="search_type" value="1" />
+            <input type="hidden" id="radio-one" name="search_type" value="1" />
             <div class="col-lg-3">
               <button type="submit" id="heroSearchBtn" class="btn btn-primary rounded-pill shadow-sm pulse-primary shine-effect">
                 Find Jobs
@@ -59,6 +59,7 @@ Home
         <div class="hero-visual-wrapper" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
           <div class="main-hero-img-container position-relative">
             <img src="images/beauty_hero.png" alt="Luxury Salon" class="img-fluid main-hero-img">
+            <!-- Play Button -->
             <div class="hero-video-play-btn" data-bs-toggle="modal" data-bs-target="#videoModal">
               <i class="fas fa-play"></i>
             </div>
@@ -70,6 +71,31 @@ Home
     </div>
   </div>
 </section>
+<!-- Modal -->
+<div class="modal fade" id="videoModal" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+
+      <button type="button"
+        class="btn-close position-absolute top-0 end-0"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+        style="z-index:9999;">
+      </button>
+
+      <div class="modal-body p-0">
+        <iframe src="https://player.vimeo.com/video/1197605509?autoplay=1"
+          width="100%"
+          height="500"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 <!-- CSS: Section 7 - CONTENT SECTIONS (Category Cards) | Classes: .category-card, .cat-icon, .ci-purple, .ci-red, .ci-orange, .ci-green, .ci-blue -->
 <section class="section-space">
@@ -79,17 +105,18 @@ Home
       <p class="text-muted">Explore high-demand roles across all sectors of the industry.</p>
     </div>
     <div class="row g-4 beauty-category">
-       @foreach ($skills as $skill)
+      @foreach ($skills as $skill)
       <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
-        <a href="{{ route('skills.details', ['skillId' => $skill->id]) }} class="text-decoration-none">
-        {{-- <a href="{{ route('skills.details', ['skillId' => $skill->id]) }}" class="text-decoration-none"></a> --}}
-          <div class="category-card shadow-sm h-100">
-            <div class="cat-icon ci-green">
-              <img src="{{ asset($skill->image) }}" alt="{{ $skill->name }}" class="img-fluid rounded"></div>
-            <h5 class="font-heading">{{ $skill->name }}</h5>
+        <a href="{{ route('skills.details', ['skillId' => $skill->id]) }} class=" text-decoration-none">
+          {{-- <a href="{{ route('skills.details', ['skillId' => $skill->id]) }}" class="text-decoration-none"></a> --}}
+        <div class="category-card shadow-sm h-100">
+          <div class="cat-icon ci-green">
+            <img src="{{ asset($skill->image) }}" alt="{{ $skill->name }}" class="img-fluid rounded">
           </div>
+          <h5 class="font-heading">{{ $skill->name }}</h5>
+        </div>
         </a>
-        
+
       </div>
       @endforeach
 
@@ -219,9 +246,6 @@ Home
 <section class="section-space">
   <div class="container">
     <div class="cta-banner-card" data-aos="fade-up">
-      <div class="cta-deco-icon">
-        <i class="fas fa-spa display-1"></i>
-      </div>
       <div class="row align-items-center g-5 position-relative z-2">
         <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
           <h2 class="display-5 got-fw-bold got-mb-4 font-heading got-text-white">Hire the Top 1% of <span class="got-text-white">Beauty Talent</span></h2>
@@ -301,51 +325,51 @@ Home
     <a href="job-list.html" class="btn mt-2 got-btn btn-outline-primary job-btn got-rounded-pill px-5 got-py-3 got-fw-bold" data-aos="fade-up">Browse Jobs &rarr;</a>
   </div>
 </section>
-  
+
 
 
 <section class="about-blue-footer about_skilled_trades mt-3">
-        <div class="container">
-        <div class="row about-blue-footer-right">
-                <div class="col-xl-5 col-lg-4  col-md-0">
-                  <div class="abt-img-box">
-                  <img class="abt-mob-img" src="../images/psd-images/mobile1.webp"/>
-                  <img class="abt-arrow-img" src="../images/psd-images/roll-arrow.png"/>
-                </div>
-                    </div>
-                    <div class="col-xl-7 col-lg-8 col-md-12 abt-blue-desc">
-                    <h3>Linking trusted home-service experts with real-time job opportunities</h3>
-                    <p>Celebrating diversity and inclusion in every home-service role</p>
-                
-                   
-                        <div class="d-flex mt-lg-5 mt-4 about-download">
-                            <a href="#">
-                              <div class="applestore whitestore social-media-banners d-flex me-3 me-xs-0 mb-xs-3">
-                                <i class="bi bi-apple blue-icn"></i>
-                                <div>
-                                  <p>Download on the</p>
-                                  <b>Apple Store</b>
-                                </div>
-                              </div>
-                  
-                            </a>
-                  
-                            <a href="#">
-                              <div class="googlestore social-media-banners d-flex">
-                                <i class="bi bi-google-play white-icn"></i>
-                                <div>
-                                  <p>Get it on</p>
-                                  <b>Google Play</b>
-                                </div>
-                              </div>
-                  
-                            </a>
-                  </div>
-                </div>
-            </div>
+  <div class="container">
+    <div class="row about-blue-footer-right">
+      <div class="col-xl-5 col-lg-4  col-md-0">
+        <div class="abt-img-box">
+          <img class="abt-mob-img" src="../images/psd-images/mobile1.webp" />
+          <img class="abt-arrow-img" src="../images/psd-images/roll-arrow.png" />
         </div>
+      </div>
+      <div class="col-xl-7 col-lg-8 col-md-12 abt-blue-desc">
+        <h3>Linking trusted home-service experts with real-time job opportunities</h3>
+        <p>Celebrating diversity and inclusion in every home-service role</p>
 
-    </section>
+
+        <div class="d-flex mt-lg-5 mt-4 about-download">
+          <a href="#">
+            <div class="applestore whitestore social-media-banners d-flex me-3 me-xs-0 mb-xs-3">
+              <i class="bi bi-apple blue-icn"></i>
+              <div>
+                <p>Download on the</p>
+                <b>Apple Store</b>
+              </div>
+            </div>
+
+          </a>
+
+          <a href="#">
+            <div class="googlestore social-media-banners d-flex">
+              <i class="bi bi-google-play white-icn"></i>
+              <div>
+                <p>Get it on</p>
+                <b>Google Play</b>
+              </div>
+            </div>
+
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
 
 
 @endsection

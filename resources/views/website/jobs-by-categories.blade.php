@@ -6,6 +6,21 @@ Jobs
 
 @section('content')
 
+<div class="top-content banner-outer">
+        <div class="row skill-title text-center">
+            <h1>
+               Hairstylist
+            </h1>
+            
+
+            <ul class="skill-breadcrumbs d-flex justify-content-center">
+                <li><a href="{{(session('employer_mode')?'/employer':'/')}}">Home</a> <i class="bi bi-arrow-right"></i></li>
+                <li>Hairstylist</li>
+            </ul>
+        </div>
+    </div>
+
+
 <section class="latest-section" id="latest-posts">
 
 </section>
