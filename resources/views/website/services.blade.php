@@ -60,9 +60,9 @@ Services
                 </div>
                 <div class="col-lg-6 col-xl-7 col-md-12 col-sm-12">
 
-                    <div class="about-mobile-background hire-trust">
+                    <div class="hire-trust">
                         <div class="about-left-banner service-right-sec pe-lg-0">
-                            <img class="img-fluid desktop-image" src="../images/about-mobile-background.webp" width="100%" />
+                            <img class="img-fluid" src="../images/about-mobile-background.webp" width="100%" />
                             <img id="scnd-banner-img" class="overlap-image scnd-banner-img img-fluid" src="../images/screen_1.webp" />
                         </div>
                     </div>

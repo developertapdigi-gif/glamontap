@@ -85,9 +85,9 @@ About Us
 
                 </div>
                 <div class="col-lg-6 col-sm-12 col-md-12">
-                    <div class="about-mobile-background text-center">
+                    <div class="text-center">
                      <div class="about-left-banner pe-0">
-                        <img class="img-fluid desktop-image" src="../images/psd-images/mobile1.webp" />
+                        <img class="img-fluid" src="../images/psd-images/mobile1.webp" />
                      </div>
                     </div>
                 </div>

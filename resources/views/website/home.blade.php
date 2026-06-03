@@ -8,10 +8,10 @@ Home
 <section class="hero-section-premium bg-moving-gradient overflow-hidden">
 
   <div class="container position-relative z-3">
-    <div class="row align-items-center">
+    <div class="row align-items-center got-g-4">
       <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1200">
         <h1 class="display-5 fw-bold mb-4 font-heading" style="color: var(--bs-primary);">Empowering the World of <span class="font-serif italic text-accent" style="color: var(--accent) !important;">Beauty & Style</span></h1>
-        <p class="lead text-dark mb-5 fs-5 opacity-75">Discover elite career opportunities in salons, spas, and fashion. <br>Join the community of top-tier beauty professionals today.</p>
+        <p class="lead text-dark mb-md-5 mb-4 fs-5 opacity-75">Discover elite career opportunities in salons, spas, and fashion. <br>Join the community of top-tier beauty professionals today.</p>
 
         <div class="glass-search-container p-3 p-md-4" data-aos="fade-up" data-aos-delay="400">
           <form action="{{ route('searchform') }}" class="row align-items-center">
@@ -193,7 +193,7 @@ Home
 <!-- CSS: Section 7 - CONTENT SECTIONS (Feature Cards) | Classes: .feature-card, .f-icon, .fi-rose, .fi-purple-deep, .text-gradient-purple, .got-bg-light-bg -->
 <section class="got-bg-light-bg">
   <div class="container got-py-5">
-    <div class="row got-align-items-center got-g-5">
+    <div class="row got-align-items-center got-g-4">
       <div class="col-lg-6">
         <div class="row got-g-4">
           <div class="col-sm-6" data-aos="fade-up">
@@ -251,8 +251,8 @@ Home
           <h2 class="display-5 got-fw-bold got-mb-4 font-heading got-text-white">Hire the Top 1% of <span class="got-text-white">Beauty Talent</span></h2>
           <p class="got-mb-5 opacity-90 fs-5">Post your job today and reach thousands of verified experts in hair, makeup, spa, and wellness.</p>
           <div class="d-flex got-gap-3">
-            <a href="{{ route('user.register') }} " class="btn got-btn btn-white got-rounded-pill px-5 got-py-3 got-fw-bold got-text-primary bg-white shine-effect">Post a Job</a>
-            <a href="about.html" class="btn got-btn got-btn-outline-primary btn-outline-light got-rounded-pill px-5 got-py-3 got-fw-bold">Learn More</a>
+            <a href="{{ route('user.register') }} " class="btn got-btn btn-white got-rounded-pill px-4 px-md-5 got-py-3 got-fw-bold got-text-primary bg-white shine-effect">Post a Job</a>
+            <a href="about.html" class="btn got-btn got-btn-outline-primary btn-outline-light got-rounded-pill px-4 px-md-5 got-py-3 got-fw-bold">Learn More</a>
           </div>
         </div>
         <div class="col-lg-6 text-center" data-aos="fade-left" data-aos-delay="400">
@@ -265,7 +265,7 @@ Home
 <!-- CSS: Section 15 - BOOTSTRAP OVERRIDE (Talent Badge) | Classes: .talent-floating-badge, .text-gradient-purple, .bg-light-bg -->
 <section class="bg-light-bg">
   <div class="container got-py-5">
-    <div class="row align-items-center">
+    <div class="row align-items-center got-g-4">
       <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right">
         <div class="position-relative got-p-4">
           <img src="images/talent.png" alt="Showcase Talent" class="img-fluid rounded-3 shadow-lg animate-float">
