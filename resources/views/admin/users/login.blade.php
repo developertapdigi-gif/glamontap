@@ -18,7 +18,7 @@ $model = Setting::setting();
             <div class="row full-height">
                 <div class="col-lg-6 col-12 ps-0 pe-0">
                     <div class="left-login-section">
-                        <a href="{{ url('/') }}?emp=1" class = "d-flex justify-content-center mb-3">
+                        <a href="{{ url('/') }}" class = "d-flex justify-content-center mb-3">
                             <img src="{{ $model['website_logo'] }}" class="login-logo d-md-block d-lg-none" />
                         </a>
                         <div class="left-login-top-text">
@@ -33,7 +33,7 @@ $model = Setting::setting();
                 </div> 
                 <div class="col-lg-6 col-12  relative-box white-background">
                     <div class="right-login-section mb-0 mb-lg-3 register-right-section">
-                        <a href="{{ url('/') }}?emp=1">
+                        <a href="{{ url('/') }}">
                             <img src="{{ $model['website_logo'] }}" class="login-logo d-none d-lg-block" />
                         </a>
                         <div class="login-user-details">
