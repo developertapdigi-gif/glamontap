@@ -52,7 +52,7 @@ $model = Setting::setting();
             <li class="mobile-content employer-btn"><a style="color:#fff; text-align:center; margin-right:5px;" class="btn btn-primary me-1" href="{{  route('dashboard') }}">Dashboard</a></li>
             @endauth
             @guest
-            <li class="mobile-content employer-btn"><a style="color:#fff; text-align:center;  margin-right:5px;" class="btn btn-primary me-1" href="{{ route('user.login') }}">Login</a></li>
+            <li class="mobile-content employer-btn"><a style="color:#fff; text-align:center;  margin-right:5px;" class="btn btn-primary me-1 btn-white" href="{{ route('user.login') }}">Login</a></li>
             {{-- <li class="mobile-content employer-btn"><a style="text-align:center" class="btn btn-primary text-decoration-none btn-white" href="{{ route('user.register') }}">Register</a></li> --}}
             @endguest
             @endif
