@@ -252,7 +252,7 @@ Home
           <p class="got-mb-5 opacity-90 fs-5">Post your job today and reach thousands of verified experts in hair, makeup, spa, and wellness.</p>
           <div class="d-flex got-gap-3">
             <a href="{{ route('user.register') }} " class="btn got-btn btn-white got-rounded-pill px-5 got-py-3 got-fw-bold got-text-primary bg-white shine-effect">Post a Job</a>
-            <a href="about.html" class="btn got-btn got-btn-outline-primary btn-outline-light got-rounded-pill px-5 got-py-3 got-fw-bold">Learn More</a>
+            <a href="{{ route('about') }}" class="btn got-btn got-btn-outline-primary btn-outline-light got-rounded-pill px-5 got-py-3 got-fw-bold">Learn More</a>
           </div>
         </div>
         <div class="col-lg-6 text-center" data-aos="fade-left" data-aos-delay="400">

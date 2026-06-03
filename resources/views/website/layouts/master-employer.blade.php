@@ -28,7 +28,7 @@ $model = Setting::setting();
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid">
       <div class="top-content  position-relative d-flex align-items-center justify-content-between">
-        <a href="{{ url('/') }}" class="logo d-flex align-items-center me-auto me-xl-0">
+        <a href="{{ url('/') }}"  id="logo-link" class="logo d-flex align-items-center me-auto me-xl-0">
           <!-- Uncomment the line below if you also wish to use an image logo -->
           <img src="{{ $model['website_logo'] }}" alt="">
 
@@ -60,7 +60,10 @@ $model = Setting::setting();
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
         <div class="btn-getstarted mobile-hide">
-          <a href="{{ url('/') }}" class="btn btn-primary btn-right-margin">View Jobs</a>
+          {{-- <a href="{{ route('home') }}?emp=1" class="btn btn-primary btn-right-margin">View Jobs</a>
+           --}}
+          <a href="{{ route('skills.details') }}" class="btn btn-primary btn-right-margin">View Jobs</a>
+          
           @auth
           <a href="{{ route('dashboard') }}" class="btn btn-primary btn-white">Dashboard</a>
           @endauth
@@ -113,6 +116,21 @@ $model = Setting::setting();
   <script src="{{ asset('js/slick.min.js') }}" type="text/javascript" charset="utf-8"></script>
   @yield('script')
   <div class="loader" style="display: none;"></div>
+  <script>
+$(document).ready(function () {
+
+    $('#logo-link').click(function (e) {
+        e.preventDefault();
+
+        $.get("{{ route('clear.employer.mode') }}", function () {
+            window.location.href = "{{ url('/') }}";
+        });
+
+    });
+
+});
+</script>
+
 </body>
 
 </html>

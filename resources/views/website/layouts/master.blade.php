@@ -38,7 +38,7 @@ $model = Setting::setting();
         <nav id="navmenu" class="navmenu">
           <ul>
             @if(session('employer_mode'))
-            <li><a class="{{Str::contains(url()->current(), 'employer') ? 'active' : '' }}" href="{{ url('/employer') }}">Home</a></li>
+            <li> <a class="{{ request()->is('employer') ? 'active' : '' }}" href="{{ url('/employer') }}">Home</a></li>
             @else
             <li><a class="{{(request()->is('/')) ? 'active' : '' }}" href="{{ url('/') }}">Home</a></li>
             @endif
@@ -161,6 +161,10 @@ $model = Setting::setting();
       opacity: 1;
     }
   </style>
+
+  
 </body>
+
+
 
 </html>

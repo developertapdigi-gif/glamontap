@@ -26,6 +26,12 @@ Route::post('/post/{id}/react', [HomeController::class, 'react'])->middleware('a
 Route::get('/skills/{skillId?}', [HomeController::class, 'showBySkill'])->name('skills.details');
 #Route::get('/search-results', [HomeController::class, 'searchResult'])->name('searchResults');
 Route::get('search/details/{id}/{text}', [HomeController::class, 'showDetails'])->name('get.resultdetail');
+
+Route::get('/clear-employer-mode', function () {
+    session()->forget('employer_mode');
+    return response()->json(['success' => true]);
+})->name('clear.employer.mode');
+
 Route::get('trader/tradee-post-detail/{id}', [HomeController::class, 'showTraderPost'])->name('get.trader.post.detail');
 Route::get('login', [UserController::class, 'login'])->name('login');
 Route::name('user.')->prefix('user')->middleware(['guest'])->group(function() {  
