@@ -122,7 +122,7 @@
                     <div class="input-group">
                         <select name="status" class="form-control form-select @error('status') is-invalid @enderror" aria-label="status" id="status">                       
                         <option value="-1">Select Status</option>
-                            @foreach ([0=>'Draft',2=>'Approval'] as $key=> $_status)
+                            @foreach ([0=>'Draft',1=>'Approval'] as $key=> $_status)
                                 <option value="{{ $key }}" @if($key == $model->status) {{ 'selected' }} @endif>{{ $_status }}</option>
                             @endforeach
                           </select>

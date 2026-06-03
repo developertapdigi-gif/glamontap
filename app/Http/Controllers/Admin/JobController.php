@@ -51,7 +51,7 @@ class JobController extends Controller
         
         }else if($request->type==$text[4]){ // complete
            // $condition .= " and status = 6 or DATE(end_date) < '$today')";
-            $condition .= " and status = 6";
+            $condition .= " and status = 1";
         }else if($request->type==$text[1]){ // open
            // $condition .= " and DATE(end_date) >= '$today' and is_hired!=1 and status>0";
            $condition .= " and (DATE(end_date) >= '$today' and status IN (1,2) and is_hired!=1)";
