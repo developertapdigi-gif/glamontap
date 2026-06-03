@@ -29,7 +29,7 @@ $model = Setting::setting();
             display: inline-flex;
             background: #f1f5f9;
             border-radius: 50px;
-            padding: 0.3rem;
+            padding: 10px;
             gap: 0.2rem;
 
         }

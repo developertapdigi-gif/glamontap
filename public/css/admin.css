@@ -974,9 +974,9 @@ body .job-card:hover {
 .job-img {
 	border-radius: 10px;
 }
-
-
-
+section {
+    overflow: hidden;
+}
 
 
 
@@ -3419,7 +3419,7 @@ scale:1.2
 .about-blue-footer {
 
 	color: #000;
-	background-color: #fdfbff;
+	background-color: #fdfaff;
 
 }
 
@@ -3528,7 +3528,7 @@ scale:1.2
 
 	.about-mobile-background {
 
-		background: url(../images/about-mobile-background.png) no-repeat;
+		background: url(../images/about-mobile-background.webp) no-repeat;
 
 		background-size: cover;
         border-radius: 21px;
@@ -7802,6 +7802,7 @@ i.person-gear::before{
 }
 .service-right-sec {
     margin-left: 0px;
+	margin-bottom: 40px;
 }
 }
 @media (max-width:1350px ){
@@ -8114,6 +8115,15 @@ i.person-gear::before{
     margin-bottom: 6px;
     line-height: 20px
 }
+.cta-banner-card {
+    padding: 25px;
+}
+.got-mb-5 {
+    margin-bottom: 30px;
+}
+.hero-section-premium {
+    padding: 110px 0 30px;
+}
 .blue-footer button p {
     display: flex;
     align-items: center;
@@ -8338,12 +8348,12 @@ i.person-gear::before{
 .about-blue-footer p {
     font-size: 17px;
 }
-#scnd-banner-img {
+/* #scnd-banner-img {
     position: unset;
     scale: unset !important;
     width: 100%;
     max-width: 300px;
-}
+} */
 .bi-check {
     font-size: 27px;
 }
@@ -8737,13 +8747,16 @@ input.location-select:focus {
 		margin-right: 0px !important;
 	}
 	.service-right-sec .overlap-image {
-		scale: 1 !important;
-		bottom: 23% !important;
-		left: -5% !important;
-		width: unset;
+		/* scale: 1 !important; */
+		bottom: 16% !important;
+		/* left: -5% !important;
+		width: unset; */
 
 
 	}
+	.hire-trust {
+    padding: 0px 40px;
+}
 	/* .carousel-item img{
 		min-height: 505px !important;
 	} */
@@ -8751,6 +8764,16 @@ input.location-select:focus {
 		display: block;
 		min-width: 130px;
 	  }
+	  .talent-floating-badge {
+        top: 20px;
+        left: 12px;
+}
+.floating-badge-hero.pos-tr {
+    right: -2%;
+}
+.floating-badge-hero.pos-bl {
+    left: -1%;
+}
 }
 
 @media (max-width :436px) {
