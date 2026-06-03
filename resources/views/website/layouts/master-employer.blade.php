@@ -44,6 +44,7 @@ $model = Setting::setting();
             <li><a href="{{  route('services') }}" class="{{Str::contains(url()->current(), 'services') ? 'active' : '' }}"><span>Services</span></a></li>
             <li><a href="{{  route('about') }}" class="{{Str::contains(url()->current(), 'about') ? 'active' : '' }}">About Us</a></li>
             <li><a href="{{  route('contact') }}" class="{{Str::contains(url()->current(), 'contact') ? 'active' : '' }}">Contact</a></li>
+            <li class="mobile-content employer-btn"><a style="color:#fff; text-align:center;  margin-right:5px;" class="btn btn-primary me-1" href="{{ route('skills.details') }}">View Jobs</a></li>
             @if(!session('employer_mode'))
             <li class="mobile-content"><a style="color:#fff; text-align:center;  margin-right:5px;" class="btn btn-primary me-1" href="{{ route('employer') }}">Find Professionals</a></li>
             @else
@@ -52,9 +53,10 @@ $model = Setting::setting();
             @endauth
             @guest
             <li class="mobile-content employer-btn"><a style="color:#fff; text-align:center;  margin-right:5px;" class="btn btn-primary me-1" href="{{ route('user.login') }}">Login</a></li>
-            <li class="mobile-content employer-btn"><a style="text-align:center" class="btn btn-primary text-decoration-none btn-white" href="{{ route('user.register') }}">Register</a></li>
+            {{-- <li class="mobile-content employer-btn"><a style="text-align:center" class="btn btn-primary text-decoration-none btn-white" href="{{ route('user.register') }}">Register</a></li> --}}
             @endguest
             @endif
+           
 
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>

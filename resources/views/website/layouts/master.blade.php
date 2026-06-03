@@ -45,28 +45,31 @@ $model = Setting::setting();
             <li><a href="{{  route('services') }}" class="{{Str::contains(url()->current(), 'services') ? 'active' : '' }}"><span>Services</span></a></li>
             <li><a href="{{  route('about') }}" class="{{Str::contains(url()->current(), 'about') ? 'active' : '' }}">About Us</a></li>
             <li><a href="{{  route('contact') }}" class="{{Str::contains(url()->current(), 'contact') ? 'active' : '' }}">Contact</a></li>
-            <!-- @if(!session('employer_mode'))
-                    <li class="mobile-content employer-btn"><a style="color:#fff; text-align:center;  margin-right:5px;" class="btn btn-primary me-1 empolyer-mobile"  href="{{ route('employer') }}">Employer Site</a></li>
+            @if(!session('employer_mode'))
+                    <li class="mobile-content employer-btn"><a style="color:#fff; text-align:center;  margin-right:5px;" class="btn btn-primary me-1 empolyer-mobile"  href="{{ route('employer') }}">Find Professionals</a></li>
             @else
                 @auth
-                 <li class="mobile-content employer-btn"><a  style="color:#fff; text-align:center; margin-left:5px; margin-right:5px;"  class="btn btn-primary ms-1 me-1" href="{{  route('dashboard') }}">Dashboard</a></li>
+                 <li class="mobile-content employer-btn"><a  style="color:#fff; text-align:center; margin-left:5px; margin-right:5px;"  class="btn btn-primary ms-1 me-1" href="{{ Auth::user()->hasRole('trader') ? route('tradie.dashboard') : route('dashboard') }}">Dashboard</a></li>
                 @endauth
+                @endif
                 @guest
                     <li class="mobile-content"><a style="color:#fff; text-align:center;  margin-right:5px;" class="btn btn-primary me-1"  href="{{ route('user.login') }}">Login</a></li>
-                    <li class="mobile-content"><a  style="color:#fff; text-align:center" class="btn btn-primary btn-black text-decoration-none" href="{{ route('user.register') }}">Register</a></li>
+                    {{-- <li class="mobile-content"><a  style="color:#fff; text-align:center" class="btn btn-primary btn-black text-decoration-none" href="{{ route('user.register') }}">Register</a></li> --}}
                 @endguest
-            @endif -->
+             
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
-        @if(!session('employer_mode'))
-        <div class="mobile-content employer-home"><a style="color:#fff; text-align:center;" class="btn btn-primary employer-site" href="{{ route('employer') }}">Find Professionals</a></div>
-        @else
+        {{-- <div class="mobile-content employer-home"><a style="color:#fff; text-align:center;" class="btn btn-primary employer-site" href="{{ route('employer') }}">Find Professionals</a></div>
+
         @auth
         <div class="mobile-content employer-btn"><a style="color:#fff; text-align:center; margin-left:5px; margin-right:5px;" class="btn btn-primary ms-1 me-1 employer-site" href="{{ Auth::user()->hasRole('trader') ? route('tradie.dashboard') : route('dashboard') }}">Dashboard</a></div>
         @endauth
+        @guest
+            <div class="mobile-content employer-home"><a style="color:#fff; text-align:center;" class="btn btn-primary employer-site" href="{{ route('user.login') }}">Login</a></div>
+        @endguest --}}
 
-        @endif
+
         <div class="btn-getstarted mobile-hide">
          
           <a href="{{ route('employer') }}" class="btn btn-primary btn-right-margin">Find Professionals</a>
