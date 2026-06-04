@@ -23,7 +23,7 @@ Services
                     <h4 class="me-lg-5">Beauty Services at Your Doorstep</h4>
 
                     <div class="about-detail me-lg-5">
-                        <p class="mb-3"> Skip the salon visit and enjoy professional beauty treatments at home. Book trusted beauty experts for makeup, hair, skincare, nail care, spa services and more whenever it suits you.</p>
+                        <p class="mb-3 main-content"> Skip the salon visit and enjoy professional beauty treatments at home. Book trusted beauty experts for makeup, hair, skincare, nail care, spa services and more whenever it suits you.</p>
                         
                         <div class = "service-box">
                         <div class="skill-tiles d-flex">
@@ -121,7 +121,8 @@ Services
                         </div>
 
                         <div class="skill-tiles d-flex">
-                            <i class="bi bi-phone-fill"></i>
+                            
+                             <img class="img-fluid" src="../images/network.svg" />
                             <div>
                                 <b class="black-tile-txt">Build Your Personal Brand</b>
                                 <p>Strengthen your reputation with verified reviews, repeat customers and a professional online presence that helps you stand out in the beauty industry.
@@ -130,7 +131,7 @@ Services
                             </div>
                         </div>
                         <div class="skill-tiles d-flex">
-                            <i class="bi bi-phone-fill"></i>
+                             <img class="img-fluid" src="../images/career.svg" />
                             <div>
                                 <b class="black-tile-txt">Grow Your Career on Your Terms</b>
                                 <p>Whether you're a freelance artist, salon professional or beauty entrepreneur, Glam On Tap provides opportunities to increase your visibility, expand your client base and grow your income.
