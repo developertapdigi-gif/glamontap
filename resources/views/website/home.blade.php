@@ -224,7 +224,7 @@ Home
               <div class="f-icon fi-rose"><i
                   class="fas fa-shield-alt"></i></div>
               <h5 class="font-heading salon-detail">Verified Employers</h5>
-              <p class="got-text-muted got-text-muted got-text-muted got-small got-mb-0">We vet every establishment to ensure a safe and professional workspace.</p>
+              <p class="got-text-muted got-text-muted got-text-muted got-small got-mb-0">We get every establishment to ensure a safe and professional workspace.</p>
             </div>
           </div>
         </div>
