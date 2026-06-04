@@ -26,8 +26,8 @@ $model = Setting::setting();
             <div class="row">
                 <div class="col-lg-6 col-sm-12">
                     <div class="contact-left-content contact-content">
-                        <h4>Let’s Connect</h4>
-                        <p class="mt-1 regular-grey-txt">Reach out today, and our team will respond promptly to assist with your home-service needs.</p>
+                        <h4>Your Beauty Journey Starts Here</h4>
+                        <p class="mt-1 regular-grey-txt">We're committed to delivering exceptional beauty experiences and outstanding customer support. Get in touch with our team for any inquiries and we'll respond promptly.</p>
                        
                         <div class = "service-box">
                         <div class="skill-tiles d-flex email-cnt">
@@ -82,8 +82,8 @@ $model = Setting::setting();
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-9 col-8">
-                    <h3>Take the hassle out of finding trusted home-service experts.</h3>
-                    <p>Contact us today and connect with verified professionals.</p>
+                    <h3>Bringing Beauty & Wellness to Your Doorstep</h3>
+                    <p>Discover salon-quality beauty services delivered by skilled professionals. Get in touch with us and let us help you create your perfect beauty experience.</p>
                 </div>
                 <div class="col-lg-3 col-4 start-trial">
                 <a href="{{ route('user.register') }}"><button class="skill-primary-btn white-btn strt-now">Start Now <p class="blue-circle"><img

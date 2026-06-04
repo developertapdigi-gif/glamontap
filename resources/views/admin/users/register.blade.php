@@ -113,8 +113,8 @@ $model = Setting::setting();
                         <img src="{{ asset('images/psd-images/logo.png') }}" class="login-logo d-sm-block d-md-none"/>
                     </a>
                     <div class="left-login-top-text">
-                        <h1>Explore the Platform To Connect With Skilled Tradesmen</h1>
-                        <p>Discover a Hub to Connect with Right Fit Tradesmen for Your Projects</p>
+                        <h1>Discover Trusted Beauty Professionals Near You</h1>
+                        <p>Experience convenience, quality and personalized care with beauty experts ready to deliver exceptional services at your doorstep.</p>
                     </div>
                     <div class="left-login-banner">
                         <img src="{{ asset('images/psd-images/macbook.png') }}" class="img-fluid"/>
