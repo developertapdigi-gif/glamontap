@@ -199,7 +199,7 @@ Home
           <div class="col-sm-6" data-aos="fade-up">
             <div class="feature-card">
               <div class="f-icon fi-purple-deep got-text-primary"><i class="fas fa-search"></i></div>
-              <h6 class="font-heading">Premium Salon Jobs</h6>
+              <h5 class="font-heading salon-detail">Premium Salon Jobs</h5>
               <p class="got-text-muted got-small">Customized strategies tailored for your career growth in the beauty industry.</p>
             </div>
           </div>
@@ -207,7 +207,7 @@ Home
             <div class="feature-card got-shadow-sm">
               <div class="f-icon fi-rose"><i class="fas fa-star"></i>
               </div>
-              <h6 class="font-heading">Top Stylist Careers</h6>
+              <h5 class="font-heading salon-detail">Top Stylist Careers</h5>
               <p class="got-text-muted got-text-muted got-text-muted got-small got-mb-0">Access exclusive career opportunities from luxury salon chains.</p>
             </div>
           </div>
@@ -215,7 +215,7 @@ Home
             <div class="feature-card got-shadow-sm">
               <div class="f-icon fi-purple-deep"><i
                   class="fas fa-map-marker-alt"></i></div>
-              <h6 class="font-heading">Global Locations</h6>
+              <h5 class="font-heading salon-detail">Global Locations</h5>
               <p class="got-text-muted got-text-muted got-text-muted got-small got-mb-0">Find your perfect place in top beauty capitals around the world.</p>
             </div>
           </div>
@@ -223,14 +223,14 @@ Home
             <div class="feature-card got-shadow-sm">
               <div class="f-icon fi-rose"><i
                   class="fas fa-shield-alt"></i></div>
-              <h6 class="font-heading">Verified Employers</h6>
+              <h5 class="font-heading salon-detail">Verified Employers</h5>
               <p class="got-text-muted got-text-muted got-text-muted got-small got-mb-0">We vet every establishment to ensure a safe and professional workspace.</p>
             </div>
           </div>
         </div>
       </div>
       <div class="col-lg-6 ps-lg-5" data-aos="fade-left">
-        <h2 class="display-5 got-fw-bold got-mb-4 font-heading">Find Your Next <span class="text-gradient-purple">Elite Chapter</span></h2>
+        <h2 class="home-heading got-fw-bold got-mb-4 font-heading">Find Your Next <span class="text-gradient-purple">Elite Chapter</span></h2>
         <p class="got-text-muted got-text-muted got-text-muted got-mb-4 fs-5">We connect the world's most talented beauty professionals with prestigious salons, luxury spas, and high-fashion houses.</p>
         <ul class="list-unstyled got-mb-5">
           <li class="got-mb-3 d-flex got-align-items-center got-gap-3"><i class="fas fa-check-circle got-text-primary"></i> <span>Direct access to luxury establishment recruiters</span></li>
@@ -248,7 +248,7 @@ Home
     <div class="cta-banner-card" data-aos="fade-up">
       <div class="row align-items-center g-5 position-relative z-2">
         <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
-          <h2 class="display-5 got-fw-bold got-mb-4 font-heading got-text-white">Hire the Top 1% of <span class="got-text-white">Beauty Talent</span></h2>
+          <h2 class="home-heading got-fw-bold got-mb-4 font-heading got-text-white">Hire the Top 1% of <span class="got-text-white">Beauty Talent</span></h2>
           <p class="got-mb-5 opacity-90 fs-5">Post your job today and reach thousands of verified experts in hair, makeup, spa, and wellness.</p>
           <div class="d-flex got-gap-3">
             <a href="{{ route('user.register') }} " class="btn got-btn btn-white got-rounded-pill px-4 px-md-5 got-py-3 got-fw-bold got-text-primary bg-white shine-effect">Post a Job</a>
@@ -278,16 +278,16 @@ Home
         </div>
       </div>
       <div class="col-lg-6 order-1 order-lg-2 ps-lg-5" data-aos="fade-left">
-        <h2 class="display-5 got-fw-bold got-mb-4 font-heading">Showcase Your <span class="text-gradient-purple">Artistic Flair</span></h2>
+        <h2 class="home-heading got-fw-bold got-mb-4 font-heading">Showcase Your <span class="text-gradient-purple">Artistic Flair</span></h2>
         <p class="got-text-muted got-text-muted got-text-muted got-mb-4 fs-5">Create a professional profile that highlights your unique style, certifications, and portfolio. Let the best salons find you.</p>
         <div class="row g-4 got-mb-5">
           <div class="col-sm-6">
             <h4 class="got-fw-bold got-text-primary got-mb-2 font-heading">85%</h4>
-            <p class="got-text-muted got-text-muted small got-mb-0">Higher chance of being hired with a full portfolio.</p>
+            <p class="got-text-muted got-text-muted got-mb-0">Higher chance of being hired with a full portfolio.</p>
           </div>
           <div class="col-sm-6">
             <h4 class="got-fw-bold got-text-primary got-mb-2 font-heading">500+</h4>
-            <p class="got-text-muted got-text-muted small got-mb-0">New profiles created every single day.</p>
+            <p class="got-text-muted got-text-muted got-mb-0">New profiles created every single day.</p>
           </div>
         </div>
         <a href="{{ route('user.register') }}" class="btn got-btn got-btn-primary btn-primary got-rounded-pill got-py-3 got-fw-bold shine-effect">Create Your Profile</a>
@@ -298,27 +298,27 @@ Home
 <!-- CSS: Section 15 - BOOTSTRAP OVERRIDE (Step Cards) | Classes: .step-card-primary, .step-card-light, .f-icon.icon-lg, .shine-effect -->
 <section class="section-space">
   <div class="container text-center">
-    <h3 class="got-fw-bold got-text-dark got-mb-4 font-heading" data-aos="fade-up">Getting Started is Easy</h3>
+    <h3 class="home-heading got-fw-bold got-text-dark got-mb-4 font-heading" data-aos="fade-up">Getting Started is Easy</h3>
     <div class="row justify-content-center g-4 mb-4">
       <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
         <div class="step-card-light shine-effect">
           <div class="f-icon icon-lg got-text-primary mx-auto got-mb-4 apply"><i class="fas fa-user-plus "></i></div>
           <h5 class="got-mb-3 font-heading">Create Profile</h5>
-          <p class="small opacity-80 mb-0">Build your professional beauty portfolio in minutes.</p>
+          <p class=" opacity-80 mb-0">Build your professional beauty portfolio in minutes.</p>
         </div>
       </div>
       <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
         <div class="step-card-light shine-effect">
           <div class="f-icon icon-lg got-text-primary mx-auto got-mb-4 apply"><i class="fas fa-search "></i></div>
           <h5 class="got-mb-3 font-heading got-text-dark">Find Your Match</h5>
-          <p class="small got-text-muted mb-0">Search through elite salons and filter by your specialty.</p>
+          <p class="opacity-80  mb-0">Search through elite salons and filter by your specialty.</p>
         </div>
       </div>
       <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
         <div class="step-card-light shine-effect">
           <div class="f-icon icon-lg got-text-primary mx-auto got-mb-4 apply"><i class="fas fa-magic "></i></div>
           <h5 class="got-mb-3 font-heading got-text-dark">Get Hired</h5>
-          <p class="small got-text-muted mb-0">Connect directly with owners and start your new chapter.</p>
+          <p class=" opacity-80 mb-0">Connect directly with owners and start your new chapter.</p>
         </div>
       </div>
     </div>

@@ -23,7 +23,7 @@ Services
                     <h4 class="me-lg-5">Hire Trusted Home-Help in Minutes</h4>
 
                     <div class="about-detail me-lg-5">
-                        <p class="mb-3"> Finding skilled home-service professionals shouldn’t be complicated. CoverHouse makes it simple by connecting you with verified helpers, managing your jobs, and streamlining communication—all in one place.</p>
+                        <p class="mb-3 main-content"> Finding skilled home-service professionals shouldn’t be complicated. CoverHouse makes it simple by connecting you with verified helpers, managing your jobs, and streamlining communication—all in one place.</p>
                         
                         <div class = "service-box">
                         <div class="skill-tiles d-flex">
@@ -124,7 +124,8 @@ Services
                         </div>
 
                         <div class="skill-tiles d-flex">
-                            <i class="bi bi-phone-fill"></i>
+                            
+                             <img class="img-fluid" src="../images/network.svg" />
                             <div>
                                 <b class="black-tile-txt">Grow Your Network</b>
                                 <p>Connect with verified clients, expand your professional circle, and build a strong network in the home-service industry.

@@ -211,7 +211,9 @@ h1,h2,h3,h4,h5,h6 {
   color: var(--bs-primary);
   opacity: 0.8;
 }
-
+.home-heading {
+	font-size: 35px;
+}
 .floating-glass-card {
   position: absolute;
   background: rgba(255, 255, 255, 0.85);
@@ -471,10 +473,12 @@ body .job-card:hover {
 .got-opacity-75 {
   opacity: 0.85;
 }
-
+.salon-detail {
+	font-size: 20px;
+}
 .got-text-muted {
   --bs-text-opacity: 1;
-  color: #7A5B7F;
+  color: #212529;
 }
 
 .bg-light-bg {
@@ -573,7 +577,7 @@ body .job-card:hover {
 
 .got-gap-1 { gap: 4px; }
 .got-gap-2 { gap: 8px; }
-.got-gap-3 { gap: 16px; }
+.got-gap-3 { gap: 12px; }
 .got-gap-4 { gap: 24px; }
 .got-gap-5 { gap: 48px; }
 
@@ -977,8 +981,12 @@ body .job-card:hover {
 section {
     overflow: hidden;
 }
-
-
+.job-description h2 {
+	margin-bottom: 10px;
+}
+.about-detail .main-content {
+	font-size: 20px;
+}
 
 
 
@@ -1703,7 +1711,7 @@ header {
 	background-color: #ffffff;
 }
 .post-content p {
-    font-size: 14px;
+    font-size: 16px;
     margin: 0px;
     height: 22px;
     overflow: hidden;
@@ -2776,7 +2784,7 @@ header {
 
 .skill-tiles p {
 
-	font-size: 20px;
+	font-size: 16px;
 
 }
 
@@ -2789,7 +2797,9 @@ header {
 	color: #612d8a;
 
 }
-
+.skill-tiles img {
+	padding: 7px 30px;
+}
 .no-label-form .form-control {
 
 	padding: 15px 20px;
@@ -3362,7 +3372,7 @@ scale:1.2
 
 .about-detail h5 {
 
-	font-size: 22px;
+	font-size: 20px;
 
 	color: #202124;
 
@@ -3372,7 +3382,7 @@ scale:1.2
 
 .about-detail p {
 
-	font-size: 18px;
+	font-size: 16px;
 
 	color: #636364;
 
@@ -3439,7 +3449,7 @@ scale:1.2
 
 .about-blue-footer h3 {
 
-	font-size: 32px;
+	font-size: 35px;
 
 	/* font-family: proximaNovaBold; */
 	    font-weight: 700;
@@ -8239,9 +8249,6 @@ i.person-gear::before{
 .regular-grey-txt {
     font-size: 17px;
 }
-.skill-tiles p {
-    font-size: 17px;
-}
 .contact-left-content {
     padding: 20px;
 }
@@ -8309,8 +8316,7 @@ i.person-gear::before{
     font-size: 19px;	
 	line-height: 26px;
 }
-.about-detail p {
-    font-size: 17px;
+.about-detail p {	
 	margin-top: 2px;
 }
 .form-login-group .form-control {
