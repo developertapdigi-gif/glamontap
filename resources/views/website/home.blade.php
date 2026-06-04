@@ -54,6 +54,9 @@ Home
             </div>
           </form>
         </div>
+         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#appointmentModal">
+          Book Appointment
+        </button>
       </div>
       <div class="col-lg-6">
         <div class="hero-visual-wrapper" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
@@ -369,8 +372,93 @@ Home
     </div>
   </div>
 
+
 </section>
 
+ <!-- Modal -->
+<div class="modal fade" id="appointmentModal" tabindex="-1" aria-labelledby="appointmentModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="appointmentModalLabel">Book Appointment</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <form action="{{ route('appointments.store') }}" method="POST">
+                @csrf
+
+                <div class="modal-body">
+                    <div class="row">
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" name="name" class="form-control" required>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Phone Number</label>
+                            <input type="text" name="phone" class="form-control" required>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" name="email" class="form-control">
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Service</label>
+                            <select name="service" class="form-select">
+                                <option value="">Select Service</option>
+                                 @foreach ($skills as $skill)
+                                <option value="{{ $skill->name }}">{{ $skill->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Salon</label>
+                            <select name="salon" class="form-select">
+                                <option value="">Select Salon</option>
+                                 @foreach ($company as $comp)
+                                <option value="{{ $comp->id }}">{{ $comp->first_name }}{{ $comp->last_name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Appointment Date</label>
+                            <input type="date" name="appointment_date" class="form-control" required>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Appointment Time</label>
+                            <input type="time" name="appointment_time" class="form-control" required>
+                        </div>
+
+                        <div class="col-12 mb-3">
+                            <label class="form-label">Message</label>
+                            <textarea name="message" rows="4" class="form-control"></textarea>
+                        </div>
+
+                        <input type="hidden" name="status" value="pending" class="form-control" required>
+
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Close
+                    </button>
+
+                    <button type="submit" class="btn btn-primary">
+                        Book Appointment
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
 
 @endsection
 @section('script')
@@ -388,6 +476,11 @@ Home
       });
     }
   });
+
+
+  $('#bookAppointmentBtn').click(function () {
+    $('#appointmentModal').modal('show');
+});
 </script>
 
 

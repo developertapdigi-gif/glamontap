@@ -37,6 +37,7 @@ class HomeController  extends Controller
 	} 
     $settings = Setting::first();
     $skills = SkillCategory::where('status', 1)->get();
+    $company = User::where('user_type', 2)->where('first_name', '!=', '')->where('status',1)->get();
 
     $traders = User::where('user_type', 3)->where('first_name', '!=', '')->where('home_seen_trader',1)->get();
     /* if ($traders->count() < $minimumRecords) {
@@ -56,7 +57,7 @@ class HomeController  extends Controller
     $mixjobs = Job::whereRaw("home_seen_job = 1 and DATE(start_date) >= '$today' and status!=4  and status!=3")->orderby('id', 'asc')->get();
     $mixtraders = User::where('user_type', 3)->where('first_name', '!=', '')->where('home_seen_trader',1)->orderBy('id', 'desc')->get();
     $merged = $mixtraders->merge($mixjobs);
-    return view('website.home',compact('jobs','traders','mixjobs','mixtraders','merged', 'skills'));
+    return view('website.home',compact('jobs','traders','mixjobs','mixtraders','merged', 'skills', 'company'));
     }
 
     public function employer()

@@ -26,7 +26,7 @@ Route::post('/post/{id}/react', [HomeController::class, 'react'])->middleware('a
 Route::get('/skills/{skillId?}', [HomeController::class, 'showBySkill'])->name('skills.details');
 #Route::get('/search-results', [HomeController::class, 'searchResult'])->name('searchResults');
 Route::get('search/details/{id}/{text}', [HomeController::class, 'showDetails'])->name('get.resultdetail');
-
+Route::post('/appointments', [HomeController::class, 'bookAppointment'])->name('appointments.store');
 Route::get('/clear-employer-mode', function () {
     session()->forget('employer_mode');
     return response()->json(['success' => true]);
