@@ -11,9 +11,9 @@ Home
     <div class="row align-items-center got-g-4">
       <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1200">
         <h1 class="display-5 fw-bold mb-4 font-heading" style="color: var(--bs-primary);">Empowering the World of <span class="font-serif italic text-accent" style="color: var(--accent) !important;">Beauty & Style</span></h1>
-        <p class="lead text-dark mb-md-5 mb-4 fs-5 opacity-75">Discover elite career opportunities in salons, spas, and fashion. <br>Join the community of top-tier beauty professionals today.</p>
+        <p class="lead text-dark mb-md-4 mb-3 fs-5 opacity-75">Discover elite career opportunities in salons, spas, and fashion. <br>Join the community of top-tier beauty professionals today.</p>
 
-        <div class="glass-search-container p-3 p-md-4" data-aos="fade-up" data-aos-delay="400">
+        <!-- <div class="glass-search-container p-3 p-md-4" data-aos="fade-up" data-aos-delay="400">
           <form action="{{ route('searchform') }}" class="row align-items-center">
             <div class="col-lg-3">
               <div class="search-input-group">
@@ -53,7 +53,7 @@ Home
               </button>
             </div>
           </form>
-        </div>
+        </div> -->
          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#appointmentModal">
           Book Appointment
         </button>
@@ -345,7 +345,7 @@ Home
         <p>Celebrating diversity and inclusion in every home-service role</p>
 
 
-        <div class="d-flex mt-lg-5 mt-4 about-download">
+        <div class="d-flex mt-lg-4 mt-4 about-download">
           <a href="#">
             <div class="applestore whitestore social-media-banners d-flex me-3 me-xs-0 mb-xs-3">
               <i class="bi bi-apple blue-icn"></i>
@@ -446,7 +446,7 @@ Home
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    <button type="button" class="btn btn-black text-light" data-bs-dismiss="modal">
                         Close
                     </button>
 
