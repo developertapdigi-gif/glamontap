@@ -31,26 +31,26 @@ About Us
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12">
-                    <h4>Welcome to CoverHouse</h4>
+                    <h4>About Glam On Tap</h4>
 
                     <div class="about-detail">
-                        <h5>Your gateway to trusted home-service professionals and meaningful job opportunities!</h5>
-                        <p>At CoverHouse, we believe in the value of skilled home-service professionals and the difference 
-                            they make in everyday life. From fixing essential utilities to maintaining clean, safe, and functional 
-                            homes, these experts are the backbone of our communities. Our mission is to connect talented professionals 
-                            with opportunities that match their skills while giving clients easy access to reliable, verified helpers.</p>
+                        <h5>Beauty, Wellness & Confidence Delivered to Your Doorstep</h5>
+                        <p>At Glam On Tap, we believe self-care should be effortless, accessible and tailored to your lifestyle. Our mission is to bring premium beauty and wellness services directly to your home, allowing you to enjoy professional treatments without the inconvenience of salon visits.
+                        Whether you're preparing for a special occasion, maintaining your beauty routine or simply taking time for yourself, Glam On Tap connects you with skilled and verified beauty professionals who deliver exceptional service in the comfort of your own space.
+                        </p>
 
                         <br>
-                         <h5>Our Mission</h5>
-                        <p>Our mission is simple: to create a seamless, trustworthy, and efficient platform where home-service professionals 
-                            can find meaningful work and clients can hire the best talent for their needs. We strive to bridge the gap between 
-                            demand and supply in the home-service industry, fostering a community built on trust and quality.</p>
+                         <h5>Our Story</h5>
+                        <p>Glam On Tap was created with a simple vision: to redefine the beauty experience by combining convenience, professionalism and personalized care. We recognized that busy schedules, travel time and long salon waits often make self-care difficult to prioritize.
+                        By bringing trusted beauty experts directly to clients, we make it easier than ever to access high-quality beauty services whenever and wherever they're needed.</p>
 
                             <br>
-                         <h5>Our Story</h5>
-                        <p>CoverHouse was founded out of a passion for supporting skilled home-service professionals and recognizing their invaluable 
-                            contributions. Our founder noticed the need for a centralised platform where helpers could showcase their skills, gain 
-                            recognition, and easily connect with clients, while clients could access reliable, verified professionals quickly and efficiently.</p>
+                         <h5>Our Mission</h5>
+                        <p>To make professional beauty and wellness services accessible, convenient and reliable while empowering beauty professionals to grow and succeed.</p>
+
+                        <br>
+                         <h5>Our Vision</h5>
+                        <p>To become the most trusted destination for at home beauty and wellness services, transforming the way people experience self-care and beauty.</p>
 
                     </div>
 
@@ -63,23 +63,29 @@ About Us
         <div class="mid-content skill-about-content">
             <div class="row about-cont align-items-center">
                 <div class="col-lg-6 col-md-12 col-sm-12">
-                    <h4>Why Choose CoverHouse</h4>
+                    <h4>Why Choose Glam On Tap?</h4>
 
                     <div class="about-detail">
                         <ul>
                             <li><b>
-                                Verified Professionals:</b> Every helper is background-checked and skilled.
+                               Verified Beauty Experts:</b> Experienced and trusted professionals dedicated to delivering exceptional beauty services.
                             </li>
                                 <li><b>
-                                Easy Access:</b> Find the right service for your home quickly and efficiently.
-                            </li>
-                                <li><b>
-                                Grow Your Career:</b> Professionals can showcase work, receive ratings, and connect with more clients.
-                            </li>
-                                <li><b>
-                                Mobile-Friendly:</b> Manage jobs, schedules, and communication anytime, anywhere.
-                            </li>
+                                Salon Quality at Home:</b> Enjoy premium beauty and wellness treatments in the comfort of your own space.
 
+                            </li>
+                                <li><b>
+                               Convenient Booking:</b> Schedule appointments easily at a time that works best for you.
+                            </li>
+                                <li><b>
+                                Safe & Hygienic Services:</b>High standards of cleanliness, professionalism and customer care.
+                            </li>
+                             <li><b>
+                                Personalized Experience:</b>Beauty services tailored to your unique style, preferences and needs.
+                            </li>
+                            <li><b>
+                                Reliable & Hassle-Free:</b>Skip travel and waiting times while receiving top-quality beauty care at your doorstep.
+                            </li>
                         </ul>
                     </div>
 
@@ -108,8 +114,9 @@ About Us
                 </div>
                     </div>
                     <div class="col-xl-7 col-lg-8 col-md-12 abt-blue-desc">
-                    <h3>Connecting top household talent with real jobs that are ready right now.</h3>
-                    <p>We’re powering a more diverse, inclusive future for all.</p>
+                    <h3>Beauty Expertise, Delivered to Your Doorstep</h3>
+                    <p>Connecting trusted beauty professionals with clients who value convenience, quality and personalized care.
+                    Empowering beauty experts. Elevating self care experiences.</p>
                 
                    
                         <div class="d-flex mt-lg-5 mt-4 about-download">

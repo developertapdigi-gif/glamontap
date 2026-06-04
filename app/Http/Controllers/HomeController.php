@@ -631,7 +631,7 @@ private function applySearchConditions($query, string $searchTerm, string $searc
     }
 
 
-   public function showBySkill($skillId = null)
+    public function showBySkill($skillId = null)
     {
         // Get all tasks
         $allTasks = DB::table('tasks')

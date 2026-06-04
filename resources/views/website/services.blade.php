@@ -20,17 +20,17 @@ Services
         <div class="mid-content skill-about-content">
             <div class="row ">
                 <div class="col-lg-6 col-xl-5 col-sm-12 col-md-12">
-                    <h4 class="me-lg-5">Hire Trusted Home-Help in Minutes</h4>
+                    <h4 class="me-lg-5">Beauty Services at Your Doorstep</h4>
 
                     <div class="about-detail me-lg-5">
-                        <p class="mb-3"> Finding skilled home-service professionals shouldn’t be complicated. CoverHouse makes it simple by connecting you with verified helpers, managing your jobs, and streamlining communication—all in one place.</p>
+                        <p class="mb-3"> Skip the salon visit and enjoy professional beauty treatments at home. Book trusted beauty experts for makeup, hair, skincare, nail care, spa services and more whenever it suits you.</p>
                         
                         <div class = "service-box">
                         <div class="skill-tiles d-flex">
                             <i class="bi bi-list-check"></i>
                             <div>
-                                <b class="black-tile-txt">Discover the Perfect Helper</b>
-                                <p>Search from a wide range of professionals—plumbers, electricians, cleaners, caretakers, pest controllers, and more—ready to take on your tasks.</p>
+                                <b class="black-tile-txt">Discover Your Perfect Beauty Expert</b>
+                                <p>Choose from a wide range of services including makeup, hairstyling, facials, manicures, pedicures, waxing, bridal packages, spa therapies and more all delivered by experienced professionals.</p>
 
 
                             </div>
@@ -39,8 +39,8 @@ Services
                         <div class="skill-tiles d-flex">
                             <i class="bi bi-gear"></i>
                             <div>
-                                <b class="black-tile-txt">Quick and Easy Hiring</b>
-                                <p>Post your job in seconds and receive applications directly from qualified, verified professionals. No delays, no hassle.</p>
+                                <b class="black-tile-txt">Quick & Hassle Free Booking</b>
+                                <p>Book your preferred service in just a few clicks. Select your treatment, choose a convenient time slot and let our beauty experts come to you.</p>
 
                             </div>
                         </div>
@@ -48,8 +48,8 @@ Services
                         <div class="skill-tiles d-flex">
                             <i class="bi bi-person-check-fill"></i>
                             <div>
-                                <b class="black-tile-txt">Manage Your Jobs Seamlessly</b>
-                                <p>Track, schedule, and monitor your home-service requests across multiple locations with our web portal or mobile app. Stay in control while helpers do the work.
+                                <b class="black-tile-txt">Trusted Professionals, Exceptional Results</b>
+                                <p>Every beauty professional on our platform is carefully vetted to ensure quality, hygiene and customer satisfaction. Enjoy reliable service and a premium experience every time.
                                 </p>
 
                             </div>
@@ -85,20 +85,17 @@ Services
                 </div>
 
                 <div class="col-lg-6 col-xl-7 col-md-12 col-sm-12">
-                    <h4>CoverHouse – Your All-in-One Home-Service Platform</h4>
+                    <h4>Glam On Tap – Empowering Beauty Professionals</h4>
                     <div class="about-detail">
-                        <h5>A platform for skilled home-service professionals</h5>
-                        <p class="mb-3">CoverHouse is your go-to platform for plumbers, electricians, cleaners, caretakers, pest control experts, 
-                            and more. We empower home-service professionals by providing a space to showcase your skills, connect with clients, and 
-                            grow your career. No matter your expertise, CoverHouse equips you with the right tools to expand your professional 
-                            opportunities and build a trusted reputation.</p>
+                        <h5>A platform designed for talented beauty experts.</h5>
+                        <p class="mb-3">Glam On Tap helps makeup artists, hairstylists, nail technicians, beauticians, spa therapists and skincare professionals connect with clients who value quality beauty services. Whether you're building your personal brand or expanding your clientele, our platform gives you the tools to grow your beauty business with confidence.</p>
 
                         <div class = "service-box">
                             <div class="skill-tiles d-flex">
                             <i class="bi bi-link-45deg"></i>
                             <div>
-                                <b class="black-tile-txt">Showcase Your Skills</b>
-                                <p>Upload high-quality images of your work to attract clients, demonstrate your expertise, and build your credibility with reviews and ratings.</p>
+                                <b class="black-tile-txt">Showcase Your Talent</b>
+                                <p>Create a stunning profile, upload your portfolio, display your best work and collect client reviews that build trust and attract more bookings.</p>
 
                             </div>
                         </div>
@@ -106,8 +103,8 @@ Services
                         <div class="skill-tiles d-flex">
                             <i class="bi bi-tools"></i>
                             <div>
-                                <b class="black-tile-txt">Get Matched Instantly</b>
-                                <p>Receive job opportunities tailored to your skills, location, and availability.
+                                <b class="black-tile-txt">Get Bookings That Match Your Expertise</b>
+                                <p>Receive service requests based on your specialties, location and availability, helping you connect with the right clients at the right time.
                                 </p>
 
                             </div>
@@ -116,8 +113,8 @@ Services
                         <div class="skill-tiles d-flex">
                             <i class="bi bi-phone-fill"></i>
                             <div>
-                                <b class="black-tile-txt">Stay Connected on the Go</b>
-                                <p>Our mobile-friendly app ensures you can access opportunities, communicate with clients, and manage your work anytime, anywhere.
+                                <b class="black-tile-txt">Manage Your Business Effortlessly</b>
+                                <p>Track appointments, manage schedules, communicate with clients and stay organized through our easy to use platform.
                                 </p>
 
                             </div>
@@ -126,8 +123,17 @@ Services
                         <div class="skill-tiles d-flex">
                             <i class="bi bi-phone-fill"></i>
                             <div>
-                                <b class="black-tile-txt">Grow Your Network</b>
-                                <p>Connect with verified clients, expand your professional circle, and build a strong network in the home-service industry.
+                                <b class="black-tile-txt">Build Your Personal Brand</b>
+                                <p>Strengthen your reputation with verified reviews, repeat customers and a professional online presence that helps you stand out in the beauty industry.
+                                </p>
+
+                            </div>
+                        </div>
+                        <div class="skill-tiles d-flex">
+                            <i class="bi bi-phone-fill"></i>
+                            <div>
+                                <b class="black-tile-txt">Grow Your Career on Your Terms</b>
+                                <p>Whether you're a freelance artist, salon professional or beauty entrepreneur, Glam On Tap provides opportunities to increase your visibility, expand your client base and grow your income.
                                 </p>
 
                             </div>
