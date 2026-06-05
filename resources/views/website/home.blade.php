@@ -11,9 +11,9 @@ Home
     <div class="row align-items-center got-g-4">
       <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1200">
         <h1 class="display-5 fw-bold mb-4 font-heading" style="color: var(--bs-primary);">Empowering the World of <span class="font-serif italic text-accent" style="color: var(--accent) !important;">Beauty & Style</span></h1>
-        <p class="lead text-dark mb-md-5 mb-4 fs-5 opacity-75">Discover elite career opportunities in salons, spas, and fashion. <br>Join the community of top-tier beauty professionals today.</p>
+        <p class="lead text-dark mb-md-4 mb-3 fs-5 opacity-75">Discover elite career opportunities in salons, spas, and fashion. <br>Join the community of top-tier beauty professionals today.</p>
 
-        <div class="glass-search-container p-3 p-md-4" data-aos="fade-up" data-aos-delay="400">
+        <!-- <div class="glass-search-container p-3 p-md-4" data-aos="fade-up" data-aos-delay="400">
           <form action="{{ route('searchform') }}" class="row align-items-center">
             <div class="col-lg-3">
               <div class="search-input-group">
@@ -53,7 +53,7 @@ Home
               </button>
             </div>
           </form>
-        </div>
+        </div> -->
          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#appointmentModal">
           Book Appointment
         </button>
@@ -345,7 +345,7 @@ Home
         <p>Celebrating diversity and inclusion in every home-service role</p>
 
 
-        <div class="d-flex mt-lg-5 mt-4 about-download">
+        <div class="d-flex mt-lg-4 mt-4 about-download">
           <a href="#">
             <div class="applestore whitestore social-media-banners d-flex me-3 me-xs-0 mb-xs-3">
               <i class="bi bi-apple blue-icn"></i>
@@ -385,7 +385,7 @@ Home
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
 
-            <form action="{{ route('appointments.store') }}" method="POST">
+            <form action="{{ route('appointment.store') }}" method="POST">
                 @csrf
 
                 <div class="modal-body">
@@ -446,7 +446,7 @@ Home
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    <button type="button" class="btn btn-black text-light" data-bs-dismiss="modal">
                         Close
                     </button>
 
@@ -460,9 +460,45 @@ Home
     </div>
 </div>
 
+{{-- thank you modal --}}
+<div class="modal fade" id="thankYouModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title">Thank You!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body text-center">
+                <h4>Your appointment has been booked successfully.</h4>
+                <p>We will contact you shortly.</p>
+            </div>
+
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                    OK
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 @endsection
 @section('script')
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+@if(session('success'))
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var thankYouModal = new bootstrap.Modal(
+        document.getElementById('thankYouModal')
+    );
+    thankYouModal.show();
+});
+</script>
+@endif
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {

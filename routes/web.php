@@ -5,7 +5,7 @@ use App\Http\Middleware\AgencyStatus;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\{HomeController,CkeditorController,CheckoutController};
 use App\Http\Controllers\Tradie\{DashboardController as TradieDashboard, JobController as TradieJob, ProfileController as TradieProfile, PostController as TradiePost, ConnectionController as TradieConnection, NotificationController as TradieNotification};
-use App\Http\Controllers\Admin\{AgencySubscriptionController,UserController,DashboardController,ProfileController,AgencyController,TraderController,SkillCategoriesController,JobController,RoleController,SettingController,AgentController,NotificationController,SubscriptionPlanController,BadgesController,PostOverWallController,EndrosementPostController,CmsController,PreviewPostJobController,AddonPlansController,FeedbackSurveysController};
+use App\Http\Controllers\Admin\{AgencySubscriptionController,UserController,DashboardController,ProfileController,AgencyController,TraderController,SkillCategoriesController,JobController,RoleController,SettingController,AgentController,NotificationController,SubscriptionPlanController,BadgesController,PostOverWallController,EndrosementPostController,CmsController,PreviewPostJobController,AddonPlansController,FeedbackSurveysController,AppointmentController};
 /* Common Routes*/
 Route::post('ckeditor/upload', [CkeditorController::class, 'upload'])->name('ckeditor.image-upload');
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -26,7 +26,7 @@ Route::post('/post/{id}/react', [HomeController::class, 'react'])->middleware('a
 Route::get('/skills/{skillId?}', [HomeController::class, 'showBySkill'])->name('skills.details');
 #Route::get('/search-results', [HomeController::class, 'searchResult'])->name('searchResults');
 Route::get('search/details/{id}/{text}', [HomeController::class, 'showDetails'])->name('get.resultdetail');
-Route::post('/appointments', [HomeController::class, 'bookAppointment'])->name('appointments.store');
+Route::post('/appointment', [HomeController::class, 'bookAppointment'])->name('appointment.store');
 Route::get('/clear-employer-mode', function () {
     session()->forget('employer_mode');
     return response()->json(['success' => true]);
@@ -170,6 +170,7 @@ Route::group(['middleware' => ['auth']], function() {
         Route::resource('post-over-wall',PostOverWallController::class);
         Route::get('cms/list', [CmsController::class, 'fetchData'])->name('fetch.cms');
         Route::resource('cms',CmsController::class); 
+        Route::resource('appointments', AppointmentController::class);
     });
 });
 

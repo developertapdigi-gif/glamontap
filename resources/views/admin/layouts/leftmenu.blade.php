@@ -78,6 +78,12 @@ $model = Setting::setting();
              Skill Categories
         </a>
     </li>
+     <li class="pb-0 {{Str::contains(url()->current(), 'appointments') ? 'active' : '' }}">
+        <a href="{{ route('appointments.index') }}">
+            <i class="bi bi-calendar-check"></i>
+             Appointment 
+        </a>
+    </li>
     <li class="{{Str::contains(url()->current(), 'badges') ? 'active' : '' }}">
         <a href="{{ route('badges.index') }}">
             <i class="badges-icon"></i>
@@ -90,6 +96,7 @@ $model = Setting::setting();
              Feedback
         </a>
     </li>
+
     <div class="leftnav navmenu admin-leftbar">
         <li class="dropdown pb-0 {{Str::contains(url()->current(), 'setting') ? 'active' : '' }}">
         <a class="mt-0 mb-0"  href="#">
@@ -119,6 +126,12 @@ $model = Setting::setting();
         <a href="{{ route('job.index') }}">
             <i class="jobs-icon"></i>
              Jobs
+        </a>
+    </li>
+    <li class="pb-0 {{Str::contains(url()->current(), 'appointments') ? 'active' : '' }}">
+        <a href="{{ route('appointments.index') }}">
+            <i class="bi bi-calendar-check"></i>
+             Appointment 
         </a>
     </li>
     <li class = "{{ Str::contains(url()->current(), 'endrosement-post') ? 'active' : '' }}">
