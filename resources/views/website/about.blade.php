@@ -21,12 +21,13 @@ About Us
 
     <div class="container-fluid">
         <div class="mid-content skill-about-content">
-            <div class="row about-cont">
+            <div class="row about-cont align-items-center">
                 <div class="col-lg-6 col-sm-12 col-md-12">
                     <div class="contact-left-content about-mobile-background">
                      <div class="about-left-banner pe-0">
-                        <img class="img-fluid desktop-image" src="../images/about-mobile-background.webp" />
-                        <img class="overlap-image img-fluid phone-img" src="../images/about-mobile-1.webp" />
+                        <img class="img-fluid" src="../images/about-glam.webp" width="100%" />
+                        <!-- <img class="img-fluid desktop-image" src="../images/about-mobile-background.webp" />
+                        <img class="overlap-image img-fluid phone-img" src="../images/about-mobile-1.webp" /> -->
                      </div>
                     </div>
                 </div>
@@ -60,7 +61,7 @@ About Us
         </div>
     </div>
         <div class="container-fluid">
-        <div class="mid-content skill-about-content">
+        <div class="mid-content skill-about-content align-items-center">
             <div class="row about-cont align-items-center">
                 <div class="col-lg-6 col-md-12 col-sm-12">
                     <h4>Why Choose Glam On Tap?</h4>
@@ -93,7 +94,8 @@ About Us
                 <div class="col-lg-6 col-sm-12 col-md-12">
                     <div class="text-center">
                      <div class="about-left-banner pe-0">
-                        <img class="img-fluid" src="../images/psd-images/mobile1.webp" />
+                        <!-- <img class="img-fluid" src="../images/psd-images/mobile1.webp" /> -->
+                         <img class="img-fluid" src="../images/choose-glam.webp" width="100%" />
                      </div>
                     </div>
                 </div>

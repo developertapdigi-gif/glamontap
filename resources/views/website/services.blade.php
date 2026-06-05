@@ -18,19 +18,19 @@ Services
 
     <div class="service-secnd-section container-fluid">
         <div class="mid-content skill-about-content">
-            <div class="row ">
+            <div class="row align-items-center">
                 <div class="col-lg-6 col-xl-5 col-sm-12 col-md-12">
                     <h4 class="me-lg-5">Beauty Services at Your Doorstep</h4>
 
                     <div class="about-detail me-lg-5">
-                        <p class="mb-3 main-content"> Skip the salon visit and enjoy professional beauty treatments at home. Book trusted beauty experts for makeup, hair, skincare, nail care, spa services and more whenever it suits you.</p>
+                        <p class="mb-3 main-content"> Skip the salon wait and enjoy professional beauty services in the comfort of your home. Book trusted experts for makeup, hair, skincare and more all tailored to you.</p>
                         
                         <div class = "service-box">
                         <div class="skill-tiles d-flex">
                             <i class="bi bi-list-check"></i>
                             <div>
-                                <b class="black-tile-txt">Discover Your Perfect Beauty Expert</b>
-                                <p>Choose from a wide range of services including makeup, hairstyling, facials, manicures, pedicures, waxing, bridal packages, spa therapies and more all delivered by experienced professionals.</p>
+                                <b class="black-tile-txt">Verified Experts</b>
+                                <p>Trained & verified beauty professionals.</p>
 
 
                             </div>
@@ -39,17 +39,17 @@ Services
                         <div class="skill-tiles d-flex">
                             <i class="bi bi-gear"></i>
                             <div>
-                                <b class="black-tile-txt">Quick & Hassle Free Booking</b>
-                                <p>Book your preferred service in just a few clicks. Select your treatment, choose a convenient time slot and let our beauty experts come to you.</p>
+                                <b class="black-tile-txt">Easy Booking</b>
+                                <p>Book in minutes, anytime, anywhere..</p>
 
                             </div>
                         </div>
 
-                        <div class="skill-tiles d-flex">
+                        <div class="skill-tiles d-flex mb-0">
                             <i class="bi bi-person-check-fill"></i>
                             <div>
-                                <b class="black-tile-txt">Trusted Professionals, Exceptional Results</b>
-                                <p>Every beauty professional on our platform is carefully vetted to ensure quality, hygiene and customer satisfaction. Enjoy reliable service and a premium experience every time.
+                                <b class="black-tile-txt">Safe & Hygienic</b>
+                                <p>Hygiene-first services you can trust.
                                 </p>
 
                             </div>
@@ -62,8 +62,9 @@ Services
 
                     <div class="hire-trust">
                         <div class="about-left-banner service-right-sec pe-lg-0">
-                            <img class="img-fluid" src="../images/about-mobile-background.webp" width="100%" />
-                            <img id="scnd-banner-img" class="overlap-image scnd-banner-img img-fluid" src="../images/screen_1.webp" />
+                            <!-- <img class="img-fluid" src="../images/about-mobile-background.webp" width="100%" />
+                            <img id="scnd-banner-img" class="overlap-image scnd-banner-img img-fluid" src="../images/screen_1.webp" /> -->
+                            <img class="img-fluid" src="../images/beauty-img.webp" width="100%" />
                         </div>
                     </div>
 
@@ -74,12 +75,13 @@ Services
 
 
 
-            <div class="row service-section-margin ">
+            <div class="row service-section-margin align-items-center">
                 <div class="col-lg-6 col-xl-5 col-sm-12 col-md-12">
                     <div class="contact-left-content about-mobile-background">
                         <div class="about-left-banner pe-0">
-                            <img class="img-fluid desktop-image" src="../images/about-mobile-background.webp" />
-                            <img class="overlap-image frst-banner-img img-fluid" src="../images/about-mobile-1.webp" />
+                            <!-- <img class="img-fluid desktop-image" src="../images/about-mobile-background.webp" />
+                            <img class="overlap-image frst-banner-img img-fluid" src="../images/about-mobile-1.webp" /> -->
+                            <img class="img-fluid" src="../images/beauty-img2.webp" width="100%" />
                         </div>
                     </div>
                 </div>
@@ -88,14 +90,14 @@ Services
                     <h4>Glam On Tap – Empowering Beauty Professionals</h4>
                     <div class="about-detail">
                         <h5>A platform designed for talented beauty experts.</h5>
-                        <p class="mb-3">Glam On Tap helps makeup artists, hairstylists, nail technicians, beauticians, spa therapists and skincare professionals connect with clients who value quality beauty services. Whether you're building your personal brand or expanding your clientele, our platform gives you the tools to grow your beauty business with confidence.</p>
+                        <p class="mb-3">Join our platform and unlock endless opportunities. Showcase your talent, manage bookings, grow your client base and build a brand you love.</p>
 
                         <div class = "service-box">
                             <div class="skill-tiles d-flex">
                             <i class="bi bi-link-45deg"></i>
                             <div>
                                 <b class="black-tile-txt">Showcase Your Talent</b>
-                                <p>Create a stunning profile, upload your portfolio, display your best work and collect client reviews that build trust and attract more bookings.</p>
+                                <p>Create a stunning profile and highlight your skills, portfolio & experience.</p>
 
                             </div>
                         </div>
@@ -103,8 +105,8 @@ Services
                         <div class="skill-tiles d-flex">
                             <i class="bi bi-tools"></i>
                             <div>
-                                <b class="black-tile-txt">Get Bookings That Match Your Expertise</b>
-                                <p>Receive service requests based on your specialties, location and availability, helping you connect with the right clients at the right time.
+                                <b class="black-tile-txt">Manage Everything</b>
+                                <p>Handle bookings, schedule and clients, all in one place.
                                 </p>
 
                             </div>
@@ -113,24 +115,24 @@ Services
                         <div class="skill-tiles d-flex">
                             <i class="bi bi-phone-fill"></i>
                             <div>
-                                <b class="black-tile-txt">Manage Your Business Effortlessly</b>
-                                <p>Track appointments, manage schedules, communicate with clients and stay organized through our easy to use platform.
+                                <b class="black-tile-txt">Get More Bookings</b>
+                                <p>Receive service requests that match your expertise & availability.
                                 </p>
 
                             </div>
                         </div>
 
-                        <div class="skill-tiles d-flex">
+                        <div class="skill-tiles d-flex mb-0">
                             
                              <img class="img-fluid" src="../images/network.svg" />
                             <div>
-                                <b class="black-tile-txt">Build Your Personal Brand</b>
-                                <p>Strengthen your reputation with verified reviews, repeat customers and a professional online presence that helps you stand out in the beauty industry.
+                                <b class="black-tile-txt">Grow Your Brand</b>
+                                <p>Build your reputation and grow your business with confidence.
                                 </p>
 
                             </div>
                         </div>
-                        <div class="skill-tiles d-flex">
+                        <!-- <div class="skill-tiles d-flex">
                              <img class="img-fluid" src="../images/career.svg" />
                             <div>
                                 <b class="black-tile-txt">Grow Your Career on Your Terms</b>
@@ -138,7 +140,7 @@ Services
                                 </p>
 
                             </div>
-                        </div>
+                        </div> -->
                         </div>
 
                     </div>

@@ -2790,7 +2790,8 @@ header {
 
 .skill-tiles i {
 
-	padding: 7px 30px;
+	/* padding: 7px 30px; */
+	margin-right: 15px;
 
 	font-size: 34px;
 
@@ -2798,7 +2799,7 @@ header {
 
 }
 .skill-tiles img {
-	padding: 7px 30px;
+	margin-right: 15px;
 }
 .no-label-form .form-control {
 
@@ -2869,19 +2870,19 @@ scale:1.2
 @media (max-width: 1680px) {
     .service-right-sec .overlap-image {
 		left: -4%;
-        bottom: 22%;
+        bottom: 18%;
     
 	}
 
 }
-    @media (max-width: 1520px) {
+    /* @media (max-width: 1520px) {
 
 	.service-right-sec .overlap-image {
 		left: -5%;
         bottom: 21%;
     
 	}
-}
+} */
 @media (max-width: 1440px) {
 
 	.service-right-sec .overlap-image {
@@ -3363,7 +3364,9 @@ scale:1.2
 	position: relative;
 
 }
-
+.about-left-banner img {
+	border-radius: 15px;
+}
 .about-detail {
 
 	margin-top: 30px;
@@ -3386,9 +3389,9 @@ scale:1.2
 
 	color: #636364;
 
-	margin-top: 10px;
+	margin-top: 4px;
 
-	margin-bottom: 5px;
+	margin-bottom: 0px;
 
 }
 
