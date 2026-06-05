@@ -987,6 +987,19 @@ section {
 .about-detail .main-content {
 	font-size: 20px;
 }
+.choose_glam {
+	margin-bottom: 80px;
+}
+.appointment-icon i:before{
+	font-size: 29px;
+}
+
+
+
+
+
+
+
 
 
 
@@ -4204,6 +4217,7 @@ h2 {
 	height: 37px;
 	width: 24px;
 	background: url('../images/icons/Profile.svg') no-repeat;
+	background-size: contain;
 }
 
 .badges-icon {

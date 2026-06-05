@@ -79,7 +79,7 @@ $model = Setting::setting();
         </a>
     </li>
      <li class="pb-0 {{Str::contains(url()->current(), 'appointments') ? 'active' : '' }}">
-        <a href="{{ route('appointments.index') }}">
+        <a href="{{ route('appointments.index') }}" class="appointment-icon">
             <i class="bi bi-calendar-check"></i>
              Appointment 
         </a>

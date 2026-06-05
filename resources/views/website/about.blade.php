@@ -106,7 +106,7 @@ About Us
 
 
 <div class="container-fluid">
-    <div class="mid-content skill-about-content align-items-center">
+    <div class="mid-content skill-about-content align-items-center choose_glam">
         <div class="row about-cont align-items-center">
             <div class="col-lg-6 col-sm-12 col-md-12">
                 <div class="text-center">

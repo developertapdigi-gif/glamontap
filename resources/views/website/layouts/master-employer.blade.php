@@ -108,7 +108,7 @@ $model = Setting::setting();
   </section>
   <footer class="skill-website-footer">
     <div class="container">
-      <p class="footer-text-left">© 2024 {{$model['name_of_website']}} | <a href="{{route('privacyPolicy')}}"> Privacy Policy</a></p>
+      <p class="footer-text-left">© 2026 {{$model['name_of_website']}} | <a href="{{route('privacyPolicy')}}"> Privacy Policy</a></p>
       <p class="footer-text-right"><a href="{{route('termsCondition')}}">Community Guidelines</a></p>
     </div>
   </footer>
