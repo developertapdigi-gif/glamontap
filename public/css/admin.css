@@ -1986,7 +1986,7 @@ header {
 	  .navmenu a,
 	  .navmenu a:focus {
 		color:#202124;
-		padding: 10px 0px;
+		padding: 10px 15px;
 		font-size: 17px;
 		font-weight: 500;
 		display: flex;
@@ -3369,7 +3369,7 @@ scale:1.2
 }
 .about-detail {
 
-	margin-top: 30px;
+	margin-top: 20px;
 
 }
 
@@ -3541,7 +3541,7 @@ scale:1.2
 
 	.about-mobile-background {
 
-		background: url(../images/about-mobile-background.webp) no-repeat;
+		/* background: url(../images/about-mobile-background.webp) no-repeat; */
 
 		background-size: cover;
         border-radius: 21px;
