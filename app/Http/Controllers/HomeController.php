@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
-use App\Models\{Setting,User,Job,SkillCategory,Post,PostGallery,PostLike};
+use App\Models\{Setting,User,Job,SkillCategory,Post,PostGallery,PostLike,Appointment};
 use App\Mail\ContactForm;
 use App\Models\SubscriptionPlans as Plan;
 use App\Models\PlansAddon;
@@ -717,5 +717,11 @@ private function applySearchConditions($query, string $searchTerm, string $searc
         return view('website.all-jobs', compact('tasks'));
     }
 
+    public function bookAppointment(Request $request)
+    {
+        Appointment::create($request->all());
+
+        return redirect()->back()->with('success', 'Appointment booked successfully.');
+    }
 }
 ?>

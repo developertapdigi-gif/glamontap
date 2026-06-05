@@ -385,7 +385,7 @@ Home
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
 
-            <form action="{{ route('appointments.store') }}" method="POST">
+            <form action="{{ route('appointment.store') }}" method="POST">
                 @csrf
 
                 <div class="modal-body">
@@ -460,9 +460,45 @@ Home
     </div>
 </div>
 
+{{-- thank you modal --}}
+<div class="modal fade" id="thankYouModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title">Thank You!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body text-center">
+                <h4>Your appointment has been booked successfully.</h4>
+                <p>We will contact you shortly.</p>
+            </div>
+
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                    OK
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 @endsection
 @section('script')
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+@if(session('success'))
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var thankYouModal = new bootstrap.Modal(
+        document.getElementById('thankYouModal')
+    );
+    thankYouModal.show();
+});
+</script>
+@endif
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {

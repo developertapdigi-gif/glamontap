@@ -17,4 +17,11 @@ class Appointment extends Model
     'salon',
     'status',
 ];
+
+
+public function salonUser()
+{
+    return $this->belongsTo(User::class, 'salon');
+}
+
 }
