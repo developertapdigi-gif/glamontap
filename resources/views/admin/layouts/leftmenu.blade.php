@@ -12,7 +12,7 @@ else{
 }
 $model = Setting::setting();
 @endphp
-<h1><a href="{{url('/')}}?emp=1" class="logo">
+<h1><a href="{{url('/')}}" id="dashboard-logo" class="logo">
     <img src="{{ $model['favicon'] }}" /></a>
 </h1>
 <ul class="list-unstyled components mb-5">
@@ -129,7 +129,7 @@ $model = Setting::setting();
         </a>
     </li>
     <li class="pb-0 {{Str::contains(url()->current(), 'appointments') ? 'active' : '' }}">
-        <a href="{{ route('appointments.index') }}">
+        <a href="{{ route('bookings') }}">
             <i class="bi bi-calendar-check"></i>
              Appointment 
         </a>
@@ -199,3 +199,17 @@ $model = Setting::setting();
     </li>
     </ul>
 </div>
+
+<script>
+$(document).ready(function () {
+
+    $('#dashboard-logo').click(function (e) {
+        e.preventDefault();
+
+        $.get("{{ route('clear.employer.mode') }}", function () {
+            window.location.href = "{{ url('/') }}";
+        });
+    });
+
+});
+</script>
