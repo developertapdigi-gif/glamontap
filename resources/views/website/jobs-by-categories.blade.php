@@ -9,12 +9,12 @@ Jobs
 <div class="top-content banner-outer">
     <div class="row skill-title text-center">
         <h1>
-        @if(isset($skill) && $skill)
+            @if(isset($skill) && $skill)
                 {{ $skill->name }} Jobs
             @else
                 All Jobs
             @endif
-    </h1>
+        </h1>
         <ul class="skill-breadcrumbs d-flex justify-content-center">
             <li><a href="{{(session('employer_mode')?'/employer':'/')}}">Home</a> <i class="bi bi-arrow-right"></i></li>
             <li>
@@ -103,10 +103,19 @@ Jobs
                              data-location="{{ strtolower($task->location ?? '') }}"
                              data-experience="{{ $task->experiance_range }}">
                             <div class="job-card d-flex flex-wrap gap-3">
-                                <img src="{{ asset('uploads/profile/694913e223582_plumber3.webp') }}"
+                                @if($task->image != null)
+                                    <img src="{{ asset($task->image) }}"
+                                         width="60"
+                                         height="60"
+                                         class="job-img">
+                                
+                                @else
+                                <img src="{{ asset('uploads/profile/default_cat_image.jpg') }}"
                                      width="60"
                                      height="60"
                                      class="job-img">
+                                @endif
+
                                 <div class="flex-grow-1">
                                     <h6 class="mb-1 font-heading">
                                         <a href="{{ route('get.resultdetail', [$task->id,1]) }}"
@@ -138,10 +147,18 @@ Jobs
                              data-location="{{ strtolower($task->location ?? '') }}"
                              data-experience="{{ $task->experiance_range }}">
                             <div class="job-card d-flex flex-wrap gap-3">
-                                <img src="{{ asset('uploads/profile/694913e223582_plumber3.webp') }}"
+                                @if($task->image != null)
+                                    <img src="{{ asset($task->image) }}"
+                                         width="60"
+                                         height="60"
+                                         class="job-img">
+                                
+                                @else
+                                <img src="{{ asset('uploads/profile/default_cat_image.jpg') }}"
                                      width="60"
                                      height="60"
                                      class="job-img">
+                                @endif
                                 <div class="flex-grow-1">
                                     <h6 class="mb-1 font-heading">
                                         <a href="{{ route('get.resultdetail', [$task->id,1]) }}"
@@ -178,8 +195,12 @@ Jobs
 @section('script')
 <script>
 $(document).ready(function () {
-    // Initialize the "No jobs found" message
-    updateNoJobsMessage();
+    // Check if there are no jobs in the category initially
+    const initialJobCount = $('#jobsContainer .job-item').length;
+    if (initialJobCount === 0) {
+        // If no jobs exist in the category, hide the "No jobs found matching your criteria" container
+        $('#noJobsMessageContainer').hide();
+    }
 
     // Search filter
     $('#jobSearchInput').on('keyup', function () {
@@ -255,7 +276,8 @@ function updateNoJobsMessage() {
     // Clear previous message
     container.innerHTML = '';
 
-    if (visibleJobs.length === 0) {
+    // Only show the message if there are no visible jobs AND there are jobs in the category initially
+    if (visibleJobs.length === 0 && $('#jobsContainer .job-item').length > 0) {
         const message = document.createElement('div');
         message.className = 'alert alert-info text-center';
         message.textContent = 'No jobs found matching your criteria.';

@@ -11,6 +11,7 @@ class Setting extends Model
     use HasFactory;
     protected $guarded = [];
 
+    
     public static function setting(){
     	$model = self::find(1);
         if($model->favicon && (File::exists(public_path($model->favicon)))){
@@ -31,7 +32,7 @@ class Setting extends Model
             'instagram_link'=> $model->instagram_link??'https://www.instagram.com/',
             'linkedIn_link'=> $model->linkedIn_link??'https://www.linkedin.com/',
             'phone_number' => '123 456 7890',
-            'support_email'=> 'support@thecoverhouse.com'
+            'support_email'=> 'support@glamontap.com'
         ];
         return $values;
     }
