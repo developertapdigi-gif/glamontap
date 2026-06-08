@@ -103,10 +103,19 @@ Jobs
                              data-location="{{ strtolower($task->location ?? '') }}"
                              data-experience="{{ $task->experiance_range }}">
                             <div class="job-card d-flex flex-wrap gap-3">
-                                <img src="{{ asset('uploads/profile/694913e223582_plumber3.webp') }}"
+                                @if($task->image != null)
+                                    <img src="{{ asset($task->image) }}"
+                                         width="60"
+                                         height="60"
+                                         class="job-img">
+                                
+                                @else
+                                <img src="{{ asset('uploads/profile/default_cat_image.jpg') }}"
                                      width="60"
                                      height="60"
                                      class="job-img">
+                                @endif
+
                                 <div class="flex-grow-1">
                                     <h6 class="mb-1 font-heading">
                                         <a href="{{ route('get.resultdetail', [$task->id,1]) }}"
@@ -138,10 +147,18 @@ Jobs
                              data-location="{{ strtolower($task->location ?? '') }}"
                              data-experience="{{ $task->experiance_range }}">
                             <div class="job-card d-flex flex-wrap gap-3">
-                                <img src="{{ asset('uploads/profile/694913e223582_plumber3.webp') }}"
+                                @if($task->image != null)
+                                    <img src="{{ asset($task->image) }}"
+                                         width="60"
+                                         height="60"
+                                         class="job-img">
+                                
+                                @else
+                                <img src="{{ asset('uploads/profile/default_cat_image.jpg') }}"
                                      width="60"
                                      height="60"
                                      class="job-img">
+                                @endif
                                 <div class="flex-grow-1">
                                     <h6 class="mb-1 font-heading">
                                         <a href="{{ route('get.resultdetail', [$task->id,1]) }}"
