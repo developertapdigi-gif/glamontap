@@ -83,10 +83,16 @@ $job = $job ?? null;
                 @php
                   $alreadyApplied = App\Models\JobApplication::where('task_id', $job->id)
                       ->where('bidder_id', Auth::id())->exists();
+
+                      // Check if the job's skill category matches the tradie's skill category
+                $skillMatch = false;
+                if (Auth::user()->skill_category_id && $job->skill_category) {
+                    $skillMatch = (Auth::user()->skill_category_id == $job->skill_category);
+                }
                 @endphp
                 @if($alreadyApplied)
                   <button class="btn btn-secondary" disabled>Already Applied</button>
-                @elseif(in_array($job->status, [1,2]))
+                @elseif(in_array($job->status, [1,2]) && $skillMatch)
                   <form action="{{ route('tradie.jobs.apply') }}" method="POST">
                     @csrf
                     <input type="hidden" name="job_id" value="{{ $job->id }}">

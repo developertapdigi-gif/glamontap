@@ -107,7 +107,7 @@ $model = Setting::setting();
             <!-- Left side: branding / illustration -->
             <div class="col-md-6 col-lg-6 col-sm-12 ps-0 pe-0">
                 <div class="left-login-section">
-                    <a href="/">
+                    <a href="{{ url('/') }}">
                         <img src="{{ asset('images/psd-images/logo.png') }}" class="login-logo d-sm-block d-md-none"/>
                     </a>
                     <div class="left-login-top-text">
