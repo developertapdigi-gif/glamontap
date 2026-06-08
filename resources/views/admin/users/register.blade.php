@@ -13,11 +13,10 @@ $model = Setting::setting();
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Toggle switch styling – exactly like "Employee    Hirer" image */
+        /* Toggle switch styling */
         .apply-toggle {
             text-align: center;
             margin-bottom: 2rem;
-            
         }
         .apply-toggle h3 {
             font-size: 1.8rem;
@@ -31,7 +30,6 @@ $model = Setting::setting();
             border-radius: 50px;
             padding: 10px;
             gap: 0.2rem;
-
         }
         .toggle-btn {
             padding: 0.6rem 2rem;
@@ -106,7 +104,7 @@ $model = Setting::setting();
 <body>
     <main role="main" class="container-fluid full-height">
         <div class="row full-height">
-            <!-- Left side: branding / illustration (unchanged) -->
+            <!-- Left side: branding / illustration -->
             <div class="col-md-6 col-lg-6 col-sm-12 ps-0 pe-0">
                 <div class="left-login-section">
                     <a href="/">
@@ -125,22 +123,22 @@ $model = Setting::setting();
             <!-- Right side: registration with Employee / Hirer toggle -->
             <div class="col-lg-6 col-12 relative-box white-background">
                 @include('flash-message')
-               
+
                 <div class="right-login-section register-right-section">
                      <a href="{{ url('/') }}">
                         <img src="{{ $model['website_logo'] }}" class="login-logo d-none d-lg-block" />
-                </a>
+                    </a>
                     <div class="login-user-details">
-                        <!-- Toggle as per image: "Apply as a Employee" + Employee / Hirer buttons -->
+                        <!-- Toggle -->
                         <div class="apply-toggle">
                             <div class="toggle-buttons">
-                                <button type="button" class="toggle-btn active" id="employeeToggle"> <i class="fas fa-tools"></i>Join as Tradie</button>
+                                <button type="button" class="toggle-btn active" id="employeeToggle"> <i class="fas fa-tools"></i> Join as Tradie</button>
                                 <button type="button" class="toggle-btn" id="hirerToggle">  <i class="fas fa-building"></i> Join as Company</button>
                             </div>
-                            
                         </div>
                          <h3 class="dynamic-heading" id="formHeading">Tradie Register</h3>
-                        <!-- EMPLOYEE (TRADIE) REGISTRATION FORM -->
+
+                        <!-- TRADIE REGISTRATION FORM -->
                         <div id="employeeForm" class="form-card">
                             <form role="form" action="{{ route('user.tradie.registerpost') }}" method="POST" class="login-form" id="employeeFormValidate">
                                 @csrf
@@ -148,15 +146,15 @@ $model = Setting::setting();
                                     <div class="col-lg-6 col-sm-12">
                                         <div class="form-group form-login-group mb-3">
                                             <label>First Name *</label>
-                                            <input type="text" name="first_name" class="form-control" value="{{ old('first_name') }}">
-                                            @error('first_name')<div class="text-danger small">{{ $message }}</div>@enderror
+                                            <input type="text" name="tradie_first_name" class="form-control" value="{{ old('tradie_first_name') }}">
+                                            @error('tradie_first_name')<div class="text-danger small">{{ $message }}</div>@enderror
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-sm-12">
                                         <div class="form-group form-login-group mb-3">
                                             <label>Last Name *</label>
-                                            <input type="text" name="last_name" class="form-control" value="{{ old('last_name') }}">
-                                            @error('last_name')<div class="text-danger small">{{ $message }}</div>@enderror
+                                            <input type="text" name="tradie_last_name" class="form-control" value="{{ old('tradie_last_name') }}">
+                                            @error('tradie_last_name')<div class="text-danger small">{{ $message }}</div>@enderror
                                         </div>
                                     </div>
                                 </div>
@@ -164,15 +162,15 @@ $model = Setting::setting();
                                     <div class="col-lg-6 col-sm-12">
                                         <div class="form-group form-login-group mb-3">
                                             <label>Email *</label>
-                                            <input type="email" name="email" class="form-control" value="{{ old('email') }}">
-                                            @error('email')<div class="text-danger small">{{ $message }}</div>@enderror
+                                            <input type="email" name="tradie_email" class="form-control" value="{{ old('tradie_email') }}">
+                                            @error('tradie_email')<div class="text-danger small">{{ $message }}</div>@enderror
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-sm-12">
                                         <div class="form-group form-login-group mb-3">
                                             <label>Phone *</label>
-                                            <input type="text" name="mobile" class="form-control" value="{{ old('mobile') }}">
-                                            @error('mobile')<div class="text-danger small">{{ $message }}</div>@enderror
+                                            <input type="text" name="tradie_mobile" class="form-control" value="{{ old('tradie_mobile') }}">
+                                            @error('tradie_mobile')<div class="text-danger small">{{ $message }}</div>@enderror
                                         </div>
                                     </div>
                                 </div>
@@ -180,52 +178,37 @@ $model = Setting::setting();
                                     <div class="col-lg-6 col-sm-12">
                                         <div class="form-group form-login-group mb-3">
                                             <label>Address *</label>
-                                            <input type="text" name="address" id="employee_address" class="form-control" value="{{ old('address') }}" placeholder="Enter a location">
-                                            <input type="hidden" name="latitude" id="employee_latitude">
-                                            <input type="hidden" name="longitude" id="employee_longitude">
-                                            <input type="hidden" name="city" id="employee_city">
-                                            <input type="hidden" name="state" id="employee_state">
-                                            <input type="hidden" name="country" id="employee_country">
-                                            <input type="hidden" name="pincode" id="employee_pincode">
-                                            @error('address')<div class="text-danger small">{{ $message }}</div>@enderror
+                                            <input type="text" name="tradie_address" id="employee_address" class="form-control" value="{{ old('tradie_address') }}" placeholder="Enter a location">
+                                            <input type="hidden" name="tradie_latitude" id="employee_latitude">
+                                            <input type="hidden" name="tradie_longitude" id="employee_longitude">
+                                            <input type="hidden" name="tradie_city" id="employee_city">
+                                            <input type="hidden" name="tradie_state" id="employee_state">
+                                            <input type="hidden" name="tradie_country" id="employee_country">
+                                            <input type="hidden" name="tradie_pincode" id="employee_pincode">
+                                            @error('tradie_address')<div class="text-danger small">{{ $message }}</div>@enderror
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-sm-12">
                                         <div class="form-group form-login-group mb-3">
                                             <label>Skill Category *</label>
-                                            <select name="skill_category_id" class="form-control form-select">
+                                            <select name="tradie_skill_category_id" class="form-control form-select">
                                                 <option value="">Select Skill</option>
                                                 @foreach($skills as $skill)
-                                                <option value="{{ $skill->id }}" {{ old('skill_category_id') == $skill->id ? 'selected' : '' }}>{{ $skill->name }}</option>
+                                                <option value="{{ $skill->id }}" {{ old('tradie_skill_category_id') == $skill->id ? 'selected' : '' }}>{{ $skill->name }}</option>
                                                 @endforeach
                                             </select>
-                                            @error('skill_category_id')<div class="text-danger small">{{ $message }}</div>@enderror
+                                            @error('tradie_skill_category_id')<div class="text-danger small">{{ $message }}</div>@enderror
                                         </div>
                                     </div>
                                 </div>
-                                {{-- <div class="row">
-                                    <div class="col-lg-6 col-sm-12">
-                                        <div class="form-group form-login-group mb-3">
-                                            <label>Password *</label>
-                                            <input type="password" name="password" class="form-control">
-                                            @error('password')<div class="text-danger small">{{ $message }}</div>@enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-sm-12">
-                                        <div class="form-group form-login-group mb-3">
-                                            <label>Confirm Password *</label>
-                                            <input type="password" name="password_confirmation" class="form-control">
-                                        </div>
-                                    </div>
-                                </div> --}}
                                 <div class="submit-buttons">
-                                    <button type="submit" class="btn btn-primary">Register as Tradie </button>
+                                    <button type="submit" class="btn btn-primary">Register as Tradie</button>
                                     <span>Already have an account? <a class="skill-link" href="{{ route('user.login') }}">Login</a></span>
                                 </div>
                             </form>
                         </div>
 
-                        <!-- HIRER (COMPANY) REGISTRATION FORM -->
+                        <!-- COMPANY REGISTRATION FORM -->
                         <div id="hirerForm" class="form-card" style="display: none;">
                             <form role="form" action="{{ route('user.registerpost') }}" method="POST" class="login-form" id="hirerFormValidate">
                                 @csrf
@@ -233,15 +216,15 @@ $model = Setting::setting();
                                     <div class="col-lg-6 col-sm-12">
                                         <div class="form-group form-login-group mb-3">
                                             <label>First Name *</label>
-                                            <input type="text" name="first_name" class="form-control" value="{{ old('first_name') }}">
-                                            @error('first_name')<div class="text-danger small">{{ $message }}</div>@enderror
+                                            <input type="text" name="company_first_name" class="form-control" value="{{ old('company_first_name') }}">
+                                            @error('company_first_name')<div class="text-danger small">{{ $message }}</div>@enderror
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-sm-12">
                                         <div class="form-group form-login-group mb-3">
                                             <label>Last Name *</label>
-                                            <input type="text" name="last_name" class="form-control" value="{{ old('last_name') }}">
-                                            @error('last_name')<div class="text-danger small">{{ $message }}</div>@enderror
+                                            <input type="text" name="company_last_name" class="form-control" value="{{ old('company_last_name') }}">
+                                            @error('company_last_name')<div class="text-danger small">{{ $message }}</div>@enderror
                                         </div>
                                     </div>
                                 </div>
@@ -249,15 +232,15 @@ $model = Setting::setting();
                                     <div class="col-lg-6 col-sm-12">
                                         <div class="form-group form-login-group mb-3">
                                             <label>Email *</label>
-                                            <input type="email" name="email" class="form-control" value="{{ old('email') }}">
-                                            @error('email')<div class="text-danger small">{{ $message }}</div>@enderror
+                                            <input type="email" name="company_email" class="form-control" value="{{ old('company_email') }}">
+                                            @error('company_email')<div class="text-danger small">{{ $message }}</div>@enderror
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-sm-12">
                                         <div class="form-group form-login-group mb-3">
                                             <label>Phone *</label>
-                                            <input type="text" name="mobile" class="form-control" value="{{ old('mobile') }}">
-                                            @error('mobile')<div class="text-danger small">{{ $message }}</div>@enderror
+                                            <input type="text" name="company_mobile" class="form-control" value="{{ old('company_mobile') }}">
+                                            @error('company_mobile')<div class="text-danger small">{{ $message }}</div>@enderror
                                         </div>
                                     </div>
                                 </div>
@@ -265,43 +248,22 @@ $model = Setting::setting();
                                     <div class="col-lg-12">
                                         <div class="form-group form-login-group mb-3">
                                             <label>Address *</label>
-                                            <input type="text" name="address" id="hirer_address" class="form-control" value="{{ old('address') }}" placeholder="Enter a location">
-                                            <input type="hidden" id="hirer_latitude" name="latitude" value="{{ old('latitude') }}">
-                                            <input type="hidden" id="hirer_longitude" name="longitude" value="{{ old('longitude') }}">
-                                            <input type="hidden" id="hirer_street" name="street" value="{{ old('street') }}">
-                                            <input type="hidden" id="hirer_city" name="city" value="{{ old('city') }}">
-                                            <input type="hidden" id="hirer_pincode" name="pincode" value="{{ old('pincode') }}">
-                                            <input type="hidden" id="hirer_state" name="state" value="{{ old('state') }}">
-                                            <input type="hidden" id="hirer_country" name="country" value="{{ old('country') }}">
-                                            @error('address')<div class="text-danger small">{{ $message }}</div>@enderror
+                                            <input type="text" name="company_address" id="hirer_address" class="form-control" value="{{ old('company_address') }}" placeholder="Enter a location">
+                                            <input type="hidden" id="hirer_latitude" name="company_latitude" value="{{ old('company_latitude') }}">
+                                            <input type="hidden" id="hirer_longitude" name="company_longitude" value="{{ old('company_longitude') }}">
+                                            <input type="hidden" id="hirer_street" name="company_street" value="{{ old('company_street') }}">
+                                            <input type="hidden" id="hirer_city" name="company_city" value="{{ old('company_city') }}">
+                                            <input type="hidden" id="hirer_pincode" name="company_pincode" value="{{ old('company_pincode') }}">
+                                            <input type="hidden" id="hirer_state" name="company_state" value="{{ old('company_state') }}">
+                                            <input type="hidden" id="hirer_country" name="company_country" value="{{ old('company_country') }}">
+                                            @error('company_address')<div class="text-danger small">{{ $message }}</div>@enderror
                                         </div>
                                     </div>
                                 </div>
-                                {{-- <div class="row">
-                                    <div class="col-lg-6 col-sm-12">
-                                        <div class="form-group form-login-group mb-3">
-                                            <label>Password *</label>
-                                            <input type="password" name="password" class="form-control">
-                                            @error('password')<div class="text-danger small">{{ $message }}</div>@enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-sm-12">
-                                        <div class="form-group form-login-group mb-3">
-                                            <label>Confirm Password *</label>
-                                            <input type="password" name="password_confirmation" class="form-control">
-                                        </div>
-                                    </div>
-                                </div> --}}
                                 <div class="submit-buttons">
                                     <button type="submit" class="btn btn-primary">Register as Company</button>
                                     <span>Already have an account? <a class="skill-link" href="{{ route('user.login') }}">Login</a></span>
                                 </div>
-                                {{-- <div class="terms-note">
-                                    <span>Are you an Employee? <a class="skill-link" href="#" id="switchToEmployeeLink">Register here</a></span>
-                                </div> --}}
-                                {{-- <div class="mt-2 text-center">
-                                    <small>By registering, you agree to our <a href="{{ route('termsCondition') }}" class="skill-link">Terms & Conditions</a></small>
-                                </div> --}}
                             </form>
                         </div>
                     </div>
@@ -321,15 +283,14 @@ $model = Setting::setting();
 
     <script>
         $(document).ready(function() {
-            // Toggle between Employee and Hirer
+            // Toggle between Tradie and Company
             const empToggle = $('#employeeToggle');
             const hirerToggle = $('#hirerToggle');
             const empForm = $('#employeeForm');
             const hirerForm = $('#hirerForm');
-            const switchToEmpLink = $('#switchToEmployeeLink');
             const formHeading = $('#formHeading');
 
-            function showEmployee() {
+            function showTradie() {
                 empToggle.addClass('active');
                 hirerToggle.removeClass('active');
                 empForm.show();
@@ -337,7 +298,8 @@ $model = Setting::setting();
                 formHeading.text('Tradie Register');
                 setTimeout(() => { if(window.google) initEmployeeAddress(); }, 100);
             }
-            function showHirer() {
+
+            function showCompany() {
                 hirerToggle.addClass('active');
                 empToggle.removeClass('active');
                 hirerForm.show();
@@ -346,21 +308,27 @@ $model = Setting::setting();
                 setTimeout(() => { if(window.google) initHirerAddress(); }, 100);
             }
 
-            empToggle.on('click', showEmployee);
-            hirerToggle.on('click', showHirer);
-            if(switchToEmpLink.length) switchToEmpLink.on('click', function(e) { e.preventDefault(); showEmployee(); });
+            empToggle.on('click', showTradie);
+            hirerToggle.on('click', showCompany);
 
             // Auto-open correct tab if validation errors exist
             @if($errors->any())
                 @php
-                    $empFields = ['first_name', 'last_name', 'email', 'mobile', 'address', 'skill_category_id', 'password'];
-                    $isEmpError = false;
-                    foreach($empFields as $f) if($errors->has($f)) { $isEmpError = true; break; }
+                    $tradieFields = ['tradie_first_name', 'tradie_last_name', 'tradie_email', 'tradie_mobile', 'tradie_address', 'tradie_skill_category_id'];
+                    $companyFields = ['company_first_name', 'company_last_name', 'company_email', 'company_mobile', 'company_address'];
+                    $isTradieError = false;
+                    $isCompanyError = false;
+                    foreach($tradieFields as $f) if($errors->has($f)) { $isTradieError = true; break; }
+                    foreach($companyFields as $f) if($errors->has($f)) { $isCompanyError = true; break; }
                 @endphp
-                @if($isEmpError) showEmployee(); @else showHirer(); @endif
+                @if($isTradieError)
+                    showTradie();
+                @elseif($isCompanyError)
+                    showCompany();
+                @endif
             @endif
 
-            // Google Places for Employee (Tradie)
+            // Google Places for Tradie
             let empAutocomplete;
             function initEmployeeAddress() {
                 let input = document.getElementById('employee_address');
@@ -382,7 +350,7 @@ $model = Setting::setting();
                 });
             }
 
-            // Google Places for Hirer
+            // Google Places for Company
             let hirerAutocomplete;
             function initHirerAddress() {
                 let input = document.getElementById('hirer_address');
@@ -415,34 +383,31 @@ $model = Setting::setting();
                 initHirerAddress();
             }
 
-            // Validation for Employee form
+            // Validation for Tradie form
             $('#employeeFormValidate').validate({
                 rules: {
-                    first_name: { required: true },
-                    last_name: { required: true },
-                    email: { required: true, email: true },
-                    mobile: { required: true },
-                    address: { required: true },
-                    skill_category_id: { required: true },
-                    password: { required: true, minlength: 8 },
-                    password_confirmation: { required: true, equalTo: '[name="password"]' }
+                    tradie_first_name: { required: true },
+                    tradie_last_name: { required: true },
+                    tradie_email: { required: true, email: true },
+                    tradie_mobile: { required: true },
+                    tradie_address: { required: true },
+                    tradie_skill_category_id: { required: true },
                 },
                 messages: {
-                    password: { minlength: "Password must be at least 8 characters" },
-                    skill_category_id: "Please select a skill category"
+                    tradie_skill_category_id: "Please select a skill category"
                 },
                 errorElement: 'div',
                 errorPlacement: function(error, element) { error.addClass('text-danger small').insertAfter(element); }
             });
 
-            // Validation for Hirer form
+            // Validation for Company form
             $('#hirerFormValidate').validate({
                 rules: {
-                    first_name: { required: true },
-                    last_name: { required: true },
-                    email: { required: true, email: true },
-                    mobile: { required: true },
-                    address: { required: true },
+                    company_first_name: { required: true },
+                    company_last_name: { required: true },
+                    company_email: { required: true, email: true },
+                    company_mobile: { required: true },
+                    company_address: { required: true },
                 },
                 errorElement: 'div',
                 errorPlacement: function(error, element) { error.addClass('text-danger small').insertAfter(element); }

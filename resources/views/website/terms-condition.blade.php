@@ -279,7 +279,7 @@ Terms & Conditions
 
             <div class="col-xl-5 col-lg-4 col-md-0">
                 <div class="abt-img-box">
-                    <img class="abt-mob-img" src="../images/psd-images/mobile1.png" />
+                    <img class="abt-mob-img" src="../images/psd-images/mobile1.webp" />
                     <img class="abt-arrow-img" src="../images/psd-images/roll-arrow.png" />
                 </div>
             </div>

@@ -12,10 +12,10 @@ $unread = ChMessage::UnReadConversations(Auth::user()->id)->count();
   <!----------------Search Bar start---------->
   <div class="search-bar">
      
-     <div class="top-search-form d-flex align-items-center" >
+      {{-- <div class="top-search-form d-flex align-items-center" >
          <input type="text" id="search-input" placeholder="Search..." />
          <i class="bi bi-search"></i>
-      </div>
+      </div> --}}
    <div class="d-absolute" id="search-results"></div>
   </div>
   <!----------------Search Bar end---------->

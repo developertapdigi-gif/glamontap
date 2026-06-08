@@ -36,46 +36,97 @@ class UserController extends Controller
         return view('admin.users.tradie_register', compact('skills'));
     }
 
-    public function tradieRegisterPost(Request $request){
-        $request->validate([
-            'first_name'       => 'required|regex:/^[a-zA-Z ]*$/',
-            'last_name'        => 'required|regex:/^[a-zA-Z ]*$/',
-            'email'            => 'required|email|unique:users',
-            'mobile'           => 'required|numeric|unique:users,mobile',
-            'address'          => 'required',
-            'skill_category_id'=> 'required|exists:skill_categories,id',
-            'abn_acn'          => 'nullable|unique:users,abn_acn',
-        ]);
+    public function tradieRegisterPost(Request $request)
+{
+    $request->validate([
+        'tradie_first_name'       => 'required|regex:/^[a-zA-Z ]*$/',
+        'tradie_last_name'        => 'required|regex:/^[a-zA-Z ]*$/',
+        'tradie_email'            => 'required|email|unique:users,email',
+        'tradie_mobile'           => 'required|numeric|unique:users,mobile',
+        'tradie_address'          => 'required',
+        'tradie_skill_category_id' => 'required|exists:skill_categories,id',
+        'tradie_abn_acn'          => 'nullable|unique:users,abn_acn',
+    ], [
+        'tradie_first_name.required' => "The first name field is required.",
+        'tradie_last_name.required'  => "The last name field is required.",
+        'tradie_email.required'      => "The email field is required.",
+        'tradie_email.email'         => "Please enter a valid email address.",
+        'tradie_email.unique'        => "This email address already exists.",
+        'tradie_mobile.required'     => "The mobile field is required.",
+        'tradie_mobile.unique'       => "This mobile number already exists.",
+        'tradie_address.required'    => "The address field is required.",
+        'tradie_skill_category_id.required' => "The skill category field is required.",
+        'tradie_abn_acn.unique'     => "This ABN/ACN already exists.",
+    ]);
 
-        $input             = $request->except(['password_confirmation']);
-        $input['password']  = Hash::make('apr_800#');
-        $input['user_type']= User::ROLE['trader'];
-        $input['status']   = 0; // pending OTP verification
+    // Map prefixed input names to database columns
+    $input = $request->only([
+        'tradie_first_name',
+        'tradie_last_name',
+        'tradie_email',
+        'tradie_mobile',
+        'tradie_address',
+        'tradie_skill_category_id',
+        'tradie_abn_acn',
+        'tradie_latitude',
+        'tradie_longitude',
+        'tradie_city',
+        'tradie_state',
+        'tradie_country',
+        'tradie_pincode',
+    ]);
 
-        $token =    Str::random(40);
-        DB::table('password_reset_tokens')->insert([
-            'email' => $request->email,
-            'token' => $token,
-            'created_at' => Carbon::now()
-        ]);
+    // Rename keys to match database columns
+    $mappedInput = [
+        'first_name'       => $input['tradie_first_name'],
+        'last_name'        => $input['tradie_last_name'],
+        'email'            => $input['tradie_email'],
+        'mobile'           => $input['tradie_mobile'],
+        'address'          => $input['tradie_address'],
+        'skill_category_id' => $input['tradie_skill_category_id'],
+        'abn_acn'          => $input['tradie_abn_acn'] ?? null,
+        'latitude'         => $input['tradie_latitude'] ?? null,
+        'longitude'        => $input['tradie_longitude'] ?? null,
+        'city'             => $input['tradie_city'] ?? null,
+        'state'            => $input['tradie_state'] ?? null,
+        'country'          => $input['tradie_country'] ?? null,
+        'pincode'          => $input['tradie_pincode'] ?? null,
+        'password'         => Hash::make('apr_800#'),
+        'user_type'        => User::ROLE['trader'],
+        'status'           => 0, // Pending OTP verification
+    ];
 
-        $user = User::create($input);
-        $user->assignRole('trader');
+    // Create user
+    $user = User::create($mappedInput);
+    $user->assignRole('trader');
 
-        // Send OTP
-        $otp = mt_rand(10000, 99999);
-        EmailOtp::where('email', $user->email)->delete();
-        EmailOtp::create([
-            'email'      => $user->email,
-            'otp'        => $otp,
-            // 'otp_expire_at' => Carbon::now()->addMinutes(10) // ✅ 10 min expiry
-        ]);
-       $name = $user->first_name.' '.$user->last_name;
-        try{
-            Mail::to($user->email)->send(new tradieRegister($name,$token)); 
-        }catch(\Exception $e){}
-        return redirect('user/register')->with('success', 'Please check your email to set password.');
+    // Generate token for password reset
+    $token = Str::random(40);
+    DB::table('password_reset_tokens')->insert([
+        'email'      => $user->email,
+        'token'      => $token,
+        'created_at' => Carbon::now(),
+    ]);
+
+    // Send OTP
+    $otp = mt_rand(10000, 99999);
+    EmailOtp::where('email', $user->email)->delete();
+    EmailOtp::create([
+        'email' => $user->email,
+        'otp'   => $otp,
+        // 'otp_expire_at' => Carbon::now()->addMinutes(10), // Uncomment if you want expiry
+    ]);
+
+    // Send registration email
+    $name = $user->first_name . ' ' . $user->last_name;
+    try {
+        Mail::to($user->email)->send(new tradieRegister($name, $token));
+    } catch (\Exception $e) {
+        // Log error if needed
     }
+
+    return redirect('user/register')->with('success', 'Please check your email to set password.');
+}
 
     
     
@@ -103,64 +154,112 @@ class UserController extends Controller
 
         return redirect('user/login')->with('success', 'Email verified! You can now login.');
     }
-    public function registerpost(Request $request){
-        $request->validate([
-            'first_name' =>'required|regex:/^[a-zA-Z ]*$/',
-            'last_name' =>'required|regex:/^[a-zA-Z ]*$/',
-            'email' => 'required|email|unique:users',
-            'mobile' =>'nullable|numeric|unique:users,mobile',
-            'abn_acn' => ['nullable','min:9','max:11','unique:users,abn_acn',new AcnExists],
-        ],[
-            'email.required'=>"Please enter valid username",
-            'first_name'=>"Please enter characters only",
-            'last_name'=>"Please enter characters only",
-            'abn_acn.required'=>"The ACN field is required",
-            'email.unique'=>"This email address already exists",
-            'mobile.unique'=>"This mobile number already exists",
-            'abn_acn.unique'=>"This ACN already exists",            
-            'abn_acn.min'=>"Please enter 9 to 11 digit in the ACN/ABN field.",            
-            'abn_acn.max'=>"Please enter 9 to 11 digit in the ACN/ABN field.",            
-        ]);
-        if($request->mobile){
-            $request->request->set('mobile',str_replace(' ','',$request->mobile));
-        }
-        $input  = $request->all();
-        $input['user_type'] = User::ROLE['agency'];
-        $input['status']    = 1;
-        $input['password']  = Hash::make('apr_800#');
+    public function registerpost(Request $request)
+{
+    $request->validate([
+        'company_first_name' => 'required|regex:/^[a-zA-Z ]*$/',
+        'company_last_name'  => 'required|regex:/^[a-zA-Z ]*$/',
+        'company_email'      => 'required|email|unique:users,email',
+        'company_mobile'     => 'nullable|numeric|unique:users,mobile',
+        'company_abn_acn'    => ['nullable', 'min:9', 'max:11', 'unique:users,abn_acn', new AcnExists],
+        'company_address'    => 'required',
+    ], [
+        'company_first_name.required' => "The first name field is required.",
+        'company_last_name.required'  => "The last name field is required.",
+        'company_email.required'      => "Please enter a valid email address.",
+        'company_email.email'         => "Please enter a valid email address.",
+        'company_email.unique'        => "This email address already exists.",
+        'company_mobile.unique'       => "This mobile number already exists.",
+        'company_abn_acn.required'    => "The ACN field is required.",
+        'company_abn_acn.unique'      => "This ACN already exists.",
+        'company_abn_acn.min'         => "Please enter 9 to 11 digits in the ACN/ABN field.",
+        'company_abn_acn.max'         => "Please enter 9 to 11 digits in the ACN/ABN field.",
+        'company_address.required'    => "The address field is required.",
+    ]);
 
-        $user = User::create($input);
-        $user->assignRole('agency');
-        $token =    Str::random(40);
-        DB::table('password_reset_tokens')->insert([
-            'email' => $request->email,
-            'token' => $token,
-            'created_at' => Carbon::now()
-        ]);
-        # add trail plan
-        $plan       = Plan::find(4);
-        $start_date = date('Y-m-d H:i:s');
-        $end_date   = date('Y-m-d H:i:s',strtotime("+ 14 days"));
-        AgencySubscription::create([            
-            'agency_id'=>$user->id,
-            'plan_id'=>$plan->id,
-            'payment_status'=>1,          
-            'tradesman_limit'=>$plan->tradesman_limit,
-            'job_limit'=>$plan->job_limit,
-            'subscription_type'=>1,
-            'amount'=>0,
-            'used_job_qty'=>0,
-            'used_tradesman_qty'=>0, 
-            'start_date'=>$start_date,
-            'end_date'=>$end_date,
-        ]);
-        $name = $user->first_name.' '.$user->last_name;
-        try{
-            Mail::to($user->email)->send(new AgencyRegister($name,$token)); 
-        }catch(\Exception $e){}
-        return redirect('user/register')->with('success', 'Please check your email to set password.');
+    // Remove spaces from mobile if provided
+    if ($request->company_mobile) {
+        $request->merge(['company_mobile' => str_replace(' ', '', $request->company_mobile)]);
     }
 
+    // Map prefixed input names to database columns
+    $input = $request->only([
+        'company_first_name',
+        'company_last_name',
+        'company_email',
+        'company_mobile',
+        'company_abn_acn',
+        'company_address',
+        'company_latitude',
+        'company_longitude',
+        'company_city',
+        'company_state',
+        'company_country',
+        'company_pincode',
+        'company_street',
+    ]);
+
+    // Rename keys to match database columns
+    $mappedInput = [
+        'first_name' => $input['company_first_name'],
+        'last_name'  => $input['company_last_name'],
+        'email'      => $input['company_email'],
+        'mobile'     => $input['company_mobile'] ?? null,
+        'abn_acn'    => $input['company_abn_acn'] ?? null,
+        'address'    => $input['company_address'],
+        'latitude'   => $input['company_latitude'] ?? null,
+        'longitude'  => $input['company_longitude'] ?? null,
+        'city'       => $input['company_city'] ?? null,
+        'state'      => $input['company_state'] ?? null,
+        'country'    => $input['company_country'] ?? null,
+        'pincode'    => $input['company_pincode'] ?? null,
+        'street'     => $input['company_street'] ?? null,
+        'user_type'  => User::ROLE['agency'],
+        'status'     => 1,
+        'password'   => Hash::make('apr_800#'),
+    ];
+
+    // Create user
+    $user = User::create($mappedInput);
+    $user->assignRole('agency');
+
+    // Generate token for password reset
+    $token = Str::random(40);
+    DB::table('password_reset_tokens')->insert([
+        'email'      => $user->email,
+        'token'      => $token,
+        'created_at' => Carbon::now(),
+    ]);
+
+    // Add trial plan
+    $plan = Plan::find(4);
+    $start_date = date('Y-m-d H:i:s');
+    $end_date = date('Y-m-d H:i:s', strtotime("+ 14 days"));
+
+    AgencySubscription::create([
+        'agency_id'           => $user->id,
+        'plan_id'             => $plan->id,
+        'payment_status'      => 1,
+        'tradesman_limit'     => $plan->tradesman_limit,
+        'job_limit'           => $plan->job_limit,
+        'subscription_type'   => 1,
+        'amount'              => 0,
+        'used_job_qty'        => 0,
+        'used_tradesman_qty' => 0,
+        'start_date'          => $start_date,
+        'end_date'            => $end_date,
+    ]);
+
+    // Send registration email
+    $name = $user->first_name . ' ' . $user->last_name;
+    try {
+        Mail::to($user->email)->send(new AgencyRegister($name, $token));
+    } catch (\Exception $e) {
+        // Log error if needed
+    }
+
+    return redirect('user/register')->with('success', 'Please check your email to set password.');
+}
     public function login(){
         return view('admin.users.login');
     }
