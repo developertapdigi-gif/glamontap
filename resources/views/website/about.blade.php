@@ -7,7 +7,7 @@ About Us
 
 <div class="top-content banner-outer">
     <div class="row skill-title text-center">
-        <h1>
+        <h1 class="heading-size">
             About Us
         </h1>
 
@@ -32,25 +32,25 @@ About Us
                 </div>
             </div>
             <div class="col-lg-6 col-md-12 col-sm-12">
-                <h4>About Glam On Tap</h4>
+                <h4 class ="heading-size">About Glam On Tap</h4>
 
                 <div class="about-detail">
-                    <h5>Beauty, Wellness & Confidence Delivered to Your Doorstep</h5>
+                    <h5 heading-size>Beauty, Wellness & Confidence Delivered to Your Doorstep</h5>
                     <p>At Glam On Tap, we believe self-care should be effortless, accessible and tailored to your lifestyle. Our mission is to bring premium beauty and wellness services directly to your home, allowing you to enjoy professional treatments without the inconvenience of salon visits.
                         Whether you're preparing for a special occasion, maintaining your beauty routine or simply taking time for yourself, Glam On Tap connects you with skilled and verified beauty professionals who deliver exceptional service in the comfort of your own space.
                     </p>
 
                     <br>
-                    <h5>Our Story</h5>
+                    <h5 class ="heading-size">Our Story</h5>
                     <p>Glam On Tap was created with a simple vision: to redefine the beauty experience by combining convenience, professionalism and personalized care. We recognized that busy schedules, travel time and long salon waits often make self-care difficult to prioritize.
                         By bringing trusted beauty experts directly to clients, we make it easier than ever to access high-quality beauty services whenever and wherever they're needed.</p>
 
                     <br>
-                    <h5>Our Mission</h5>
+                    <h5 class ="heading-size">Our Mission</h5>
                     <p>To make professional beauty and wellness services accessible, convenient and reliable while empowering beauty professionals to grow and succeed.</p>
 
                     <br>
-                    <h5>Our Vision</h5>
+                    <h5 class ="heading-size">Our Vision</h5>
                     <p>To become the most trusted destination for at home beauty and wellness services, transforming the way people experience self-care and beauty.</p>
 
                 </div>
@@ -64,10 +64,10 @@ About Us
     <div class="mid-content skill-about-content align-items-center">
         <div class="row about-cont align-items-center">
             <div class="col-lg-6 col-md-12 col-sm-12">
-                <h4>What We Offer</h4>
+                <h4 class ="heading-size">What We Offer</h4>
 
                 <div class="about-detail">
-                    <h5>Our platform provides a wide range of at home beauty and wellness services, including:</h5>
+                    <h5 class ="heading-size">Our platform provides a wide range of at home beauty and wellness services, including:</h5>
                     <ul>
                         <li>
                             Professional Makeup Services
@@ -117,7 +117,7 @@ About Us
                 </div>
             </div>
             <div class="col-lg-6 col-md-12 col-sm-12">
-                <h4>Why Choose Glam On Tap?</h4>
+                <h4 class ="heading-size">Why Choose Glam On Tap?</h4>
 
                 <div class="about-detail">
                     <ul>
@@ -162,7 +162,7 @@ About Us
                 </div>
             </div>
             <div class="col-xl-7 col-lg-8 col-md-12 abt-blue-desc">
-                <h3>Beauty Expertise, Delivered to Your Doorstep</h3>
+                <h3 class="heading-size">Beauty Expertise, Delivered to Your Doorstep</h3>
                 <p>Connecting trusted beauty professionals with clients who value convenience, quality and personalized care.
                     Empowering beauty experts. Elevating self care experiences.</p>
 

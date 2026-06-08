@@ -27,7 +27,7 @@ $model = Setting::setting();
                             <p>No worries , we'll send you instruction for reset</p>
                         </div>
                         <div class="left-login-banner">
-                            <img src="{{ asset('images/psd-images/mobile.png') }}" class="img-fluid"/>
+                            <img src="{{ asset('images/psd-images/mobile.webp') }}" class="img-fluid"/>
                         </div>
                     </div>
                 </div>

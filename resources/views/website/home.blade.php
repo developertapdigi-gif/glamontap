@@ -105,7 +105,7 @@ Home
 <section class="section-space">
   <div class="container">
     <div class="text-center mb-4" data-aos="fade-up">
-      <h2 class="fw-bold mb-3 font-heading">Browse Beauty Specialties</h2>
+      <h2 class="fw-bold mb-3 font-heading heading-size">Browse Beauty Specialties</h2>
       <p class="text-muted">Explore high-demand roles across all sectors of the industry.</p>
     </div>
     <div class="row g-4 beauty-category">
@@ -342,7 +342,7 @@ Home
         </div>
       </div>
       <div class="col-xl-7 col-lg-8 col-md-12 abt-blue-desc">
-        <h3>Linking trusted home-service experts with real-time job opportunities</h3>
+        <h3 class="heading-size">Linking trusted home-service experts with real-time job opportunities</h3>
         <p>Celebrating diversity and inclusion in every home-service role</p>
 
 

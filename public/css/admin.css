@@ -883,7 +883,7 @@ body .job-card:hover {
 }
 
 .about-stats-badge { bottom: 0; right: 0; padding: 24px; margin-bottom: -24px; margin-right: -24px; }
-.talent-floating-badge { top: 0; left: 0; padding: 12px; margin-top: -12px; margin-left: -12px; }
+.talent-floating-badge { top: 15px; left: 0; padding: 12px; margin-top: -12px; margin-left: -12px; }
 
 .contact-info-card {
   background: #fff;
@@ -993,7 +993,10 @@ section {
 .appointment-icon i:before{
 	font-size: 29px;
 }
-
+.heading-size {
+	font-size: 35px;
+	font-family: "Outfit", sans-serif;
+}
 
 
 
@@ -1029,7 +1032,6 @@ section {
 .left-login-top-text h1 {
 	font-size: 40px;
 	color: #612d8a;
-	/* font-family: proximaNovaBold; */
 	line-height: 40pt;
 	font-weight: 700;
 }
@@ -1037,7 +1039,6 @@ section {
 .left-login-top-text p {
 	font-size: 20px;
 	color: #202124;
-	/* font-family: proximaNova; */
 	padding-top: 17px;
 	margin-bottom: 0px;
 }
@@ -1075,7 +1076,6 @@ section {
 .login-user-details::first-line {
 	font-size: 29px;
 	font-weight: 700;
-  /* font-family: proximaNovaBold; */
 }
 .slider-home .slick-dots li button:before {
     font-size: 12px !important;
@@ -1405,7 +1405,6 @@ div.job-detail-page:last-child {
 .login-user-details .loginheading {
 	font-size: 29px;
 	font-weight: 700;
-	/* font-family: proximaNovaBold; */
 }
 
 .login-user-details .login-form {
@@ -2226,7 +2225,6 @@ header {
 .skill-title h1 {
 	font-size: 38px;
 	color: #612d8a;
-	/* font-family: proximaNovaBold; */
 	font-weight: bold;
 	margin-bottom: 10px;
 }
@@ -2298,12 +2296,8 @@ header {
 .mid-title {
 
 	font-size: 35px;
-
 	color: #202124;
-
 	text-align: center;
-
-	/* font-family: proximaNovaBold; */
 	font-weight: 700;
 
 }
@@ -2390,8 +2384,6 @@ header {
 .blue-footer h3 {
 
 	font-size: 32px;
-
-	/* font-family: proximaNovaBold; */
 	font-weight: 700;
 
 }
@@ -2534,8 +2526,6 @@ header {
 .skill-sub-footer p b {
 
 	color: #202124 !important;
-
-	/* font-family: proximaNovaBold; */
 	font-weight: 700;
 
 }
@@ -2682,8 +2672,6 @@ header {
 .mid-content h4 {
 
 	font-size: 35px;
-
-	/* font-family: proximaNovaBold; */
 	font-weight: 700;
 
 }
@@ -2787,20 +2775,55 @@ header {
 
 .skill-tiles {
 
-	background-color: #fdfbff;
+	background-color: #f9fafb;
 
 	padding: 21px 31px;
 
 	margin-bottom: 21px;
+	border: 1px solid #e5e7eb;
+	border-radius: 12px;
 
 }
-
+.skill-tiles.email-cnt p {
+	font-size: 14px;
+}
+.skill-tiles .contact-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+	font-size: 22px;
+}
+.contact-info {
+	font-size: 16px;	
+	color: #202124;
+    font-weight: bold;
+}
+.skill-tiles.email-cnt:hover {
+	background-color: #fff;
+	transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(139, 47, 176, 0.1);
+    border-color: #f472b6;
+}
 .skill-tiles p {
 
 	font-size: 16px;
 
 }
-
+.form-card {
+	background: #fff;
+    border-radius: 20px;
+    padding: 38px 34px;
+    box-shadow: 0 4px 15px rgb(0 0 0 / 10%);
+}
+.skill-tiles.email-cnt {
+	transition: all 0.3s ease;
+}
 .skill-tiles i {
 
 	/* padding: 7px 30px; */
@@ -2816,11 +2839,11 @@ header {
 }
 .no-label-form .form-control {
 
-	padding: 15px 20px;
+	padding: 10px 20px;
+    border-radius: 8px;
 
-	border-radius: 8px;
-
-	font-size: 22px;
+	font-size: 15px;
+	background-color: #f9fafb;
 
 }
 
@@ -3389,10 +3412,7 @@ scale:1.2
 .about-detail h5 {
 
 	font-size: 20px;
-
 	color: #202124;
-
-	/* font-family: proximaNovaBold; */
 	font-weight: 700;
 }
 
@@ -3466,9 +3486,7 @@ scale:1.2
 .about-blue-footer h3 {
 
 	font-size: 35px;
-
-	/* font-family: proximaNovaBold; */
-	    font-weight: 700;
+	font-weight: 700;
 
 }
 
@@ -3747,7 +3765,6 @@ scale:1.2
 
 h2 {
 	font-size: 22px;
-	/* font-family: proximaNovaBold; */
 	margin-bottom: 0px;
 	font-weight: 700;
 }
@@ -3931,7 +3948,6 @@ h2 {
 .dashboard-table .table-title span,
 .bar-chart .table-title span {
 	margin-left: auto;
-	/* font-family: proximaNovaBold; */
 	font-weight: 700;
 }
 
@@ -4154,6 +4170,7 @@ h2 {
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 8px;
+	font-size: 24px;
 }
 #sidebar ul.list-unstyled li a i, #sidebar ul.list-unstyled li a img {
 	filter: brightness(0) saturate(100%) invert(23%) sepia(63%) saturate(1462%) hue-rotate(247deg) brightness(83%) contrast(98%);
@@ -4682,7 +4699,6 @@ a[data-toggle=collapse] {
 	border: none;
 	font-size: 14px;
 	color: #202124;
-	/* font-family: proximaNovaBold; */
 	font-weight: 700;
 	padding: 12px 20px;
     vertical-align: middle;
@@ -5080,7 +5096,6 @@ a[data-toggle=collapse] {
 .current-notifications h3 {
 	color: #0e53b1;
 	font-size: 17px;
-	/* font-family: proximaNovaBold; */
 	display: flex;
 	align-items: flex-end;
 }
@@ -5096,7 +5111,6 @@ a[data-toggle=collapse] {
 .past-notifications h3 {
 	color: #131b2c;
 	font-size: 17px;
-	/* font-family: proximaNovaBold; */
 	margin-top: 6px;
 }
 
@@ -5312,14 +5326,9 @@ ul.notification-list li div:first {
 .amount {
 
 	color: #612d8a;
-
 	font-size: 14px;
-
-	/* font-family: proximaNovaBold; */
 	font-weight: 700;
-
 	margin-top: 20px;
-
 	margin-bottom: 20px;
 
 }
@@ -5752,7 +5761,11 @@ ul.notification-list li div:first {
 .regular-form .btn-primary {
 	margin-right: 12px;
 }
-
+.btn-primary:focus {
+	background-color: #612d8a;
+	border-color: #612d8a;
+	box-shadow: 0 0 0 .25rem hsl(274deg 51% 36% / 50%);
+}
 
 .upload_dropZone {
 	color: #212529;
@@ -6029,7 +6042,6 @@ a[data-tooltip]:hover::after {
 
 .sub-service h3 {
 	font-size: 36px;
-	/* font-family: proximaNovaBold; */
 	margin-bottom: 0px;
 	font-weight: 700;
 }
@@ -6193,8 +6205,6 @@ a[data-tooltip]:hover::after {
 .package-bottom-detail b {
 	font-size: 45px;
 	line-height: 50px;
-
-	/* font-family: proximaNovaBold; */
 }
 
 .yellow-plan-desc b {
@@ -6582,7 +6592,6 @@ select.no-border{
     font-size:30px;
     margin-left: 15px;
     margin-right: auto;
-    /* font-family: proximaNovaBold; */
 }
 .plan-orange .price{
     color: #fcb942;
@@ -6667,7 +6676,6 @@ select[name="class_name"] option[value="blue"] {
     font-size: 35px;
     line-height: 35px;
     margin-left: auto;
-    /* font-family: proximaNovaBold; */
 	font-weight: 700;
     display: inline-grid;
     text-align: center;
@@ -6873,7 +6881,6 @@ select[name="class_name"] option[value="blue"] {
     position:absolute;
     font-weight: bold;
     color: #612d8a !important;
-    /* font-family: proximaNovaBold; */
 	font-weight: 700;
     left: 50%;
     top: 50%;
