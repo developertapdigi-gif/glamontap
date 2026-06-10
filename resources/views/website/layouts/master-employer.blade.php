@@ -121,7 +121,7 @@ $model = Setting::setting();
   <script>
 $(document).ready(function () {
 
-    $('#logo-link').click(function (e) {
+    $('#logo-link .').click(function (e) {
         e.preventDefault();
 
         $.get("{{ route('clear.employer.mode') }}", function () {
