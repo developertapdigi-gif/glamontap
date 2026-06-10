@@ -214,7 +214,7 @@ $model = Setting::setting();
                     <div class="about-detail">
                     <h4>Contacting us </h4>
                         <p> If you require further information regarding our Privacy Policy, please contact 
-                        us through the following means: Email us at support@tradehook.com.au. </p>
+                        us through the following means: Email us at support@glamontap.com </p>
                     </div>
                 </div>   
             </div>

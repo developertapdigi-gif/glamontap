@@ -210,7 +210,7 @@ $model = Setting::setting();
                     <div class="about-detail">
                         <h4>14. Contact Us</h4>
                         <p>If you have any questions about these Terms, please contact us at:</p>
-                        <p>Email: support@tradehook.com.au</p>
+                        <p>Email: support@glamontap.com</p>
                         <p>Company: Tradehook</p>
                         <p>Location: Australia</p>
                     </div>
