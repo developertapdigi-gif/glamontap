@@ -10,7 +10,7 @@ Home
   <div class="container position-relative z-3">
     <div class="row align-items-center got-g-4">
       <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1200">
-        <h1 class="display-5 fw-bold mb-4 font-heading" style="color: var(--bs-primary);">Your Beauty Journey Starts Here
+        <h1 class="display-5 fw-bold mb-4 font-heading" style="color: var(--bs-dark);">Your Beauty Journey Starts Here
           {{-- <span class="font-serif italic text-accent" style="color: var(--accent) !important;">Beauty & Style</span></h1> --}}
         <p class="lead text-dark mb-md-4 mb-3 fs-5 opacity-75">Discover and book appointments with top salons, spas and beauty professionals near you. Experience premium beauty and wellness services tailored to your style and schedule.</p>
 
@@ -335,15 +335,9 @@ Home
 <section class="about-blue-footer about_skilled_trades mt-3">
   <div class="container">
     <div class="row about-blue-footer-right">
-      <div class="col-xl-5 col-lg-4  col-md-0">
-        <div class="abt-img-box">
-          <img class="abt-mob-img" src="../images/psd-images/mobile1.webp" />
-          <img class="abt-arrow-img" src="../images/psd-images/roll-arrow.png" />
-        </div>
-      </div>
-      <div class="col-xl-7 col-lg-8 col-md-12 abt-blue-desc">
+            <div class="col-lg-6 col-md-12">
         <h3 class="heading-size">Linking trusted home-service experts with real-time job opportunities</h3>
-        <p>Celebrating diversity and inclusion in every home-service role</p>
+        <p class ="footer-content">Celebrating diversity and inclusion in every home-service role</p>
 
 
         <div class="d-flex mt-lg-4 mt-4 about-download">
@@ -370,6 +364,13 @@ Home
           </a>
         </div>
       </div>
+      <div class="col-lg-6  col-md-0">
+        <div class="abt-img-box">
+          <img class="abt-arrow-img" src="../images/psd-images/roll-arrow.png" />
+          <img class="abt-mob-img" src="../images/psd-images/mobile1.webp" />
+        </div>
+      </div>
+
     </div>
   </div>
 

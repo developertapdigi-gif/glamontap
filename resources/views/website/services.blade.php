@@ -19,10 +19,10 @@ Services
     <div class="service-secnd-section container-fluid">
         <div class="mid-content skill-about-content">
             <div class="row align-items-center">
-                <div class="col-lg-6 col-xl-5 col-sm-12 col-md-12">
+                <div class="col-lg-6 col-sm-12 col-md-12">
                     <h4 class="me-lg-5 heading-size">Beauty Services at Your Doorstep</h4>
 
-                    <div class="about-detail me-lg-5">
+                    <div class="about-detail me-lg-3">
                         <p class="mb-3 main-content"> Skip the salon wait and enjoy professional beauty services in the comfort of your home. Book trusted experts for makeup, hair, skincare and more all tailored to you.</p>
                         
                         <div class = "service-box">
@@ -58,7 +58,7 @@ Services
 
                     </div>
                 </div>
-                <div class="col-lg-6 col-xl-7 col-md-12 col-sm-12">
+                <div class="col-lg-6 col-md-12 col-sm-12">
 
                     <div class="hire-trust">
                         <div class="about-left-banner service-right-sec pe-lg-0">
@@ -76,7 +76,7 @@ Services
 
 
             <div class="row service-section-margin align-items-center">
-                <div class="col-lg-6 col-xl-5 col-sm-12 col-md-12">
+                <div class="col-lg-6 col-sm-12 col-md-12">
                     <div class="contact-left-content about-mobile-background">
                         <div class="about-left-banner pe-0">
                             <!-- <img class="img-fluid desktop-image" src="../images/about-mobile-background.webp" />
@@ -86,7 +86,7 @@ Services
                     </div>
                 </div>
 
-                <div class="col-lg-6 col-xl-7 col-md-12 col-sm-12">
+                <div class="col-lg-6 col-md-12 col-sm-12">
                     <h4 class = "heading-size">Glam On Tap – Empowering Beauty Professionals</h4>
                     <div class="about-detail">
                         <h5 class ="heading-size">A platform designed for talented beauty experts.</h5>
