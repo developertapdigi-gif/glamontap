@@ -326,7 +326,7 @@ Home
         </div>
       </div>
     </div>
-    <a href="{{ route('skills.details') }}" class="btn mt-2 got-btn btn-outline-primary job-btn got-rounded-pill px-5 got-py-3 got-fw-bold" data-aos="fade-up">Browse Jobs &rarr;</a>
+    {{-- <a href="{{ route('skills.details') }}" class="btn mt-2 got-btn btn-outline-primary job-btn got-rounded-pill px-5 got-py-3 got-fw-bold" data-aos="fade-up">Browse Jobs &rarr;</a> --}}
   </div>
 </section>
 
@@ -387,30 +387,30 @@ Home
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
 
-            <form action="{{ route('appointment.store') }}" method="POST">
+            <form action="{{ route('appointment.store') }}" method="POST" id="appointmentForm">
                 @csrf
 
                 <div class="modal-body">
                     <div class="row">
 
                         <div class="col-md-6 mb-3">
-                            <label class="form-label">Full Name</label>
-                            <input type="text" name="name" class="form-control" required>
+                            <label class="form-label">Full Name <span class="text-danger">*</span></label>
+                            <input type="text" name="name" class="form-control" id="name">
                         </div>
 
                         <div class="col-md-6 mb-3">
-                            <label class="form-label">Phone Number</label>
-                            <input type="text" name="phone" class="form-control" required>
+                            <label class="form-label">Phone Number <span class="text-danger">*</span></label>
+                            <input type="text" name="phone" class="form-control" id="phone">
                         </div>
 
                         <div class="col-md-6 mb-3">
-                            <label class="form-label">Email</label>
-                            <input type="email" name="email" class="form-control">
+                            <label class="form-label">Email <span class="text-danger">*</span></label>
+                            <input type="email" name="email" class="form-control" id="email">
                         </div>
 
                         <div class="col-md-6 mb-3">
-                            <label class="form-label">Service</label>
-                            <select name="service" class="form-select">
+                            <label class="form-label">Service <span class="text-danger">*</span></label>
+                            <select name="service" class="form-select" id="service">
                                 <option value="">Select Service</option>
                                  @foreach ($skills as $skill)
                                 <option value="{{ $skill->name }}">{{ $skill->name }}</option>
@@ -418,8 +418,8 @@ Home
                             </select>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label class="form-label">Salon</label>
-                            <select name="salon" class="form-select">
+                            <label class="form-label">Salon <span class="text-danger">*</span></label>
+                            <select name="salon" class="form-select" id="salon">
                                 <option value="">Select Salon</option>
                                  @foreach ($company as $comp)
                                 <option value="{{ $comp->id }}">{{ $comp->first_name }}{{ $comp->last_name }}</option>
@@ -428,13 +428,13 @@ Home
                         </div>
 
                         <div class="col-md-6 mb-3">
-                            <label class="form-label">Appointment Date</label>
-                            <input type="date" name="appointment_date" class="form-control" required>
+                            <label class="form-label">Appointment Date <span class="text-danger">*</span></label>
+                            <input type="date" name="appointment_date" class="form-control" id="appointment_date">
                         </div>
 
                         <div class="col-md-6 mb-3">
-                            <label class="form-label">Appointment Time</label>
-                            <input type="time" name="appointment_time" class="form-control" required>
+                            <label class="form-label">Appointment Time <span class="text-danger">*</span></label>
+                            <input type="time" name="appointment_time" class="form-control" id="appointment_time">
                         </div>
 
                         <div class="col-12 mb-3">
@@ -474,7 +474,7 @@ Home
 
             <div class="modal-body text-center">
                 <h4>Your appointment has been booked successfully.</h4>
-                <p>We will contact you shortly.</p>
+                <p>We will contact you with in 2 hours.</p>
             </div>
 
             <div class="modal-footer justify-content-center">
@@ -490,6 +490,8 @@ Home
 @endsection
 @section('script')
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.19.5/jquery.validate.min.js"></script>
 
 @if(session('success'))
 <script>
@@ -520,6 +522,78 @@ document.addEventListener('DOMContentLoaded', function () {
     $('#appointmentModal').modal('show');
 });
 </script>
+
+
+<script>
+$(document).ready(function () {
+
+    $('#appointmentForm').on('submit', function (e) {
+
+        $('.error-text').remove();
+
+        let isValid = true;
+
+        let name = $('input[name="name"]').val().trim();
+        let phone = $('input[name="phone"]').val().trim();
+        let email = $('input[name="email"]').val().trim();
+        let service = $('select[name="service"]').val();
+        let salon = $('select[name="salon"]').val();
+        let appointment_date = $('input[name="appointment_date"]').val();
+        let appointment_time = $('input[name="appointment_time"]').val();
+
+        // Name
+        if (name === '') {
+            $('input[name="name"]').after('<span class="error-text text-danger">Please enter your name.</span>');
+            isValid = false;
+        }
+
+        // Phone
+        if (phone === '') {
+            $('input[name="phone"]').after('<span class="error-text text-danger">Please enter your phone number.</span>');
+            isValid = false;
+        } else if (!/^[0-9]{10,15}$/.test(phone)) {
+            $('input[name="phone"]').after('<span class="error-text text-danger">Please enter a valid phone number.</span>');
+            isValid = false;
+        }
+
+        // Email
+        if (email === '' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            $('input[name="email"]').after('<span class="error-text text-danger">Please enter a valid email address.</span>');
+            isValid = false;
+        }
+
+        // Service
+        if (service === '') {
+            $('select[name="service"]').after('<span class="error-text text-danger">Please select a service.</span>');
+            isValid = false;
+        }
+
+        // Salon
+        if (salon === '') {
+            $('select[name="salon"]').after('<span class="error-text text-danger">Please select a salon.</span>');
+            isValid = false;
+        }
+
+        // Appointment Date
+        if (appointment_date === '') {
+            $('input[name="appointment_date"]').after('<span class="error-text text-danger">Please select a date.</span>');
+            isValid = false;
+        }
+
+        // Appointment Time
+        if (appointment_time === '') {
+            $('input[name="appointment_time"]').after('<span class="error-text text-danger">Please select a time.</span>');
+            isValid = false;
+        }
+
+        if (!isValid) {
+            e.preventDefault();
+        }
+    });
+
+});
+</script>
+
 
 
 @endsection

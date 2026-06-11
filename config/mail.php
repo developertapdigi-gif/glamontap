@@ -114,7 +114,7 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
     'reply'=>[
-        'email'=>'support@tradehook.com.au',
-        'name'=>'TradeHook',
+        'email'=>'support@glamontap.com',
+        'name'=>'GlamOnTap',
     ]
 ];
