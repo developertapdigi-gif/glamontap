@@ -276,23 +276,13 @@ Terms & Conditions
 <section class="about-blue-footer about_skilled_trades mt-3">
     <div class="container">
         <div class="row about-blue-footer-right">
+            <div class="col-lg-6 col-md-12">
+                <h3 class="heading-size">Beauty Expertise, Delivered to Your Doorstep</h3>
+                <p class="footer-content">Connecting trusted beauty professionals with clients who value convenience, quality and personalized care.
+                    Empowering beauty experts. Elevating self care experiences.</p>
 
-            <div class="col-xl-5 col-lg-4 col-md-0">
-                <div class="abt-img-box">
-                    <img class="abt-mob-img" src="../images/psd-images/mobile1.webp" />
-                    <img class="abt-arrow-img" src="../images/psd-images/roll-arrow.png" />
-                </div>
-            </div>
 
-            <div class="col-xl-7 col-lg-8 col-md-12 abt-blue-desc">
-                <h3>Connecting Clients with Trusted Beauty Professionals</h3>
-
-                <p>
-                    Discover, book, and enjoy professional beauty services from trusted salons
-                    and beauty experts anytime, anywhere.
-                </p>
-
-                <div class="d-flex mt-md-5 mt-4 about-download">
+                <div class="d-flex mt-lg-5 mt-4 about-download">
                     <a href="#">
                         <div class="applestore whitestore social-media-banners d-flex me-3 me-xs-0 mb-xs-3">
                             <i class="bi bi-apple blue-icn"></i>
@@ -301,6 +291,7 @@ Terms & Conditions
                                 <b>Apple Store</b>
                             </div>
                         </div>
+
                     </a>
 
                     <a href="#">
@@ -311,13 +302,22 @@ Terms & Conditions
                                 <b>Google Play</b>
                             </div>
                         </div>
+
                     </a>
+
+                    <!--<a href="#"><img class="me-3 mb-2 social-media-banner" src="../images/googleplay-btn.svg"></a>-->
+
                 </div>
-
             </div>
-
+            <div class="col-lg-6  col-md-0 position-relative">
+                <div class="abt-img-box">
+                    <img class="abt-arrow-img" src="../images/psd-images/roll-arrow.png" />
+                    <img class="abt-mob-img" src="../images/psd-images/mobile1.webp" />
+                </div>
+            </div>
         </div>
     </div>
+
 </section>
 
 @endsection

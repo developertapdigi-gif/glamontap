@@ -44,7 +44,7 @@ $model = Setting::setting();
             <li><a href="{{  route('services') }}" class="{{Str::contains(url()->current(), 'services') ? 'active' : '' }}"><span>Services</span></a></li>
             <li><a href="{{  route('about') }}" class="{{Str::contains(url()->current(), 'about') ? 'active' : '' }}">About Us</a></li>
             <li><a href="{{  route('contact') }}" class="{{Str::contains(url()->current(), 'contact') ? 'active' : '' }}">Contact</a></li>
-            <li class="mobile-content employer-btn"><a style="color:#fff; text-align:center;  margin-right:5px;" class="btn btn-primary me-1" href="{{ route('skills.details') }}">View Jobs</a></li>
+            <li class="mobile-content employer-btn"><a style="color:#fff; text-align:center;  margin-right:5px;" class="btn btn-primary me-1" href="{{ route('skills.details') }}">Back to Home</a></li>
             @if(!session('employer_mode'))
             <li class="mobile-content"><a style="color:#fff; text-align:center;  margin-right:5px;" class="btn btn-primary me-1" href="{{ route('employer') }}">Find Professionals</a></li>
             @else
@@ -64,7 +64,7 @@ $model = Setting::setting();
         <div class="btn-getstarted mobile-hide">
           {{-- <a href="{{ route('home') }}?emp=1" class="btn btn-primary btn-right-margin">View Jobs</a>
            --}}
-          <a href="{{ route('skills.details') }}" class="btn btn-primary btn-right-margin">View Jobs</a>
+          <a href="{{ url('/') }}"   class="btn btn-primary btn-right-margin back-to-start">Back to Home</a>
           
           @auth
           <a href="{{ route('dashboard') }}" class="btn btn-primary btn-white">Dashboard</a>
@@ -121,7 +121,7 @@ $model = Setting::setting();
   <script>
 $(document).ready(function () {
 
-    $('#logo-link .').click(function (e) {
+    $('#logo-link, .back-to-start' ).click(function (e) {
         e.preventDefault();
 
         $.get("{{ route('clear.employer.mode') }}", function () {
