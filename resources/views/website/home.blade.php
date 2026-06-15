@@ -108,9 +108,9 @@ Home
       <h2 class="fw-bold mb-3 font-heading heading-size">Browse Beauty Specialties</h2>
       <p class="text-muted">Explore high-demand roles across all sectors of the industry.</p>
     </div>
-    <div class="row g-4 beauty-category">
+    <div class="card-grid beauty-category">
       @foreach ($skills as $skill)
-      <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+      <div class="card" data-aos="fade-up" data-aos-delay="100">
         <a href="{{ route('skills.details', ['skillId' => $skill->id]) }} class=" text-decoration-none">
           {{-- <a href="{{ route('skills.details', ['skillId' => $skill->id]) }}" class="text-decoration-none"></a> --}}
         <div class="category-card shadow-sm h-100">

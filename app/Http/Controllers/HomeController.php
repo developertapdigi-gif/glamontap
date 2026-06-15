@@ -218,9 +218,10 @@ class HomeController  extends Controller
         }else{
             $layout = 'website.layouts.master';
         } 
+         $skills = SkillCategory::where('status', 1)->get();
         $plans = Plan::where('status',1)->orderby('id', 'asc')->paginate(10);
         $addonplans = PlansAddon::where('status',1)->orderby('id', 'asc')->paginate(10);
-        return view('website.services',compact('plans','addonplans','layout'));
+        return view('website.services',compact('plans','addonplans','layout','skills'));
     }
     public function submitForm(Request $request){     
        $request->validate([

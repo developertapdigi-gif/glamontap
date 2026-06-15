@@ -1138,12 +1138,87 @@ section {
     color: #4B5563;
     line-height: 1.6;
     margin-bottom: 30px;
-    max-width: 600px;
+    /* max-width: 600px; */
 }
-
-
-
-
+.abt-mob-img {
+	width: 100%;
+}
+.abt-arrow-img {
+	height: 100%;
+}
+.card-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr); 
+      gap: 5px;                             
+    }
+.card {
+      padding: 12px;
+      text-align: center;
+	  border: 0px;
+    }
+.hero-feature {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+	text-align: center;
+    align-items: center;
+}
+.hero-feature-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hero-feature-icon.purple {
+    background: #efe9f6;
+    color: #925ab3;
+}
+.hero-feature-icon i {
+    font-size: 20px;
+}
+.hero-features {
+    display: flex;
+    gap: 30px;
+}
+.hero-feature-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2e2e3f;
+}
+.hero-feature-desc {
+    font-size: 14px;
+    color: #818195;
+    max-width: 150px;
+	margin-top: 4px;
+}
+.hero-feature-icon.pink {
+    background: #fcebf3;
+    color: #e13988;
+}
+.hero-feature-icon.orange {
+    background: #fdf1e6;
+    color: #de9058;
+}
+.pro-feature-icon i {
+    font-size: 20px;
+}
+.pro-feature-icon {
+    width: 50px;
+    height: 50px;
+    background: #efe9f6;
+    color: #925ab3;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.col-md-6:nth-child(even) .pro-feature-icon {
+    background: #fcebf3;
+    color: #e13988;
+}
 
 
 
@@ -4176,7 +4251,7 @@ h2 {
 }
 
 .black-button {
-	background-color: #202124;
+	background: #202124;
     color: #fff;
     border: #202124;
 	padding-top: 12px;
@@ -6645,7 +6720,7 @@ a.primary-btn{
 }
 .btn-secondary{
     color: #fff;
-    background-color: #6c757d !important;
+    background: #6c757d !important;
 }
 .grid-pagintion{
 	background-color: transparent !important;
@@ -7404,12 +7479,15 @@ a.grey-button:hover{
 	padding-top:1px !important;
 }
 .abt-img-box{
-    height: 403px;
+    /* height: 403px; */
     overflow: hidden;
     padding-bottom: 0px;
     position: absolute;
 /*    margin-top: -36px;*/
     right: 18%;
+	display: flex;
+    align-items: center;
+    column-gap: 30px;
 }
 .abt-arrow-img{
     margin-top: -100px;
@@ -7856,7 +7934,9 @@ i.person-gear::before{
     max-width: 250px;
     height: 64px;
 }
-
+	.card-grid {
+      grid-template-columns: repeat(4, 1fr);                            
+    }
 .abt-img-box img{
     scale:0.9;
     margin-left: -12px;
@@ -7878,6 +7958,9 @@ i.person-gear::before{
 .right-login-section{
 	height: calc(100% - 50px);
 }
+.doorstep-service .row{
+	row-gap: 6px;
+}
 }
 
 /**********************about end*******************************/
@@ -7888,11 +7971,15 @@ i.person-gear::before{
 .service-plans {
     padding: 61px 11% !important;
 }
+	.hero-v2-desc {
+    max-width: 100%;
+}
 }
 @media (max-width:1780px ){
 	.service-plans {
 		padding: 61px 10% !important;
 	}
+
 	}
 	@media (max-width:1680px ){
 		.service-plans {
@@ -7910,7 +7997,6 @@ i.person-gear::before{
     margin-left: 8px;
     margin-right: 5px;
 }
-
 }
 @media (max-width:1300px ){
 	  .about-blue-footer{
@@ -7978,6 +8064,7 @@ i.person-gear::before{
         padding-right:0px;
 
     }
+
 	.add-on-page .plan-header b {
     max-width: 190px;
 }
@@ -8138,6 +8225,9 @@ i.person-gear::before{
 .center_slider1 .slick-current {
 	width: 250px !important;
 }
+	.card-grid {
+      grid-template-columns: repeat(3, 1fr);                            
+    }
 }
 @media (min-width:768px ) and (max-width:1200px ){
     .plan-header{
@@ -8237,6 +8327,9 @@ i.person-gear::before{
     margin-right: auto!important;
     margin-left: auto !important;
 }
+	.card-grid {
+      grid-template-columns: repeat(2, 1fr);                            
+    }
 	 .banner-outer {
     margin-top: 70px;
 }
@@ -8919,6 +9012,9 @@ input.location-select:focus {
     .empower-tools {
         margin: 54px auto 0 auto;
     }
+	.skill-about-content .beauty-service-features h4 {
+    margin-top: 0px;
+}
 
     .leftnav-deepmenu ul li{
         list-style: none !important;
@@ -8960,7 +9056,7 @@ input.location-select:focus {
 
 	}
 	.hire-trust {
-    padding: 0px 40px;
+    padding: 0px;
 }
 	/* .carousel-item img{
 		min-height: 505px !important;
@@ -9002,6 +9098,13 @@ input.location-select:focus {
 	.job-listing .listing-item::after {
 		display: none;
 	}
+	.hero-features {
+		flex-wrap: wrap;
+		gap: 16px;
+}
+.service-section-margin .contact-left-content {
+    padding: 0px;
+}
 }
 
 @media (max-width :800px) {
