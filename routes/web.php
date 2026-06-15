@@ -5,7 +5,7 @@ use App\Http\Middleware\AgencyStatus;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\{HomeController,CkeditorController,CheckoutController};
 use App\Http\Controllers\Tradie\{DashboardController as TradieDashboard, JobController as TradieJob, ProfileController as TradieProfile, PostController as TradiePost, ConnectionController as TradieConnection, NotificationController as TradieNotification};
-use App\Http\Controllers\Admin\{AgencySubscriptionController,UserController,DashboardController,ProfileController,AgencyController,TraderController,SkillCategoriesController,JobController,RoleController,SettingController,AgentController,NotificationController,SubscriptionPlanController,BadgesController,PostOverWallController,EndrosementPostController,CmsController,PreviewPostJobController,AddonPlansController,FeedbackSurveysController,AppointmentController};
+use App\Http\Controllers\Admin\{AgencySubscriptionController,UserController,DashboardController,ProfileController,AgencyController,TraderController,SkillCategoriesController,JobController,RoleController,SettingController,AgentController,NotificationController,SubscriptionPlanController,BadgesController,PostOverWallController,EndrosementPostController,CmsController,PreviewPostJobController,AddonPlansController,FeedbackSurveysController,AppointmentController, ServiceController};
 /* Common Routes*/
 Route::post('ckeditor/upload', [CkeditorController::class, 'upload'])->name('ckeditor.image-upload');
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -171,6 +171,7 @@ Route::group(['middleware' => ['auth']], function() {
         Route::get('cms/list', [CmsController::class, 'fetchData'])->name('fetch.cms');
         Route::resource('cms',CmsController::class); 
         Route::resource('appointments', AppointmentController::class);
+        // Route::resource('services', ServiceController::class);
     });
 });
 

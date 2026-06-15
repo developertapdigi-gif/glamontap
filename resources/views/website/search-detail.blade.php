@@ -93,7 +93,7 @@ $job = $job ?? null;
                 @if($alreadyApplied)
                   <button class="btn btn-secondary" disabled>Already Applied</button>
                 @elseif(in_array($job->status, [1,2]) && $skillMatch)
-                  <form action="{{ route('tradie.jobs.apply') }}" method="POST">
+                  <form action="{{ route('tradie.jobs.apply') }}" method="POST"> 
                     @csrf
                     <input type="hidden" name="job_id" value="{{ $job->id }}">
                     <div class="mb-2">
