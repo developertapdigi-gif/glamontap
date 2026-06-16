@@ -6,7 +6,7 @@ Services
 <div class="top-content banner-outer">
     <div class="row skill-title text-center">
         <h1 class="heading-size">
-            Create your profile and start today!
+            Find Your Perfect Beauty Professional
         </h1>
 
         <ul class="skill-breadcrumbs d-flex justify-content-center">
@@ -103,7 +103,7 @@ Services
 
 <div class="mid-content container">
         <div class="text-center mb-4">
-      <h2 class="fw-bold mb-3 font-heading heading-size">Explore Our Services</h2>
+      <h2 class="fw-bold mb-3 font-heading heading-size">Explore Our <span class="color-text">Services</span></h2>
       <p class="text-muted">Find the perfect service that suits your beauty needs.</p>
     </div>
     <div class="card-grid beauty-category">
@@ -140,10 +140,10 @@ Services
             </div>
 
             <div class="col-lg-6 col-md-12 col-sm-12">
-                <h4 class="heading-size">Glam On Tap – Empowering Beauty Professionals</h4>
+                <h4 class="heading-size">Glam On Tap – Empowering <br> <span class="color-text">Beauty Professionals</span></h4>
                 <div class="about-detail">
                     <h5 class="heading-size">A platform designed for talented beauty experts.</h5>
-                    <p class="mb-3">Join our platform and unlock endless opportunities. Showcase your talent, manage bookings, grow your client base and build a brand you love.</p>
+                    <p class="mb-4">Join our platform and unlock endless opportunities. Showcase your talent, manage bookings, grow your client base and build a brand you love.</p>
 
                     <!-- <div class="service-box">
                         <div class="skill-tiles d-flex">
@@ -188,28 +188,28 @@ Services
                     </div> -->
                     <div class="row g-4 beauty-service-features">
                         <div class="col-md-6 d-flex gap-3">
-                            <div class="pro-feature-icon"><i class="fa-regular fa-user"></i></div>
+                            <div class="pro-feature-icon"><img class="img-fluid" src="../images/talent.svg" width="25"/></div>
                             <div>
                                 <h4 class="fw-semibold text-main mb-1" style="font-size: 16px;">Showcase Your Talent</h4>
                                 <p class="text-muted-custom mb-0" style="font-size: 14px; line-height: 1.4;">Create a stunning profile and highlight your skills, portfolio & experience.</p>
                             </div>
                         </div>
                         <div class="col-md-6 d-flex gap-3">
-                            <div class="pro-feature-icon"><i class="fa-solid fa-gear"></i></div>
+                            <div class="pro-feature-icon"><img class="img-fluid" src="../images/manage.svg" width="25"/></div>
                             <div>
                                 <h4 class="fw-semibold text-main mb-1" style="font-size: 16px;">Manage Everything</h4>
                                 <p class="text-muted-custom mb-0" style="font-size: 14px; line-height: 1.4;">Handle bookings, schedule and clients, all in one place.</p>
                             </div>
                         </div>
                         <div class="col-md-6 d-flex gap-3">
-                            <div class="pro-feature-icon"><i class="fa-regular fa-calendar-check"></i></div>
+                            <div class="pro-feature-icon"><img class="img-fluid" src="../images/booking.svg" width="30"/></div>
                             <div>
                                 <h4 class="fw-semibold text-main mb-1" style="font-size: 16px;">Get More Bookings</h4>
                                 <p class="text-muted-custom mb-0" style="font-size: 14px; line-height: 1.4;">Receive service requests that match your expertise & availability.</p>
                             </div>
                         </div>
                         <div class="col-md-6 d-flex gap-3">
-                            <div class="pro-feature-icon"><i class="fa-regular fa-chart-bar"></i></div>
+                            <div class="pro-feature-icon"><img class="img-fluid" src="../images/grow.svg" width="25"/></div>
                             <div>
                                 <h4 class="fw-semibold text-main mb-1" style="font-size: 16px;">Grow Your Brand</h4>
                                 <p class="text-muted-custom mb-0" style="font-size: 14px; line-height: 1.4;">Build your reputation and grow your business with confidence.</p>

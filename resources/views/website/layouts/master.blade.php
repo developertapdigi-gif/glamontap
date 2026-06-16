@@ -46,53 +46,133 @@ $model = Setting::setting();
             <li><a href="{{  route('about') }}" class="{{Str::contains(url()->current(), 'about') ? 'active' : '' }}">About Us</a></li>
             <li><a href="{{  route('contact') }}" class="{{Str::contains(url()->current(), 'contact') ? 'active' : '' }}">Contact</a></li>
             @if(!session('employer_mode'))
-                    <li class="mobile-content employer-btn"><a style="color:#fff; text-align:center;  margin-right:5px;" class="btn btn-primary me-1 empolyer-mobile"  href="{{ route('employer') }}">Find Professionals</a></li>
+            <li class="mobile-content employer-btn"><a style="color:#fff; text-align:center;  margin-right:5px;" class="btn btn-primary me-1 empolyer-mobile" href="{{ route('employer') }}">Find Professionals</a></li>
             @else
-                @auth
-                 <li class="mobile-content employer-btn"><a  style="color:#fff; text-align:center; margin-left:5px; margin-right:5px;"  class="btn btn-primary ms-1 me-1" href="{{ Auth::user()->hasRole('trader') ? route('tradie.dashboard') : route('dashboard') }}">Dashboard</a></li>
-                @endauth
-                @endif
-                @guest
-                    <li class="mobile-content"><a style="color:#fff; text-align:center;  margin-right:5px;" class="btn btn-primary me-1 btn-white"  href="{{ route('user.login') }}">Login</a></li>
-                    {{-- <li class="mobile-content"><a  style="color:#fff; text-align:center" class="btn btn-primary btn-black text-decoration-none" href="{{ route('user.register') }}">Register</a></li> --}}
-                @endguest
-             
+            @auth
+            <li class="mobile-content employer-btn"><a style="color:#fff; text-align:center; margin-left:5px; margin-right:5px;" class="btn btn-primary ms-1 me-1" href="{{ Auth::user()->hasRole('trader') ? route('tradie.dashboard') : route('dashboard') }}">Dashboard</a></li>
+            @endauth
+            @endif
+            @guest
+            <li class="mobile-content"><a style="color:#fff; text-align:center;  margin-right:5px;" class="btn btn-primary me-1 btn-white" href="{{ route('user.login') }}">Login</a></li>
+            {{-- <li class="mobile-content"><a  style="color:#fff; text-align:center" class="btn btn-primary btn-black text-decoration-none" href="{{ route('user.register') }}">Register</a></li> --}}
+            @endguest
+
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
-        {{-- <div class="mobile-content employer-home"><a style="color:#fff; text-align:center;" class="btn btn-primary employer-site" href="{{ route('employer') }}">Find Professionals</a></div>
+        {{-- <div class="mobile-content employer-home"><a style="color:#fff; text-align:center;" class="btn btn-primary employer-site" href="{{ route('employer') }}">Find Professionals</a>
+      </div>
+
+      @auth
+      <div class="mobile-content employer-btn"><a style="color:#fff; text-align:center; margin-left:5px; margin-right:5px;" class="btn btn-primary ms-1 me-1 employer-site" href="{{ Auth::user()->hasRole('trader') ? route('tradie.dashboard') : route('dashboard') }}">Dashboard</a></div>
+      @endauth
+      @guest
+      <div class="mobile-content employer-home"><a style="color:#fff; text-align:center;" class="btn btn-primary employer-site" href="{{ route('user.login') }}">Login</a></div>
+      @endguest --}}
+
+
+      <div class="btn-getstarted mobile-hide">
+
+        <a href="{{ route('employer') }}" class="btn btn-primary btn-right-margin">Find Professionals</a>
 
         @auth
-        <div class="mobile-content employer-btn"><a style="color:#fff; text-align:center; margin-left:5px; margin-right:5px;" class="btn btn-primary ms-1 me-1 employer-site" href="{{ Auth::user()->hasRole('trader') ? route('tradie.dashboard') : route('dashboard') }}">Dashboard</a></div>
+        <a href="{{ Auth::user()->hasRole('trader') ? route('tradie.dashboard') : route('dashboard') }}" class="btn btn-primary btn-white">Dashboard</a>
         @endauth
         @guest
-            <div class="mobile-content employer-home"><a style="color:#fff; text-align:center;" class="btn btn-primary employer-site" href="{{ route('user.login') }}">Login</a></div>
-        @endguest --}}
+        <a href="{{ route('user.login') }}" class="btn btn-primary btn-white">Login</a>
+        {{-- <a href="{{ route('user.register') }}" class="btn btn-primary btn-white">Register</a> --}}
+        @endguest
 
 
-        <div class="btn-getstarted mobile-hide">
-         
-          <a href="{{ route('employer') }}" class="btn btn-primary btn-right-margin">Find Professionals</a>
-          
-          @auth
-          <a href="{{ Auth::user()->hasRole('trader') ? route('tradie.dashboard') : route('dashboard') }}" class="btn btn-primary btn-white">Dashboard</a>
-          @endauth
-          @guest
-                <a href="{{ route('user.login') }}" class="btn btn-primary btn-white">Login</a>
-                {{-- <a href="{{ route('user.register') }}" class="btn btn-primary btn-white">Register</a> --}}
-            @endguest
 
-         
-
-        </div>
       </div>
+    </div>
     </div>
   </header>
   @yield('content')
 
+    <footer class="footer2">
+        <div class="container">
+            <div class="row gy-5">
 
+                <!-- EXPLORE -->
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="footer-col-heading">Explore</h6>
+                    <ul class="footer-links">
+                        <li><img src="../images/arrow2.svg" width ="12"> <a href="#">Home</a></li>
+                        <li><img src="../images/arrow2.svg" width ="12"> <a href="#">Services</a></li>
+                        <li><img src="../images/arrow2.svg" width ="12"> <a href="#">About Us</a></li>
+                        <li><img src="../images/arrow2.svg" width ="12"> <a href="#">Contact</a></li>
+                    </ul>
+                </div>
 
-  <section class="skill-sub-footer social-footer-icons">
+                <!-- FOR PROFESSIONALS -->
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="footer-col-heading">For Professionals</h6>
+                    <ul class="footer-links">
+                        <li><img src="../images/arrow2.svg" width ="12"><a href="#">Find Professionals</a></li>
+                        <li><img src="../images/arrow2.svg" width ="12"><a href="#">Join as a Professional</a></li>
+                        <li><img src="../images/arrow2.svg" width ="12"><a href="#">Professional Login</a></li>
+                    </ul>
+                </div>
+
+                <!-- SUPPORT -->
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="footer-col-heading">Support</h6>
+                    <ul class="footer-links">
+                        <li><img src="../images/arrow2.svg" width ="12"><a href="#">Terms &amp; Conditions</a></li>
+                        <li><img src="../images/arrow2.svg" width ="12"><a href="#">Privacy Policy</a></li>
+                        <li><img src="../images/arrow2.svg" width ="12"><a href="#">Help & Support</a></li>
+                    </ul>
+                </div>
+
+                <!-- GET IN TOUCH -->
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="footer-col-heading">Get In Touch</h6>
+
+                    <div class="contact-item">
+                        <div class="contact-icon-box">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <div class="contact-title">+91-9686681076</div>
+                            <div class="contact-sub">Mon‑Sat: 10AM‑6PM Sun: 10AM‑4PM</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon-box">
+                           <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div>
+                            <div class="contact-title">support@glamontap.com</div>
+                            <div class="contact-sub">We reply within 24 hours</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon-box">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <div class="contact-title">Office G5, D-229, Sector 74, </div>
+                            <div class="contact-sub">Mohali, Punjab 140307</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <div class="container-fluid">
+      <!-- Footer Bottom -->
+      <div class="row footer-bottom align-items-center">
+        <div class="col-12 text-center copyright">
+          2024 Glam On Tap. All Rights Reserved.
+        </div>
+      </div>
+    </div>
+  <!-- <section class="skill-sub-footer social-footer-icons">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-md-4 col-lg-3 footer-logo">
@@ -122,7 +202,8 @@ $model = Setting::setting();
       <p class="footer-text-left">© 2026 {{$model['name_of_website']}} | <a href="{{route('privacyPolicy')}}"> Privacy Policy</a></p>
       <p class="footer-text-right"><a href="{{route('termsCondition')}}">Community Guidelines</a></p>
     </div>
-  </footer>
+  </footer> -->
+
   <link href="{{ asset('fortawesome/css/all.min.css') }}" rel="stylesheet" />
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="{{ asset('js/bootstrap.min.js') }}"></script>
@@ -165,7 +246,7 @@ $model = Setting::setting();
     }
   </style>
 
-  
+
 </body>
 
 
