@@ -465,10 +465,10 @@ Home
             <div class="col-md-6 mb-3">
               <label class="form-label">Appointment Type <span class="text-danger">*</span></label>
               <div class="service-toggle">
-                <input type="radio" id="visitSalon" name="service" checked>
+                <input type="radio" id="visitSalon" name="appointment_type" value="salon" checked>
                 <label for="visitSalon">🏪 Visit Salon</label>
 
-                <input type="radio" id="homeService" name="service">
+                <input type="radio" id="homeService" name="appointment_type" value="home">
                 <label for="homeService">🏠 Home Service</label>
               </div>
             </div>
@@ -574,6 +574,7 @@ Home
       let email = $('input[name="email"]').val().trim();
       let service = $('select[name="service"]').val();
       let salon = $('select[name="salon"]').val();
+      let appointment_type = $('input[name="appointment_type"]:checked').val();
       let appointment_date = $('input[name="appointment_date"]').val();
       let appointment_time = $('input[name="appointment_time"]').val();
 
@@ -607,6 +608,12 @@ Home
       // Salon
       if (salon === '') {
         $('select[name="salon"]').after('<span class="error-text text-danger">Please select a salon.</span>');
+        isValid = false;
+      }
+
+      // Appointment Type
+      if (appointment_type === '') {
+        $('input[name="appointment_type"]').after('<span class="error-text text-danger">Please select an appointment type.</span>');
         isValid = false;
       }
 

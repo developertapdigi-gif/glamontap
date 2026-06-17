@@ -12,6 +12,17 @@ class Service extends Model
         'price',
         'duration',
         'image',
-        'status'
+        'status',
+        'parent_id',
+        'type'
     ];
+    public function parent()
+    {
+        return $this->belongsTo(Service::class, 'parent_id');
+    }
+
+    public function children()
+    {
+        return $this->hasMany(Service::class, 'parent_id');
+    }
 }

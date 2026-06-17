@@ -53,6 +53,7 @@
                             <th>Message</th>
                             <th>Status</th>
                             <th>Created On</th>
+                            <th></th>
                         </tr>
                     </thead>
 
@@ -100,6 +101,11 @@
                                 <td>
                                     {{ $appointment->created_at->format('d M Y h:i A') }}
                                 </td>
+                                <td>
+                                    <a href="{{ route('appointments.show', $appointment->id) }}" class="btn btn-info btn-sm">
+                                     View </a>
+                                    </td>
+                                
                             </tr>
                         @empty
                             <tr>

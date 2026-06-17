@@ -59,12 +59,12 @@ $model = Setting::setting();
              Post Over Wall
         </a>
     </li>
-    {{-- <li class="pb-0 {{Str::contains(url()->current(), 'services') ? 'active' : '' }}">
-        <a href="{{ route('services.index') }}">
+    <li class="pb-0 {{Str::contains(url()->current(), 'services') ? 'active' : '' }}">
+        <a href="{{ route('service.index') }}">
             <i class="service-icon"></i>
             Services
         </a>
-    </li> --}}
+    </li>
     <div class="leftnav navmenu admin-leftbar">
         <li class="dropdown pb-0 {{Str::contains(url()->current(), ['plans','subscribers']) ? 'active' : '' }}">
         <a class="mt-0 mb-0"  href="#">

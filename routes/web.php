@@ -27,6 +27,8 @@ Route::get('/skills/{skillId?}', [HomeController::class, 'showBySkill'])->name('
 #Route::get('/search-results', [HomeController::class, 'searchResult'])->name('searchResults');
 Route::get('search/details/{id}/{text}', [HomeController::class, 'showDetails'])->name('get.resultdetail');
 Route::post('/appointment', [HomeController::class, 'bookAppointment'])->name('appointment.store');
+Route::get('/appointments/{id}', [AppointmentController::class, 'show'])
+    ->name('appointments.show');
 Route::get('/clear-employer-mode', function () {
     session()->forget('employer_mode');
     return response()->json(['success' => true]);
@@ -137,7 +139,8 @@ Route::group(['middleware' => ['auth']], function() {
         Route::get('comment/{id}',[EndrosementPostController::class,'comment'])->name('comment');
         Route::post('storecomment',[EndrosementPostController::class,'storeComment'])->name('endrosement-post.storecomment');
         Route::post('endrosement-post/endrose', [EndrosementPostController::class, 'endroseRecord'])->name('endrosement-post.endrose');
-        Route::resource('endrosement-post',EndrosementPostController::class);    
+        Route::resource('endrosement-post',EndrosementPostController::class);  
+        Route::get('bookings', [AppointmentController::class, 'index'])->name('bookings'); 
     });
     Route::group(['middleware' => ['role:admin']], function () {
         Route::get('skill-categories/fetch-categories', [SkillCategoriesController::class, 'fetchData'])->name('fetch.skill-categories');
@@ -171,7 +174,7 @@ Route::group(['middleware' => ['auth']], function() {
         Route::get('cms/list', [CmsController::class, 'fetchData'])->name('fetch.cms');
         Route::resource('cms',CmsController::class); 
         Route::resource('appointments', AppointmentController::class);
-        // Route::resource('services', ServiceController::class);
+        Route::resource('service', ServiceController::class);
     });
 });
 

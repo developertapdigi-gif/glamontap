@@ -10,75 +10,131 @@ class ServiceController extends Controller
 {
     public function index()
     {
-        $services = Service::latest()->paginate(10);
+        $services = Service::with('parent')
+            ->latest()
+            ->paginate(10);
 
         return view('admin.services.index', compact('services'));
     }
 
     public function create()
     {
-        return view('admin.services.create');
+        $categories = Service::where('type', 'category')
+            ->where('status', 1)
+            ->orderBy('service_name')
+            ->get();
+
+        return view('admin.services.create', compact('categories'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
             'service_name' => 'required|max:255',
-            'price' => 'required|numeric|min:0',
-            'duration' => 'required|integer|min:1',
-            'description' => 'nullable',
-            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048'
+            'type' => 'required|in:category,sub_category',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
         $data = $request->all();
 
+        // Category should not have parent_id
+        if ($request->type == 'category') {
+            $data['parent_id'] = null;
+        }
+
+        // Upload Image
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')
-                ->store('services', 'public');
+
+            $image = $request->file('image');
+
+            $imageName = time().'_'.uniqid().'.'.$image->getClientOriginalExtension();
+
+            $image->move(
+                public_path('uploads/services'),
+                $imageName
+            );
+
+            $data['image'] = 'uploads/services/'.$imageName;
         }
 
         Service::create($data);
 
         return redirect()
-            ->route('services.index')
-            ->with('success', 'Service created successfully.');
+            ->route('service.index')
+            ->with('success', 'Record added successfully.');
     }
 
     public function edit(Service $service)
     {
-        return view('admin.services.edit', compact('service'));
+        $categories = Service::where('type', 'category')
+            ->where('status', 1)
+            ->where('id', '!=', $service->id)
+            ->orderBy('service_name')
+            ->get();
+
+        return view(
+            'admin.services.edit',
+            compact('service', 'categories')
+        );
     }
 
     public function update(Request $request, Service $service)
     {
         $request->validate([
             'service_name' => 'required|max:255',
-            'price' => 'required|numeric|min:0',
-            'duration' => 'required|integer|min:1',
-            'description' => 'nullable',
-            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048'
+            'type' => 'required|in:category,sub_category',
+            'image' => 'nullable|image',
         ]);
 
         $data = $request->all();
 
+        // Category should not have parent_id
+        if ($request->type == 'category') {
+            $data['parent_id'] = null;
+        }
+
+        // Update Image
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')
-                ->store('services', 'public');
+
+            if (
+                $service->image &&
+                file_exists(public_path($service->image))
+            ) {
+                unlink(public_path($service->image));
+            }
+
+            $image = $request->file('image');
+
+            $imageName = time().'_'.uniqid().'.'.$image->getClientOriginalExtension();
+
+            $image->move(
+                public_path('uploads/services'),
+                $imageName
+            );
+
+            $data['image'] = 'uploads/services/'.$imageName;
         }
 
         $service->update($data);
 
         return redirect()
-            ->route('services.index')
-            ->with('success', 'Service updated successfully.');
+            ->route('service.index')
+            ->with('success', 'Record updated successfully.');
     }
 
     public function destroy(Service $service)
     {
+        if (
+            $service->image &&
+            file_exists(public_path($service->image))
+        ) {
+            unlink(public_path($service->image));
+        }
+
         $service->delete();
 
         return redirect()
-            ->route('services.index')
-            ->with('success', 'Service deleted successfully.');
+            ->route('service.index')
+            ->with('success', 'Record deleted successfully.');
     }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
-use App\Models\{Setting,User,Job,SkillCategory,Post,PostGallery,PostLike,Appointment};
+use App\Models\{Setting,User,Job,SkillCategory,Post,PostGallery,PostLike,Appointment,Service};
 use App\Mail\ContactForm;
 use App\Models\SubscriptionPlans as Plan;
 use App\Models\PlansAddon;
@@ -218,10 +218,10 @@ class HomeController  extends Controller
         }else{
             $layout = 'website.layouts.master';
         } 
-         $skills = SkillCategory::where('status', 1)->get();
+        $services = Service::where('status', 1)->get();
         $plans = Plan::where('status',1)->orderby('id', 'asc')->paginate(10);
         $addonplans = PlansAddon::where('status',1)->orderby('id', 'asc')->paginate(10);
-        return view('website.services',compact('plans','addonplans','layout','skills'));
+        return view('website.services',compact('plans','addonplans','layout','services'));
     }
     public function submitForm(Request $request){     
        $request->validate([

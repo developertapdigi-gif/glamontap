@@ -16,6 +16,7 @@ class Appointment extends Model
     'message',
     'salon',
     'status',
+    'appointment_type',
 ];
 
 

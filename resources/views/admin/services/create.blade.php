@@ -6,7 +6,7 @@
 
     <h2>Add Service</h2>
 
-    <form action="{{ route('services.store') }}"
+    <form action="{{ route('service.store') }}"
           method="POST"
           enctype="multipart/form-data">
 
@@ -18,7 +18,7 @@
             Save Service
         </button>
 
-        <a href="{{ route('services.index') }}"
+        <a href="{{ route('service.index') }}"
            class="btn btn-secondary">
             Back
         </a>

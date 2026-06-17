@@ -107,15 +107,14 @@ Services
       <p class="text-muted">Find the perfect service that suits your beauty needs.</p>
     </div>
     <div class="card-grid beauty-category">
-        @foreach ($skills as $skill)
+        @foreach ($services as $service)
         <div class="card">
-            <a href="{{ route('skills.details', ['skillId' => $skill->id]) }} class=" text-decoration-none">
-                {{-- <a href="{{ route('skills.details', ['skillId' => $skill->id]) }}" class="text-decoration-none"></a> --}}
+            {{-- <a href="{{ route('services.details', ['serviceId' => $service->id]) }}" class="text-decoration-none"> --}}
             <div class="category-card shadow-sm h-100">
                 <div class="cat-icon ci-green">
-                    <img src="{{ asset($skill->image) }}" alt="{{ $skill->name }}" class="img-fluid">
+                    <img src="{{ asset($service->image) }}" alt="{{ $service->service_name }}" class="img-fluid">
                 </div>
-                <h5 class="font-heading">{{ $skill->name }}</h5>
+                <h5 class="font-heading">{{ $service->service_name }}</h5>
             </div>
             </a>
 

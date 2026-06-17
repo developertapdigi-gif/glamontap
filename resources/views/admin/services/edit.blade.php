@@ -6,7 +6,7 @@
 
     <h2>Edit Service</h2>
 
-    <form action="{{ route('services.update',$service->id) }}"
+    <form action="{{ route('service.update',$service->id) }}"
           method="POST"
           enctype="multipart/form-data">
 
@@ -19,7 +19,7 @@
             Update Service
         </button>
 
-        <a href="{{ route('services.index') }}"
+        <a href="{{ route('service.index') }}"
            class="btn btn-secondary">
             Back
         </a>
