@@ -171,7 +171,7 @@ Route::group(['middleware' => ['auth']], function() {
         Route::get('cms/list', [CmsController::class, 'fetchData'])->name('fetch.cms');
         Route::resource('cms',CmsController::class); 
         Route::resource('appointments', AppointmentController::class);
-        // Route::resource('services', ServiceController::class);
+        Route::resource('service', ServiceController::class);
     });
 });
 
