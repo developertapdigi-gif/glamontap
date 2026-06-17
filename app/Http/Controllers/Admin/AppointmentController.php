@@ -42,9 +42,11 @@ class AppointmentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $appointment = Appointment::findOrFail($id);
+
+        return view('admin.appointment.show', compact('appointment'));
     }
 
     /**
