@@ -122,8 +122,11 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .bg-moving-gradient {
-  background: linear-gradient(135deg, #FDFBFF 0%, #F5F0F7 100%);
+  /* background: linear-gradient(135deg, #FDFBFF 0%, #F5F0F7 100%); */
   position: relative;
+    background: url('../images/banner-bg.webp') no-repeat;
+	background-size: cover;
+    background-position: 100% 90%;
 }
 
 
@@ -1177,7 +1180,7 @@ section {
     color: #925ab3;
 }
 .hero-feature-icon i {
-    font-size: 20px;
+    font-size: 22px;
 }
 .hero-features {
     display: flex;
