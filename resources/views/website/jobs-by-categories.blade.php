@@ -33,7 +33,7 @@ Jobs
 <div class="container">
     <div class="row">
         {{-- Sidebar --}}
-        <div class="col-lg-4" data-aos="fade-right">
+        <div class="col-lg-4">
             {{-- Search --}}
             <div class="bg-white border rounded-3 p-4 mb-4">
                 <h6 class="fw-semibold mb-3">Search Keywords</h6>
@@ -91,7 +91,7 @@ Jobs
         </div>
 
         {{-- Jobs Listing --}}
-        <div class="col-lg-8" data-aos="fade-left">
+        <div class="col-lg-8">
             {{-- Container for "No jobs found" message --}}
             <div id="noJobsMessageContainer" class="w-100 mb-3"></div>
 
