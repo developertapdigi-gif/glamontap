@@ -203,57 +203,37 @@ Home
           <div class="col-sm-6" data-aos="fade-up">
             <div class="feature-card">
               <div class="f-icon fi-purple-deep got-text-primary">                            
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="6" cy="6" r="3"/>
-                                <circle cx="6" cy="18" r="3"/>
-                                <line x1="20" y1="4" x2="8.12" y2="15.88"/>
-                                <line x1="14.47" y1="14.48" x2="20" y2="20"/>
-                                <line x1="8.12" y1="8.12" x2="12" y2="12"/>
-                </svg></div>
-              <h5 class="font-heading salon-detail">Hair Stylists</h5>
-              <p class="got-text-muted got-small">Professional hair cutting, styling, coloring, and hair care services for every occasion.</p>
+                <i class="fas fa-search"></i>
+              </div>
+              <h5 class="font-heading salon-detail">Premium Salon Jobs</h5>
+              <p class="got-text-muted got-small">Customized strategies tailored for your career growth in the beauty industry.</p>
             </div>
           </div>
           <div class="col-sm-6" data-aos="fade-up" data-aos-delay="100">
             <div class="feature-card got-shadow-sm">
               <div class="f-icon fi-rose">
-                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M18 11V6a2 2 0 0 0-4 0v5"/>
-                        <path d="M14 10V4a2 2 0 0 0-4 0v6"/>
-                        <path d="M10 10.5V3a2 2 0 0 0-4 0v9"/>
-                        <path d="M6 13V8a2 2 0 0 0-4 0v8c0 4.42 3.58 8 8 8h2c4.42 0 8-3.58 8-8v-5a2 2 0 0 0-2-2 2 2 0 0 0-2 2v2"/>
-                        <circle cx="12" cy="15" r="1.5"/>
-                    </svg>
+                    <i class="fas fa-star"></i>
               </div>
-              <h5 class="font-heading salon-detail">Mehndi Artist</h5>
-              <p class="got-text-muted got-text-muted got-text-muted got-small got-mb-0">Creative and intricate mehndi designs for weddings, festivals, and special events</p>
+              <h5 class="font-heading salon-detail">Top Stylist Careers</h5>
+              <p class="got-text-muted got-text-muted got-text-muted got-small got-mb-0">Access exclusive career opportunities from luxury salon chains.</p>
             </div>
           </div> 
           <div class="col-sm-6" data-aos="fade-up" data-aos-delay="200">
             <div class="feature-card got-shadow-sm">
               <div class="f-icon fi-purple-deep">
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z"/>
-                        <path d="M19 14l1 3 3 1-3 1-1 3-1-3-3-1 3-1 1-3z"/>
-                        <path d="M5 15l.5 1.5L7 17l-1.5.5L5 19l-.5-1.5L3 17l1.5-.5L5 15z"/>
-              </svg>
+                  <i class="fas fa-map-marker-alt"></i>
                           </div>
-              <h5 class="font-heading salon-detail">Skin Care Specialist</h5>
-              <p class="got-text-muted got-text-muted got-text-muted got-small got-mb-0">Expert skincare treatments focused on healthy, glowing, and rejuvenated skin.</p>
+              <h5 class="font-heading salon-detail">Global Locations</h5>
+              <p class="got-text-muted got-text-muted got-text-muted got-small got-mb-0">Find your perfect place in top beauty capitals around the world.</p>
             </div>
           </div>
           <div class="col-sm-6" data-aos="fade-up" data-aos-delay="300">
             <div class="feature-card got-shadow-sm">
               <div class="f-icon fi-rose">
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                      <rect x="7" y="11" width="10" height="11" rx="2"/>
-                      <path d="M10 11V4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7"/>
-                      <line x1="7" y1="16" x2="17" y2="16"/>
-                      <line x1="12" y1="7" x2="12" y2="11"/>
-                  </svg>
+                  <i class="fas fa-shield-alt"></i>
                 </div>
-              <h5 class="font-heading salon-detail">Nail Artist</h5>
-              <p class="got-text-muted got-text-muted got-text-muted got-small got-mb-0">Beautiful nail art, manicures, and nail care services tailored to your style.</p>
+              <h5 class="font-heading salon-detail">Verified Employers</h5>
+              <p class="got-text-muted got-text-muted got-text-muted got-small got-mb-0">We get every establishment to ensure a safe and professional workspace.</p>
             </div>
           </div>
         </div>
