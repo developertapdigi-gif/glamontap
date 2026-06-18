@@ -91,87 +91,97 @@ $model = Setting::setting();
   </header>
   @yield('content')
 
-    <footer class="footer2">
-        <div class="container">
-            <div class="row gy-5">
+  <footer class="footer2">
+    <div class="container">
+      <div class="row gy-5">
+        <div class="got-footer-brand col-lg-4 col-md-6">
+          <a href="#" class="logo d-flex mb-3">
+            <img src="{{ $model['website_logo'] }}" alt="">
+          </a>
+          <p>Glam On Tap is your trusted platform to discover talent, book services, and build your beauty career.</p>
+          <div class="got-social">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <!-- EXPLORE -->
+        <div class="col-lg-2 col-md-6">
+          <h6 class="footer-col-heading">Explore</h6>
+          <ul class="footer-links">
+            <li><img src="../images/arrow2.svg" width="12"> <a href="#">Home</a></li>
+            <li><img src="../images/arrow2.svg" width="12"> <a href="#">Services</a></li>
+            <li><img src="../images/arrow2.svg" width="12"> <a href="#">About Us</a></li>
+            <li><img src="../images/arrow2.svg" width="12"> <a href="#">Contact</a></li>
+          </ul>
+        </div>
 
-                <!-- EXPLORE -->
-                <div class="col-lg-3 col-md-6">
-                    <h6 class="footer-col-heading">Explore</h6>
-                    <ul class="footer-links">
-                        <li><img src="../images/arrow2.svg" width ="12"> <a href="#">Home</a></li>
-                        <li><img src="../images/arrow2.svg" width ="12"> <a href="#">Services</a></li>
-                        <li><img src="../images/arrow2.svg" width ="12"> <a href="#">About Us</a></li>
-                        <li><img src="../images/arrow2.svg" width ="12"> <a href="#">Contact</a></li>
-                    </ul>
-                </div>
+        <!-- FOR PROFESSIONALS -->
+        <!-- <div class="col-lg-3 col-md-6">
+          <h6 class="footer-col-heading">For Professionals</h6>
+          <ul class="footer-links">
+            <li><img src="../images/arrow2.svg" width="12"><a href="#">Find Professionals</a></li>
+            <li><img src="../images/arrow2.svg" width="12"><a href="#">Join as a Professional</a></li>
+            <li><img src="../images/arrow2.svg" width="12"><a href="#">Professional Login</a></li>
+          </ul>
+        </div> -->
 
-                <!-- FOR PROFESSIONALS -->
-                <div class="col-lg-3 col-md-6">
-                    <h6 class="footer-col-heading">For Professionals</h6>
-                    <ul class="footer-links">
-                        <li><img src="../images/arrow2.svg" width ="12"><a href="#">Find Professionals</a></li>
-                        <li><img src="../images/arrow2.svg" width ="12"><a href="#">Join as a Professional</a></li>
-                        <li><img src="../images/arrow2.svg" width ="12"><a href="#">Professional Login</a></li>
-                    </ul>
-                </div>
+        <!-- SUPPORT -->
+        <div class="col-lg-3 col-md-6">
+          <h6 class="footer-col-heading">Support</h6>
+          <ul class="footer-links">
+            <li><img src="../images/arrow2.svg" width="12"><a href="#">Terms &amp; Conditions</a></li>
+            <li><img src="../images/arrow2.svg" width="12"><a href="#">Privacy Policy</a></li>
+            <li><img src="../images/arrow2.svg" width="12"><a href="#">Help & Support</a></li>
+          </ul>
+        </div>
 
-                <!-- SUPPORT -->
-                <div class="col-lg-3 col-md-6">
-                    <h6 class="footer-col-heading">Support</h6>
-                    <ul class="footer-links">
-                        <li><img src="../images/arrow2.svg" width ="12"><a href="#">Terms &amp; Conditions</a></li>
-                        <li><img src="../images/arrow2.svg" width ="12"><a href="#">Privacy Policy</a></li>
-                        <li><img src="../images/arrow2.svg" width ="12"><a href="#">Help & Support</a></li>
-                    </ul>
-                </div>
+        <!-- GET IN TOUCH -->
+        <div class="col-lg-3 col-md-6">
+          <h6 class="footer-col-heading">Get In Touch</h6>
 
-                <!-- GET IN TOUCH -->
-                <div class="col-lg-3 col-md-6">
-                    <h6 class="footer-col-heading">Get In Touch</h6>
-
-                    <div class="contact-item">
-                        <div class="contact-icon-box">
-                            <i class="fa-solid fa-phone"></i>
-                        </div>
-                        <div>
-                            <div class="contact-title">+91-9686681076</div>
-                            <div class="contact-sub">Mon‑Sat: 10AM‑6PM Sun: 10AM‑4PM</div>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon-box">
-                           <i class="fa-solid fa-envelope"></i>
-                        </div>
-                        <div>
-                            <div class="contact-title">support@glamontap.com</div>
-                            <div class="contact-sub">We reply within 24 hours</div>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon-box">
-                            <i class="fa-solid fa-location-dot"></i>
-                        </div>
-                        <div>
-                            <div class="contact-title">Office G5, D-229, Sector 74, </div>
-                            <div class="contact-sub">Mohali, Punjab 140307</div>
-                        </div>
-                    </div>
-                </div>
-
+          <div class="contact-item">
+            <div class="contact-icon-box">
+              <i class="fa-solid fa-phone"></i>
             </div>
+            <div>
+              <div class="contact-title">+91-9686681076</div>
+              <div class="contact-sub">Mon‑Sat: 10AM‑6PM Sun: 10AM‑4PM</div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon-box">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div>
+              <div class="contact-title">support@glamontap.com</div>
+              <div class="contact-sub">We reply within 24 hours</div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon-box">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div>
+              <div class="contact-title">Office G5, D-229, Sector 74, </div>
+              <div class="contact-sub">Mohali, Punjab 140307</div>
+            </div>
+          </div>
         </div>
-    </footer>
-    <div class="container-fluid">
-      <!-- Footer Bottom -->
-      <div class="row footer-bottom align-items-center">
-        <div class="col-12 text-center copyright">
-          2024 Glam On Tap. All Rights Reserved.
-        </div>
+
       </div>
     </div>
+  </footer>
+  <div class="container-fluid">
+    <!-- Footer Bottom -->
+    <div class="row footer-bottom align-items-center">
+      <div class="col-12 text-center copyright">
+        2024 Glam On Tap. All Rights Reserved.
+      </div>
+    </div>
+  </div>
   <!-- <section class="skill-sub-footer social-footer-icons">
     <div class="container">
       <div class="row align-items-center">

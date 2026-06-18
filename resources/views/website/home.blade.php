@@ -125,11 +125,6 @@ Home
       @endforeach
 
       @if($totalServices > 5)
-        <div class="text-center mt-4">
-            <a href="{{ route('services') }}" class="btn got-btn got-btn-primary btn-primary got-rounded-pill got-py-3 got-fw-bold shine-effect" id="loadMoreBtn">
-                 View More Services
-             </a>
-        </div>
       @endif
 
       {{-- <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
@@ -199,6 +194,11 @@ Home
         </a>
       </div> --}}
     </div>
+            <div class="text-center mt-4">
+            <a href="{{ route('services') }}" class="btn got-btn got-btn-primary btn-primary got-rounded-pill got-py-3 got-fw-bold shine-effect" id="loadMoreBtn">
+                 View More Services
+             </a>
+        </div>
   </div>
 </section>
 
