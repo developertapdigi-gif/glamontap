@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
 :root {
@@ -58,7 +58,7 @@ body {
 	font-family: Inter;
 }
 body .font-heading {
-  font-family: "Outfit", sans-serif;
+  font-family: "Playfair Display", sans-serif;
 }
 .font-serif {
 	font-family: "Playfair Display", serif;
@@ -1259,6 +1259,7 @@ section {
 }
 .footer2 {
     padding: 80px 0 0;
+	background-color: #fdfbff;
 }
 .footer-links {
     list-style: none;
@@ -1275,6 +1276,7 @@ section {
 	font-size: 14px;
 	border-top: 1px solid var(--border-color);
 	padding: 15px 0;
+	background-color: #fdfbff;
 }
 .service-toggle{
     display:flex;
@@ -8014,7 +8016,7 @@ i.person-gear::before{
 }
 
 .abt-img-box {
-    height: 403px;
+    /* height: 403px; */
     overflow: hidden;
     padding-bottom: 0px;
     position: absolute;
