@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Google\Service\Books\Category;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use App\Models\{Setting,User,Job,SkillCategory,Post,PostGallery,PostLike,Appointment,Service};
@@ -53,11 +54,11 @@ class HomeController  extends Controller
         }
 	    
 	} */
-   
+    $services = Service::where('status', 1)->where('type', 'category')->get();
     $mixjobs = Job::whereRaw("home_seen_job = 1 and DATE(start_date) >= '$today' and status!=4  and status!=3")->orderby('id', 'asc')->get();
     $mixtraders = User::where('user_type', 3)->where('first_name', '!=', '')->where('home_seen_trader',1)->orderBy('id', 'desc')->get();
     $merged = $mixtraders->merge($mixjobs);
-    return view('website.home',compact('jobs','traders','mixjobs','mixtraders','merged', 'skills', 'company'));
+    return view('website.home',compact('jobs','traders','mixjobs','mixtraders','merged', 'skills', 'company', 'services'));
     }
 
     public function employer()
@@ -219,9 +220,10 @@ class HomeController  extends Controller
             $layout = 'website.layouts.master';
         } 
         $services = Service::where('status', 1)->get();
+        $skills = SkillCategory::where('status', 1)->get();
         $plans = Plan::where('status',1)->orderby('id', 'asc')->paginate(10);
         $addonplans = PlansAddon::where('status',1)->orderby('id', 'asc')->paginate(10);
-        return view('website.services',compact('plans','addonplans','layout','services'));
+        return view('website.services',compact('plans','addonplans','layout','services','skills'));
     }
     public function submitForm(Request $request){     
        $request->validate([
