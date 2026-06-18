@@ -109,7 +109,7 @@ Services
     <div class="card-grid beauty-category">
         @foreach ($services as $service)
         <div class="card">
-            {{-- <a href="{{ route('services.details', ['serviceId' => $service->id]) }}" class="text-decoration-none"> --}}
+           <a href="{{ route('services.show', ['id' => $service->id]) }}" class="text-decoration-none">
             <div class="category-card shadow-sm h-100">
                 <div class="cat-icon ci-green">
                     <img src="{{ asset($service->image) }}" alt="{{ $service->service_name }}" class="img-fluid">
