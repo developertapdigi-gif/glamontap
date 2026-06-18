@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Service;
+use App\Models\{Service ,SkillCategory, User};
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
@@ -136,5 +136,15 @@ class ServiceController extends Controller
         return redirect()
             ->route('service.index')
             ->with('success', 'Record deleted successfully.');
+    }
+
+    public function showByCategorySubCategory($id)
+    {
+        $skills = SkillCategory::where('status', 1)->get();
+        $service = Service::findOrFail($id);
+        $subCategories = Service::where('parent_id', $id)->get();
+        $company = User::where('user_type', 2)->where('first_name', '!=', '')->where('status',1)->get();
+
+        return view('website.services-shows-categories', compact('service', 'subCategories', 'skills', 'company'));
     }
 }

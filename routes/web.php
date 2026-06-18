@@ -27,8 +27,9 @@ Route::get('/skills/{skillId?}', [HomeController::class, 'showBySkill'])->name('
 #Route::get('/search-results', [HomeController::class, 'searchResult'])->name('searchResults');
 Route::get('search/details/{id}/{text}', [HomeController::class, 'showDetails'])->name('get.resultdetail');
 Route::post('/appointment', [HomeController::class, 'bookAppointment'])->name('appointment.store');
-Route::get('/appointments/{id}', [AppointmentController::class, 'show'])
-    ->name('appointments.show');
+Route::get('/appointments/{id}', [AppointmentController::class, 'show'])->name('appointments.show');
+Route::get('/services/{id}', [ServiceController::class, 'showByCategorySubCategory'])->name('services.show');
+
 Route::get('/clear-employer-mode', function () {
     session()->forget('employer_mode');
     return response()->json(['success' => true]);
