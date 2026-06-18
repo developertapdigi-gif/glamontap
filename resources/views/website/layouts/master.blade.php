@@ -93,7 +93,7 @@ $model = Setting::setting();
 
   <footer class="footer2">
     <div class="container">
-      <div class="row gy-5">
+      <div class="row gy-4">
         <div class="got-footer-brand col-lg-4 col-md-6">
           <a href="#" class="logo d-flex mb-3">
             <img src="{{ $model['website_logo'] }}" alt="">

@@ -8041,6 +8041,7 @@ i.person-gear::before{
     padding-bottom: 0px;
     position: absolute;
    margin-top: -37px;
+   right: 50px;
 }
 .add-on-page .price {
     font-size: 25px;
@@ -9078,9 +9079,12 @@ input.location-select:focus {
 		align-items: center;
 		justify-content: center;
 	}
-	.about-blue-footer{
+	/* .about-blue-footer{
 		background-image: none;
-	}
+	} */
+	 .footer2 {
+    padding: 20px 0 20px;
+}
 }
 
 @media (max-width :1368px) {
