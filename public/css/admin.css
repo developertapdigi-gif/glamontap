@@ -961,7 +961,7 @@ body .job-card:hover {
 	margin-bottom: 5px;
 }
 .profile.show .dropdown-item:active {
-	background-color: #612d8a;
+	background-color: #612d8a; 
 
 }
 .job-detailpage .row {
