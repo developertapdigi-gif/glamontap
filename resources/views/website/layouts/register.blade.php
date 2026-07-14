@@ -132,11 +132,11 @@ $model = Setting::setting();
                         <!-- Toggle -->
                         <div class="apply-toggle">
                             <div class="toggle-buttons">
-                                <button type="button" class="toggle-btn active" id="employeeToggle"> <i class="fas fa-tools"></i> Join as  Professionals</button>
+                                <button type="button" class="toggle-btn active" id="employeeToggle"> <i class="fas fa-tools"></i> Join as Tradie</button>
                                 <button type="button" class="toggle-btn" id="hirerToggle">  <i class="fas fa-building"></i> Join as Company</button>
                             </div>
                         </div>
-                         <h3 class="dynamic-heading" id="formHeading">Professional Register</h3>
+                         <h3 class="dynamic-heading" id="formHeading">Tradie Register</h3>
 
                         <!-- TRADIE REGISTRATION FORM -->
                         <div id="employeeForm" class="form-card">
