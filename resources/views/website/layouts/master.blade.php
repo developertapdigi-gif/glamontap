@@ -109,30 +109,25 @@ $model = Setting::setting();
         <div class="col-lg-2 col-md-6">
           <h6 class="footer-col-heading">Explore</h6>
           <ul class="footer-links">
-            <li><img src="../images/arrow2.svg" width="12"> <a href="#">Home</a></li>
-            <li><img src="../images/arrow2.svg" width="12"> <a href="#">Services</a></li>
-            <li><img src="../images/arrow2.svg" width="12"> <a href="#">About Us</a></li>
-            <li><img src="../images/arrow2.svg" width="12"> <a href="#">Contact</a></li>
+            <li><img src="../images/arrow2.svg" width="12"> <a href="{{ url('/') }}">Home</a></li>
+            <li><img src="../images/arrow2.svg" width="12"> <a href="{{ route('services') }}">Services</a></li>
+            <li><img src="../images/arrow2.svg" width="12"> <a href="{{ route('about') }}">About Us</a></li>
+            <li><img src="../images/arrow2.svg" width="12"> <a href="{{ route('contact') }}">Contact</a></li>
           </ul>
         </div>
 
         <!-- FOR PROFESSIONALS -->
         <!-- <div class="col-lg-3 col-md-6">
           <h6 class="footer-col-heading">For Professionals</h6>
-          <ul class="footer-links">
-            <li><img src="../images/arrow2.svg" width="12"><a href="#">Find Professionals</a></li>
-            <li><img src="../images/arrow2.svg" width="12"><a href="#">Join as a Professional</a></li>
-            <li><img src="../images/arrow2.svg" width="12"><a href="#">Professional Login</a></li>
-          </ul>
         </div> -->
 
         <!-- SUPPORT -->
         <div class="col-lg-3 col-md-6">
           <h6 class="footer-col-heading">Support</h6>
           <ul class="footer-links">
-            <li><img src="../images/arrow2.svg" width="12"><a href="#">Terms &amp; Conditions</a></li>
-            <li><img src="../images/arrow2.svg" width="12"><a href="#">Privacy Policy</a></li>
-            <li><img src="../images/arrow2.svg" width="12"><a href="#">Help & Support</a></li>
+            <li><img src="../images/arrow2.svg" width="12"><a href="{{ route('termsCondition') }}">Terms &amp; Conditions</a></li>
+            <li><img src="../images/arrow2.svg" width="12"><a href="{{ route('privacyPolicy') }}">Privacy Policy</a></li>
+            {{-- <li><img src="../images/arrow2.svg" width="12"><a href="#">Help & Support</a></li> --}}
           </ul>
         </div>
 
