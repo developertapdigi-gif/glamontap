@@ -316,7 +316,7 @@ $job = $job ?? null;
   </div>
   <div class="marquee-container marquee-space">
     <div class="row">
-      <h3 class="mb-4">Similar Tradies</h3>
+      <h3 class="mb-4">Similar Professionals</h3>
       @if(count($recent_jobs))
         @foreach($recent_jobs as $_recent_job)
           @php
