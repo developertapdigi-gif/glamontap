@@ -108,7 +108,7 @@ $model = Setting::setting();
             <div class="col-md-6 col-lg-6 col-sm-12 ps-0 pe-0">
                 <div class="left-login-section">
                     <a href="{{ url('/') }}">
-                        <img src="{{ asset('images/psd-images/logo.png') }}" class="login-logo d-sm-block d-md-none"/>
+                        <img src="{{ asset('images/glam-logo.svg') }}" class="login-logo d-sm-block d-md-none mb-3" width="80"/>
                     </a>
                     <div class="left-login-top-text">
                         <h1>Discover Trusted Beauty Professionals Near You</h1>
