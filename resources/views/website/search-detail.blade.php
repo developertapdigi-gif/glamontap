@@ -130,7 +130,7 @@ $job = $job ?? null;
             <img src="{{ asset('images/salary.svg') }}" width="25" height="25">
             <div>
               <h4>Payment</h4>
-              <span>${{$job->minimum_price}} - ${{$job->maximum_price}}</span>
+              <span>₹{{$job->minimum_price}} - ₹{{$job->maximum_price}}</span>
             </div>
           </div>
           <div class="job-detail-page">

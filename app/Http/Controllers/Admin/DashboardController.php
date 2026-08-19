@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
-use App\Models\{User,Job,SkillCategory,Badge,SubscriptionPlans,AgencySubscription,PostEndorsement,UserFeedbackSurvey,Setting,Notification};
+use App\Models\{User,Job,SkillCategory,Badge,SubscriptionPlans,AgencySubscription,PostEndorsement,UserFeedbackSurvey,Setting,Notification,Appointment};
 class DashboardController extends Controller
 {
 
@@ -75,7 +75,8 @@ class DashboardController extends Controller
                 } else {
                     $feedback_survey_value = 0;
                 }
-                return view('admin.users.agency_dashboard',compact('totaljobs','upcomingJobs','asignedJobs','completedJobs','ongoingJobs','endrosementposts','feedback_survey_value'));
+                $bookings = Appointment::where('salon', $user_id)->where('status', 'pending')->orderby('created_at', 'desc')->paginate(5)->withQueryString();
+                return view('admin.users.agency_dashboard',compact('totaljobs','upcomingJobs','asignedJobs','completedJobs','ongoingJobs','endrosementposts','feedback_survey_value','bookings'));
             
         }
     } 

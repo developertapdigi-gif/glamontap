@@ -39,7 +39,10 @@ $model = Setting::setting();
                         <div class="login-user-details">
                             <h4> Login to your account </h4>
                             <form role="form" method="POST" class="skill-login-form" action="{{ route('user.loginpost') }}" id='createform'>
-                               @csrf                          
+                               @csrf   
+                               @if(request()->booking == 1)
+                                    <input type="hidden" name="booking" value="1">
+                                @endif                       
                                 <div class="form-group form-login-group mb-4">
                                   <label for="email">Email</label>
                                   <input type="email" name="email" placeholder="" class="form-control @error('email') is-invalid @enderror" aria-label="Email" @if(Cookie::get('login_email')) value="{{ Cookie::get('login_email') }}" @endif>
@@ -85,7 +88,12 @@ $model = Setting::setting();
                                     <div class = "col-xl-3 col-6 register_btn">
                                          <a href="register" class="btn btn-primary btn-black text-decoration-none">Register</a>
                                     </div>
+
+                                    
                                  </div>
+                                 <div class = "col-xl-6 col-6 customer_register_btn">
+                                         <a href="{{ route('customer.register') }}" class="btn btn-primary btn-black text-decoration-none">Register as customer</a>
+                                    </div>
                               </form>
                         </div>
                     </div>

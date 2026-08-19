@@ -49,7 +49,7 @@ $model = Setting::setting();
             <li class="mobile-content employer-btn"><a style="color:#fff; text-align:center;  margin-right:5px;" class="btn btn-primary me-1 empolyer-mobile" href="{{ route('employer') }}">Find Professionals</a></li>
             @else
             @auth
-            <li class="mobile-content employer-btn"><a style="color:#fff; text-align:center; margin-left:5px; margin-right:5px;" class="btn btn-primary ms-1 me-1" href="{{ Auth::user()->hasRole('trader') ? route('tradie.dashboard') : route('dashboard') }}">Dashboard</a></li>
+            <li class="mobile-content employer-btn"><a style="color:#fff; text-align:center; margin-left:5px; margin-right:5px;" class="btn btn-primary ms-1 me-1" href="{{ Auth::user()->hasRole('trader') ? route('tradie.dashboard') : (Auth::user()->hasRole('customer') ? route('customer.dashboard') : route('dashboard')) }}">Dashboard</a></li>
             @endauth
             @endif
             @guest
@@ -76,7 +76,7 @@ $model = Setting::setting();
         <a href="{{ route('employer') }}" class="btn btn-primary btn-right-margin">Find Professionals</a>
 
         @auth
-        <a href="{{ Auth::user()->hasRole('trader') ? route('tradie.dashboard') : route('dashboard') }}" class="btn btn-primary btn-white">Dashboard</a>
+        <a href="{{ Auth::user()->hasRole('trader') ? route('tradie.dashboard') : (Auth::user()->hasRole('customer') ? route('customer.dashboard') : route('dashboard')) }}" class="btn btn-primary btn-white">Dashboard</a>
         @endauth
         @guest
         <a href="{{ route('user.login') }}" class="btn btn-primary btn-white">Login</a>
@@ -109,10 +109,10 @@ $model = Setting::setting();
         <div class="col-lg-2 col-md-6">
           <h6 class="footer-col-heading">Explore</h6>
           <ul class="footer-links">
-            <li><img src="../images/arrow2.svg" width="12"> <a href="{{ url('/') }}">Home</a></li>
-            <li><img src="../images/arrow2.svg" width="12"> <a href="{{ route('services') }}">Services</a></li>
-            <li><img src="../images/arrow2.svg" width="12"> <a href="{{ route('about') }}">About Us</a></li>
-            <li><img src="../images/arrow2.svg" width="12"> <a href="{{ route('contact') }}">Contact</a></li>
+            <li><img src="/images/arrow2.svg" width="12"> <a href="{{ url('/') }}">Home</a></li>
+            <li><img src="/images/arrow2.svg" width="12"> <a href="{{ route('services') }}">Services</a></li>
+            <li><img src="/images/arrow2.svg" width="12"> <a href="{{ route('about') }}">About Us</a></li>
+            <li><img src="/images/arrow2.svg" width="12"> <a href="{{ route('contact') }}">Contact</a></li>
           </ul>
         </div>
 
@@ -125,8 +125,8 @@ $model = Setting::setting();
         <div class="col-lg-3 col-md-6">
           <h6 class="footer-col-heading">Support</h6>
           <ul class="footer-links">
-            <li><img src="../images/arrow2.svg" width="12"><a href="{{ route('termsCondition') }}">Terms &amp; Conditions</a></li>
-            <li><img src="../images/arrow2.svg" width="12"><a href="{{ route('privacyPolicy') }}">Privacy Policy</a></li>
+            <li><img src="/images/arrow2.svg" width="12"><a href="{{ route('termsCondition') }}">Terms &amp; Conditions</a></li>
+            <li><img src="/images/arrow2.svg" width="12"><a href="{{ route('privacyPolicy') }}">Privacy Policy</a></li>
             {{-- <li><img src="../images/arrow2.svg" width="12"><a href="#">Help & Support</a></li> --}}
           </ul>
         </div>

@@ -55,9 +55,17 @@ Home
             </div>
           </form>
         </div> -->
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#appointmentModal">
-            Book Appointment
-          </button>
+         @if(Auth::check())
+              <button type="button" class="btn btn-primary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#appointmentModal">
+                  Book Appointment
+              </button>
+          @else
+              <a href="{{ route('login', ['booking' => 1]) }}" class="btn btn-primary">
+                  Book Appointment
+              </a>
+          @endif
       </div>
       <div class="col-lg-6">
         <div class="hero-visual-wrapper" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">

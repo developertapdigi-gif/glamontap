@@ -93,7 +93,7 @@ class UserController extends Controller
         'pincode'          => $input['tradie_pincode'] ?? null,
         'password'         => Hash::make('apr_800#'),
         'user_type'        => User::ROLE['trader'],
-        'status'           => 0, // Pending OTP verification
+        'status'           => 1, // Pending OTP verification
     ];
 
     // Create user
@@ -272,8 +272,7 @@ class UserController extends Controller
             'email.required'=>"Please enter valid username",
             'email.exists'=>"Please enter valid username and password",
         ]);
-        $checkUserRole = User::where('email',$request->email)->whereIn('user_type',[1,2,3,4])->first();
-        
+        $checkUserRole = User::where('email',$request->email)->whereIn('user_type',[1,2,3,4,5])->first();
         if(!$checkUserRole){
             return redirect()->back()
               ->withInput()
@@ -302,8 +301,18 @@ class UserController extends Controller
                 Cookie::queue('login_password','', -1);
             }   
             $checkUserRole->update(['is_logged_in'=>1]);
+   
             if($checkUserRole->hasRole('trader')){
                 return redirect()->route('tradie.dashboard')->with('success','Login successfully');
+            } 
+            if ($checkUserRole->hasRole('customer')) {
+                if ($request->booking == 1) {
+                    return redirect()->route('home', ['booking' => 1])
+                        ->with('200', 'Login successfully');
+                }
+
+                return redirect()->route('customer.dashboard')
+                    ->with('success', 'Login successfully');
             }
             return redirect()->route('dashboard')->with('success','Login successfully');
         }   
@@ -388,7 +397,7 @@ class UserController extends Controller
             'email.email' => 'Email is not valid',
             'email.exists' => __("Email doesn't exists in our system"),
         ]);
-        $user = User::where('email',$request->email)->whereIn('user_type',[1,2,4,3])->first();
+        $user = User::where('email',$request->email)->whereIn('user_type',[1,2,4,3,5])->first();
         if(!$user){
             return redirect('user/password/reset')
             ->with('error',"Email doesn't exists in our system");

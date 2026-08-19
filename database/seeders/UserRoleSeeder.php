@@ -29,7 +29,18 @@ class UserRoleSeeder extends Seeder
                 'name' => 'trader',
                 'guard_name' => 'web',
                 'created_at' => now(),'updated_at' => now()
+            ],[
+                'id' =>4,
+                'name' => 'agency_sub_user',
+                'guard_name' => 'web',
+                'created_at' => now(),'updated_at' => now()
+            ],[
+                'id' =>5,
+                'name' => 'customer',
+                'guard_name' => 'web',
+                'created_at' => now(),'updated_at' => now()
             ]
+
         );
         foreach($roles as $rr){
             DB::table('roles')->insert($rr);

@@ -14,7 +14,7 @@ use App\Http\Resources\{BadgeResource,SkillResource,ExperienceCertificateResourc
 class User extends Authenticatable
 {
     use HasFactory, Notifiable,HasRoles,HasApiTokens,Billable;
-    CONST ROLE = ['admin'=>1,'agency'=>2,'trader'=>3,'agency_sub_user'=>4];
+    CONST ROLE = ['admin'=>1,'agency'=>2,'trader'=>3,'agency_sub_user'=>4,'customer'=>5];
     CONST STATUS = ['Pending','Approved','Blocked'];
     protected $guarded = [];
 

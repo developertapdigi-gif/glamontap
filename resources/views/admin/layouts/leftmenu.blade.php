@@ -65,7 +65,7 @@ $model = Setting::setting();
             Services
         </a>
     </li>
-    <div class="leftnav navmenu admin-leftbar">
+    {{-- <div class="leftnav navmenu admin-leftbar">
         <li class="dropdown pb-0 {{Str::contains(url()->current(), ['plans','subscribers']) ? 'active' : '' }}">
         <a class="mt-0 mb-0"  href="#">
             <i class="subsription-icon"></i>
@@ -77,7 +77,7 @@ $model = Setting::setting();
             <li><a href="{{ route('subscriber.view') }}">Subscribers</a></li>
           </ul>
         </li>
-    </div>
+    </div> --}}
     <li class="pb-0 {{Str::contains(url()->current(), 'skill-categories') ? 'active' : '' }}">
         <a href="{{ route('skill-categories.index') }}">
             <i class="skill-icon"></i>
@@ -152,13 +152,13 @@ $model = Setting::setting();
              Sub Users
         </a>
     </li>
-    
+{{--     
     <li class="{{Str::contains(url()->current(), 'subscription') ? 'active' : '' }}">
         <a href="{{ route('subscription.index') }}">
             <i class="subsription-icon"></i>
             Subscription 
         </a>
-    </li>
+    </li> --}}
     @else
     <li class="{{Str::contains(url()->current(), 'dashboard') ? 'active' : '' }}">
         <a href="{{ route('dashboard') }}">

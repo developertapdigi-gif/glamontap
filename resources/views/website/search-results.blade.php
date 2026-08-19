@@ -181,19 +181,19 @@ $placeholder = "";
             @if($text == 2)
             <div class="job_tag"><span>{{$item->skillCategory?$item->skillCategory->name:''}}</span></div>
             @endif
-            <div class="job_card">
-              <h3>
+            <div class="job_card post-content">
+              <h3 class="post-title">
                 @if($item->type === 'job')
                 {{$item->title}}
                 @elseif($item->type === 'trader')
                 {{$item->name}}
                 @else
                 {{ $text == 1 ? $item->title : $item->first_name. ' ' . $item->last_name }}
-                <h4>{{ $text == 1 ?('$'.$item->minimum_price. ' - $' . $item->maximum_price) : '' }}</h4>
+                <h4 >{{ $text == 1 ?('$'.$item->minimum_price. ' - $' . $item->maximum_price) : '' }}</h4>
                 
                 @endif</h3>
                 @if($item->type === 'job' && empty($text))
-                <h4>{{ $item->price_range }}</h4>
+                <h4 class="post-excerpt">{{ $item->price_range }}</h4>
                 @endif
               @if($text === 1)
                 @if( $item->status != 7)
@@ -202,8 +202,8 @@ $placeholder = "";
                 <h4>${{ $item->minimum_price }} - ${{ $item->maximum_price }}</h4>
               @endif
               
-              <h5>{{  $text == 1?(Str::limit($item->location, 30)) : (Str::limit($item->location, 30)) }}</h5>
-              <h5>{{  $text == 2?(Str::limit($item->address, 30)) :''}}</h5>
+              <p class="post-excerpt">{{  $text == 1?(Str::limit($item->location, 30)) : (Str::limit($item->location, 30)) }}</p>
+              <p class="post-excerpt">{{  $text == 2?(Str::limit($item->address, 30)) :''}}</p>
               
               @if($item->type === 'trader' && $item->rating)
                 <div class="rating">
@@ -243,19 +243,14 @@ $placeholder = "";
 <section class="about-blue-footer about_skilled_trades mt-3">
   <div class="container">
     <div class="row about-blue-footer-right">
-      <div class="col-xl-5 col-lg-4  col-md-0">
-        <div class="abt-img-box">
-          <img class="abt-mob-img" src="../images/psd-images/mobile1.webp" />
-          <img class="abt-arrow-img" src="../images/psd-images/roll-arrow.png" />
-        </div>
-      </div>
-      <div class="col-xl-7 col-lg-8 col-md-12 abt-blue-desc">
-        <h3>Connecting Skilled trades of Australia to their Community</h3>
-        <p>We encourage diversity in hiring of women and underrepresented groups </p>
+      <div class="col-lg-6 col-md-12">
+        <h3 class="heading-size">Beauty Expertise, Delivered to Your Doorstep</h3>
+        <p class="footer-content">Connecting trusted beauty professionals with clients who value convenience, quality and personalized care.
+          Empowering beauty experts. Elevating self care experiences.</p>
 
 
         <div class="d-flex mt-lg-5 mt-4 about-download">
-          <a href="https://apps.apple.com/us/app/tradehook/id6739918480?platform=iphone">
+          <a href="#">
             <div class="applestore whitestore social-media-banners d-flex me-3 me-xs-0 mb-xs-3">
               <i class="bi bi-apple blue-icn"></i>
               <div>
@@ -266,7 +261,7 @@ $placeholder = "";
 
           </a>
 
-          <a href="https://play.google.com/store/apps/details?id=au.com.tradehook.tradehookapp">
+          <a href="#">
             <div class="googlestore social-media-banners d-flex">
               <i class="bi bi-google-play white-icn"></i>
               <div>
@@ -279,6 +274,12 @@ $placeholder = "";
 
           <!--<a href="#"><img class="me-3 mb-2 social-media-banner" src="../images/googleplay-btn.svg"></a>-->
 
+        </div>
+      </div>
+      <div class="col-xl-5 col-lg-4  col-md-0">
+        <div class="abt-img-box">
+          <img class="abt-arrow-img" src="{{url('/')}}/images/psd-images/roll-arrow.png" />
+          <img class="abt-mob-img" src="{{url('/')}}/images/psd-images/mobile1.webp" />
         </div>
       </div>
     </div>
