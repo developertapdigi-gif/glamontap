@@ -1,22 +1,9 @@
-@extends('admin.layouts.master')
-
-
-@section('title','Appointments')
-
-
+@extends('admin.customer.layouts.master')
+@section('title') Dashboard @endsection
 @section('content')
 <div class="container-fluid middle-content dashboard-content">
-
-    <div class="page-title mobile-page-title pb-3">
-        <h2 class="desktop-content">
-            <i class="skill-black"></i> Appointments
-        </h2>
-
-        <div class="middle-title job-middle-title"></div>
-
-        <h2 class="mobile-content">
-            <i class="skill-black"></i> Appointments
-        </h2>
+    <div class="page-title">
+        <h2 class="mobile-hide">Bookings</h2>
     </div>
 
     <div class="d-flex justify-content-end pb-2">
@@ -45,7 +32,7 @@
                 <table class="table align-middle table-row-dashed fs-6 gy-5 skill-table-list">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            {{-- <th>ID</th> --}}
                             <th>Name</th>
                             <th>Phone</th>
                             <th>Email</th>
@@ -55,14 +42,13 @@
                             <th>Message</th>
                             <th>Status</th>
                             <th>Created On</th>
-                            <th></th>
                         </tr>
                     </thead>
 
                     <tbody>
                         @forelse($appointments as $appointment)
                             <tr>
-                                <td>{{ $appointment->id }}</td>
+                                {{-- <td>{{ $appointment->id }}</td> --}}
                                 <td>{{ $appointment->name }}</td>
                                 <td>{{ $appointment->phone }}</td>
                                 <td>{{ $appointment->email }}</td>
@@ -103,10 +89,10 @@
                                 <td>
                                     {{ $appointment->created_at->format('d M Y h:i A') }}
                                 </td>
-                                <td>
+                                {{-- <td>
                                     <a href="{{ route('appointments.show', $appointment->id) }}" class="btn btn-info btn-sm">
                                      View </a>
-                                    </td>
+                                    </td> --}}
                                 
                             </tr>
                         @empty
@@ -204,4 +190,8 @@
     @endif
 
 </div>
+@endsection
+@section('script')
+<script src="{{ asset('js/apexcharts.min.js') }}"></script>
+
 @endsection

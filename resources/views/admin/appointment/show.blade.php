@@ -6,7 +6,7 @@
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2>Appointment Details</h2>
 
-        <a href="{{ route('appointments.index') }}"
+        <a href="{{ route('bookings') }}"
            class="btn btn-secondary">
             Back
         </a>

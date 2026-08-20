@@ -53,7 +53,9 @@ class ConnectionController extends Controller
                 ->get();
         }
 
-        return view('tradie.connections.index', compact('friends', 'requests', 'sentRequests', 'searchResults'));
+        $allprofiles = User::where('user_type', 3)->whereNotIn('id', $excludeIds)->paginate(8);
+
+        return view('tradie.connections.index', compact('friends', 'requests', 'sentRequests', 'searchResults', 'allprofiles'));
     }
 
     public function sendRequest(Request $request)

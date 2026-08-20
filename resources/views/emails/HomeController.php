@@ -55,11 +55,12 @@ class HomeController  extends Controller
 	    
 	} */
     $services = Service::where('status', 1)->where('type', 'category')->take(5)->get();
+    $servicessubcategories = Service::where('status', 1)->where('type', 'sub_category')->get();
     $totalServices = Service::where('status', 1)->where('type', 'category')->count();
     $mixjobs = Job::whereRaw("home_seen_job = 1 and DATE(start_date) >= '$today' and status!=4  and status!=3")->orderby('id', 'asc')->get();
     $mixtraders = User::where('user_type', 3)->where('first_name', '!=', '')->where('home_seen_trader',1)->orderBy('id', 'desc')->get();
     $merged = $mixtraders->merge($mixjobs);
-    return view('website.home',compact('jobs','traders','mixjobs','mixtraders','merged', 'skills', 'company', 'services', 'totalServices'));
+    return view('website.home',compact('jobs','traders','mixjobs','mixtraders','merged', 'skills', 'company', 'services', 'totalServices', 'servicessubcategories'));
     }
 
     public function employer()
@@ -728,4 +729,4 @@ private function applySearchConditions($query, string $searchTerm, string $searc
         return redirect()->back()->with('success', 'Appointment booked successfully.');
     }
 }
-
+?>

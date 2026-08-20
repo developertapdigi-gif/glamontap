@@ -99,6 +99,8 @@ Jobs
             <div class="row" id="jobsContainer">
                 @if(isset($skill) && $skill)
                     @forelse($taskByCategory as $task)
+                    <a href="{{ route('get.resultdetail', [$task->id,1]) }}"
+                                           class="text-decoration-none text-dark">
                         <div class="col-12 mb-3 job-item"
                              data-location="{{ strtolower($task->location ?? '') }}"
                              data-experience="{{ $task->experiance_range }}">
@@ -115,27 +117,26 @@ Jobs
                                      height="60"
                                      class="job-img">
                                 @endif
-
-                                <div class="flex-grow-1">
-                                    <h6 class="mb-1 font-heading">
-                                        <a href="{{ route('get.resultdetail', [$task->id,1]) }}"
-                                           class="text-decoration-none text-dark">
+                                
+                                    <div class="flex-grow-1">
+                                        <h6 class="mb-1 font-heading">
                                             {{ $task->title }}
-                                        </a>
-                                    </h6>
-                                    <p class="text-muted small mb-0">
-                                        <i class="fas fa-map-marker-alt me-1"></i>
-                                        {{ $task->location ?? 'Location not specified' }}
-                                    </p>
-                                </div>
-                                <div class="text-end">
-                                    <p class="job-post-prize mb-0 mt-2">
-                                        ₹{{ number_format($task->minimum_price ?? 0, 2) }} -
-                                        ₹{{ number_format($task->maximum_price ?? 0, 2) }}
-                                    </p>
-                                </div>
+                                        </h6>
+                                        <p class="text-muted small mb-0">
+                                            <i class="fas fa-map-marker-alt me-1"></i>
+                                            {{ $task->location ?? 'Location not specified' }}
+                                        </p>
+                                    </div>
+                                    <div class="text-end">
+                                        <p class="job-post-prize mb-0 mt-2">
+                                            ₹{{ number_format($task->minimum_price ?? 0, 2) }} -
+                                            ₹{{ number_format($task->maximum_price ?? 0, 2) }}
+                                        </p>
+                                    </div>
+                               
                             </div>
                         </div>
+                        </a>
                     @empty
                         <div class="col-12">
                             <div class="alert alert-info">No jobs found in this category.</div>
@@ -147,6 +148,8 @@ Jobs
                              data-location="{{ strtolower($task->location ?? '') }}"
                              data-experience="{{ $task->experiance_range }}">
                             <div class="job-card d-flex flex-wrap gap-3">
+                                <a href="{{ route('get.resultdetail', [$task->id,1]) }}"
+                                           class="text-decoration-none text-dark">
                                 @if($task->image != null)
                                     <img src="{{ asset($task->image) }}"
                                          width="60"
@@ -177,8 +180,10 @@ Jobs
                                         ₹{{ number_format($task->maximum_price ?? 0, 2) }}
                                     </p>
                                 </div>
+                                </a>
                             </div>
                         </div>
+                        
                     @empty
                         <div class="col-12">
                             <div class="alert alert-info">No jobs available.</div>
