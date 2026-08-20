@@ -16,7 +16,7 @@ Services
     </div>
 </div>
 <div class="container mid-content">
-    <div class="row align-items-center">
+    <div class="row align-items-center beauty-service-section">
         <div class="col-lg-6 col-sm-12 col-md-12">
             <h4 class="me-lg-5 heading-size">Beauty Services <br> <span class="color-text">Designed For You!</span></h4>
 

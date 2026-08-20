@@ -425,10 +425,15 @@ body .job-card:hover {
 	border-top-left-radius: 12px;
 	border-top-right-radius: 12px;	
 }
+
 .category-card .font-heading {
 	margin-bottom: 10px;
 	padding: 0px 10px;
     font-size: 18px;
+	height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 /* Feature Cards */
 .feature-card {
@@ -3337,7 +3342,6 @@ scale:1.2
 
 	}
 
-
 }
 
 @media (min-width: 1200px) {
@@ -3522,7 +3526,9 @@ scale:1.2
 		padding: 0 18px 25px 18px;
 
 	}
-
+.beauty-service-section {
+	row-gap: 30px;
+}
 }
 
 @media (max-width: 860px) {
@@ -8354,6 +8360,9 @@ i.person-gear::before{
 .sort-btns {
 	justify-content: center;
 }
+.floating-badge-hero.pos-tr {
+    right: -4%;
+}
 }
 @media (max-width:850px) {
 .center_slider1 .slick-current {
@@ -8528,6 +8537,12 @@ i.person-gear::before{
 }
 .empower-tools h2 {
     font-size: 25px;
+}
+.category-card .font-heading {
+    font-size: 17px;
+}
+.section-space {
+    padding: 40px 0px;
 }
 .mid-title {
     font-size: 25px;
@@ -8742,6 +8757,7 @@ i.person-gear::before{
     font-size: 19px;	
 	line-height: 26px;
 }
+
 .about-detail p {	
 	margin-top: 2px;
 }
@@ -9238,6 +9254,22 @@ input.location-select:focus {
 	.hero-features {
 		flex-wrap: wrap;
 		gap: 16px;
+		justify-content: center;
+}
+.heading-size {
+    font-size: 25px;
+}
+.home-heading {
+    font-size: 25px;
+}
+.trust-item h4 {
+	text-align: start;
+}
+.service-right-sec {
+    margin-bottom: 0px;
+}
+.contact-left-content {
+    padding: 0px;
 }
 .service-section-margin .contact-left-content {
     padding: 0px;
