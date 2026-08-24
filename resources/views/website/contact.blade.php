@@ -29,7 +29,7 @@ $model = Setting::setting();
                     <p class="mt-1 regular-grey-txt">Have questions, need assistance, or want to partner with us? Our team is here to help you every step of the way.</p>
 
                     <div class="service-box row">
-                        <div class="col-6">
+                        <div class="col-md-6 col-12">
                             <div class="skill-tiles text-center email-cnt">
                                 <i class="fa-regular fa-envelope contact-icon"></i>
                                 <div>
@@ -39,7 +39,7 @@ $model = Setting::setting();
                                 </div>
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-md-6 col-12">
                             <div class="skill-tiles text-center email-cnt">
                                 <div class="contact-icon">
                                     <svg viewBox="0 0 24 24" width="22px" fill="none" stroke="#612d8a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -53,7 +53,7 @@ $model = Setting::setting();
                                 </div>
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-md-6 col-12">
                             <div class="skill-tiles text-center email-cnt">
                                 <div class="contact-icon">
                                     <svg viewBox="0 0 24 24" fill="none" width="22px" stroke="#612d8a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -69,7 +69,7 @@ $model = Setting::setting();
                                 </div>
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-md-6 col-12">
                             <div class="skill-tiles text-center email-cnt">
                                 <div class="contact-icon">
                                     <svg viewBox="0 0 24 24" width="22px" fill="none" stroke="#612d8a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -91,7 +91,7 @@ $model = Setting::setting();
             </div>
             <div class="col-lg-6 col-sm-12">
                 <div class="form-card">
-                    <h4 class="heading-size">Send Us a <span class="color-text">Message </span></h4>
+                    <h4 class="heading-size send-us">Send Us a <span class="color-text">Message </span></h4>
                     <form action="{{ route('submitform')}}" class="no-label-form" id="createform" method="POST">
                         @csrf
                         <div class="row">

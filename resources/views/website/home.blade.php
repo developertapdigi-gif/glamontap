@@ -116,9 +116,9 @@ Home
       <h2 class="fw-bold mb-3 font-heading heading-size">Browse Beauty Specialties</h2>
       <p class="text-muted">Explore high-demand roles across all sectors of the industry.</p>
     </div>
-    <div class="card-grid beauty-category">
+    <div class="card-grid beauty-category beauty  swiper">
       @foreach ($services as $service)
-      <div class="card" data-aos="fade-up" data-aos-delay="100">
+      <div class="card swiper-slide" data-aos="fade-up" data-aos-delay="100">
 
         <a href="{{ route('services.show', ['id' => $service->id]) }}" class="text-decoration-none">
           <div class="category-card shadow-sm h-100">
@@ -292,7 +292,7 @@ Home
   <div class="container got-py-5">
     <div class="row align-items-center got-g-4">
       <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right">
-        <div class="position-relative got-p-4">
+        <div class="position-relative p-md-4 p-0">
           <img src="images/talent.webp" alt="Showcase Talent" class="img-fluid rounded-3 shadow-lg animate-float">
           <div class="talent-floating-badge">
             <div class="d-flex align-items-center gap-2">
@@ -437,8 +437,6 @@ Home
     $('#appointmentModal').modal('show');
   });
 </script>
-
-
 <script>
   $(document).ready(function() {
 
