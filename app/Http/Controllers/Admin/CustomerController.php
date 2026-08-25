@@ -4,18 +4,17 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Mail\customerRegister;
-use App\Models\User;
+use App\Mail\CustomerRegister;
 use App\Models\EmailOtp;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
-use App\Models\{Appointment};
+use App\Models\{Appointment, Post, PostGallery, SkillCategory, User};
 use Illuminate\Support\Facades\Auth;  
 use App\Rules\MatchOldPassword;
-use App\Models\SkillCategory;
+
 class CustomerController extends Controller
 {
     //
@@ -136,12 +135,12 @@ class CustomerController extends Controller
         // ]);
 
         // Send registration email
-        // $name = $user->first_name . ' ' . $user->last_name;
-        // try {
-        //     Mail::to($user->email)->send(new customerRegister($name, $token));
-        // } catch (\Exception $e) {
-        //     // Log error if needed
-        // }
+        $name = $user->first_name . ' ' . $user->last_name;
+        try {
+            Mail::to($user->email)->send(new customerRegister($name, $token));
+        } catch (\Exception $e) {
+            // Log error if needed
+        }
         return redirect('customer/register')->with('success', 'customer registered successfully.');
     }
 
@@ -188,5 +187,91 @@ class CustomerController extends Controller
 
         return redirect()->route('admin.customer.profile.index')->with('success', 'Password updated successfully.');
     }
+
+    // post management 
+     public function postList()
+    {
+        $posts = Post::with('gallery')->where('author_id', Auth::id())->latest()->paginate(10);
+        return view('admin.customer.posts.index', compact('posts'));
+    }
+
+    public function createPost()
+    {
+        $skills = SkillCategory::where('status', 1)->get();
+        return view('admin.customer.posts.create', compact('skills'));
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'title'       => 'required',
+            'description' => 'required',
+            'media'       => 'required|file|mimes:jpeg,png,jpg,mp4|max:20480',
+        ]);
+
+        $post = Post::create([
+            'title'             => $request->title,
+            'short_description' => $request->description,
+            'author_id'         => Auth::id(),
+            'skill_id'          => $request->skill_category_id,
+            'status'            => 1,
+        ]);
+
+        if ($request->hasFile('media')) {
+            $file     = $request->file('media');
+            $filename = uniqid() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('uploads/uploads'), $filename);
+            PostGallery::create([
+                'post_id' => $post->id,
+                'path'    => 'uploads/uploads/' . $filename,
+                'type'    => in_array($file->getClientOriginalExtension(), ['mp4']) ? 2 : 1,
+            ]);
+        }
+
+        return redirect()->route('customer.posts.list')->with('success', 'Post created successfully.');
+    }
+
+    public function show($id)
+    {
+        $post = Post::with(['gallery', 'SkillCategory'])->where('id', $id)->where('author_id', Auth::id())->firstOrFail();
+        return view('admin.customer.posts.show', compact('post'));
+    }
+
+        public function edit($id)
+    {
+        $post   = Post::where('id', $id)->where('author_id', Auth::id())->firstOrFail();
+        $skills = SkillCategory::where('status', 1)->get();
+        return view('admin.customer.posts.edit', compact('post', 'skills'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $post = Post::where('id', $id)->where('author_id', Auth::id())->firstOrFail();
+
+        // Only editable within 2 days
+        if ($post->created_at->diffInDays(now()) > 2) {
+            return redirect()->route('customer.posts.list')->with('error', 'Post can only be edited within 2 days.');
+        }
+
+        $request->validate([
+            'title'       => 'required',
+            'description' => 'required',
+        ]);
+
+        $post->update([
+            'title'             => $request->title,
+            'short_description' => $request->description,
+            'skill_id'          => $request->skill_category_id,
+        ]);
+
+        return redirect()->route('customer.posts.list')->with('success', 'Post updated successfully.');
+    }
+
+    public function destroy($id)
+    {
+        Post::where('id', $id)->where('author_id', Auth::id())->firstOrFail()->delete();
+        return redirect()->route('customer.posts.list')->with('success', 'Post deleted successfully.');
+    }
+
 
 }

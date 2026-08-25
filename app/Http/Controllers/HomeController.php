@@ -15,6 +15,7 @@ use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use App\Mail\AppointmentBookedMail;
 class HomeController  extends Controller
 {
 	public function index()
@@ -723,9 +724,24 @@ private function applySearchConditions($query, string $searchTerm, string $searc
 
     public function bookAppointment(Request $request)
     {
-        Appointment::create($request->all());
+        $salon = $request->input('salon');
+        $salonUser = User::find($salon);
+        if (!$salonUser) {
+            return redirect()->back()
+                ->with('error', 'Salon not found.');
+        }
+        if (!$salonUser->email) {
+            return redirect()->back()
+                ->with('error', 'Salon email address not found.');
+        }
+        $data = $request->all();
+        $data['user_id'] = Auth::id();
+        $booking = Appointment::create($data);
+        Mail::to($salonUser->email)
+            ->send(new AppointmentBookedMail($booking));
 
-        return redirect()->back()->with('success', 'Appointment booked successfully.');
+        return redirect()->back()
+            ->with('success', 'Appointment booked successfully.');
     }
 }
 

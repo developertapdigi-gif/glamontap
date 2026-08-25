@@ -5,54 +5,47 @@ $model = Setting::setting();
 <h1><a href="{{ url('/') }}" class="logo">
     <img src="{{ $model['favicon'] }}" /></a>
 </h1>
-{{-- <ul class="list-unstyled components mb-5">
-    <li class="{{ Str::contains(url()->current(), 'tradie/dashboard') ? 'active' : '' }}">
-        <a href="{{ route('tradie.dashboard') }}">
+<ul class="list-unstyled components mb-5">
+    <li class="{{ Str::contains(url()->current(), 'customer/dashboard') ? 'active' : '' }}">
+        <a href="{{ route('customer.dashboard') }}">
             <i class="dashboard-icon"></i>
             <span>Dashboard</span>
         </a>
     </li>
-    <li class="{{ Str::contains(url()->current(), 'tradie/jobs') ? 'active' : '' }}">
-        <a href="{{ route('tradie.jobs.index') }}">
+    <li class="{{Str::endSWith(url()->current(), 'jobs/create') ? 'active' : '' }}">
+        <a href="{{ route('jobs.create') }}">
+            <i class="post-icon"></i>
+             Post New Job
+        </a>
+    </li>
+    <li class="{{Str::endSWith(url()->current(), 'jobs') ? 'active' : '' }}">
+        <a href="{{ route('jobs.index') }}">
+            <i class="jobs-icon"></i>
+             Jobs
+        </a>
+    </li>
+    {{-- <li class="{{ Str::contains(url()->current(), 'customer/jobs') ? 'active' : '' }}">
+        <a href="{{ route('customer.jobs.index') }}">
             <i class="jobs-icon"></i>
           Work
         </a>
-    </li>
-    <li class="{{ Str::contains(url()->current(), 'tradie/posts') ? 'active' : '' }}">
-        <a href="{{ route('tradie.posts.index') }}">
+    </li> --}}
+    <li class="{{ Str::contains(url()->current(), 'customer/posts/list') ? 'active' : '' }}">
+        <a href="{{ route('customer.posts.list') }}">
             <i class="post-icon"></i>
             Posts
         </a>
     </li>
-    <li class="{{ Str::contains(url()->current(), 'tradie/connections') ? 'active' : '' }}">
-        <a href="{{ route('tradie.connections.index') }}">
-            <i class="employees-icon"></i>
-            Connections
-        </a>
-    </li> --}}
-    {{-- <li class="{{ Str::contains(url()->current(), 'tradie/notifications') ? 'active' : '' }}">
-        <a href="{{ route('tradie.notifications.index') }}">
-            <i class="bi bi-bell"></i>
-            Notifications
-        </a>
-    </li> --}}
 
-    
-    {{-- <li class="{{ Str::contains(url()->current(), 'tradie/messenger') ? 'active' : '' }}">
-        <a href="{{ route('messages') }}" target="_blank" >
-           <i class="bi bi-chat-dots"></i>
-            Chat
-        </a>
-    </li>
-    <li class="{{ Str::contains(url()->current(), 'tradie/profile') ? 'active' : '' }}">
-        <a href="{{ route('tradie.profile.index') }}">
+    <li class="{{ Str::contains(url()->current(), 'customer/profile') ? 'active' : '' }}">
+        <a href="{{ route('customer.profile.index') }}">
             <i class="profile-icon"></i>
             Profile
         </a>
     </li>
-</ul> --}}
+</ul> 
 <div class="aside-footer">
-    {{-- <ul class="list-unstyled components">
+    <ul class="list-unstyled components">
         <li>
             <a href="javascript:void(0);" onclick="event.preventDefault(); document.getElementById('tradie-logout-form').submit();">
                 <i class="logout-icon"></i>
@@ -62,5 +55,5 @@ $model = Setting::setting();
                 @csrf
             </form>
         </li>
-    </ul> --}}
+    </ul>
 </div>

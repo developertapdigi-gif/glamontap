@@ -16,17 +16,17 @@
 
             <div class="col-md-6 mb-3">
               <label class="form-label">Full Name <span class="text-danger">*</span></label>
-              <input type="text" name="name" class="form-control" id="name">
+              <input type="text" name="name" class="form-control" id="name" value="{{ auth()->user()?->first_name ?? '' }} {{ auth()->user()?->last_name ?? '' }}">
             </div>
 
             <div class="col-md-6 mb-3">
               <label class="form-label">Phone Number <span class="text-danger">*</span></label>
-              <input type="text" name="phone" class="form-control" id="phone">
+              <input type="text" name="phone" class="form-control" id="phone" value="{{ auth()->user()?->mobile ?? '' }}">
             </div>
 
             <div class="col-md-6 mb-3">
               <label class="form-label">Email <span class="text-danger">*</span></label>
-              <input type="email" name="email" class="form-control" id="email">
+              <input type="email" name="email" class="form-control" id="email" value="{{ auth()->user()?->email ?? '' }}">
             </div>
 
             <div class="col-md-6 mb-3">

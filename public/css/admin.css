@@ -7666,9 +7666,9 @@ a.grey-button:hover{
 
 .profile-image{
 	border-radius:50%;
-	width:40px;
-	height: 40px;
-	max-width: 100%;
+	width:60px;
+	height: 60px;
+	/* max-width: 100%; */
 	object-fit: cover;
 }
 .profile-image1{

@@ -50,6 +50,7 @@
                             {{ Str::limit(strip_tags($subcat->description), 100) }}
                         </p>
 
+                      @if(Auth::check())
                         <button
                             type="button"
                             class="btn btn-primary book-appointment-btn"
@@ -58,13 +59,17 @@
                             data-service="{{ $subcat->service_name }}">
                             Book Appointment
                         </button>
+                      @else
+                          <a href="{{ route('login', ['booking' => 1]) }}" class="btn btn-primary">
+                              Book Appointment
+                          </a>
+                      @endif
 
                     </div>
 
                 </div>
 
             </div>
-
         @empty
 
             <div class="col-12 text-center">
@@ -95,17 +100,17 @@
 
             <div class="col-md-6 mb-3">
               <label class="form-label">Full Name <span class="text-danger">*</span></label>
-              <input type="text" name="name" class="form-control" id="name">
+              <input type="text" name="name" class="form-control" id="name" value="{{ auth()->user()?->first_name ?? '' }} {{ auth()->user()?->last_name ?? '' }}">
             </div>
 
             <div class="col-md-6 mb-3">
               <label class="form-label">Phone Number <span class="text-danger">*</span></label>
-              <input type="text" name="phone" class="form-control" id="phone">
+              <input type="text" name="phone" class="form-control" id="phone" value="{{ auth()->user()?->mobile ?? '' }}">
             </div>
 
             <div class="col-md-6 mb-3">
               <label class="form-label">Email <span class="text-danger">*</span></label>
-              <input type="email" name="email" class="form-control" id="email">
+              <input type="email" name="email" class="form-control" id="email" value="{{ auth()->user()?->email ?? '' }}">
             </div>
 
             <div class="col-md-6 mb-3">
@@ -200,7 +205,20 @@
   </div>
 </div>
 
+
+ @if(session('success'))
 <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var thankYouModal = new bootstrap.Modal(
+      document.getElementById('thankYouModal')
+    );
+    thankYouModal.show();
+  });
+</script>
+@endif
+
+<script>
+
 document.addEventListener('DOMContentLoaded', function () {
 
     document.querySelectorAll('.book-appointment-btn').forEach(button => {
@@ -219,4 +237,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 </script>
+
+
 @endsection

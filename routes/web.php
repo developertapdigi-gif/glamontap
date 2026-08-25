@@ -5,7 +5,7 @@ use App\Http\Middleware\AgencyStatus;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\{HomeController,CkeditorController,CheckoutController};
 use App\Http\Controllers\Tradie\{DashboardController as TradieDashboard, JobController as TradieJob, ProfileController as TradieProfile, PostController as TradiePost, ConnectionController as TradieConnection, NotificationController as TradieNotification};
-use App\Http\Controllers\Admin\{AgencySubscriptionController,UserController,DashboardController,ProfileController,AgencyController,TraderController,SkillCategoriesController,JobController,RoleController,SettingController,AgentController,NotificationController,SubscriptionPlanController,BadgesController,PostOverWallController,EndrosementPostController,CmsController,PreviewPostJobController,AddonPlansController,FeedbackSurveysController,AppointmentController, ServiceController,CustomerController};
+use App\Http\Controllers\Admin\{AgencySubscriptionController,UserController,DashboardController,ProfileController,AgencyController,TraderController,SkillCategoriesController,JobController,RoleController,SettingController,AgentController,NotificationController,SubscriptionPlanController,BadgesController,PostOverWallController,EndrosementPostController,CmsController,PreviewPostJobController,AddonPlansController,FeedbackSurveysController,AppointmentController, ServiceController,CustomerController,CustomerJobController};
 /* Common Routes*/
 Route::post('ckeditor/upload', [CkeditorController::class, 'upload'])->name('ckeditor.image-upload');
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -50,16 +50,8 @@ Route::name('user.')->prefix('user')->middleware(['guest'])->group(function() {
         Route::post('tradie/registerpost',[UserController::class,'tradieRegisterPost'])->name('tradie.registerpost');
         Route::get('tradie/verify',[UserController::class,'tradieVerify'])->name('tradie.verify');
         Route::post('tradie/verifypost',[UserController::class,'tradieVerifyPost'])->name('tradie.verifypost');
-        });   
-        Route::get('customer/register',[CustomerController::class,'register'])->name('customer.register');
-        Route::post('customer/registerpost',[CustomerController::class,'customerRegisterPost'])->name('customer.registerpost');
-        Route::get('customer/dashboard', [CustomerController::class, 'index'])->name('customer.dashboard');
-        Route::get('customer/profile', [CustomerController::class, 'profile'])->name('customer.profile.index');
-        Route::post('customer/profile/update', [CustomerController::class, 'updateProfile'])->name('customer.profile.update');
-        Route::post('customer/profile/password', [CustomerController::class, 'changePassword'])->name('customer.profile.password');
-
-
-
+        });  
+        
 
 Route::group(['middleware' => ['auth']], function() {
     // Tradie Routes
@@ -186,6 +178,39 @@ Route::group(['middleware' => ['auth']], function() {
         Route::resource('appointments', AppointmentController::class);
         Route::resource('service', ServiceController::class);
     });
+});
+
+// customer routes
+Route::prefix('customer')->group(function () {
+
+    Route::get('register', [CustomerController::class, 'register'])
+        ->name('customer.register');
+
+    Route::post('registerpost', [CustomerController::class, 'customerRegisterPost'])
+        ->name('customer.registerpost');
+
+    Route::get('dashboard', [CustomerController::class, 'index'])
+        ->name('customer.dashboard');
+
+    Route::get('profile', [CustomerController::class, 'profile'])
+        ->name('customer.profile.index');
+
+    Route::post('profile/update', [CustomerController::class, 'updateProfile'])
+        ->name('customer.profile.update');
+
+    Route::post('profile/password', [CustomerController::class, 'changePassword'])
+        ->name('customer.profile.password');
+
+        Route::get('posts/list', [CustomerController::class, 'postList'])->name('customer.posts.list');
+        Route::get('posts/create', [CustomerController::class, 'createPost'])->name('customer.posts.create');
+        Route::post('posts', [CustomerController::class, 'store'])->name('customer.posts.store');
+        Route::get('posts/{id}', [CustomerController::class, 'show'])->name('customer.posts.show');
+        Route::get('posts/{id}/edit', [CustomerController::class, 'edit'])->name('customer.posts.edit');
+        Route::post('posts/{id}', [CustomerController::class, 'update'])->name('customer.posts.update');
+        Route::post('posts/{id}/delete', [TradiePost::class, 'destroy'])->name('posts.destroy');
+
+        Route::resource('jobs',CustomerJobController::class);   
+
 });
 
 
