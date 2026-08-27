@@ -9752,7 +9752,7 @@ i.person-gear::before {
 	}
 
 	.cta-banner-card {
-		padding: 25px;
+		padding: 30px;
 	}
 
 	.got-mb-5 {
@@ -9760,8 +9760,12 @@ i.person-gear::before {
 	}
 
 	.hero-section-premium {
-		padding: 110px 0 30px;
+		padding: 110px 0 40px;
 	}
+	.got-py-5 {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
 
 	.blue-footer button p {
 		display: flex;
