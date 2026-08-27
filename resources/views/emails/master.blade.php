@@ -15,13 +15,13 @@ $model = Setting::setting();
               </a>
          </td>
       </tr>
-      <tr>
+      {{-- <tr>
          <td style="padding:0; text-align: center;">
             <a href="#" target="blank">
             	<img src="{{asset('images/email_header.png')}}" alt="banner" style="display: block; margin: 0 auto;height:249;width:749;" />
             </a>
          </td>
-      </tr>
+      </tr> --}}
       <!-- content start here -->
       @yield('content')
       <!-- Footer Start -->

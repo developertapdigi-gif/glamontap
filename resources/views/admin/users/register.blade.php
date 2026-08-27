@@ -202,7 +202,7 @@ $model = Setting::setting();
                                     </div>
                                 </div>
                                 <div class="submit-buttons">
-                                    <button type="submit" class="btn btn-primary">Register as Tradie</button>
+                                    <button type="submit" class="btn btn-primary">Register as Professional</button>
                                     <span>Already have an account? <a class="skill-link" href="{{ route('user.login') }}">Login</a></span>
                                 </div>
                             </form>
