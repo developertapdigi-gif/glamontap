@@ -13,13 +13,13 @@ $model = Setting::setting();
         </a>
     </li>
     <li class="{{Str::endSWith(url()->current(), 'jobs/create') ? 'active' : '' }}">
-        <a href="{{ route('jobs.create') }}">
+        <a href="{{ route('customer.jobs.create') }}">
             <i class="post-icon"></i>
              Post New Job
         </a>
     </li>
     <li class="{{Str::endSWith(url()->current(), 'jobs') ? 'active' : '' }}">
-        <a href="{{ route('jobs.index') }}">
+        <a href="{{ route('customer.jobs.index') }}">
             <i class="jobs-icon"></i>
              Jobs
         </a>

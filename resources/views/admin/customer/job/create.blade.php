@@ -17,7 +17,7 @@
             </div>
         </div>
       <div class="skill-reg-form">
-        <form id="createform" class="regular-form" action="{{ route('job.store') }}" method="POST" enctype="multipart/form-data">
+        <form id="createform" class="regular-form" action="{{ route('customer.jobs.store') }}" method="POST" enctype="multipart/form-data">
           @csrf
         <div class="row">  
             <div class="col-md-12">        
@@ -223,7 +223,6 @@
          
             <div class="mt-5">
                 <button class="btn btn-primary" type="submit" id="post-job">Post New Job</button>
-                <a href="{{ route('job.index') }}" class="btn btn-primary black-button">Cancel</a>
                 <a href="" class="btn btn-primary btn-secondary">Reset</a>
             </div>
           </form>

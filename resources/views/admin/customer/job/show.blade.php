@@ -23,7 +23,7 @@ use App\Models\User;
                         }else{
                             $style= "pointer-events: none;";
                         }
-                        if(Auth::user()->user_type == User::ROLE['agency'] || Auth::user()->user_type== User::ROLE['agency_sub_user'] || Auth::user()->user_type == User::ROLE['admin']){
+                        if(Auth::user()->user_type == User::ROLE['agency'] || Auth::user()->user_type== User::ROLE['agency_sub_user'] || Auth::user()->user_type == User::ROLE['admin'] || Auth::user()->user_type == User::ROLE['customer']){
                         
                         if($model->is_hired == 1 && $model->start_date > $today && $model->status != 3 && $model->status != 6){   
                         @endphp
@@ -38,7 +38,7 @@ use App\Models\User;
                         }
                         if(count($model->applications) < 1){
                         @endphp
-                        <a href="{{ route('job.edit',$model->id) }}"><button class="primary-btn blue-button"><i class="fas fa-edit"></i>Edit Job</button></a>
+                        <a href="{{ route('customer.jobs.edit',$model->id) }}"><button class="primary-btn blue-button"><i class="fas fa-edit"></i>Edit Job</button></a>
                         @php 
                         }
                     }
@@ -265,138 +265,13 @@ use App\Models\User;
 </div>
 
 <!-- Extension Modals -->
-<div class="modal fade" id="extensionModal" tabindex="-1" role="dialog" aria-labelledby="extensionModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="client_popupLabel">Extension</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-          <!-- <span aria-hidden="true">&times;</span> -->
-        </button>
-      </div>
-      <div class="modal-body">
-        <form id="extension_form">   
-            @csrf
-            <div class="row">                   
-                <label for="payment" class="form-label">Extension Date</label>
-                    <div class="row">
-                                <div class="col-12">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control datepicker" placeholder="dd-mm-YYYY" name="end_date" id="end_date"  onfocus="focused(this)" onfocusout="defocused(this)" required>
-                                    </div>
-                                </div>
-                        <input type="hidden" id="applicationId" />       
-                    </div>
-            </div>
-            <div class="row mt-4">    
-                <div class="col-12 text-center">
-                    <button type="button" class="btn bg-secondary text-white me-4" data-bs-dismiss="modal" id="filterCloseBtn">Cancel</button>
-                    <button type="submit" class="btn bg-primary text-white">Submit</button>
-                </div> 
-            </div>
-        </form>
-      </div>   
-    </div>
-  </div>
-</div>
+
 <!-- Extension Modals -->
-<div class="modal fade" id="afterextensionModal" tabindex="-1" role="dialog" aria-labelledby="afterextensionModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="client_popupLabel">Proposal Extension</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-          <!-- <span aria-hidden="true">&times;</span> -->
-        </button>
-      </div>
-      <div class="modal-body">
-        <form id="extension_form">   
-            @csrf
-            <div class="row">                   
-                <label for="payment" class="form-label">Proposal Extension Date</label>
-                    <div class="row">
-                                <div class="col-12">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control " placeholder="dd-mm-YYYY" name="extended_date" id="extended_date" value="" readonly>
-                                    </div>
-                                </div>
-                        <input type="hidden" id="applicationId"  name="application_id"/>       
-                    </div>
-            </div>
-            <div class="row mt-4">    
-                <div class="col-12">
-                    <p>Your Proposal Extension Date is: <span id="extension_date_status"></span></p>
-                </div> 
-            </div>
-        </form>
-      </div>   
-    </div>
-  </div>
-</div>
+
 <!-- Compliant Modals -->
-<div class="modal fade" id="complaintModal" tabindex="-1" role="dialog" aria-labelledby="complaintModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="client_popupLabel">Report</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-          <!-- <span aria-hidden="true">&times;</span> -->
-        </button>
-      </div>
-        <div class="modal-body">
-            <form id="complaint_form">   
-                @csrf
-                <div class="row">                   
-                    <label for="payment" class="form-label">Description</label>
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="input-group">
-                                <textarea class="form-control" id="description" name="description" rows="6\4" required>{{ old('description') }}</textarea>
-                                </div>
-                            </div>
-                        </div>
-                    <input type="hidden" id="jobapplicationId"  />       
-                </div>
-                
-                <div class="row mt-4">    
-                    <div class="col-12 text-center">
-                        <button type="button" class="btn bg-secondary text-white me-4" data-bs-dismiss="modal" id="filterCloseBtn">Cancel</button>
-                        <button type="submit" class="btn bg-primary text-white">Submit</button>
-                    </div> 
-                </div>
-            </form>
-        </div>   
-    </div>
-  </div>
-</div>
+
 <!-- Withdraw Modals -->
-<div class="modal fade" id="withdrawModal" tabindex="-1" role="dialog" aria-labelledby="withdrawModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="client_popupLabel">Withdraw Reason</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                </button>
-            </div>
-            <div class="modal-body p-4">
-                <input type="hidden" id="withdrawapplicationId" value='' />
-                <div class="row">
-                    <div class="col-6">
-                        <p id="withdraw_reason"></p>
-                    </div>
-                    <div class="col-6">
-                        <p id="withdraw_date"></p>
-                    </div>
-                </div>
-                <div class="row"> 
-                <div class="col-12 text-center">
-                    <button type="button" class="btn bg-secondary text-white me-4" data-bs-dismiss="modal" id="filterCloseBtn">Ok</button>
-                </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 <script type="text/javascript">
 var ajax_table;
 $(document).ready(function() {
@@ -424,7 +299,7 @@ $(document).ready(function() {
           bLengthChange: false,
           order: [[0, 'desc']],
           ajax: {
-            url:"{{route('fetch.hiredemployees')}}",
+            url:"{{route('customer.jobs.fetchHired')}}",
             data: function(data){                
                 data.job_id  = $('#job_id').val();  
                 data.employee_status  = $('#employee_status').val();                    
@@ -477,7 +352,7 @@ $('#filter_form').submit(function(e){
     $('.loader').show();
     $.ajax({
         type: "POST",
-        url: "{{route('job.rating')}}",
+        url: "{{route('customer.jobs.rating')}}",
         data:{
             "_token": "{{ csrf_token() }}",
             "rating": $('#rating').val(),
@@ -512,7 +387,7 @@ $('#extension_form').submit(function(e){
     $('.loader').show();
     $.ajax({
         type: "POST",
-        url: "{{route('job.extension')}}",
+        url: "{{route('customer.jobs.extension')}}",
         data:{
             "_token": "{{ csrf_token() }}",
             "extension_date": $('#end_date').val(),
@@ -593,23 +468,7 @@ $('#complaint_form').submit(function(e){
                     
     });
 });
-$(document).on('click', '.withdrawModalbtn', function () {
-    var id = $(this).attr('data-applicationid');
-    $('#withdrawapplicationId').val(id);
-    $.ajax({
-        method:'GET',
-        url: 'get-withdraw/'+id,
-        data: id,
-        success: function(response){
-            
-            $('#withdraw_reason').html(response.data.withdraw_reason);
-            $('#withdraw_date').html(response.data.withdraw_date); 
-        },
-        error: function(xhr, status, error) {
-            console.log('Error fetching withdraw reason:', error);
-        }
-    });
-});
+
 function approveEmployee(id,status) {
     if (id) {
             message = 'Are you sure you want to approve ?';
@@ -627,7 +486,7 @@ function approveEmployee(id,status) {
         }).then((result) => {            
             if (result.isConfirmed) {
                 $('.loader').show();
-                var url = "{{ route('job.approveemployee') }}";               
+                var url = "{{ route('customer.jobs.approveEmployee') }}";               
                 $.ajax({
                     headers: {
                         "X-CSRF-Token": "{{ csrf_token() }}",
@@ -672,7 +531,7 @@ function rejectEmployee(id,status) {
         }).then((result) => {          
             if (result.isConfirmed) {
                 $('.loader').show();
-                var url = "{{ route('job.rejectEmployee') }}";               
+                var url = "{{ route('customer.jobs.rejectEmployee') }}";               
                 $.ajax({
                     headers: {
                         "X-CSRF-Token": "{{ csrf_token() }}",
@@ -717,7 +576,7 @@ function completeJob(id) {
         }).then((result) => {          
             if (result.isConfirmed) {
                 $('.loader').show();
-                var url = "{{ route('job.completeJob') }}";               
+                var url = "{{ route('customer.jobs.complete') }}";               
                 $.ajax({
                     headers: {
                         "X-CSRF-Token": "{{ csrf_token() }}",
@@ -763,7 +622,7 @@ function cancelJob(id) {
         }).then((result) => {           
             if (result.isConfirmed) {
                 $('.loader').show();
-                var url = "{{ route('job.cancelJob') }}";               
+                var url = "{{ route('customer.jobs.cancel') }}";               
                 $.ajax({
                     headers: {
                         "X-CSRF-Token": "{{ csrf_token() }}",

@@ -80,7 +80,7 @@ $(document).ready(function() {
           serverSide: true,
           order: [[0, 'desc']],
           ajax: {
-            url:"{{route('fetch.jobs')}}",
+            url:"{{route('customer.jobs.fetch')}}",
           },
           columns: [
             { data: 'id' },

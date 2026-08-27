@@ -28,7 +28,8 @@ class JobController extends Controller
         $currentDate = date('Y-m-d'); 
         $user = Auth::user();
         if($user->user_type == User::ROLE['agency']){
-            $condition = 'agency_id = '.$user->id;;
+            $condition = 'agency_id = '.$user->id;
+                
         }elseif($user->user_type == User::ROLE['admin']){     
             $condition = 'id>0';
         }else{
@@ -63,7 +64,8 @@ class JobController extends Controller
         if($request->skill_id && $request->skill_id!='-1'){
             $condition .= " and skill_category={$request->skill_id}";
         }
-        $jobs = Job::whereRaw($condition)->orderby('id', 'desc')->paginate(10)->withQueryString();       
+        $jobs = Job::whereRaw($condition)->orderby('id', 'desc')->paginate(10)->withQueryString();  
+          
         $skill_categories =SkillCategory::getAllSkillCategory();
         $notfound = "No Result found";
         return view('admin.job.list_n_grid',compact('jobs','skill_categories','text','notfound'));

@@ -28,7 +28,7 @@ use Illuminate\Support\Facades\Auth;
                 @if(User::ROLE['admin'] == Auth::user()->user_type)
                 <a href="#" class="jobtab primary-btn white-button {{$text[6]}}" data-status="{{$text[6]}}">{{$text[6]}}</a>
                 @endif
-            <input type="hidden" name="job_status" id="job_status" value="$text[5]d">  
+           <input type="hidden" name="job_status" id="job_status" value="{{ $text[5] ?? 'Draft' }}">
             @endif          
         </div>
         <h2 class="mobile-content">
@@ -121,9 +121,9 @@ use Illuminate\Support\Facades\Auth;
                         @php
                         if($_job->image && (File::exists(public_path($_job->image)))){
                             $url = asset($_job->image);
-                        }elseif($_job->agency->logo && (File::exists(public_path($_job->agency->logo)))){
+                        } elseif($_job->agency && $_job->agency->logo && (File::exists(public_path($_job->agency->logo)))){
                             $url = asset($_job->agency->logo);
-                        }else{
+                        } else {
                             $url = asset('images/company-name.png');
                         } 
                         @endphp
@@ -142,9 +142,10 @@ use Illuminate\Support\Facades\Auth;
                         <button type="button" id="aprrove-{{$_job->id}}" class="btn btn-icon btn-lg btn-color-dark" onclick="approveJob({{$_job->id}},{{Auth::user()->user_type}})" data="{{$_job->id}}">
                         <i class="bi bi-check-circle-fill"></i>
                     </button>
-                    @endif -->
-                    
-                    <a href="{{ route('job.show',$_job->id) }}"><i class="bi bi-arrow-down-right-circle-fill"></i></a>
+                    @endif --> 
+
+                       @php
+                    <a href="{{ route('customer.jobs.show',$_job->id) }}"><i class="bi bi-arrow-down-right-circle-fill"></i></a>
                     </div>
                 </div>
             </div>
@@ -185,47 +186,121 @@ use Illuminate\Support\Facades\Auth;
 var ajax_table;
 var token = "{{ csrf_token() }}";
 $(document).ready(function() {
-    ajax_table = $('#ajax_table').on('xhr.dt', function (e, settings, json, xhr) {
-        settings.json = {
+ajax_table = $('#ajax_table').on('xhr.dt', function (e, settings, json, xhr) {
+    console.log('=== XHR.DT Event Debug ===');
+    console.log('Status:', xhr.status);
+    console.log('Status Text:', xhr.statusText);
+    console.log('Response Headers:', xhr.getAllResponseHeaders());
+    console.log('Raw Response Text:', xhr.responseText);
+    console.log('Parsed JSON:', json);
+    console.log('Settings:', settings);
+    
+    // Try to parse the response if it's not already parsed
+    let responseData = json;
+    if (typeof json === 'string') {
+        try {
+            responseData = JSON.parse(json);
+            console.log('Parsed string response:', responseData);
+        } catch(e) {
+            console.error('Failed to parse JSON:', e);
+            console.log('Raw string:', json);
+        }
+    }
+    
+    settings.json = {
         data: json
     };
-    settings.json.recordsTotal = settings.json.recordsFiltered = xhr.getResponseHeader("X-Records-Total");
-         $('#job_count_value').html('');
-        $('#job_count_value').append(JSON.parse(xhr.responseText).iTotalDisplayRecords); 
-    }).DataTable({
-        language: {
-            'paginate': {
-                'previous': '<i class="bi bi-arrow-left"></i>',
-                'next': '<i class="bi bi-arrow-right"></i>'
-            }
+    
+    // Check if we have valid data
+    if (xhr.getResponseHeader("X-Records-Total")) {
+        settings.json.recordsTotal = settings.json.recordsFiltered = xhr.getResponseHeader("X-Records-Total");
+        console.log('Records Total from header:', xhr.getResponseHeader("X-Records-Total"));
+    } else if (responseData && responseData.recordsTotal !== undefined) {
+        settings.json.recordsTotal = responseData.recordsTotal;
+        settings.json.recordsFiltered = responseData.recordsFiltered || responseData.recordsTotal;
+        console.log('Records Total from response:', responseData.recordsTotal);
+    } else {
+        console.warn('No records total found in header or response');
+    }
+    
+    // Update job count
+    $('#job_count_value').html('');
+    let countDisplay = 0;
+    if (responseData && responseData.iTotalDisplayRecords !== undefined) {
+        countDisplay = responseData.iTotalDisplayRecords;
+    } else if (responseData && responseData.recordsTotal !== undefined) {
+        countDisplay = responseData.recordsTotal;
+    } else if (json && json.iTotalDisplayRecords !== undefined) {
+        countDisplay = json.iTotalDisplayRecords;
+    } else {
+        // Try to count from data array
+        if (responseData && responseData.data && Array.isArray(responseData.data)) {
+            countDisplay = responseData.data.length;
+        } else if (json && json.data && Array.isArray(json.data)) {
+            countDisplay = json.data.length;
+        }
+    }
+    $('#job_count_value').append(countDisplay);
+    console.log('Count displayed:', countDisplay);
+    
+}).DataTable({
+    language: {
+        'paginate': {
+            'previous': '<i class="bi bi-arrow-left"></i>',
+            'next': '<i class="bi bi-arrow-right"></i>'
         },
-        processing: true,
-        serverSide: true,
-        order: [[0, 'desc']],
-        ajax: {
-            url:"{{route('fetch.jobs')}}",
-            data: function(data){                
-                data.job_status  = $('#job_status').val();              
-                data.filter_skill  = $('#filter_skill').val();              
-            }
+        'emptyTable': 'No jobs available',
+        'info': 'Showing _START_ to _END_ of _TOTAL_ jobs',
+        'infoEmpty': 'Showing 0 to 0 of 0 jobs'
+    },
+    processing: true,
+    serverSide: true,
+    order: [[0, 'desc']],
+    ajax: {
+        url: "{{route('customer.jobs.fetch')}}",
+        type: 'GET',
+        data: function(data) {                
+            data.job_status = $('#job_status').val();              
+            data.filter_skill = $('#filter_skill').val(); 
         },
-        columns: [          
-            { data: 'id' },
-            { data: 'checkbox' },
-            { data: 'title' },
-            { data: 'start_date' },
-            { data: 'end_date' },
-            { data: 'location' },
-            { data: 'number_of_employees' },
-            { data: 'skill_category'},         
-            { data: 'minimum_price'},         
-            { data: 'buttons' }
-        ],
-        columnDefs: [          
+        dataSrc: function(json) {
+            if (json.error) {
+                console.error('Server error:', json.error);
+                // Show error message in the table
+                $('#ajax_table tbody').html('<tr><td colspan="10" class="text-center text-danger">Error loading jobs: ' + json.error + '</td></tr>');
+                return [];
+            }
+            return json.data || [];
+        },
+        error: function(xhr, status, error) {
+            console.error('AJAX Error:', status, error);
+            let errorMsg = 'Error loading jobs';
+            if (xhr.responseJSON && xhr.responseJSON.error) {
+                errorMsg += ': ' + xhr.responseJSON.error;
+            } else if (xhr.status === 404) {
+                errorMsg = 'No jobs found or you do not have permission to view them';
+            }
+            $('#ajax_table tbody').html('<tr><td colspan="10" class="text-center text-danger">' + errorMsg + '</td></tr>');
+            $('#job_count_value').html('0');
+        }
+    },
+    columns: [          
+        { data: 'id' },
+        { data: 'checkbox' },
+        { data: 'title' },
+        { data: 'start_date' },
+        { data: 'end_date' },
+        { data: 'location' },
+        { data: 'number_of_employees' },
+        { data: 'skill_category'},         
+        { data: 'minimum_price'},         
+        { data: 'buttons' }
+    ],
+    columnDefs: [          
         { className: 'text-center', targets: [5,6,7] },
         {"targets": [1,8],"orderable": false}
-        ],
-    });  
+    ]
+});
     ajax_table.column( 0 ).visible( false );  
     $('.jobtab').click(function(){       
         $('#job_status').val($(this).attr('data-status'));
@@ -274,7 +349,7 @@ function approveJob(id, user_type) {
             if (result.isConfirmed) { 
                 $('.loader').show();
                 $.ajax({
-                    url: "{{route('job.approve')}}",
+                    url: "{{route('customer.jobs.approve')}}",
                     type: "POST",
                     data: { id: id, _token: token},
                     success: function(response) {

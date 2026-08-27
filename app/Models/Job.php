@@ -56,6 +56,10 @@ class Job extends Model
     {
         return $this->hasOne(User::class, 'id', 'agency_id');
     }
+     public function customer()
+    {
+        return $this->belongsTo(User::class, 'customer_id', 'id');
+    }
     public function badge()
     {
         return $this->hasOne(Badge::class, 'id', 'experiance_range');
