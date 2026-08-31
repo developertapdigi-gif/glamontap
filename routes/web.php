@@ -210,35 +210,38 @@ Route::prefix('customer')->group(function () {
     Route::post('posts/{id}/delete', [TradiePost::class, 'destroy'])->name('posts.destroy');
 
      // Customer Jobs Routes
-    Route::prefix('jobs')->name('customer.jobs.')->group(function () {
-        Route::get('/', [CustomerJobController::class, 'index'])->name('index');
-        Route::get('/create', [CustomerJobController::class, 'create'])->name('create');
-        Route::post('/store', [CustomerJobController::class, 'store'])->name('store');
-        Route::post('/store-media', [CustomerJobController::class, 'storeMedia'])->name('storeMedia');
-        Route::post('/preview', [CustomerJobController::class, 'preview'])->name('preview');
-        Route::get('/preview-data', [CustomerJobController::class, 'previewdata'])->name('previewdata');
-        Route::get('{id}', [CustomerJobController::class, 'show'])->name('show');
-        Route::get('/{id}/edit', [CustomerJobController::class, 'edit'])->name('edit');
-        Route::put('/{id}', [CustomerJobController::class, 'update'])->name('update');
-        Route::delete('/{id}', [CustomerJobController::class, 'destroy'])->name('destroy');
-
-        // AJAX routes for DataTables
-        Route::get('/fetch', [CustomerJobController::class, 'fetchData'])->name('fetch');
-        Route::get('/fetch-hired', [CustomerJobController::class, 'hiredEmployee'])->name('fetchHired');
-        
-        // AJAX action routes
-        Route::post('/approve', [CustomerJobController::class, 'approveJob'])->name('approve');
-        Route::post('/approve-employee', [CustomerJobController::class, 'approveEmployee'])->name('approveEmployee');
-        Route::post('/reject-employee', [CustomerJobController::class, 'rejectEmployee'])->name('rejectEmployee');
-        Route::post('/complete', [CustomerJobController::class, 'completeJob'])->name('complete');
-        Route::post('/cancel', [CustomerJobController::class, 'cancelJob'])->name('cancel');
-        Route::post('/rating', [CustomerJobController::class, 'ratingEmployee'])->name('rating');
-        Route::post('/extension', [CustomerJobController::class, 'extensionEmployee'])->name('extension');
-        Route::get('/get-rating/{id}', [CustomerJobController::class, 'getRating'])->name('getRating');
-        Route::get('/get-withdraw/{id}', [CustomerJobController::class, 'getWithdraw'])->name('getWithdraw');
-    });
+    
   });
 
+
+    
+    Route::name('customer.jobs.')->group(function () {
+        Route::get('customer-job', [CustomerJobController::class, 'index'])->name('index');
+        Route::get('customer-job/create', [CustomerJobController::class, 'create'])->name('create');
+        Route::post('customer-job', [CustomerJobController::class, 'store'])->name('store');
+        Route::post('customer-job/store-media', [CustomerJobController::class, 'storeMedia'])->name('storeMedia');
+        Route::post('customer-job/preview', [CustomerJobController::class, 'preview'])->name('preview');
+        Route::get('customer-job/preview-data', [CustomerJobController::class, 'previewdata'])->name('previewdata');
+        Route::get('customer-job/{id}', [CustomerJobController::class, 'show'])->name('show');
+        Route::get('customer-job/{id}/edit', [CustomerJobController::class, 'edit'])->name('edit');
+        Route::put('customer-job/{id}', [CustomerJobController::class, 'update'])->name('update');
+        Route::delete('customer-job/{id}', [CustomerJobController::class, 'destroy'])->name('destroy');
+
+        // AJAX routes for DataTables
+        Route::get('customer-job-fetch', [CustomerJobController::class, 'fetchData'])->name('fetch');
+        Route::get('customer-job/fetch-hired', [CustomerJobController::class, 'hiredEmployee'])->name('fetchHired');
+
+        // AJAX action routes
+        Route::post('customer-job/approve', [CustomerJobController::class, 'approveJob'])->name('approve');
+        Route::post('customer-job/approve-employee', [CustomerJobController::class, 'approveEmployee'])->name('approveEmployee');
+        Route::post('customer-job/reject-employee', [CustomerJobController::class, 'rejectEmployee'])->name('rejectEmployee');
+        Route::post('customer-job/complete', [CustomerJobController::class, 'completeJob'])->name('complete');
+        Route::post('customer-job/cancel', [CustomerJobController::class, 'cancelJob'])->name('cancel');
+        Route::post('customer-job/rating', [CustomerJobController::class, 'ratingEmployee'])->name('rating');
+        Route::post('customer-job/extension', [CustomerJobController::class, 'extensionEmployee'])->name('extension');
+        Route::get('customer-job/get-rating/{id}', [CustomerJobController::class, 'getRating'])->name('getRating');
+        Route::get('customer-job/get-withdraw/{id}', [CustomerJobController::class, 'getWithdraw'])->name('getWithdraw');
+    });
 
 
 

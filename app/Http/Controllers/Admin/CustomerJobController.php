@@ -144,7 +144,7 @@ class CustomerJobController extends Controller
         $input['start_date'] = date("Y-m-d H:i:s", strtotime($request->start_date));
         $input['end_date'] = date("Y-m-d H:i:s", strtotime($request->end_date));
         $input['customer_id'] = Auth::user()->id;
-        $input['agency_id'] = null; // Customer jobs don't have agency initially
+        $input['agency_id'] = Auth::user()->id; // Customer jobs don't have agency initially
         $input['created_by'] = Auth::user()->id;
         $input['updated_by'] = Auth::user()->id;
         $input['is_hired'] = 0;
@@ -617,9 +617,10 @@ class CustomerJobController extends Controller
      */
     public function fetchData(Request $request)
     {
+       
         try {
             $user = Auth::user();
-            
+           
             if (!$user) {
                 return response()->json([
                     'draw' => intval($request->get('draw', 1)),
@@ -649,13 +650,14 @@ class CustomerJobController extends Controller
 
             // Only show jobs belonging to this customer
             $condition = 'customer_id = ' . $user->id;
-
+  
             if ($searchValue) {
                 $condition .= " and (title like '%" . addslashes($searchValue) . "%' or location like '%" . addslashes($searchValue) . "%')";
             }
 
             // Job Tab filter
             $jobStatus = $request->job_status ?? ($text[5] ?? 'Draft');
+           
             
             if ($jobStatus == ($text[3] ?? 'Ongoing')) {
                 $condition .= " and is_hired=1 and status=4";
@@ -684,9 +686,10 @@ class CustomerJobController extends Controller
                 ->skip($start)
                 ->take($rowperpage)
                 ->get();
+                 
 
             foreach ($collection as $value) {
-                // dd($value);
+                
                 $buttons = '';
 
                 // Location button
@@ -733,6 +736,7 @@ class CustomerJobController extends Controller
             );
 
             return response()->json($response);
+           
 
 
         } catch (\Exception $e) {

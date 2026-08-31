@@ -642,6 +642,7 @@ private function applySearchConditions($query, string $searchTerm, string $searc
         // Get all tasks
         $allTasks = DB::table('tasks')
             ->where('status', 1)
+            ->orderByDesc('created_at')
             ->get();
 
         // Get all skills
@@ -717,6 +718,7 @@ private function applySearchConditions($query, string $searchTerm, string $searc
 
         $tasks = DB::table('tasks')
             ->where('status', '=', 1)
+            ->orderByDesc('created_at')
             ->get();
 
         return view('website.all-jobs', compact('tasks'));
