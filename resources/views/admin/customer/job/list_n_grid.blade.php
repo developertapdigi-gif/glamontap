@@ -144,7 +144,6 @@ use Illuminate\Support\Facades\Auth;
                     </button>
                     @endif --> 
 
-                       @php
                     <a href="{{ route('customer.jobs.show',$_job->id) }}"><i class="bi bi-arrow-down-right-circle-fill"></i></a>
                     </div>
                 </div>
@@ -251,7 +250,9 @@ ajax_table = $('#ajax_table').on('xhr.dt', function (e, settings, json, xhr) {
         },
         'emptyTable': 'No jobs available',
         'info': 'Showing _START_ to _END_ of _TOTAL_ jobs',
-        'infoEmpty': 'Showing 0 to 0 of 0 jobs'
+        'infoEmpty': 'Showing 0 to 0 of 0 jobs',
+        'loadingRecords': 'Loading...',
+        'processing': 'Processing...'
     },
     processing: true,
     serverSide: true,
@@ -262,26 +263,85 @@ ajax_table = $('#ajax_table').on('xhr.dt', function (e, settings, json, xhr) {
         data: function(data) {                
             data.job_status = $('#job_status').val();              
             data.filter_skill = $('#filter_skill').val(); 
+            console.log('=== AJAX Request Data ===');
+            console.log('job_status:', data.job_status);
+            console.log('filter_skill:', data.filter_skill);
+            console.log('Full data object:', data);
         },
         dataSrc: function(json) {
-            if (json.error) {
-                console.error('Server error:', json.error);
-                // Show error message in the table
-                $('#ajax_table tbody').html('<tr><td colspan="10" class="text-center text-danger">Error loading jobs: ' + json.error + '</td></tr>');
+            console.log('=== AJAX Success Response ===');
+            console.log('Full response:', json);
+            console.log('Response type:', typeof json);
+            console.log('Is array?', Array.isArray(json));
+            
+            // Check for error responses
+            if (json && json.error) {
+                console.error('Server returned error:', json.error);
+                alert('Server Error: ' + json.error);
                 return [];
             }
-            return json.data || [];
+            
+            // Check if data exists
+            if (json && json.data && Array.isArray(json.data)) {
+                console.log('Data count:', json.data.length);
+                console.log('First record sample:', json.data[0]);
+                return json.data;
+            } else if (Array.isArray(json)) {
+                console.log('Response is an array, length:', json.length);
+                return json;
+            } else if (json && json.data) {
+                console.log('Data found but not array:', typeof json.data);
+                return [];
+            } else {
+                console.warn('No data found in response');
+                return [];
+            }
         },
         error: function(xhr, status, error) {
-            console.error('AJAX Error:', status, error);
-            let errorMsg = 'Error loading jobs';
-            if (xhr.responseJSON && xhr.responseJSON.error) {
-                errorMsg += ': ' + xhr.responseJSON.error;
-            } else if (xhr.status === 404) {
-                errorMsg = 'No jobs found or you do not have permission to view them';
+            console.error('=== AJAX Error Details ===');
+            console.error('Status:', status);
+            console.error('Error:', error);
+            console.error('XHR Status:', xhr.status);
+            console.error('XHR Status Text:', xhr.statusText);
+            console.error('XHR Response Text:', xhr.responseText);
+            console.error('XHR Response Headers:', xhr.getAllResponseHeaders());
+            
+            // Try to parse error response
+            let errorMessage = 'Error loading jobs. ';
+            try {
+                if (xhr.responseText) {
+                    const errorJson = JSON.parse(xhr.responseText);
+                    console.error('Parsed error response:', errorJson);
+                    if (errorJson.message) {
+                        errorMessage += errorJson.message;
+                    }
+                    if (errorJson.errors) {
+                        errorMessage += ' Validation errors: ' + JSON.stringify(errorJson.errors);
+                    }
+                }
+            } catch(e) {
+                console.error('Could not parse error response:', e);
+                if (xhr.responseText) {
+                    errorMessage += ' ' + xhr.responseText.substring(0, 200);
+                } else {
+                    errorMessage += ' ' + status + ': ' + error;
+                }
             }
-            $('#ajax_table tbody').html('<tr><td colspan="10" class="text-center text-danger">' + errorMsg + '</td></tr>');
+            
+            // Show error in table
+            $('#ajax_table tbody').html('<tr><td colspan="10" class="text-center text-danger">' + errorMessage + '</td></tr>');
             $('#job_count_value').html('0');
+            
+            // Also show alert for debugging
+            alert('DataTables Error:\n' + errorMessage + '\n\nCheck console for more details.');
+            
+            // Log additional debug info
+            console.error('=== Additional Debug Info ===');
+            console.error('DataTable config:', {
+                processing: this.processing,
+                serverSide: this.serverSide,
+                ajaxUrl: this.ajax.url
+            });
         }
     },
     columns: [          
@@ -299,7 +359,16 @@ ajax_table = $('#ajax_table').on('xhr.dt', function (e, settings, json, xhr) {
     columnDefs: [          
         { className: 'text-center', targets: [5,6,7] },
         {"targets": [1,8],"orderable": false}
-    ]
+    ],
+    // Add this to help debug
+    drawCallback: function(settings) {
+        console.log('=== Draw Callback ===');
+        console.log('Settings:', settings);
+        console.log('JSON data:', settings.json);
+        console.log('Current page:', settings._iDisplayStart / settings._iDisplayLength + 1);
+        console.log('Total records:', settings._iRecordsTotal);
+        console.log('Records displayed:', settings._iDisplayLength);
+    }
 });
     ajax_table.column( 0 ).visible( false );  
     $('.jobtab').click(function(){       

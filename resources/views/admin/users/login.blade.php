@@ -91,9 +91,9 @@ $model = Setting::setting();
 
                                     
                                  </div>
-                                 <div class = "col-xl-6 col-6 customer_register_btn">
+                                 {{-- <div class = "col-xl-6 col-6 customer_register_btn">
                                          <a href="{{ route('customer.register') }}" class="btn btn-primary btn-black text-decoration-none">Register as customer</a>
-                                    </div>
+                                    </div> --}}
                               </form>
                         </div>
                     </div>

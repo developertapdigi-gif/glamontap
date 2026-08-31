@@ -28,56 +28,47 @@ class CustomerJobController extends Controller
         $user = Auth::user();
         $currentDate = date('Y-m-d');
         
-        // Build query using Eloquent
-        $query = Job::where('customer_id', $user->id);
+        // Only show jobs belonging to this customer
+        $condition = 'customer_id = ' . $user->id;
         
         // Search filter
-        if($request->has('title') && !empty($request->title)) {
-            $query->where('title', 'like', '%' . $request->title . '%');
+        if(!empty($request->all())){
+            $query = $request->query('title');
+            if($query) {
+                $condition .= " and (title like '%$query%') ";
+            }
         }
         
         $text = Job::JOBLABEL;
         $today = date('Y-m-d 00:00:00');
         
         // Tab filtering
-        if($request->type == ($text[3] ?? 'Ongoing')) {
-            $query->where('is_hired', 1)->where('status', 4);
-        } else if($request->type == ($text[2] ?? 'Upcoming')) {
-            $query->whereDate('start_date', '>=', $today)
-                  ->where('is_hired', 1)
-                  ->where('status', '!=', 4)
-                  ->where('status', '!=', 3);
-        } else if($request->type == ($text[4] ?? 'Completed')) {
-            $query->where('status', 6);
-        } else if($request->type == ($text[1] ?? 'Open')) {
-            $query->whereDate('end_date', '>=', $today)
-                  ->whereIn('status', [1, 2])
-                  ->where('is_hired', '!=', 1);
-        } else if($request->type == ($text[6] ?? 'Featured')) {
-            $query->where('status', 7)
-                  ->whereDate('start_date', '>=', $today)
-                  ->where('status', '!=', 4)
-                  ->where('status', '!=', 3);
+        if($request->type == $text[3]) { // ongoing
+            $condition .= " and is_hired=1 and status=4";
+        } else if($request->type == $text[2]) { // upcoming 
+            $condition .= " and DATE(start_date) >= '$today' and is_hired=1 and status!=4 and status!=3";
+        } else if($request->type == $text[4]) { // complete
+            $condition .= " and status = 6";
+        } else if($request->type == $text[1]) { // open
+            $condition .= " and (DATE(end_date) >= '$today' and status IN (1,2) and is_hired!=1)";
+        } else if($request->type == $text[6]) { // featured
+            $condition .= " and status = 7";
         } else { // draft
-            $query->whereDate('end_date', '>', $today)
-                  ->where('is_hired', '!=', 1)
-                  ->where('status', 0);
+            $condition .= " and DATE(end_date) > '$today' and is_hired!=1 and status=0";
         }
         
         // Skill filter
         if($request->skill_id && $request->skill_id != '-1') {
-            $query->where('skill_category', $request->skill_id);
+            $condition .= " and skill_category={$request->skill_id}";
         }
         
-        $jobs = $query->orderBy('id', 'desc')
+        $jobs = Job::whereRaw($condition)
+            ->orderBy('id', 'desc')
             ->paginate(10)
             ->withQueryString();
             
         $skill_categories = SkillCategory::getAllSkillCategory();
         $notfound = "No Result found";
-        
-        // Debug - log the count
-        \Log::info('Customer Jobs Index: Found ' . $jobs->count() . ' jobs for user ' . $user->id);
         
         return view('admin.customer.job.list_n_grid', compact('jobs', 'skill_categories', 'text', 'notfound'));
     }
@@ -153,11 +144,11 @@ class CustomerJobController extends Controller
         $input['start_date'] = date("Y-m-d H:i:s", strtotime($request->start_date));
         $input['end_date'] = date("Y-m-d H:i:s", strtotime($request->end_date));
         $input['customer_id'] = Auth::user()->id;
-        $input['agency_id'] = null;
+        $input['agency_id'] = null; // Customer jobs don't have agency initially
         $input['created_by'] = Auth::user()->id;
         $input['updated_by'] = Auth::user()->id;
         $input['is_hired'] = 0;
-        $input['status'] = 0;
+        $input['status'] = 0; // Draft
 
         // Handle other skill
         $other_skill = $request->other_skill;
@@ -231,14 +222,13 @@ class CustomerJobController extends Controller
      */
     public function show(string $id)
     {
+        // dd($id);
         $model = Job::with(['agency', 'skillCategory', 'applications', 'notificationAgency'])
             ->where('customer_id', Auth::user()->id)
             ->find($id);
+            // dd($model);
 
         if (!$model) {
-            if (request()->ajax() || request()->wantsJson()) {
-                return response()->json(['error' => 'Job not found'], 404);
-            }
             abort(404, 'Job not found or you do not have permission to view it.');
         }
 
@@ -356,7 +346,7 @@ class CustomerJobController extends Controller
             return response()->json(['status' => 404, 'message' => 'Job not found'], 404);
         }
 
-        $model->update(['status' => 1]);
+        $model->update(['status' => 1]); // Submit for approval
 
         return response()->json(['status' => 200, 'message' => 'Job submitted for approval']);
     }
@@ -367,18 +357,13 @@ class CustomerJobController extends Controller
     public function approveEmployee(Request $request)
     {
         $model = JobApplication::find($request->id);
-        
-        if (!$model) {
-            return response()->json(['status' => false, 'message' => 'Application not found'], 404);
-        }
-        
         $job = Job::where('customer_id', Auth::user()->id)->find($model->task_id);
 
         if (!$job) {
             return response()->json(['status' => false, 'message' => 'Unauthorized'], 403);
         }
 
-        $model->status = 1;
+        $model->status = 1; // Accepted
         $model->customer_id = Auth::user()->id;
         $model->save();
 
@@ -387,9 +372,10 @@ class CustomerJobController extends Controller
 
         $count = JobApplication::where('task_id', $model->task_id)->where('status', 1)->count();
         if ($job->status != 4 && $job->start_date == $today && $count == $job->number_of_employees) {
-            $job->update(['status' => 4]);
+            $job->update(['status' => 4]); // Ongoing
         }
 
+        // Send notification to trader
         $this->sendEmployeeNotification($model, $job, 'accepted');
 
         return response()->json(['status' => true]);
@@ -401,18 +387,13 @@ class CustomerJobController extends Controller
     public function rejectEmployee(Request $request)
     {
         $model = JobApplication::find($request->id);
-        
-        if (!$model) {
-            return response()->json(['status' => false, 'message' => 'Application not found'], 404);
-        }
-        
         $job = Job::where('customer_id', Auth::user()->id)->find($model->task_id);
 
         if (!$job) {
             return response()->json(['status' => false, 'message' => 'Unauthorized'], 403);
         }
 
-        $model->status = 2;
+        $model->status = 2; // Rejected
         $model->customer_id = Auth::user()->id;
         $model->save();
 
@@ -421,6 +402,7 @@ class CustomerJobController extends Controller
             $job->update(['is_hired' => 0]);
         }
 
+        // Send notification to trader
         $this->sendEmployeeNotification($model, $job, 'rejected');
 
         return response()->json(['status' => true]);
@@ -457,6 +439,7 @@ class CustomerJobController extends Controller
             'message' => $message
         ]);
 
+        // Send push notification if trader has device token
         if ($model->trader && $model->trader->device_token && $model->trader->notification == 1) {
             $notification->sendNotification([
                 'message' => [
@@ -486,7 +469,7 @@ class CustomerJobController extends Controller
             return response()->json(['status' => 404, 'message' => 'Job not found'], 404);
         }
 
-        $job->status = 6;
+        $job->status = 6; // Completed
         $job->update();
 
         $traders = JobApplication::where('task_id', $request->id)->get();
@@ -523,6 +506,7 @@ class CustomerJobController extends Controller
                     ]);
                 }
 
+                // Send email to trader
                 if ($_trader->trader) {
                     $name = $_trader->trader->first_name;
                     $trader_email = $_trader->trader->email;
@@ -560,7 +544,7 @@ class CustomerJobController extends Controller
         $today = date('Y-m-d 00:00:00');
         $added_hours = date('Y-m-d H:i:s', strtotime($today . ' +48 hours'));
 
-        $job->status = 3;
+        $job->status = 3; // Cancelled
         $job->update();
 
         $traders = JobApplication::where('task_id', $request->id)->get();
@@ -568,6 +552,7 @@ class CustomerJobController extends Controller
         $customer_name = $user->first_name . ' ' . $user->last_name;
 
         if (count($traders)) {
+            // Reduce rating if cancelled within 48 hours
             if ($job->start_date < $added_hours) {
                 $customer = User::find(Auth::user()->id);
                 if ($customer && $customer->over_all_rating) {
@@ -628,11 +613,11 @@ class CustomerJobController extends Controller
     }
 
     /**
-     * Fetch data for datatable - FIXED VERSION
+     * Fetch data for datatable
      */
     public function fetchData(Request $request)
     {
-            try {
+        try {
             $user = Auth::user();
             
             if (!$user) {
@@ -640,20 +625,21 @@ class CustomerJobController extends Controller
                     'draw' => intval($request->get('draw', 1)),
                     'recordsTotal' => 0,
                     'recordsFiltered' => 0,
-                    'data' => []
+                    'data' => [],
+                    'error' => 'User not authenticated'
                 ]);
             }
 
-            $draw = intval($request->get('draw', 1));
-            $start = intval($request->get("start", 0));
-            $rowperpage = intval($request->get("length", 10));
-            
+            $data_arr = array();
+            $draw = $request->get('draw', 1);
+            $start = $request->get("start", 0);
+            $rowperpage = $request->get("length", 10);
             $columnIndex_arr = $request->get('order', []);
             $columnName_arr = $request->get('columns', []);
             $order_arr = $request->get('order', []);
             $search_arr = $request->get('search', []);
             
-            $columnIndex = isset($columnIndex_arr[0]['column']) ? intval($columnIndex_arr[0]['column']) : 0;
+            $columnIndex = isset($columnIndex_arr[0]['column']) ? $columnIndex_arr[0]['column'] : 0;
             $columnName = isset($columnName_arr[$columnIndex]['data']) ? $columnName_arr[$columnIndex]['data'] : 'id';
             $columnSortOrder = isset($order_arr[0]['dir']) ? $order_arr[0]['dir'] : 'desc';
             $searchValue = isset($search_arr['value']) ? $search_arr['value'] : '';
@@ -661,61 +647,46 @@ class CustomerJobController extends Controller
             $today = date('Y-m-d 00:00:00');
             $text = Job::JOBLABEL;
 
-            // Start query builder - ONLY GET JOBS FOR THIS CUSTOMER
-            $query = Job::with('skillCategory')
-                ->where('customer_id', $user->id);
+            // Only show jobs belonging to this customer
+            $condition = 'customer_id = ' . $user->id;
 
-            // Search filter
-            if (!empty($searchValue)) {
-                $query->where(function($q) use ($searchValue) {
-                    $q->where('title', 'like', '%' . $searchValue . '%')
-                    ->orWhere('location', 'like', '%' . $searchValue . '%');
-                });
+            if ($searchValue) {
+                $condition .= " and (title like '%" . addslashes($searchValue) . "%' or location like '%" . addslashes($searchValue) . "%')";
             }
 
             // Job Tab filter
             $jobStatus = $request->job_status ?? ($text[5] ?? 'Draft');
             
             if ($jobStatus == ($text[3] ?? 'Ongoing')) {
-                $query->where('is_hired', 1)->where('status', 4);
+                $condition .= " and is_hired=1 and status=4";
             } else if ($jobStatus == ($text[2] ?? 'Upcoming')) {
-                $query->whereDate('start_date', '>=', $today)
-                    ->where('is_hired', 1)
-                    ->where('status', '!=', 4)
-                    ->where('status', '!=', 3);
+                $condition .= " and DATE(start_date) >= '$today' and is_hired=1 and status!=4 and status!=3";
             } else if ($jobStatus == ($text[4] ?? 'Completed')) {
-                $query->where('status', 6);
+                $condition .= " and status = 6 ";
             } else if ($jobStatus == ($text[1] ?? 'Open')) {
-                $query->whereDate('end_date', '>=', $today)
-                    ->whereIn('status', [1, 2])
-                    ->where('is_hired', '!=', 1);
+                $condition .= " and (DATE(end_date) >= '$today' and status IN (1,2) and is_hired!=1)";
             } else if ($jobStatus == ($text[6] ?? 'Featured')) {
-                $query->where('status', 7)
-                    ->whereDate('start_date', '>=', $today)
-                    ->where('status', '!=', 4)
-                    ->where('status', '!=', 3);
+                $condition .= " and status = 7 and DATE(start_date) >= '$today' and status!=4 and status!=3 ";
             } else { // draft
-                $query->whereDate('end_date', '>', $today)
-                    ->where('is_hired', '!=', 1)
-                    ->where('status', 0);
+                $condition .= " and DATE(end_date) > '$today' and is_hired!=1 and status = 0";
             }
 
-            // Skill filter
             if ($request->filter_skill && $request->filter_skill != '-1') {
-                $query->where('skill_category', intval($request->filter_skill));
+                $condition .= " and skill_category={$request->filter_skill}";
             }
 
-            // Get total records before pagination
-            $totalRecords = $query->count();
+            // Get total records
+            $totalRecords = Job::whereRaw($condition)->count();
 
             // Get paginated data
-            $collection = $query->orderBy($columnName, $columnSortOrder)
+            $collection = Job::whereRaw($condition)
+                ->orderBy($columnName, $columnSortOrder)
                 ->skip($start)
                 ->take($rowperpage)
                 ->get();
 
-            $data_arr = [];
             foreach ($collection as $value) {
+                // dd($value);
                 $buttons = '';
 
                 // Location button
@@ -726,12 +697,11 @@ class CustomerJobController extends Controller
 
                 // Approve/Submit button (only if status is draft)
                 if ($value->status == 0) {
-                    $buttons .= ' <button class="btn btn-icon btn-sm btn-color-dark" onclick="approveJob(' . $value->id . ', ' . $user->user_type . ')"><i class="skill-table-action fas fa-check"></i></button>';
+                    $buttons .= ' <button class="btn btn-icon btn-sm btn-color-dark" onclick="approveJob(' . $value->id . ', ' . Auth::user()->user_type . ')"><i class="skill-table-action fas fa-check"></i></button>';
                 }
 
                 // Edit button (only if no applications and not cancelled/completed)
-                $applicationsCount = $value->applications ? count($value->applications) : 0;
-                if ($applicationsCount < 1 && $value->status != 3 && $value->status != 6 && $value->status != 1) {
+                if (isset($value->applications) && count($value->applications) < 1 && $value->status != 3 && $value->status != 6 && $value->status != 1) {
                     $buttons .= ' <a class="btn btn-icon btn-sm btn-color-dark" href="' . route("customer.jobs.edit", $value->id) . '"><i class="skill-table-action fas fa-edit"></i></a>';
                 }
 
@@ -741,35 +711,32 @@ class CustomerJobController extends Controller
                 // Checkbox status
                 $isChecked = ($value->home_seen_job ?? 0) ? 'checked' : '';
 
-                // Get skill category name
-                $skillName = 'NA';
-                if ($value->skillCategory) {
-                    $skillName = $value->skillCategory->name;
-                }
-
-                $data_arr[] = [
+                $data_arr[] = array(
                     "id" => $value->id,
                     "checkbox" => '<input type="checkbox" class="item-checkbox" name="home_seen_job" data-id="' . $value->id . '" ' . $isChecked . '>',
                     "title" => ucfirst($value->title),
                     "start_date" => date('d/m/Y', strtotime($value->start_date)),
                     "end_date" => date('d/m/Y', strtotime($value->end_date)),
-                    "location" => mb_strimwidth($value->location, 0, 30, '...'),
+                    'location' => mb_strimwidth($value->location, 0, 30, '...'),
                     "number_of_employees" => $value->number_of_employees,
-                    "skill_category" => $skillName,
-                    "minimum_price" => '$' . number_format($value->minimum_price, 2) . ' - $' . number_format($value->maximum_price, 2),
+                    "skill_category" => isset($value->SkillCategory) ? $value->SkillCategory->name : 'NA',
+                    'minimum_price' => '$' . $value->minimum_price . ' - $' . $value->maximum_price,
                     "buttons" => $buttons
-                ];
+                );
             }
 
-            return response()->json([
-                "draw" => $draw,
-                "recordsTotal" => $totalRecords,
-                "recordsFiltered" => $totalRecords,
-                "data" => $data_arr
-            ]);
+            $response = array(
+                "draw" => intval($draw),
+                "iTotalRecords" => $totalRecords,
+                "iTotalDisplayRecords" => $totalRecords,
+                "aaData" => $data_arr
+            );
+
+            return response()->json($response);
+
 
         } catch (\Exception $e) {
-            \Log::error('fetchData ERROR: ' . $e->getMessage());
+            \Log::error('Customer DataTable fetch error: ' . $e->getMessage() . ' in ' . $e->getFile() . ' on line ' . $e->getLine());
             
             return response()->json([
                 'draw' => intval($request->get('draw', 1)),
@@ -800,7 +767,9 @@ class CustomerJobController extends Controller
         $columnSortOrder = isset($order_arr[0]['dir']) ? $order_arr[0]['dir'] : 'desc';
         
         $condition = "task_id = '$request->job_id'";
+        $today = date('Y-m-d 00:00:00');
 
+        // Check if job belongs to customer
         $job = Job::where('customer_id', Auth::user()->id)->find($request->job_id);
         if (!$job) {
             return response()->json(['error' => 'Unauthorized'], 403);
@@ -841,6 +810,7 @@ class CustomerJobController extends Controller
                 $buttons .= '<button type="button" class="btn btn-icon btn-sm btn-color-dark" onclick="approveEmployee(' . $value->id . ',' . $value->status . ')"><i class="skill-table-action fas fa-check"></i></button>';
             }
 
+            // Rating button
             $buttons .= '<button class="primary-btn blue-button" id="for_rating" data-bs-toggle="modal" data-bs-target="#filterModal" data-userId="' . $value->id . '">
                 <i class="fa fa-star unchecked me-0"></i>
             </button>';
@@ -886,6 +856,7 @@ class CustomerJobController extends Controller
 
         $model = JobApplication::findOrFail($request->task_id);
         
+        // Check if job belongs to customer
         $job = Job::where('customer_id', Auth::user()->id)->find($model->task_id);
         if (!$job) {
             return response()->json(['status' => false, 'message' => 'Unauthorized'], 403);
@@ -916,6 +887,7 @@ class CustomerJobController extends Controller
     {
         $job_application = JobApplication::find($id);
         
+        // Check if job belongs to customer
         if ($job_application) {
             $job = Job::where('customer_id', Auth::user()->id)->find($job_application->task_id);
             if (!$job) {
@@ -941,6 +913,7 @@ class CustomerJobController extends Controller
     {
         $job_application = JobApplication::find($id);
         
+        // Check if job belongs to customer
         if ($job_application) {
             $job = Job::where('customer_id', Auth::user()->id)->find($job_application->task_id);
             if (!$job) {
@@ -970,6 +943,7 @@ class CustomerJobController extends Controller
             return response()->json(['status' => false, 'message' => 'Application not found']);
         }
         
+        // Check if job belongs to customer
         $job = Job::where('customer_id', Auth::user()->id)->find($job_application->task_id);
         if (!$job) {
             return response()->json(['status' => false, 'message' => 'Unauthorized'], 403);

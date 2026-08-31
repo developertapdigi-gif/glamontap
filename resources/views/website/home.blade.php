@@ -62,7 +62,7 @@ Home
                   Book Appointment
               </button>
           @else
-              <a href="{{ route('login', ['booking' => 1]) }}" class="btn btn-primary">
+              <a href="{{ route('user.login', ['booking' => 1]) }}" class="btn btn-primary">
                   Book Appointment
               </a>
           @endif
