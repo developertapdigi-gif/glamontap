@@ -13,7 +13,7 @@ use App\Mail\CancelJob;
 use App\Mail\RejectJobPost;
 use App\Models\Job;
 use App\Models\JobApplication;
-use App\Models\{SkillCategory, Notification};
+use App\Models\{SkillCategory, Notification, Service};
 use App\Models\User;
 use App\Models\Badge;
 use Carbon\Carbon;
@@ -86,6 +86,7 @@ class CustomerJobController extends Controller
         $company_address = Auth::user()->address ?? '';
         $company_latitude = Auth::user()->latitude ?? '';
         $company_longitude = Auth::user()->longitude ?? '';
+        $services = Service::where('status', 1)->get();
 
         return view('admin.customer.job.create', [
             'experience_range' => $experience_range,
@@ -93,7 +94,8 @@ class CustomerJobController extends Controller
             'categories' => $categories,
             'company_address' => $company_address,
             'company_latitude' => $company_latitude,
-            'company_longitude' => $company_longitude
+            'company_longitude' => $company_longitude,
+            'services' => $services
         ]);
     }
 
@@ -254,6 +256,7 @@ class CustomerJobController extends Controller
         $status = Job::STATUS;
         $experience_range = Badge::getAllBadges();
         $categories = SkillCategory::getAllSkillCategoryCreate();
+
 
         return view('admin.customer.job.update', [
             'model' => $model,
