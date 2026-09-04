@@ -8,8 +8,8 @@ $model = Setting::setting();
 <ul class="list-unstyled components mb-5">
     <li class="{{ Str::contains(url()->current(), 'customer/dashboard') ? 'active' : '' }}">
         <a href="{{ route('customer.dashboard') }}">
-            <i class="dashboard-icon"></i>
-            <span>Dashboard</span>
+            <i class="bi bi-calendar-check"></i>
+            <span>Booking</span>
         </a>
     </li>
     <li class="{{Str::endSWith(url()->current(), 'customer/jobs/create') ? 'active' : '' }}">

@@ -46,6 +46,12 @@ $model = Setting::setting();
              Sub Users
         </a>
     </li>
+    <li class="{{Str::contains(url()->current(), 'customer/list') ? 'active' : '' }}">
+        <a href="{{route('customer.list')}}">
+            <i class="employees-icon"></i>
+             Customers
+        </a>
+    </li>
     <li class="{{Str::contains(url()->current(), 'trader') ? 'active' : '' }}">
             <a href="{{ route('trader.index') }}">
                 <i class="employees-icon"></i>
@@ -61,7 +67,7 @@ $model = Setting::setting();
     </li>
     <li class="pb-0 {{Str::contains(url()->current(), 'services') ? 'active' : '' }}">
         <a href="{{ route('service.index') }}">
-            <i class="service-icon"></i>
+            <i class="skill-icon"></i>
             Services
         </a>
     </li>

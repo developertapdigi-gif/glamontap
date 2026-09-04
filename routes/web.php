@@ -30,6 +30,8 @@ Route::post('/appointment', [HomeController::class, 'bookAppointment'])->name('a
 Route::get('/appointments/{id}', [AppointmentController::class, 'show'])->name('appointments.show');
 Route::get('/services/{id}', [ServiceController::class, 'showByCategorySubCategory'])->name('services.show');
 
+Route::post('appointments/{id}/status', [AppointmentController::class, 'updateStatus'])
+    ->name('appointments.update-status');
 Route::get('/clear-employer-mode', function () {
     session()->forget('employer_mode');
     return response()->json(['success' => true]);
@@ -52,6 +54,9 @@ Route::name('user.')->prefix('user')->middleware(['guest'])->group(function() {
         Route::post('tradie/verifypost',[UserController::class,'tradieVerifyPost'])->name('tradie.verifypost');
         });  
         
+        Route::middleware(['auth', 'admin'])->group(function () {
+            Route::get('/admin/appointment-events', [App\Http\Controllers\Admin\DashboardController::class, 'getAppointmentEvents'])->name('admin.appointment.events');
+        });
 
 Route::group(['middleware' => ['auth']], function() {
     // Tradie Routes
@@ -177,6 +182,9 @@ Route::group(['middleware' => ['auth']], function() {
         Route::resource('cms',CmsController::class); 
         Route::resource('appointments', AppointmentController::class);
         Route::resource('service', ServiceController::class);
+        Route::get('customer/list', [DashboardController::class, 'customerList'])->name('customer.list');
+        Route::get('/fetch-customers', [DashboardController::class, 'fetchCustomers'])->name('fetch.customers');
+        Route::get('/fetch-customers', [DashboardController::class, 'fetchCustomers'])->name('fetch.customers');
     });
 });
 
