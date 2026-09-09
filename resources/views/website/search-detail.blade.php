@@ -19,7 +19,7 @@ $job = $job ?? null;
         if($job->image && (File::exists(public_path($job->image)))){
         $thumbnail = asset($job->image);
         }else{
-        $thumbnail = "https://cdn.prod.website-files.com/6390e14cc734a931f8327343/679c74b3164f379f7f08c8f3_679c74441827c33928d93627_Inner-image.jpeg";
+        $thumbnail = asset('images/cta.webp');
         }
         @endphp
         <img src="{{$thumbnail}}" width="100%">
@@ -62,7 +62,7 @@ $job = $job ?? null;
             $thumbnail = url('/').'/images/icons/new-profile.svg';
             }
             @endphp
-            <img src="https://cdn.prod.website-files.com/6390e14cc734a931f8327343/679c74b3164f379f7f08c8f3_679c74441827c33928d93627_Inner-image.jpeg" width="40" height="40">
+            <img src="{{ asset('images/cta.webp') }}" width="40" height="40">
             <div>
 
               <h4>{{$job->agency->agency_name? $job->agency->agency_name : "NA"}}</h4>

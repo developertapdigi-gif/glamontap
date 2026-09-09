@@ -129,7 +129,7 @@ use Illuminate\Support\Facades\Auth;
                         @endphp
                         <img title="job logo" src="{{ $url }}" class="profile-image"/>
                     </div>
-                    <div class="amount">${{$_job->minimum_price}} - ${{$_job->maximum_price}}</div>
+                    <div class="amount">₹{{$_job->minimum_price}} - ₹{{$_job->maximum_price}}</div>
                     <p>No of employees - <b>{{ $_job->number_of_employees}} employess</b></p>
                     <div class="address">
                         <img src="../images/icons/address.png" />{{ ucfirst($_job->location) }}

@@ -124,7 +124,7 @@ use App\Models\User;
                                         </div>
                                         <div class="col-md-6 col-sm-6">
                                             <b>Payment </b>
-                                            <p>${{$model->minimum_price}} - ${{$model->maximum_price}}</p>
+                                            <p>₹{{$model->minimum_price}} - ₹{{$model->maximum_price}}</p>
                                         </div>
                                     </div>
                                 </div>

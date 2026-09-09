@@ -65,7 +65,7 @@
                                 <img title="job logo" src="../images/icons/job-list1.png" />
                             </div>
 
-                            <div class="amount">${{$detail->minimum_price}} - ${{$detail->maximum_price}}</div>
+                            <div class="amount">₹{{$detail->minimum_price}} - ₹{{$detail->maximum_price}}</div>
                             <p>No of employees - <b>{{ $detail->number_of_employees}} employess</b></p>
                             <div class="address"><img src="../images/icons/address.png" />{{$detail->location}}</div>
                             <p class="job-rating">Rating - &nbsp;

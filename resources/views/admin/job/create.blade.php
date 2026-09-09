@@ -190,7 +190,7 @@
                         <div class="row">
                             <div class="col-md-5">
                                 <div class="input-group">
-                                <span class="input-group-text">$</span>
+                                <span class="input-group-text">₹</span>
                                 <input id="minimum_price" name="minimum_price" min="0" class="form-control @error('minimum_price') is-invalid @enderror" type="number" value="{{ old('minimum_price') }}">
                                     
                                 </div>
@@ -201,7 +201,7 @@
                             <div class="col-md-1 from-border">-</div>
                             <div class="col-md-6">
                                 <div class="input-group">
-                                <span class="input-group-text">$</span>
+                                <span class="input-group-text">₹</span>
                                 <input id="maximum_price" name="maximum_price" min="0" class="form-control @error('maximum_price') is-invalid @enderror" type="number" value="{{ old('maximum_price') }}">
                                    
                                 </div>
