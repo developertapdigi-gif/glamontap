@@ -6,9 +6,9 @@
         <h2>Connections</h2>
     </div>
 
-    {{-- Search Tradies --}}
+    {{-- Search Professionals --}}
     <div class="white-background p-4 mb-4">
-        <h5>Find Tradies</h5>
+        <h5>Find Professionals</h5>
         <form action="{{ route('tradie.connections.index') }}" method="GET" class="d-flex gap-2">
             <input type="text" name="search" class="form-control" placeholder="Search by name or email..." value="{{ request('search') }}">
             <button type="submit" class="btn btn-primary">Search</button>
@@ -57,7 +57,7 @@
             </div>
             @empty
             <div class="col-12">
-                <p class="text-muted mt-2">No tradies found for "{{ request('search') }}".</p>
+                <p class="text-muted mt-2">No Professionals found for "{{ request('search') }}".</p>
             </div>
             @endforelse
         </div>
@@ -78,7 +78,7 @@
         <ul class="nav nav-tabs" id="connectionTabs" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button" role="tab" aria-controls="all" aria-selected="true">
-                    All Tradies <span class="badge bg-secondary">{{ $allprofiles->total() ?? $allprofiles->count() }}</span>
+                    All Professionals <span class="badge bg-secondary">{{ $allprofiles->total() ?? $allprofiles->count() }}</span>
                 </button>
             </li>
             <li class="nav-item" role="presentation">
@@ -95,7 +95,7 @@
 
         <!-- Tabs Content -->
         <div class="tab-content mt-3" id="connectionTabsContent">
-            <!-- Tab 1: All Tradies -->
+            <!-- Tab 1: All Professionals -->
             <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
                 <div class="row">
                     @forelse($allprofiles as $tradie)
@@ -138,7 +138,7 @@
                     </div>
                     @empty
                     <div class="col-12">
-                        <p class="text-center text-muted">No tradies available.</p>
+                        <p class="text-center text-muted">No professionals available.</p>
                     </div>
                     @endforelse
                 </div>
@@ -214,7 +214,7 @@
                         @endforeach
                     </div>
                 @else
-                    <p class="text-center text-muted py-3">No friends yet. Search for tradies above.</p>
+                    <p class="text-center text-muted py-3">No friends yet. Search for professionals above.</p>
                 @endif
             </div>
         </div>

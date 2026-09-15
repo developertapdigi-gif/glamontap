@@ -549,7 +549,7 @@ class JobController extends Controller
               'location'=>mb_strimwidth($value->location,0,30,'...'),           
               "number_of_employees"=> $value->number_of_employees,
               "skill_category"=> $value->SkillCategory?$value->SkillCategory->name:'NA',
-              'minimum_price'=>'$'.$value->minimum_price .' - $'. $value->maximum_price,          
+              'minimum_price'=>'₹'.$value->minimum_price .' - ₹'. $value->maximum_price,          
               "buttons"=>$buttons
             );
         }

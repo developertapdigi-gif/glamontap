@@ -1,17 +1,17 @@
 @extends('admin.layouts.master')
-@section('title','Tradies')
+@section('title','Professionals')
 @section('content')
 <div class="container-fluid mx-3">
   <div class="row">
     <div class="col-12">
       
         <div class="page-title">
-                    <h2 class="desktop-content"><i class="agency-black"></i>Tradies</h2>
+                    <h2 class="desktop-content"><i class="agency-black"></i>Professionals</h2>
                     
-                    <h2 class="mobile-content"><i class="agency-black"></i>Tradies</h2>
+                    <h2 class="mobile-content"><i class="agency-black"></i>Professionals</h2>
                     <div class="right-title  me-0">
                     <a href="{{ route('trader.create') }}" class="text-white">
-                        <button class="primary-btn blue-button"><i class="icon-plus"></i>New Tradies</button>
+                        <button class="primary-btn blue-button"><i class="icon-plus"></i>New Professionals</button>
                     </a>
                     </div>
                 </div>

@@ -97,7 +97,7 @@ use Illuminate\Support\Facades\Auth;
                     <th>Start Date</th> 
                     <th>End Date</th>
                     <th>Location</th>
-                    <th class="text-center">Tradies on Job</th>
+                    <th class="text-center">Professionals on Job</th>
                     <th class="text-center">Skill Category</th>
                     <th class="text-center">Payment</th>
                     <th class="text-center">Actions</th>

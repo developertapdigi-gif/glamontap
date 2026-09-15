@@ -55,7 +55,7 @@ $model = Setting::setting();
     <li class="{{Str::contains(url()->current(), 'trader') ? 'active' : '' }}">
             <a href="{{ route('trader.index') }}">
                 <i class="employees-icon"></i>
-                Tradies
+                Professionals
             </a>
         </li>
         

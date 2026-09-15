@@ -119,7 +119,7 @@ use App\Models\User;
                                     </div>
                                     <div class="row mt-3 no-border">
                                         <div class="col-md-6 col-sm-6">
-                                            <b>Tradies on Job</b>
+                                            <b>Professionals on Job</b>
                                             <p>{{$model->number_of_employees}}</p>
                                         </div>
                                         <div class="col-md-6 col-sm-6">

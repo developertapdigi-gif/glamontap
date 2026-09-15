@@ -110,7 +110,7 @@
                     @enderror
                   </div>
               <div class="{{$col}}">
-                <label class="form-label">Number of Tradies<span class="text-danger">*</span></label>
+                <label class="form-label">Number of Professionals<span class="text-danger">*</span></label>
                 <div class="input-group">
                   <input id="number_of_employees" name="number_of_employees" min="1" class="form-control @error('number_of_employees') is-invalid @enderror" type="number" value="{{ old('number_of_employees') }}">
                 </div>

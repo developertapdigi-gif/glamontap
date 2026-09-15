@@ -14,7 +14,7 @@ if((isset($_GET['search_input']) && empty($_GET['search_input'])) && (isset($_GE
 if($textvalue == 1){
 $placeholder = "Look up jobs near you";
 }elseif($textvalue == 2){
-$placeholder = "Look up tradies near you";
+$placeholder = "Look up professionals near you";
 }else{
 $placeholder = "";
 }

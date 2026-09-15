@@ -109,7 +109,7 @@
                     @enderror
                   </div>
               <div class="col-4">
-                <label class="form-label">Number of Tradies<span class="text-danger">*</span></label>
+                <label class="form-label">Number of Professionals<span class="text-danger">*</span></label>
                 <div class="input-group">
                   <input id="number_of_employees" name="number_of_employees" min="1" class="form-control @error('number_of_employees') is-invalid @enderror" type="number" value="{{ $model->number_of_employees }}">
                 </div>
@@ -366,7 +366,7 @@ $('#skill_category').on('change', function (e) {
                 required: true
             },
             company_address:{
-                required:true
+                required:false
             },
             latitude:{
                 required: false

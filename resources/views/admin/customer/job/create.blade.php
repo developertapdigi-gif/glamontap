@@ -110,7 +110,7 @@
                     @enderror
                   </div>
               <div class="{{$col}}">
-                <label class="form-label">Number of Tradies<span class="text-danger">*</span></label>
+                <label class="form-label">Number of Professionals<span class="text-danger">*</span></label>
                 <div class="input-group">
                   <input id="number_of_employees" name="number_of_employees" min="1" class="form-control @error('number_of_employees') is-invalid @enderror" type="number" value="{{ old('number_of_employees') }}">
                 </div>
@@ -139,9 +139,9 @@
             </div>
             <div class="row">
                 <div>
-                    <label class="form-label">Company Address<span class="text-danger">*</span></label>
+                    {{-- <label class="form-label">Company Address<span class="text-danger">*</span></label> --}}
                     <div class="input-group">
-                      <input id="company_address" name="company_address" class="form-control @error('company_address') is-invalid @enderror" type="text" value="{{ $company_address }}">
+                      <input type="hidden" id="company_address" name="company_address" class="form-control @error('company_address') is-invalid @enderror" type="text" value="{{ $company_address }}">
                       <input type="hidden" id="company_latitude" name="company_latitude" value="{{ old('company_latitude') }}">
                       <input type="hidden" id="company_longitude" name="company_longitude" value="{{ old('company_longitude') }}">
                     </div>
@@ -374,7 +374,7 @@ $('#skill_category').on('change', function (e) {
                 required: false
             },
             company_address:{
-                required:true
+                required:false
             },
             location:{
                 required: true

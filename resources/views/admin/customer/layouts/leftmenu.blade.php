@@ -30,12 +30,12 @@ $model = Setting::setting();
           Work
         </a>
     </li> --}}
-    <li class="{{ Str::contains(url()->current(), 'customer/posts/list') ? 'active' : '' }}">
+    {{-- <li class="{{ Str::contains(url()->current(), 'customer/posts/list') ? 'active' : '' }}">
         <a href="{{ route('customer.posts.list') }}">
             <i class="post-icon"></i>
             Posts
         </a>
-    </li>
+    </li> --}}
 
     <li class="{{ Str::contains(url()->current(), 'customer/profile') ? 'active' : '' }}">
         <a href="{{ route('customer.profile.index') }}">

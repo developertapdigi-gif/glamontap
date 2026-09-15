@@ -224,18 +224,23 @@ class CustomerJobController extends Controller
      */
     public function show(string $id)
     {
+
+        $model = Job::find($id);
+        //  dd($model);
+        $today  = date('Y-m-d 00:00:00');
+        return view('admin.customer.job.show')->with(['model'=>$model,'today'=>$today]);
         // dd($id);
-        $model = Job::with(['agency', 'skillCategory', 'applications', 'notificationAgency'])
-            ->where('customer_id', Auth::user()->id)
-            ->find($id);
-            // dd($model);
+        // $model = Job::with(['agency', 'skillCategory', 'applications', 'notificationAgency'])
+        //     ->where('customer_id', Auth::user()->id)
+        //     ->find($id);
+        //     // dd($model);
 
-        if (!$model) {
-            abort(404, 'Job not found or you do not have permission to view it.');
-        }
+        // if (!$model) {
+        //     abort(404, 'Job not found or you do not have permission to view it.');
+        // }
 
-        $today = date('Y-m-d 00:00:00');
-        return view('admin.customer.job.show')->with(['model' => $model, 'today' => $today]);
+        // $today = date('Y-m-d 00:00:00');
+        // return view('admin.customer.job.show')->with(['model' => $model, 'today' => $today]);
     }
 
     /**
@@ -726,7 +731,7 @@ class CustomerJobController extends Controller
                     'location' => mb_strimwidth($value->location, 0, 30, '...'),
                     "number_of_employees" => $value->number_of_employees,
                     "skill_category" => isset($value->SkillCategory) ? $value->SkillCategory->name : 'NA',
-                    'minimum_price' => '$' . $value->minimum_price . ' - $' . $value->maximum_price,
+                    'minimum_price' => '₹' . $value->minimum_price . ' - ₹' . $value->maximum_price,
                     "buttons" => $buttons
                 );
             }
@@ -777,7 +782,7 @@ class CustomerJobController extends Controller
         $today = date('Y-m-d 00:00:00');
 
         // Check if job belongs to customer
-        $job = Job::where('customer_id', Auth::user()->id)->find($request->job_id);
+        $job = Job::where('customer_id', Auth::user()->id)->find($request->job_id);  
         if (!$job) {
             return response()->json(['error' => 'Unauthorized'], 403);
         }

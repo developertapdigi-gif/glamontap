@@ -237,7 +237,7 @@ Route::prefix('customer')->group(function () {
 
         // AJAX routes for DataTables
         Route::get('customer-job-fetch', [CustomerJobController::class, 'fetchData'])->name('fetch');
-        Route::get('customer-job/fetch-hired', [CustomerJobController::class, 'hiredEmployee'])->name('fetchHired');
+        Route::get('customer-job-fetch-hired', [CustomerJobController::class, 'hiredEmployee'])->name('fetchHired');
 
         // AJAX action routes
         Route::post('customer-job/approve', [CustomerJobController::class, 'approveJob'])->name('approve');

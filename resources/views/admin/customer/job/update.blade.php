@@ -14,7 +14,7 @@
         </div>
     </div>
       <div class="skill-reg-form">
-        <form id="createform" class="regular-form" action="{{ route('job.update',$model->id) }}" method="POST" enctype="multipart/form-data">
+        <form id="createform" class="regular-form" action="{{ route('customer.jobs.update',$model->id) }}" method="POST" enctype="multipart/form-data">
           @csrf
           @method('PUT')
                 <div class="row">  
@@ -109,7 +109,7 @@
                     @enderror
                   </div>
               <div class="col-4">
-                <label class="form-label">Number of Tradies<span class="text-danger">*</span></label>
+                <label class="form-label">Number of Professionals<span class="text-danger">*</span></label>
                 <div class="input-group">
                   <input id="number_of_employees" name="number_of_employees" min="1" class="form-control @error('number_of_employees') is-invalid @enderror" type="number" value="{{ $model->number_of_employees }}">
                 </div>
@@ -134,9 +134,9 @@
             </div>
             <div class="row">
                 <div>
-                    <label class="form-label">Company Address<span class="text-danger">*</span></label>
+                    {{-- <label class="form-label">Company Address<span class="text-danger">*</span></label> --}}
                     <div class="input-group">
-                      <input id="company_address" name="company_address" class="form-control @error('company_address') is-invalid @enderror" type="text" value="{{ $model->company_address }}">
+                      <input type="hidden" id="company_address" name="company_address" class="form-control @error('company_address') is-invalid @enderror" type="text" value="{{ $model->company_address }}">
                       <input type="hidden" id="company_latitude" name="company_latitude" value="{{ $model->company_latitude }}">
                       <input type="hidden" id="company_longitude" name="company_longitude" value="{{ $model->company_longitude }}">
                     </div>
