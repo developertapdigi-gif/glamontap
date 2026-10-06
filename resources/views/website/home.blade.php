@@ -325,7 +325,7 @@ Home
 <section class="section-space">
   <div class="container text-center">
     <h3 class="home-heading got-fw-bold got-text-dark got-mb-4 font-heading" data-aos="fade-up">Getting Started is Easy</h3>
-    <div class="row justify-content-center g-4 mb-md-4 mb-0">
+    <div class="row justify-content-center g-4">
       <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
         <div class="step-card-light shine-effect">
           <div class="f-icon icon-lg got-text-primary mx-auto got-mb-4 apply"><i class="fas fa-user-plus "></i></div>
@@ -354,7 +354,7 @@ Home
 
 
 
-<section class="about-blue-footer about_skilled_trades mt-md-3 mt-0">
+<section class="about-blue-footer about_skilled_trades">
   <div class="container">
     <div class="row about-blue-footer-right">
       <div class="col-lg-6 col-md-12">
