@@ -2,9 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
 :root {
-	--bs-primary: #5c2066;
+	--bs-primary: #b17543;
 	--bs-primary-rgb: 97, 45, 138;
-	--bs-success: #E6308A;
+	--bs-success: #c5a059;
 	--bs-success-rgb: 230, 48, 138;
 	--bs-info: #612D8A;
 	--bs-info-rgb: 97, 45, 138;
@@ -24,7 +24,7 @@
 	--accent-dark: #C2185B;
 	--dark: #1A091F;
 	--text-color: #4A3A4B;
-	--light-bg: #fdfbff;
+	--light-bg: #fff7eb;
 	--feature-bg: #FDFBFF;
 	--border-color: #F1E6F3;
 }
@@ -233,7 +233,7 @@ h6 {
 	box-shadow: 0 15px 35px rgba(97, 45, 138, 0.15);
 	font-weight: 600;
 	font-size: 0.9rem;
-	color: var(--bs-primary);
+	color: #372315;
 	z-index: 5;
 	backdrop-filter: blur(10px);
 	border: 1px solid rgba(97, 45, 138, 0.1);
@@ -517,7 +517,7 @@ body .job-card:hover {
 
 /* Text & Gradients */
 .text-gradient-purple {
-	background: linear-gradient(135deg, #612D8A 0%, #E6308A 100%);
+	background: linear-gradient(135deg, #a77640 0%, #bf9244 100%);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
@@ -573,8 +573,7 @@ body .job-card:hover {
 }
 
 .got-text-primary {
-	color: var(--bs-primary);
-	/* background-color: #612d8a1a;  */
+    color: #251911;
 }
 
 .got-text-white {
@@ -967,7 +966,7 @@ body .job-card:hover {
 	vertical-align: middle;
 	cursor: pointer;
 	user-select: none;
-	background-color: transparent;
+	background: linear-gradient(135deg, #f4cb9e 0%, #ffefd5 100%);
 	border: 1px solid transparent;
 	padding: 6px 12px;
 	font-size: 16px;
@@ -994,14 +993,15 @@ body .job-card:hover {
 }
 
 .got-btn-outline-primary:hover {
-	background: #000;
-	border-color: #000;
+	background: transparent;
 	color: #fff;
 	transform: translateY(-2px);
 }
 
 .got-btn-outline-primary {
-	background-color: #000000;
+	background: transparent;
+	border: 1px solid #d2a46f;
+	color: #fff;
 }
 
 .got-nav-pills-link {
@@ -1106,6 +1106,8 @@ body .job-card:hover {
 	justify-content: center;
 	font-size: 24px;
 	margin-bottom: 15px;
+	color: #ffffff;
+    background: #b17543;
 }
 
 .got-section-header {
@@ -1126,13 +1128,13 @@ body .job-card:hover {
 }
 
 .f-icon.fi-rose {
-	background: rgba(241, 92, 142, 0.1);
-	color: #F15C8E;
+    background: #B17543;
+    color: #fff;
 }
 
 .f-icon.fi-purple-deep {
-	background: rgba(92, 32, 102, 0.1);
-	color: #5C2066;
+    background: #B17543;
+    color: #fff;
 }
 
 .f-icon.fi-green {
@@ -1167,7 +1169,7 @@ body .job-card:hover {
 }
 
 .cta-banner-card {
-	background: linear-gradient(135deg, #612D8A 0%, #1A091F 100%);
+	background: #251911;
 	border-radius: 24px;
 	padding: 48px;
 	color: #fff;
@@ -1393,7 +1395,7 @@ section {
 	width: 54px;
 	height: 54px;
 	border-radius: 50%;
-	background: rgba(255, 255, 255, 0.16);
+	background: #fff;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -1404,7 +1406,7 @@ section {
 	display: flex;
 	align-items: center;
 	gap: 16px;
-	color: white;
+	color: #372315;
 }
 
 .trust-item h4 {
@@ -1426,7 +1428,10 @@ section {
 }
 
 .color-text {
-	color: #e61586;
+    background: linear-gradient(135deg, #a77640 0%, #bf9244 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
 }
 
 .about-list {
@@ -1445,20 +1450,21 @@ section {
 }
 
 .about-icon {
-	width: 64px;
-	height: 64px;
-	border-radius: 16px;
-	background: #f4e8ff;
-	color: #3c0a74;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-shrink: 0;
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: #feecd0;
+    color: #372315;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
 }
 
 .about-icon svg {
 	width: 28px;
 	height: 28px;
+	stroke: #372315;
 }
 
 .about-text p {
@@ -1468,23 +1474,23 @@ section {
 }
 
 .why-icon {
-	width: 64px;
-	height: 64px;
-	border-radius: 50%;
-	background: #f4e8ff;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	color: #3c0a74;
-	margin-bottom: 24px;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #feecd0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #372315;
+    margin-bottom: 24px;
 }
 
 .why-card h5 {
 	font-size: 18px;
 	font-weight: 700;
-	color: #3c0a74;
+    color: #372315;
 	margin-bottom: 12px;
-	width: 100%;
+	width: 100%;	
 }
 
 .why-icon svg {
@@ -1512,7 +1518,7 @@ section {
 	width: 48px;
 	height: 48px;
 	border-radius: 50%;
-	background: #FFF0F5;
+    background: #fdeace;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -1591,8 +1597,8 @@ section {
 }
 
 .hero-feature-icon.purple {
-	background: #efe9f6;
-	color: #925ab3;
+    background: #fdf1e6;
+    color: #de9058;
 }
 
 .hero-feature-icon i {
@@ -1618,8 +1624,8 @@ section {
 }
 
 .hero-feature-icon.pink {
-	background: #fcebf3;
-	color: #e13988;
+    background: #fdf1e6;
+    color: #de9058;
 }
 
 .hero-feature-icon.orange {
@@ -1634,7 +1640,7 @@ section {
 .pro-feature-icon {
 	width: 50px;
 	height: 50px;
-	background: #f6efff;
+	background: #feecd0;
 	color: #925ab3;
 	border-radius: 8px;
 	display: flex;
@@ -1678,12 +1684,12 @@ section {
 	width: 38px;
 	height: 38px;
 	border-radius: 9px;
-	background: #F3E5F5;
+	background: #feecd0;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-shrink: 0;
-	color: #6D2871;
+	color: #251911;
 	font-size: 15px;
 }
 
@@ -1713,7 +1719,7 @@ section {
 	font-size: 14px;
 	border-top: 1px solid var(--border-color);
 	padding: 15px 0;
-	background-color: #5A2C81;
+	background-color: #251911;
 	color: #fff;
 }
 
@@ -1751,11 +1757,11 @@ section {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: #6D2871;
+	color: #251911;
 	text-decoration: none;
 	transition: all 0.3s;
 	font-size: 16px;
-	background: #f3e5f5;
+	background: #feecd0;
 	border-radius: 50%;
 }
 
@@ -2341,12 +2347,15 @@ div.job-detail-page:last-child {
 .skill-login-form .btn-primary,
 .btn-primary,
 button.btn-primary {
-	background: linear-gradient(135deg, #e61586 0%, #9e10af 50%, #6308b6 100%);
+	background: linear-gradient(135deg, #f4cb9e 0%, #ffefd5 100%);
 	padding: 8px 15px;
 	border-radius: 9px;
 	min-width: 135px;
 	border-color: unset;
 	font-weight: 500;
+	color: #000;
+	border: 1px solid #d2a46f;
+	font-family: 'Inter';
 }
 
 #heroSearchBtn {
@@ -2458,7 +2467,7 @@ header {
 .top-content a.btn-white {
 	/* background-color: #fff;
 	color: #612d8a; */
-	background: #000;
+	background: #372315;
 	color: #fff;
 	border-color: #fff;
 	box-shadow: 0 2px 10px #0000001a;
@@ -2782,10 +2791,9 @@ header {
 	.navmenu li:hover>a,
 	.navmenu .active,
 	.navmenu .active:focus {
-		color: #612d8a;
-		border-bottom: 3px solid #612d8a;
-		transition: 0.8s ease-in-out;
-
+        color: #754323;
+        border-bottom: 3px solid #754323;
+        transition: 0.8s ease-in-out;
 	}
 
 	.navmenu .dropdown ul {
@@ -3133,7 +3141,7 @@ header {
 .banner h1,
 .skill-title h1 {
 	font-size: 38px;
-	color: #612d8a;
+	color: #372315;
 	font-weight: bold;
 	margin-bottom: 10px;
 }
@@ -3237,7 +3245,7 @@ header {
 
 	margin-top: 99px;
 	/* background: linear-gradient(135deg, var(--light-bg) 0%, #F1E6F3 100%); */
-	background: url(../images/common-background2.jpeg) no-repeat;
+	background: url(../images/common-background2.webp) no-repeat;
 	background-position: 100% 6%;
 	background-size: cover;
 }
@@ -3284,23 +3292,17 @@ header {
 
 .blue-footer {
 
-	background: linear-gradient(135deg, #e61586 0%, #9e10af 50%, #6308b6 100%);
+	background: linear-gradient(135deg, #f4cb9e 0%, #ffefd5 100%);
 
 	padding: 64px 15px 49px 15px;
 
 	margin-top: 35px;
 
 	align-items: center;
-
-}
-
-.blue-footer {
-
 	color: #fff;
 
-	justify-content: center;
-
 }
+
 
 .blue-footer h3 {
 
@@ -3568,6 +3570,9 @@ header {
 .applestore.whitestore:hover {
 	background-color: linear-gradient(135deg, #e61586 0%, #9e10af 50%, #6308b6 100%) !important;
 }
+.applestore.whitestore p {
+	color: #000 ;
+}
 
 .white-background {
 
@@ -3817,7 +3822,7 @@ header {
 
 	font-size: 34px;
 
-	color: #612d8a;
+	color: #372315;
 
 }
 
@@ -3888,9 +3893,8 @@ header {
 }
 
 .btn-primary:hover {
-	color: #fff;
-	background-color: #431665;
-	border-color: unset;
+	color: #000;
+    border: 1px solid #ac6d25;
 }
 
 @media (max-width: 1680px) {
@@ -4305,7 +4309,7 @@ header {
 	list-style: none;
 
 	background: #fff;
-	color: #612d8a;
+	color: #372315;
 
 }
 
@@ -4338,7 +4342,7 @@ header {
 
 .skill-breadcrumbs li i::before {
 
-	color: #612d8a;
+	color: #372315;
 
 	font-weight: bold !important;
 
@@ -4356,7 +4360,7 @@ header {
 }
 
 .skill-breadcrumbs li a {
-	color: #612d8a;
+	color: #372315;
 }
 
 .overlap-image {
@@ -4479,7 +4483,7 @@ header {
 
 	color: #000;
 	/* background-color: #fdfaff; */
-	background: url('../images/footer-img.jpeg') no-repeat;
+	background: url('../images/footer-img.webp') no-repeat;
 	background-size: cover;
 
 
@@ -7379,15 +7383,16 @@ a[data-tooltip]:hover::after {
 }
 
 .applestore.whitestore {
-	background: linear-gradient(135deg, #e61586 0%, #9e10af 50%, #6308b6 100%) !important;
+	background: linear-gradient(135deg, #f4cb9e 0%, #ffefd5 100%) !important;
+	border: 1px solid rgb(210, 164, 111);
 }
 
 .whitestore {
-	color: #ffffff !important;
+	color: #000 !important;
 }
 
 .blue-icn {
-	color: #ffffff !important;
+	color: #000 !important;
 	font-size: 40px;
 	margin-right: 16px;
 }
@@ -8735,7 +8740,7 @@ i.person-gear::before {
 }
 
 .logo img {
-	height: 75px;
+	height: 80px;
 }
 
 .search-dropdown {

@@ -276,8 +276,8 @@ Home
           <h2 class="home-heading got-fw-bold got-mb-4 font-heading got-text-white">Hire the Top 1% of <span class="got-text-white">Beauty Talent</span></h2>
           <p class="got-mb-5">Post your job today and reach thousands of verified experts in hair, makeup, spa, and wellness.</p>
           <div class="d-flex got-gap-3">
-            <a href="{{ route('user.register') }} " class="btn got-btn btn-white got-rounded-pill px-4 px-md-5 got-py-3 got-fw-bold got-text-primary bg-white shine-effect">Post a Job</a>
-            <a href="{{ route('about') }}" class="btn got-btn got-btn-outline-primary btn-outline-light got-rounded-pill px-4 px-md-5 got-py-3 got-fw-bold">Learn More</a>
+            <a href="{{ route('user.register') }} " class="btn got-btn got-rounded-pill px-4 px-md-5 got-py-3 got-fw-bold got-text-primary shine-effect">Post a Job</a>
+            <a href="{{ route('about') }}" class="btn got-btn got-btn-outline-primary got-rounded-pill px-4 px-md-5 got-py-3 got-fw-bold">Learn More</a>
           </div>
         </div>
         <div class="col-lg-6 text-center" data-aos="fade-left" data-aos-delay="400">
@@ -307,11 +307,11 @@ Home
         <p class="got-text-muted got-text-muted got-text-muted got-mb-4">Create a professional profile that highlights your unique style, certifications, and portfolio. Let the best salons find you.</p>
         <div class="row g-4 got-mb-5">
           <div class="col-sm-6">
-            <h4 class="got-fw-bold got-text-primary got-mb-2 font-heading">85%</h4>
+            <h4 class="got-fw-bold got-mb-2 font-heading">85%</h4>
             <p class="got-text-muted got-text-muted got-mb-0">Higher chance of being hired with a full portfolio.</p>
           </div>
           <div class="col-sm-6">
-            <h4 class="got-fw-bold got-text-primary got-mb-2 font-heading">500+</h4>
+            <h4 class="got-fw-bold got-mb-2 font-heading">500+</h4>
             <p class="got-text-muted got-text-muted got-mb-0">New profiles created every single day.</p>
           </div>
         </div>
