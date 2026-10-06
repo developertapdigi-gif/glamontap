@@ -8,7 +8,7 @@ $model = Setting::setting();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="{{ $model['favicon'] }}" rel="icon" type="image/x-icon">
-    <title>{{ $model['name_of_website'] }} - Apply as Employee or Hirer</title>
+    <title>{{ $model['name_of_website'] }} - Apply as Professional, Company or Customer</title>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -30,9 +30,11 @@ $model = Setting::setting();
             border-radius: 50px;
             padding: 10px;
             gap: 0.2rem;
+            flex-wrap: wrap;
+            justify-content: center;
         }
         .toggle-btn {
-            padding: 0.6rem 2rem;
+            padding: 0.6rem 1.5rem;
             font-size: 1rem;
             font-weight: 600;
             border: none;
@@ -41,6 +43,9 @@ $model = Setting::setting();
             cursor: pointer;
             transition: all 0.2s ease;
             color: #475569;
+        }
+        .toggle-btn i {
+            margin-right: 6px;
         }
         .toggle-btn.active {
             background: white;
@@ -92,11 +97,24 @@ $model = Setting::setting();
         }
         @media (max-width: 576px) {
             .toggle-btn {
-                padding: 0.4rem 1.2rem;
-                font-size: 0.9rem;
+                padding: 0.4rem 1rem;
+                font-size: 0.8rem;
             }
             .apply-toggle h3 {
                 font-size: 1.4rem;
+            }
+            .toggle-buttons {
+                gap: 0.1rem;
+                padding: 8px;
+            }
+        }
+        @media (max-width: 400px) {
+            .toggle-btn {
+                font-size: 0.7rem;
+                padding: 0.3rem 0.7rem;
+            }
+            .toggle-btn i {
+                margin-right: 3px;
             }
         }
     </style>
@@ -120,7 +138,7 @@ $model = Setting::setting();
                 </div>
             </div>
 
-            <!-- Right side: registration with Employee / Hirer toggle -->
+            <!-- Right side: registration with Professional / Company / Customer toggle -->
             <div class="col-lg-6 col-12 relative-box white-background">
                 @include('flash-message')
 
@@ -132,14 +150,89 @@ $model = Setting::setting();
                         <!-- Toggle -->
                         <div class="apply-toggle">
                             <div class="toggle-buttons">
-                                <button type="button" class="toggle-btn active" id="employeeToggle"> <i class="fas fa-tools"></i> Join as  Professionals</button>
-                                <button type="button" class="toggle-btn" id="hirerToggle">  <i class="fas fa-building"></i> Join as Company</button>
+                                <button type="button" class="toggle-btn" id="customerToggle"> <i class="fas fa-user"></i> Customer</button>
+                                <button type="button" class="toggle-btn" id="employeeToggle"> <i class="fas fa-tools"></i> Professionals</button>
+                                <button type="button" class="toggle-btn" id="hirerToggle"> <i class="fas fa-building"></i> Company</button>
                             </div>
                         </div>
-                         <h3 class="dynamic-heading" id="formHeading">Professional Register</h3>
+                        <h3 class="dynamic-heading" id="formHeading">Customer Register</h3>
 
-                        <!-- TRADIE REGISTRATION FORM -->
-                        <div id="employeeForm" class="form-card">
+                        <!-- CUSTOMER REGISTRATION FORM (Default) -->
+                        <div id="customerForm" class="form-card">
+                            <form role="form" action="{{ route('customer.registerpost') }}" method="POST" class="login-form" id="customerFormValidate">
+                                @csrf
+                                <div class="row">
+                                    <div class="col-lg-6 col-sm-12">
+                                        <div class="form-group form-login-group mb-3">
+                                            <label>First Name *</label>
+                                            <input type="text" name="customer_first_name" class="form-control" value="{{ old('customer_first_name') }}">
+                                            @error('customer_first_name')<div class="text-danger small">{{ $message }}</div>@enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-12">
+                                        <div class="form-group form-login-group mb-3">
+                                            <label>Last Name *</label>
+                                            <input type="text" name="customer_last_name" class="form-control" value="{{ old('customer_last_name') }}">
+                                            @error('customer_last_name')<div class="text-danger small">{{ $message }}</div>@enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-sm-12">
+                                        <div class="form-group form-login-group mb-3">
+                                            <label>Email *</label>
+                                            <input type="email" name="customer_email" class="form-control" value="{{ old('customer_email') }}">
+                                            @error('customer_email')<div class="text-danger small">{{ $message }}</div>@enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-12">
+                                        <div class="form-group form-login-group mb-3">
+                                            <label>Phone *</label>
+                                            <input type="text" name="customer_mobile" class="form-control" value="{{ old('customer_mobile') }}">
+                                            @error('customer_mobile')<div class="text-danger small">{{ $message }}</div>@enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-sm-12">
+                                        <div class="form-group form-login-group mb-3">
+                                            <label>Password *</label>
+                                            <input type="password" name="customer_password" class="form-control" value="{{ old('customer_password') }}">
+                                            @error('customer_password')<div class="text-danger small">{{ $message }}</div>@enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-12">
+                                        <div class="form-group form-login-group mb-3">
+                                            <label>Confirm Password *</label>
+                                            <input type="password" name="customer_confirm_password" class="form-control" value="{{ old('customer_confirm_password') }}">
+                                            @error('customer_confirm_password')<div class="text-danger small">{{ $message }}</div>@enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group form-login-group mb-3">
+                                            <label>Address *</label>
+                                            <input type="text" name="customer_address" id="customer_address" class="form-control" value="{{ old('customer_address') }}" placeholder="Enter a location">
+                                            <input type="hidden" name="customer_latitude" id="customer_latitude">
+                                            <input type="hidden" name="customer_longitude" id="customer_longitude">
+                                            <input type="hidden" name="customer_city" id="customer_city">
+                                            <input type="hidden" name="customer_state" id="customer_state">
+                                            <input type="hidden" name="customer_country" id="customer_country">
+                                            <input type="hidden" name="customer_pincode" id="customer_pincode">
+                                            @error('customer_address')<div class="text-danger small">{{ $message }}</div>@enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="submit-buttons">
+                                    <button type="submit" class="btn btn-primary">Register as Customer</button>
+                                    <span>Already have an account? <a class="skill-link" href="{{ route('user.login') }}">Login</a></span>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- PROFESSIONAL REGISTRATION FORM -->
+                        <div id="employeeForm" class="form-card" style="display: none;">
                             <form role="form" action="{{ route('user.tradie.registerpost') }}" method="POST" class="login-form" id="employeeFormValidate">
                                 @csrf
                                 <div class="row">
@@ -283,32 +376,57 @@ $model = Setting::setting();
 
     <script>
         $(document).ready(function() {
-            // Toggle between Tradie and Company
+            // Toggle between Customer, Professional and Company
             const empToggle = $('#employeeToggle');
             const hirerToggle = $('#hirerToggle');
+            const customerToggle = $('#customerToggle');
             const empForm = $('#employeeForm');
             const hirerForm = $('#hirerForm');
+            const customerForm = $('#customerForm');
             const formHeading = $('#formHeading');
 
-            function showTradie() {
+            // Default: Customer is active
+            customerToggle.addClass('active');
+            customerForm.show();
+            empForm.hide();
+            hirerForm.hide();
+            formHeading.text('Customer Register');
+
+            function showCustomer() {
+                customerToggle.addClass('active');
+                empToggle.removeClass('active');
+                hirerToggle.removeClass('active');
+                customerForm.show();
+                empForm.hide();
+                hirerForm.hide();
+                formHeading.text('Customer Register');
+                setTimeout(() => { if(window.google) initCustomerAddress(); }, 100);
+            }
+
+            function showProfessional() {
                 empToggle.addClass('active');
+                customerToggle.removeClass('active');
                 hirerToggle.removeClass('active');
                 empForm.show();
+                customerForm.hide();
                 hirerForm.hide();
-                formHeading.text('Tradie Register');
+                formHeading.text('Professional Register');
                 setTimeout(() => { if(window.google) initEmployeeAddress(); }, 100);
             }
 
             function showCompany() {
                 hirerToggle.addClass('active');
+                customerToggle.removeClass('active');
                 empToggle.removeClass('active');
                 hirerForm.show();
+                customerForm.hide();
                 empForm.hide();
                 formHeading.text('Company Register');
                 setTimeout(() => { if(window.google) initHirerAddress(); }, 100);
             }
 
-            empToggle.on('click', showTradie);
+            customerToggle.on('click', showCustomer);
+            empToggle.on('click', showProfessional);
             hirerToggle.on('click', showCompany);
 
             // Auto-open correct tab if validation errors exist
@@ -316,19 +434,46 @@ $model = Setting::setting();
                 @php
                     $tradieFields = ['tradie_first_name', 'tradie_last_name', 'tradie_email', 'tradie_mobile', 'tradie_address', 'tradie_skill_category_id'];
                     $companyFields = ['company_first_name', 'company_last_name', 'company_email', 'company_mobile', 'company_address'];
+                    $customerFields = ['customer_first_name', 'customer_last_name', 'customer_email', 'customer_mobile', 'customer_address', 'customer_password', 'customer_confirm_password'];
                     $isTradieError = false;
                     $isCompanyError = false;
+                    $isCustomerError = false;
                     foreach($tradieFields as $f) if($errors->has($f)) { $isTradieError = true; break; }
                     foreach($companyFields as $f) if($errors->has($f)) { $isCompanyError = true; break; }
+                    foreach($customerFields as $f) if($errors->has($f)) { $isCustomerError = true; break; }
                 @endphp
-                @if($isTradieError)
-                    showTradie();
+                @if($isCustomerError)
+                    showCustomer();
+                @elseif($isTradieError)
+                    showProfessional();
                 @elseif($isCompanyError)
                     showCompany();
                 @endif
             @endif
 
-            // Google Places for Tradie
+            // Google Places for Customer
+            let customerAutocomplete;
+            function initCustomerAddress() {
+                let input = document.getElementById('customer_address');
+                if(!input || !window.google) return;
+                if(customerAutocomplete) google.maps.event.clearInstanceListeners(customerAutocomplete);
+                customerAutocomplete = new google.maps.places.Autocomplete(input);
+                customerAutocomplete.addListener('place_changed', function() {
+                    let place = customerAutocomplete.getPlace();
+                    if(place && place.geometry) {
+                        $('#customer_latitude').val(place.geometry.location.lat());
+                        $('#customer_longitude').val(place.geometry.location.lng());
+                        place.address_components.forEach(c => {
+                            if(c.types.includes('postal_code')) $('#customer_pincode').val(c.long_name);
+                            if(c.types.includes('locality')) $('#customer_city').val(c.long_name);
+                            if(c.types.includes('administrative_area_level_1')) $('#customer_state').val(c.long_name);
+                            if(c.types.includes('country')) $('#customer_country').val(c.long_name);
+                        });
+                    }
+                });
+            }
+
+            // Google Places for Professional
             let empAutocomplete;
             function initEmployeeAddress() {
                 let input = document.getElementById('employee_address');
@@ -375,15 +520,36 @@ $model = Setting::setting();
             }
 
             window.initialize = function() {
+                initCustomerAddress();
                 initEmployeeAddress();
                 initHirerAddress();
             };
             if(window.google && google.maps) {
+                initCustomerAddress();
                 initEmployeeAddress();
                 initHirerAddress();
             }
 
-            // Validation for Tradie form
+            // Validation for Customer form
+            $('#customerFormValidate').validate({
+                rules: {
+                    customer_first_name: { required: true },
+                    customer_last_name: { required: true },
+                    customer_email: { required: true, email: true },
+                    customer_mobile: { required: true },
+                    customer_address: { required: true },
+                    customer_password: { required: true, minlength: 6 },
+                    customer_confirm_password: { required: true, equalTo: '[name="customer_password"]' },
+                },
+                messages: {
+                    customer_password: { minlength: "Password must be at least 6 characters" },
+                    customer_confirm_password: { equalTo: "Passwords do not match" }
+                },
+                errorElement: 'div',
+                errorPlacement: function(error, element) { error.addClass('text-danger small').insertAfter(element); }
+            });
+
+            // Validation for Professional form
             $('#employeeFormValidate').validate({
                 rules: {
                     tradie_first_name: { required: true },

@@ -112,7 +112,7 @@ Jobs
                                          class="job-img">
                                 
                                 @else
-                                <img src="{{ asset('uploads/profile/default_cat_image.jpg') }}"
+                                <img src="{{ asset('images/cta.webp') }}"
                                      width="60"
                                      height="60"
                                      class="job-img">
@@ -157,7 +157,7 @@ Jobs
                                          class="job-img">
                                 
                                 @else
-                                <img src="{{ asset('uploads/profile/default_cat_image.jpg') }}"
+                                <img src="{{ asset('images/cta.webp') }}"
                                      width="60"
                                      height="60"
                                      class="job-img">

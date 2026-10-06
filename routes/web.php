@@ -30,6 +30,8 @@ Route::post('/appointment', [HomeController::class, 'bookAppointment'])->name('a
 Route::get('/appointments/{id}', [AppointmentController::class, 'show'])->name('appointments.show');
 Route::get('/services/{id}', [ServiceController::class, 'showByCategorySubCategory'])->name('services.show');
 
+Route::post('appointments/{id}/status', [AppointmentController::class, 'updateStatus'])
+    ->name('appointments.update-status');
 Route::get('/clear-employer-mode', function () {
     session()->forget('employer_mode');
     return response()->json(['success' => true]);
@@ -52,6 +54,9 @@ Route::name('user.')->prefix('user')->middleware(['guest'])->group(function() {
         Route::post('tradie/verifypost',[UserController::class,'tradieVerifyPost'])->name('tradie.verifypost');
         });  
         
+        Route::middleware(['auth', 'admin'])->group(function () {
+            Route::get('/admin/appointment-events', [App\Http\Controllers\Admin\DashboardController::class, 'getAppointmentEvents'])->name('admin.appointment.events');
+        });
 
 Route::group(['middleware' => ['auth']], function() {
     // Tradie Routes
@@ -177,6 +182,9 @@ Route::group(['middleware' => ['auth']], function() {
         Route::resource('cms',CmsController::class); 
         Route::resource('appointments', AppointmentController::class);
         Route::resource('service', ServiceController::class);
+        Route::get('customer/list', [DashboardController::class, 'customerList'])->name('customer.list');
+        Route::get('/fetch-customers', [DashboardController::class, 'fetchCustomers'])->name('fetch.customers');
+        Route::get('/fetch-customers', [DashboardController::class, 'fetchCustomers'])->name('fetch.customers');
     });
 });
 
@@ -201,17 +209,48 @@ Route::prefix('customer')->group(function () {
     Route::post('profile/password', [CustomerController::class, 'changePassword'])
         ->name('customer.profile.password');
 
-        Route::get('posts/list', [CustomerController::class, 'postList'])->name('customer.posts.list');
-        Route::get('posts/create', [CustomerController::class, 'createPost'])->name('customer.posts.create');
-        Route::post('posts', [CustomerController::class, 'store'])->name('customer.posts.store');
-        Route::get('posts/{id}', [CustomerController::class, 'show'])->name('customer.posts.show');
-        Route::get('posts/{id}/edit', [CustomerController::class, 'edit'])->name('customer.posts.edit');
-        Route::post('posts/{id}', [CustomerController::class, 'update'])->name('customer.posts.update');
-        Route::post('posts/{id}/delete', [TradiePost::class, 'destroy'])->name('posts.destroy');
+    Route::get('posts/list', [CustomerController::class, 'postList'])->name('customer.posts.list');
+    Route::get('posts/create', [CustomerController::class, 'createPost'])->name('customer.posts.create');
+    Route::post('posts', [CustomerController::class, 'store'])->name('customer.posts.store');
+    Route::get('posts/{id}', [CustomerController::class, 'show'])->name('customer.posts.show');
+    Route::get('posts/{id}/edit', [CustomerController::class, 'edit'])->name('customer.posts.edit');
+    Route::post('posts/{id}', [CustomerController::class, 'update'])->name('customer.posts.update');
+    Route::post('posts/{id}/delete', [TradiePost::class, 'destroy'])->name('posts.destroy');
 
-        Route::resource('jobs',CustomerJobController::class);   
+     // Customer Jobs Routes
+    
+  });
 
-});
+
+    
+    Route::name('customer.jobs.')->group(function () {
+        Route::get('customer-job', [CustomerJobController::class, 'index'])->name('index');
+        Route::get('customer-job/create', [CustomerJobController::class, 'create'])->name('create');
+        Route::post('customer-job', [CustomerJobController::class, 'store'])->name('store');
+        Route::post('customer-job/store-media', [CustomerJobController::class, 'storeMedia'])->name('storeMedia');
+        Route::post('customer-job/preview', [CustomerJobController::class, 'preview'])->name('preview');
+        Route::get('customer-job/preview-data', [CustomerJobController::class, 'previewdata'])->name('previewdata');
+        Route::get('customer-job/{id}', [CustomerJobController::class, 'show'])->name('show');
+        Route::get('customer-job/{id}/edit', [CustomerJobController::class, 'edit'])->name('edit');
+        Route::put('customer-job/{id}', [CustomerJobController::class, 'update'])->name('update');
+        Route::delete('customer-job/{id}', [CustomerJobController::class, 'destroy'])->name('destroy');
+
+        // AJAX routes for DataTables
+        Route::get('customer-job-fetch', [CustomerJobController::class, 'fetchData'])->name('fetch');
+        Route::get('customer-job-fetch-hired', [CustomerJobController::class, 'hiredEmployee'])->name('fetchHired');
+
+        // AJAX action routes
+        Route::post('customer-job/approve', [CustomerJobController::class, 'approveJob'])->name('approve');
+        Route::post('customer-job/approve-employee', [CustomerJobController::class, 'approveEmployee'])->name('approveEmployee');
+        Route::post('customer-job/reject-employee', [CustomerJobController::class, 'rejectEmployee'])->name('rejectEmployee');
+        Route::post('customer-job/complete', [CustomerJobController::class, 'completeJob'])->name('complete');
+        Route::post('customer-job/cancel', [CustomerJobController::class, 'cancelJob'])->name('cancel');
+        Route::post('customer-job/rating', [CustomerJobController::class, 'ratingEmployee'])->name('rating');
+        Route::post('customer-job/extension', [CustomerJobController::class, 'extensionEmployee'])->name('extension');
+        Route::get('customer-job/get-rating/{id}', [CustomerJobController::class, 'getRating'])->name('getRating');
+        Route::get('customer-job/get-withdraw/{id}', [CustomerJobController::class, 'getWithdraw'])->name('getWithdraw');
+    });
+
 
 
 Route::get('/test-mail', function () {

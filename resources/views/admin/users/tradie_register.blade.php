@@ -8,7 +8,7 @@ $model = Setting::setting();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="{{ $model['favicon'] }}" rel="icon" type="image/x-icon">
-    <title>{{$model['name_of_website']}} - Tradie Register</title>
+    <title>{{$model['name_of_website']}} - Professionals Register</title>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 </head>
@@ -21,7 +21,7 @@ $model = Setting::setting();
                         <img src="{{ $model['website_logo'] }}" class="login-logo d-md-block d-lg-none" />
                     </a>
                     <div class="left-login-top-text">
-                        <h1>Join as a Tradie</h1>
+                        <h1>Join as a Professional</h1>
                         <p>Find jobs that match your skills and experience</p>
                     </div>
                 </div>
@@ -33,7 +33,7 @@ $model = Setting::setting();
                         <img src="{{ $model['website_logo'] }}" class="login-logo d-none d-lg-block" />
                     </a>
                     <div class="login-user-details">
-                        <h4>Tradie Register</h4>
+                        <h4>Professionals Register</h4>
                         <form role="form" action="{{ route('user.tradie.registerpost') }}" method="POST" class="login-form" id="tradieform">
                             @csrf
                             <div class="row">

@@ -18,7 +18,7 @@ Dashboard
              <div class="col-lg-4 col-sm-12">
                 <div class="stat-card blue-card">
                    <i class="trades-tile"></i>
-                   <div class="stat-card-text">Registered Tradies</div>
+                   <div class="stat-card-text">Registered Professionals</div>
                    <div class="stat-card-number">{{$traders->total()}}</div>
                 </div>
              </div>
@@ -75,7 +75,7 @@ Dashboard
                <div class="col-lg-6 col-sm-12">
                   <div class="dashboard-table">
                      <div class="table-title">
-                        <b> Registered Tradies</b>
+                        <b> Registered Professionals</b>
                         <a class="ms-auto" href="{{ route('trader.index') }}"><button class="transparent-button">View All</button></a>
                      </div>
                      <div class="table-responsive">

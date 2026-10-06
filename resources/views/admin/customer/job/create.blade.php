@@ -17,7 +17,7 @@
             </div>
         </div>
       <div class="skill-reg-form">
-        <form id="createform" class="regular-form" action="{{ route('job.store') }}" method="POST" enctype="multipart/form-data">
+        <form id="createform" class="regular-form" action="{{ route('customer.jobs.store') }}" method="POST" enctype="multipart/form-data">
           @csrf
         <div class="row">  
             <div class="col-md-12">        
@@ -110,7 +110,7 @@
                     @enderror
                   </div>
               <div class="{{$col}}">
-                <label class="form-label">Number of Tradies<span class="text-danger">*</span></label>
+                <label class="form-label">Number of Professionals<span class="text-danger">*</span></label>
                 <div class="input-group">
                   <input id="number_of_employees" name="number_of_employees" min="1" class="form-control @error('number_of_employees') is-invalid @enderror" type="number" value="{{ old('number_of_employees') }}">
                 </div>
@@ -139,9 +139,9 @@
             </div>
             <div class="row">
                 <div>
-                    <label class="form-label">Company Address<span class="text-danger">*</span></label>
+                    {{-- <label class="form-label">Company Address<span class="text-danger">*</span></label> --}}
                     <div class="input-group">
-                      <input id="company_address" name="company_address" class="form-control @error('company_address') is-invalid @enderror" type="text" value="{{ $company_address }}">
+                      <input type="hidden" id="company_address" name="company_address" class="form-control @error('company_address') is-invalid @enderror" type="text" value="{{ $company_address }}">
                       <input type="hidden" id="company_latitude" name="company_latitude" value="{{ old('company_latitude') }}">
                       <input type="hidden" id="company_longitude" name="company_longitude" value="{{ old('company_longitude') }}">
                     </div>
@@ -190,7 +190,7 @@
                         <div class="row">
                             <div class="col-md-5">
                                 <div class="input-group">
-                                <span class="input-group-text">$</span>
+                                <span class="input-group-text">₹</span>
                                 <input id="minimum_price" name="minimum_price" min="0" class="form-control @error('minimum_price') is-invalid @enderror" type="number" value="{{ old('minimum_price') }}">
                                     
                                 </div>
@@ -201,7 +201,7 @@
                             <div class="col-md-1 from-border">-</div>
                             <div class="col-md-6">
                                 <div class="input-group">
-                                <span class="input-group-text">$</span>
+                                <span class="input-group-text">₹</span>
                                 <input id="maximum_price" name="maximum_price" min="0" class="form-control @error('maximum_price') is-invalid @enderror" type="number" value="{{ old('maximum_price') }}">
                                    
                                 </div>
@@ -223,7 +223,6 @@
          
             <div class="mt-5">
                 <button class="btn btn-primary" type="submit" id="post-job">Post New Job</button>
-                <a href="{{ route('job.index') }}" class="btn btn-primary black-button">Cancel</a>
                 <a href="" class="btn btn-primary btn-secondary">Reset</a>
             </div>
           </form>
@@ -375,7 +374,7 @@ $('#skill_category').on('change', function (e) {
                 required: false
             },
             company_address:{
-                required:true
+                required:false
             },
             location:{
                 required: true

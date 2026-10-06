@@ -8,18 +8,18 @@ $model = Setting::setting();
 <ul class="list-unstyled components mb-5">
     <li class="{{ Str::contains(url()->current(), 'customer/dashboard') ? 'active' : '' }}">
         <a href="{{ route('customer.dashboard') }}">
-            <i class="dashboard-icon"></i>
-            <span>Dashboard</span>
+            <i class="bi bi-calendar-check"></i>
+            <span>Booking</span>
         </a>
     </li>
-    <li class="{{Str::endSWith(url()->current(), 'jobs/create') ? 'active' : '' }}">
-        <a href="{{ route('jobs.create') }}">
+    <li class="{{Str::endSWith(url()->current(), 'customer/jobs/create') ? 'active' : '' }}">
+        <a href="{{ route('customer.jobs.create') }}">
             <i class="post-icon"></i>
              Post New Job
         </a>
     </li>
-    <li class="{{Str::endSWith(url()->current(), 'jobs') ? 'active' : '' }}">
-        <a href="{{ route('jobs.index') }}">
+    <li class="{{Str::endSWith(url()->current(), 'customer/jobs') ? 'active' : '' }}">
+        <a href="{{ route('customer.jobs.index') }}">
             <i class="jobs-icon"></i>
              Jobs
         </a>
@@ -30,12 +30,12 @@ $model = Setting::setting();
           Work
         </a>
     </li> --}}
-    <li class="{{ Str::contains(url()->current(), 'customer/posts/list') ? 'active' : '' }}">
+    {{-- <li class="{{ Str::contains(url()->current(), 'customer/posts/list') ? 'active' : '' }}">
         <a href="{{ route('customer.posts.list') }}">
             <i class="post-icon"></i>
             Posts
         </a>
-    </li>
+    </li> --}}
 
     <li class="{{ Str::contains(url()->current(), 'customer/profile') ? 'active' : '' }}">
         <a href="{{ route('customer.profile.index') }}">

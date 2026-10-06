@@ -1,17 +1,17 @@
 @extends('admin.layouts.master')
 @section('title')
-  Update Tradies
+  Update Professionals
 @endsection
 @section('content')
 
 <div class="container-fluid middle-content dashboard-content">
         <div class="page-title">
-            <h2 class="desktop-content"><i class="traders-black"></i>Update Tradies</h2>
+            <h2 class="desktop-content"><i class="traders-black"></i>Update Professionals</h2>
     
-            <h2 class="mobile-content"><i class="traders-black"></i>Update Tradies</h2>
+            <h2 class="mobile-content"><i class="traders-black"></i>Update Professionals</h2>
             <div class="right-title">
             <a href="{{ route('trader.index') }}">
-              <button class="primary-btn blue-button"><i class="fas fa-eye btn-eye"></i>View All Tradies</button>
+              <button class="primary-btn blue-button"><i class="fas fa-eye btn-eye"></i>View All Professionals</button>
 </a>
             </div>
         </div>

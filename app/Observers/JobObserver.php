@@ -12,23 +12,25 @@ class JobObserver
     public function created(Job $job): void
     {
         $agency = User::find($job->agency_id);
+ 
+       
         $agency->completed_jobs = $this->getJobCount($job->agency_id);
         $agency->save();
         $premium = NULL;
-        if($job->agency_id != 1){
-            $planName = $agency->activePlan->plan->name;
-            if(str_contains($planName, 'Premium') || str_contains($planName, 'Trail'))
-            $premium = 1;
-            #add Job in feed
-            if(in_array($job->status,[1,2])){
-                HomeFeed::create([
-                    'job_id'=>$job->id,
-                    'type'=>1,
-                    'user_id'=>$job->agency_id,
-                    'premium'=>$premium
-                ]);
-            }
-        }
+        // if($job->agency_id != 1){
+        //     $planName = $agency->activePlan->plan->name;
+        //     if(str_contains($planName, 'Premium') || str_contains($planName, 'Trail'))
+        //     $premium = 1;
+        //     #add Job in feed
+        //     if(in_array($job->status,[1,2])){
+        //         HomeFeed::create([
+        //             'job_id'=>$job->id,
+        //             'type'=>1,
+        //             'user_id'=>$job->agency_id,
+        //             'premium'=>$premium
+        //         ]);
+        //     }
+        // }
     }
 
     /**

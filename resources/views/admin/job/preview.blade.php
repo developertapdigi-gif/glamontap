@@ -86,7 +86,7 @@
                         </div>
                         <div class="col-md-6 col-sm-6">
                             <b>Payment </b>
-                            <p>${{$data['minimum_price']}} - ${{$data['maximum_price']}}</p>
+                            <p>₹{{$data['minimum_price']}} - ₹{{$data['maximum_price']}}</p>
                         </div>
                     </div>
                 </div>

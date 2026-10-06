@@ -5,10 +5,10 @@
     <div class="page-title mobile-page-title">
         <h2 class="desktop-content"><i class="jobs-black"></i>Jobs</h2>
         <div class="middle-title job-middle-title">
-            <a href="{{ route('job.index') }}"><button class="primary-btn white-button">New</button></a>
-            <a href="{{ route('job.ongoing') }}"><button class="primary-btn blue-button">Ongoing</button></a>
-            <a href="{{ route('job.upcoming') }}"><button class="primary-btn white-button">Upcoming</button></a>
-            <a href="{{ route('job.completed') }}"><button class="primary-btn white-button">Completed</button></a>
+            <a href="{{ route('customer.jobs.index') }}"><button class="primary-btn white-button">New</button></a>
+            <a href="{{ route('customer.jobs.ongoing') }}"><button class="primary-btn blue-button">Ongoing</button></a>
+            <a href="{{ route('customer.jobs.upcoming') }}"><button class="primary-btn white-button">Upcoming</button></a>
+            <a href="{{ route('customer.jobs.completed') }}"><button class="primary-btn white-button">Completed</button></a>
         </div>
         <h2 class="mobile-content"><i class="jobs-black"></i>Jobs</h2>
         <div class="right-filter job-right-filter">

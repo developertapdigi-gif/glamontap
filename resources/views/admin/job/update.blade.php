@@ -109,7 +109,7 @@
                     @enderror
                   </div>
               <div class="col-4">
-                <label class="form-label">Number of Tradies<span class="text-danger">*</span></label>
+                <label class="form-label">Number of Professionals<span class="text-danger">*</span></label>
                 <div class="input-group">
                   <input id="number_of_employees" name="number_of_employees" min="1" class="form-control @error('number_of_employees') is-invalid @enderror" type="number" value="{{ $model->number_of_employees }}">
                 </div>
@@ -179,7 +179,7 @@
                         <div class="row">
                             <div class="col-md-5">
                                 <div class="input-group">
-                                <span class="input-group-text">$</span>
+                                <span class="input-group-text">₹</span>
                                 <input id="minimum_price" name="minimum_price" min="0" class="form-control @error('minimum_price') is-invalid @enderror" type="number" value="{{ $model->minimum_price }}">
                                     
                                 </div>
@@ -190,7 +190,7 @@
                             <div class="col-md-1 from-border">-</div>
                             <div class="col-md-6">
                                 <div class="input-group">
-                                <span class="input-group-text">$</span>
+                                <span class="input-group-text">₹</span>
                                 <input id="maximum_price" name="maximum_price" min="0" class="form-control @error('maximum_price') is-invalid @enderror" type="number" value="{{ $model->maximum_price }}">
                                    
                                 </div>
@@ -366,7 +366,7 @@ $('#skill_category').on('change', function (e) {
                 required: true
             },
             company_address:{
-                required:true
+                required:false
             },
             latitude:{
                 required: false

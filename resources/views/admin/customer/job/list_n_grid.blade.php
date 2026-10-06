@@ -28,7 +28,7 @@ use Illuminate\Support\Facades\Auth;
                 @if(User::ROLE['admin'] == Auth::user()->user_type)
                 <a href="#" class="jobtab primary-btn white-button {{$text[6]}}" data-status="{{$text[6]}}">{{$text[6]}}</a>
                 @endif
-            <input type="hidden" name="job_status" id="job_status" value="$text[5]d">  
+           <input type="hidden" name="job_status" id="job_status" value="{{ $text[5] ?? 'Draft' }}">
             @endif          
         </div>
         <h2 class="mobile-content">
@@ -97,7 +97,7 @@ use Illuminate\Support\Facades\Auth;
                     <th>Start Date</th> 
                     <th>End Date</th>
                     <th>Location</th>
-                    <th class="text-center">Tradies on Job</th>
+                    <th class="text-center">Professionals on Job</th>
                     <th class="text-center">Skill Category</th>
                     <th class="text-center">Payment</th>
                     <th class="text-center">Actions</th>
@@ -121,15 +121,15 @@ use Illuminate\Support\Facades\Auth;
                         @php
                         if($_job->image && (File::exists(public_path($_job->image)))){
                             $url = asset($_job->image);
-                        }elseif($_job->agency->logo && (File::exists(public_path($_job->agency->logo)))){
+                        } elseif($_job->agency && $_job->agency->logo && (File::exists(public_path($_job->agency->logo)))){
                             $url = asset($_job->agency->logo);
-                        }else{
+                        } else {
                             $url = asset('images/company-name.png');
                         } 
                         @endphp
                         <img title="job logo" src="{{ $url }}" class="profile-image"/>
                     </div>
-                    <div class="amount">${{$_job->minimum_price}} - ${{$_job->maximum_price}}</div>
+                    <div class="amount">₹{{$_job->minimum_price}} - ₹{{$_job->maximum_price}}</div>
                     <p>No of employees - <b>{{ $_job->number_of_employees}} employess</b></p>
                     <div class="address">
                         <img src="../images/icons/address.png" />{{ ucfirst($_job->location) }}
@@ -142,9 +142,9 @@ use Illuminate\Support\Facades\Auth;
                         <button type="button" id="aprrove-{{$_job->id}}" class="btn btn-icon btn-lg btn-color-dark" onclick="approveJob({{$_job->id}},{{Auth::user()->user_type}})" data="{{$_job->id}}">
                         <i class="bi bi-check-circle-fill"></i>
                     </button>
-                    @endif -->
-                    
-                    <a href="{{ route('job.show',$_job->id) }}"><i class="bi bi-arrow-down-right-circle-fill"></i></a>
+                    @endif --> 
+
+                    <a href="{{ route('customer.jobs.show',$_job->id) }}"><i class="bi bi-arrow-down-right-circle-fill"></i></a>
                     </div>
                 </div>
             </div>
@@ -203,7 +203,7 @@ $(document).ready(function() {
         serverSide: true,
         order: [[0, 'desc']],
         ajax: {
-            url:"{{route('fetch.jobs')}}",
+            url:"{{route('customer.jobs.fetch')}}",
             data: function(data){                
                 data.job_status  = $('#job_status').val();              
                 data.filter_skill  = $('#filter_skill').val();              

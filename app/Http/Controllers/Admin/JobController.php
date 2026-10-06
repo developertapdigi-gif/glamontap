@@ -28,7 +28,8 @@ class JobController extends Controller
         $currentDate = date('Y-m-d'); 
         $user = Auth::user();
         if($user->user_type == User::ROLE['agency']){
-            $condition = 'agency_id = '.$user->id;;
+            $condition = 'agency_id = '.$user->id;
+                
         }elseif($user->user_type == User::ROLE['admin']){     
             $condition = 'id>0';
         }else{
@@ -63,7 +64,8 @@ class JobController extends Controller
         if($request->skill_id && $request->skill_id!='-1'){
             $condition .= " and skill_category={$request->skill_id}";
         }
-        $jobs = Job::whereRaw($condition)->orderby('id', 'desc')->paginate(10)->withQueryString();       
+        $jobs = Job::whereRaw($condition)->orderby('id', 'desc')->paginate(10)->withQueryString();  
+          
         $skill_categories =SkillCategory::getAllSkillCategory();
         $notfound = "No Result found";
         return view('admin.job.list_n_grid',compact('jobs','skill_categories','text','notfound'));
@@ -547,7 +549,7 @@ class JobController extends Controller
               'location'=>mb_strimwidth($value->location,0,30,'...'),           
               "number_of_employees"=> $value->number_of_employees,
               "skill_category"=> $value->SkillCategory?$value->SkillCategory->name:'NA',
-              'minimum_price'=>'$'.$value->minimum_price .' - $'. $value->maximum_price,          
+              'minimum_price'=>'₹'.$value->minimum_price .' - ₹'. $value->maximum_price,          
               "buttons"=>$buttons
             );
         }
