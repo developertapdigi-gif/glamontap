@@ -5,8 +5,6 @@
 @section('content')
 
 <div class="container-fluid middle-content dashboard-content">
-
-```
 <div class="page-title mobile-page-title pb-3">
     <h2 class="desktop-content">
         <i class="skill-black"></i> Services

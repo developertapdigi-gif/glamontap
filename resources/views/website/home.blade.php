@@ -10,8 +10,8 @@ Home
   <div class="container position-relative z-3">
     <div class="row align-items-center got-g-4">
       <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1200">
-        <h1 class="display-5 fw-bold mb-4 font-heading" style="color: var(--bs-dark);">Your Beauty Journey <span class ="text-gradient-purple">Starts Here</span>
-          {{-- <span class="font-serif italic text-accent" style="color: var(--accent) !important;">Beauty & Style</span></h1> --}}
+        <h1 class="display-5 fw-bold mb-4 font-heading banner-heading">Your Beauty Journey <span class ="text-gradient-purple">Starts Here</span>
+          {{-- <span class="font-serif italic text-accent">Beauty & Style</span></h1> --}}
           <p class="lead text-dark mb-md-4 mb-3 font-size2 mt-2 font-select">Discover and book appointments with top salons, spas and beauty professionals near you. Experience premium beauty and wellness services tailored to your style and schedule.</p>
 
           <!-- <div class="glass-search-container p-3 p-md-4" data-aos="fade-up" data-aos-delay="400">

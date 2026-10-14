@@ -4,7 +4,7 @@ Dashboard
 @endsection
 @section('content')
 <div class="container-fluid middle-content dashboard-content">
-    <div class="page-title">
+    <div class="page-title page-heading">
        <h2 class="mobile-hide"><i class="home-black"></i>Dashboard</h2>
        <div class="right-title">
          {{-- <a href="{{ route('plans.create') }}" class="text-white"><button class="primary-btn blue-button"><i class="icon-plus"></i>New Subscription Plan</button></a> --}}
@@ -13,37 +13,37 @@ Dashboard
     </div>
     <!-- First Row -->
     <div class="row equal-height-row">
-       <div class="col-lg-8 col-sm-12">
+       <div class="col-12">
           <div class="row">
-             <div class="col-lg-4 col-sm-12">
+             <div class="col-md-3 col-sm-12">
                 <div class="stat-card blue-card">
                    <i class="trades-tile"></i>
                    <div class="stat-card-text">Registered Professionals</div>
                    <div class="stat-card-number">{{$traders->total()}}</div>
                 </div>
              </div>
-             <div class="col-lg-4 col-sm-12">
+             <div class="col-md-3 col-sm-12">
                 <div class="stat-card orange-card">
                    <i class="agencies-tile"></i>
                    <div class="stat-card-text">Registered Companies</div>
                    <div class="stat-card-number">{{$agencies->total()}}</div>
                 </div>
              </div>
-             <div class="col-lg-4 col-sm-12">
+             <div class="col-md-3 col-sm-12">
                 <div class="stat-card green-card">
                    <i class="jobs-tile"></i>
                    <div class="stat-card-text">Jobs Posted</div>
                    <div class="stat-card-number">{{$totaljobs}}</div>
                 </div>
              </div>
-             <div class="col-lg-4 col-sm-12">
+             <div class="col-md-3 col-sm-12">
                 <div class="stat-card black-card">
                    <i class="skill-tile"></i>
                    <div class="stat-card-text">Skill Categories</div>
                    <div class="stat-card-number">{{$skill_category}}</div>
                 </div>
              </div>
-             <div class="col-lg-4 col-sm-12">
+             <div class="col-md-3 col-sm-12">
                 <div class="stat-card grey-card">
                    <i class="badge-tile"></i>
                    <div class="stat-card-text">Badges</div>
@@ -61,7 +61,7 @@ Dashboard
        </div>
        
     <!-- Second Row -->
-      <div class="row">
+      <div class="row dashboard-data">
                <!--interactive-table-->
                {{-- <div class="col-lg-4 col-sm-12">
                   <div class="bar-chart">

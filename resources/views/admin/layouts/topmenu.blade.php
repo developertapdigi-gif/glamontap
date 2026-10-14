@@ -7,7 +7,7 @@ $messages = new MessageCollection($query);
 $unread = ChMessage::UnReadConversations(Auth::user()->id)->count();
 //echo'<pre>';print_r($unread);die;
 @endphp
-<div class="container-fluid">
+<div class="container-fluid top-bar">
   <button type="button" id="sidebarCollapse" class="fa-bars"></button>
   <!----------------Search Bar start---------->
   <div class="search-bar">
@@ -82,7 +82,7 @@ $unread = ChMessage::UnReadConversations(Auth::user()->id)->count();
            <!-- End Notification Dropdown Items -->
         </li>
         <!-- End Notification Nav -->
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown me-2">
            <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown" aria-expanded="false">
            <i class="bi bi-chat-left-text"></i>
            <span class="badge edit-profile-color bg-success badge-number">{{$unread}}</span>
@@ -156,7 +156,7 @@ $unread = ChMessage::UnReadConversations(Auth::user()->id)->count();
               </li>
            </ul>
         </li>
-        <li class="nav-item dropdown pe-3">
+        <li class="nav-item dropdown">
            <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#"
               data-bs-toggle="dropdown" aria-expanded="false">
               @php               

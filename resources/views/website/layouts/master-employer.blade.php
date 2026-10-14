@@ -128,31 +128,31 @@ $model = Setting::setting();
 
           <div class="contact-item">
             <div class="contact-icon-box">
-              <i class="fa-solid fa-phone"></i>
+              <a href="tel:+919686681076"><i class="fa-solid fa-phone"></i></a>
             </div>
             <div>
-              <div class="contact-title">+91-9686681076</div>
+              <a class="contact-title" href="tel:+919686681076">+91-9686681076</a>
               <div class="contact-sub">Mon‑Sat: 10AM‑6PM Sun: 10AM‑4PM</div>
             </div>
           </div>
 
           <div class="contact-item">
             <div class="contact-icon-box">
-              <i class="fa-solid fa-envelope"></i>
+              <a href="mailto:support@glamontap.com"><i class="fa-solid fa-envelope"></i></a>
             </div>
             <div>
-              <div class="contact-title">support@glamontap.com</div>
+              <a class="contact-title" href="mailto:support@glamontap.com">support@glamontap.com</a>
               <div class="contact-sub">We reply within 24 hours</div>
             </div>
           </div>
 
           <div class="contact-item">
             <div class="contact-icon-box">
-              <i class="fa-solid fa-location-dot"></i>
+              <a href="https://maps.app.goo.gl/KCjCRU8u1mhbS5Jo7" target="_blank"><i class="fa-solid fa-location-dot"></i></a>
             </div>
             <div>
-              <div class="contact-title">Office G5, D-229, Sector 74, </div>
-              <div class="contact-sub">Mohali, Punjab 140307</div>
+              <a class="contact-title" href="https://maps.app.goo.gl/KCjCRU8u1mhbS5Jo7" target="_blank">Office - B1, Ram Hari Tower, D-266C, Phase 8B, Industrial Area, Sector 74, </a>
+              <div class="contact-sub"> Sahibzada Ajit Singh Nagar, Punjab 140307</div>
             </div>
           </div>
         </div>
