@@ -173,7 +173,7 @@ $model = Setting::setting();
     <!-- Footer Bottom -->
     <div class="row footer-bottom align-items-center">
       <div class="col-12 text-center copyright">
-        2024 Glam On Tap. All Rights Reserved.
+        2026 Glam On Tap. All Rights Reserved.
       </div>
     </div>
   </div>

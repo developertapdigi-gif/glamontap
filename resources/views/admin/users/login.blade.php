@@ -65,9 +65,9 @@ $model = Setting::setting();
                                 </div>
                                 <div class="row">
                                    <div class="col-6">
-                                        <div class="form-check form-group form-login-group">
+                                        <div class="form-check form-group">
                                             <input class="form-check-input" name="rememberme" type="checkbox" id="rememberMe"  @if(Cookie::get('login_email')) checked @endif>
-                                            <label class="form-check-label text-secondary" for="remember_me">
+                                            <label class="link-secondary  form-check-label text-secondary" for="remember_me">
                                             Remember me
                                             </label>
                                         </div>
@@ -83,10 +83,10 @@ $model = Setting::setting();
                                     <div class = "col-xl-4 col-6">
                                         <button type="submit" class="btn btn-primary">Login</button>
                                     </div>
-                                    <div class="link-secondary col-xl-5 col-12 account">  Don't have an Account? </div>
 
-                                    <div class = "col-xl-3 col-6 register_btn">
-                                         <a href="register" class="btn btn-primary btn-black text-decoration-none">Register</a>
+                                    <div class = "col-xl-8 col-6 register_btn">
+                                        <div class="link-secondary account">  Don't have an Account? </div>
+                                         <a href="register" class="btn text-decoration-none btn-register">Register</a>
                                     </div>
 
                                     

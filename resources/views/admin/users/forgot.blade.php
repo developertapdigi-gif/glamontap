@@ -51,7 +51,7 @@ $model = Setting::setting();
                                 </div>
                                  <div class="submit-buttons">
                                     <button type="submit" class="btn btn-primary btn-right-margin">Reset password</button>
-                                    <a href="/user/login" class="text-decoration-none"><button type="button" class="btn btn-primary btn-black">Back</button></a>
+                                    <a href="/user/login" class="text-decoration-none"><button type="button" class="btn ">Back</button></a>
                                  </div>
                                     
                               </form>

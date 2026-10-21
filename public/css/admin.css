@@ -1303,6 +1303,7 @@ body .job-card:hover {
 
 .apply-toggle .toggle-btn.active {
 	color: #c58647;
+	justify-content: center;
 }
 
 .service-box.row {
@@ -1876,15 +1877,34 @@ section {
 
 .register_btn {
 	text-align: end;
-	padding-left: 0px;
+	padding: 0px;
+	display: flex;
+    justify-content: end;
+    align-items: center;
+    column-gap: 15px;
 }
 
 .mobile-logo {
 	display: none;
 }
-
+.btn-register {
+    background: #372315;
+    padding: 8px 15px;
+    border-radius: 9px;
+    min-width: 135px;
+    border-color: unset;
+    font-weight: 500;
+    color: #fff;
+    border: 1px solid #d2a46f;
+    font-family: 'Inter';
+}
+.btn-register:hover {
+    background: #000;
+    color: #fff;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 .login-user-details {
-	padding-top: 71px;
+	padding-top: 40px;
 }
 
 .login-user-details::first-line {
@@ -2277,10 +2297,16 @@ div.job-detail-page:last-child {
 	font-weight: 700;
 }
 
-.login-user-details .login-form {
+/* .login-user-details .login-form {
 	margin-top: 40px;
+} */
+.relative-box .controller_msg {
+    color: #000000;
+	background: #ffefe1;
 }
-
+.relative-box .alert-dismissible .btn-close {
+    right: -14px;
+}
 .form-login-group .form-control {
 	border: none;
 	border-bottom: 1px solid #e7e7e7;
@@ -2332,10 +2358,8 @@ div.job-detail-page:last-child {
 	color: #0d6efd;
 }
 
-
-
 .form-login-group .form-control {
-	font-size: 20px;
+	font-size: 18px;
 	color: #202124;
 	padding-left: 0px;
 }
@@ -2347,10 +2371,11 @@ div.job-detail-page:last-child {
 }
 
 .link-secondary {
-	font-size: 18px;
+	font-size: 17px;
 	color: #202124;
 	font-style: italic;
 	font-weight: normal;
+	padding: 0px;
 }
 
 .form-check-input:checked {
@@ -4839,7 +4864,7 @@ header {
 
 
 .wrapper {
-	background-color: #fdfbff;
+	background-color: #f7f9fb;
 }
 
 
@@ -5096,9 +5121,15 @@ h2 {
 }
 
 .blue-button {
-	background-color: #612d8a;
-	margin-right: 13px;
-	color: #fff;
+	background: linear-gradient(135deg, #f4cb9e 0%, #ffefd5 100%);
+    padding: 8px 15px;
+    border-radius: 9px;
+    min-width: 135px;
+    border-color: unset;
+    font-weight: 500;
+    color: #000;
+    border: 1px solid #d2a46f;
+    font-family: 'Inter';
 }
 
 .white-button {
@@ -5112,6 +5143,7 @@ h2 {
 	color: #fff;
 	border: #202124;
 	padding-top: 12px;
+	text-decoration: none;
 }
 
 .right-title {
@@ -5159,8 +5191,8 @@ h2 {
 
 
 #sidebar {
-	min-width: 108px;
-	max-width: 108px;
+	min-width: 120px;
+	max-width: 120px;
 	background: #fffcf7;
 	color: #fff;
 	-webkit-transition: all .3s;
@@ -7693,10 +7725,13 @@ table.dataTable thead>tr>td.sorting_desc_disabled:after {
 	color: #202124 !important;
 }
 
-a.primary-btn {
+a.primary-btn {	
 	padding: 11px 15px 12px 15px;
+	text-decoration: none;
 }
-
+.astrek {
+	color: #ff6461;
+}
 .black-button:hover {
 	color: #fff;
 }
@@ -8796,9 +8831,15 @@ i.person-gear::before {
 }
 
 .logo img {
-	height: 80px;
+	height: 85px;
 }
-
+.logo-dashboard img {
+	width: 100%;
+}
+.logo-dashboard {
+    display: block;
+    padding: 10px 13px;
+}
 .search-dropdown {
 	margin-top: -3px !important;
 	width: 93%;
@@ -9620,7 +9661,9 @@ i.person-gear::before {
 	.center_slider1 .slick-current {
 		width: 240px !important;
 	}
-
+.skill-login-form .btn-primary, .btn-primary, button.btn-primary {
+    min-width: 100%;
+}
 	.plan-orange,
 	.plan-blue,
 	.plan-green,
@@ -10742,6 +10785,10 @@ i.person-gear::before {
 	.about-blue-footer-right {
 		padding: 20px 0px;
 	}
+	.account-text {
+	width: 100%;
+	text-align: center;
+}
 }
 
 @media (max-width :400px) {

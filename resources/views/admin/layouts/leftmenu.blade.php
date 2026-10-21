@@ -12,7 +12,7 @@ else{
 }
 $model = Setting::setting();
 @endphp
-<h1><a href="{{url('/')}}" id="dashboard-logo" class="logo">
+<h1><a href="{{url('/')}}" id="dashboard-logo" class="logo-dashboard">
     <img src="{{ $model['favicon'] }}" /></a>
 </h1>
 <ul class="list-unstyled components mb-5">

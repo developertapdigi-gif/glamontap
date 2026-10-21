@@ -25,13 +25,13 @@ $model = Setting::setting();
             margin-bottom: 1rem;
         }
         .toggle-buttons {
-            display: inline-flex;
+            display: flex;
             background: #f1f5f9;
             border-radius: 50px;
             padding: 10px;
             gap: 0.2rem;
-            flex-wrap: wrap;
             justify-content: center;
+            width: 100%;
         }
         .toggle-btn {
             padding: 0.6rem 1.5rem;
@@ -43,6 +43,9 @@ $model = Setting::setting();
             cursor: pointer;
             transition: all 0.2s ease;
             color: #475569;
+            width: 100%;
+            display: flex;
+            align-items: center;
         }
         .toggle-btn i {
             margin-right: 6px;
@@ -76,8 +79,12 @@ $model = Setting::setting();
             font-weight: 500;
         }
         .skill-link {
-            color: #0d6efd;
+            color: #b67241;
             text-decoration: none;
+            font-weight: 700;
+        }
+        .skill-link:hover {
+            color: #b67241;
         }
         .error {
             width: 100%;
@@ -155,7 +162,7 @@ $model = Setting::setting();
                                 <button type="button" class="toggle-btn" id="hirerToggle"> <i class="fas fa-building"></i> Company</button>
                             </div>
                         </div>
-                        <h3 class="dynamic-heading" id="formHeading">Customer Register</h3>
+                        <h3 class="dynamic-heading mb-3" id="formHeading">Customer Register</h3>
 
                         <!-- CUSTOMER REGISTRATION FORM (Default) -->
                         <div id="customerForm" class="form-card">
@@ -164,14 +171,14 @@ $model = Setting::setting();
                                 <div class="row">
                                     <div class="col-lg-6 col-sm-12">
                                         <div class="form-group form-login-group mb-3">
-                                            <label>First Name *</label>
+                                            <label>First Name <span class ="astrek">*</span></label>
                                             <input type="text" name="customer_first_name" class="form-control" value="{{ old('customer_first_name') }}">
                                             @error('customer_first_name')<div class="text-danger small">{{ $message }}</div>@enderror
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-sm-12">
                                         <div class="form-group form-login-group mb-3">
-                                            <label>Last Name *</label>
+                                            <label>Last Name <span class ="astrek">*</span></label>
                                             <input type="text" name="customer_last_name" class="form-control" value="{{ old('customer_last_name') }}">
                                             @error('customer_last_name')<div class="text-danger small">{{ $message }}</div>@enderror
                                         </div>
@@ -180,14 +187,14 @@ $model = Setting::setting();
                                 <div class="row">
                                     <div class="col-lg-6 col-sm-12">
                                         <div class="form-group form-login-group mb-3">
-                                            <label>Email *</label>
+                                            <label>Email <span class ="astrek">*</span></label>
                                             <input type="email" name="customer_email" class="form-control" value="{{ old('customer_email') }}">
                                             @error('customer_email')<div class="text-danger small">{{ $message }}</div>@enderror
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-sm-12">
                                         <div class="form-group form-login-group mb-3">
-                                            <label>Phone *</label>
+                                            <label>Phone <span class ="astrek">*</span></label>
                                             <input type="text" name="customer_mobile" class="form-control" value="{{ old('customer_mobile') }}">
                                             @error('customer_mobile')<div class="text-danger small">{{ $message }}</div>@enderror
                                         </div>
@@ -196,14 +203,14 @@ $model = Setting::setting();
                                 <div class="row">
                                     <div class="col-lg-6 col-sm-12">
                                         <div class="form-group form-login-group mb-3">
-                                            <label>Password *</label>
+                                            <label>Password <span class ="astrek">*</span></label>
                                             <input type="password" name="customer_password" class="form-control" value="{{ old('customer_password') }}">
                                             @error('customer_password')<div class="text-danger small">{{ $message }}</div>@enderror
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-sm-12">
                                         <div class="form-group form-login-group mb-3">
-                                            <label>Confirm Password *</label>
+                                            <label>Confirm Password <span class ="astrek">*</span></label>
                                             <input type="password" name="customer_confirm_password" class="form-control" value="{{ old('customer_confirm_password') }}">
                                             @error('customer_confirm_password')<div class="text-danger small">{{ $message }}</div>@enderror
                                         </div>
@@ -212,7 +219,7 @@ $model = Setting::setting();
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group form-login-group mb-3">
-                                            <label>Address *</label>
+                                            <label>Address <span class ="astrek">*</span></label>
                                             <input type="text" name="customer_address" id="customer_address" class="form-control" value="{{ old('customer_address') }}" placeholder="Enter a location">
                                             <input type="hidden" name="customer_latitude" id="customer_latitude">
                                             <input type="hidden" name="customer_longitude" id="customer_longitude">
@@ -226,7 +233,7 @@ $model = Setting::setting();
                                 </div>
                                 <div class="submit-buttons">
                                     <button type="submit" class="btn btn-primary">Register as Customer</button>
-                                    <span>Already have an account? <a class="skill-link" href="{{ route('user.login') }}">Login</a></span>
+                                    <span  class = "account-text">Already have an account? <a class="skill-link" href="{{ route('user.login') }}">Login</a></span>
                                 </div>
                             </form>
                         </div>
@@ -238,14 +245,14 @@ $model = Setting::setting();
                                 <div class="row">
                                     <div class="col-lg-6 col-sm-12">
                                         <div class="form-group form-login-group mb-3">
-                                            <label>First Name *</label>
+                                            <label>First Name <span class ="astrek">*</span></label>
                                             <input type="text" name="tradie_first_name" class="form-control" value="{{ old('tradie_first_name') }}">
                                             @error('tradie_first_name')<div class="text-danger small">{{ $message }}</div>@enderror
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-sm-12">
                                         <div class="form-group form-login-group mb-3">
-                                            <label>Last Name *</label>
+                                            <label>Last Name <span class ="astrek">*</span></label>
                                             <input type="text" name="tradie_last_name" class="form-control" value="{{ old('tradie_last_name') }}">
                                             @error('tradie_last_name')<div class="text-danger small">{{ $message }}</div>@enderror
                                         </div>
@@ -254,14 +261,14 @@ $model = Setting::setting();
                                 <div class="row">
                                     <div class="col-lg-6 col-sm-12">
                                         <div class="form-group form-login-group mb-3">
-                                            <label>Email *</label>
+                                            <label>Email <span class ="astrek">*</span></label>
                                             <input type="email" name="tradie_email" class="form-control" value="{{ old('tradie_email') }}">
                                             @error('tradie_email')<div class="text-danger small">{{ $message }}</div>@enderror
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-sm-12">
                                         <div class="form-group form-login-group mb-3">
-                                            <label>Phone *</label>
+                                            <label>Phone <span class ="astrek">*</span></label>
                                             <input type="text" name="tradie_mobile" class="form-control" value="{{ old('tradie_mobile') }}">
                                             @error('tradie_mobile')<div class="text-danger small">{{ $message }}</div>@enderror
                                         </div>
@@ -270,7 +277,7 @@ $model = Setting::setting();
                                 <div class="row">
                                     <div class="col-lg-6 col-sm-12">
                                         <div class="form-group form-login-group mb-3">
-                                            <label>Address *</label>
+                                            <label>Address <span class ="astrek">*</span></label>
                                             <input type="text" name="tradie_address" id="employee_address" class="form-control" value="{{ old('tradie_address') }}" placeholder="Enter a location">
                                             <input type="hidden" name="tradie_latitude" id="employee_latitude">
                                             <input type="hidden" name="tradie_longitude" id="employee_longitude">
@@ -283,7 +290,7 @@ $model = Setting::setting();
                                     </div>
                                     <div class="col-lg-6 col-sm-12">
                                         <div class="form-group form-login-group mb-3">
-                                            <label>Skill Category *</label>
+                                            <label>Skill Category <span class ="astrek">*</span></label>
                                             <select name="tradie_skill_category_id" class="form-control form-select">
                                                 <option value="">Select Skill</option>
                                                 @foreach($skills as $skill)
@@ -296,7 +303,7 @@ $model = Setting::setting();
                                 </div>
                                 <div class="submit-buttons">
                                     <button type="submit" class="btn btn-primary">Register as Professional</button>
-                                    <span>Already have an account? <a class="skill-link" href="{{ route('user.login') }}">Login</a></span>
+                                    <span  class = "account-text">Already have an account? <a class="skill-link" href="{{ route('user.login') }}">Login</a></span>
                                 </div>
                             </form>
                         </div>
@@ -308,14 +315,14 @@ $model = Setting::setting();
                                 <div class="row">
                                     <div class="col-lg-6 col-sm-12">
                                         <div class="form-group form-login-group mb-3">
-                                            <label>First Name *</label>
+                                            <label>First Name <span class ="astrek">*</span></label>
                                             <input type="text" name="company_first_name" class="form-control" value="{{ old('company_first_name') }}">
                                             @error('company_first_name')<div class="text-danger small">{{ $message }}</div>@enderror
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-sm-12">
                                         <div class="form-group form-login-group mb-3">
-                                            <label>Last Name *</label>
+                                            <label>Last Name <span class ="astrek">*</span></label>
                                             <input type="text" name="company_last_name" class="form-control" value="{{ old('company_last_name') }}">
                                             @error('company_last_name')<div class="text-danger small">{{ $message }}</div>@enderror
                                         </div>
@@ -324,14 +331,14 @@ $model = Setting::setting();
                                 <div class="row">
                                     <div class="col-lg-6 col-sm-12">
                                         <div class="form-group form-login-group mb-3">
-                                            <label>Email *</label>
+                                            <label>Email <span class ="astrek">*</span></label>
                                             <input type="email" name="company_email" class="form-control" value="{{ old('company_email') }}">
                                             @error('company_email')<div class="text-danger small">{{ $message }}</div>@enderror
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-sm-12">
                                         <div class="form-group form-login-group mb-3">
-                                            <label>Phone *</label>
+                                            <label>Phone <span class ="astrek">*</span></label>
                                             <input type="text" name="company_mobile" class="form-control" value="{{ old('company_mobile') }}">
                                             @error('company_mobile')<div class="text-danger small">{{ $message }}</div>@enderror
                                         </div>
@@ -340,7 +347,7 @@ $model = Setting::setting();
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group form-login-group mb-3">
-                                            <label>Address *</label>
+                                            <label>Address <span class ="astrek">*</span></label>
                                             <input type="text" name="company_address" id="hirer_address" class="form-control" value="{{ old('company_address') }}" placeholder="Enter a location">
                                             <input type="hidden" id="hirer_latitude" name="company_latitude" value="{{ old('company_latitude') }}">
                                             <input type="hidden" id="hirer_longitude" name="company_longitude" value="{{ old('company_longitude') }}">
@@ -355,7 +362,7 @@ $model = Setting::setting();
                                 </div>
                                 <div class="submit-buttons">
                                     <button type="submit" class="btn btn-primary">Register as Company</button>
-                                    <span>Already have an account? <a class="skill-link" href="{{ route('user.login') }}">Login</a></span>
+                                    <span class = "account-text">Already have an account? <a class="skill-link" href="{{ route('user.login') }}">Login</a></span>
                                 </div>
                             </form>
                         </div>
