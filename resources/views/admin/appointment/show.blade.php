@@ -40,7 +40,7 @@
                 <tr>
                     <th>Service</th>
                     <td>
-                        {{ $appointment->service->name ?? 'N/A' }}
+                        {{ $appointment->service }}
                     </td>
                 </tr>
 
@@ -77,7 +77,7 @@
 
                 <tr>
                     <th>Message</th>
-                    <td>{{ $appointment->message ?? 'N/A' }}</td>
+                    <td>{{ $appointment->message ?? 'message not added' }}</td>
                 </tr>
 
                 <tr>

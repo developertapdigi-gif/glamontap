@@ -7,6 +7,7 @@ use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Config;
 use Stripe\Stripe;
 use App\Models\Setting;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**

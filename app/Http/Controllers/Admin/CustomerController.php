@@ -148,8 +148,7 @@ class CustomerController extends Controller
     public function profile()
     {
         $model  = Auth::user();
-        $skills = SkillCategory::where('status', 1)->get();
-        return view('admin.customer.profile.index', compact('model', 'skills'));
+        return view('admin.customer.profile.index', compact('model'));
     }
 
     public function updateProfile(Request $request)
@@ -161,7 +160,7 @@ class CustomerController extends Controller
             'email'             => 'required|email|unique:users,email,' . $model->id,
             'mobile'            => 'nullable|unique:users,mobile,' . $model->id,
             'address'           => 'required',
-            'skill_category_id' => 'required|exists:skill_categories,id',
+            'skill_category_id' => 'nullable',
         ]);
 
         $model->update($request->except(['password', 'password_confirmation']));
@@ -173,7 +172,7 @@ class CustomerController extends Controller
             $model->update(['profile_picture' => 'uploads/profile/' . $filename]);
         }
 
-        return redirect()->route('admin.customer.profile.index')->with('success', 'Profile updated successfully.');
+        return redirect()->route('customer.profile.index')->with('success', 'Profile updated successfully.');
     }
 
     public function changePassword(Request $request)
@@ -185,7 +184,7 @@ class CustomerController extends Controller
 
         Auth::user()->update(['password' => Hash::make($request->new_password)]);
 
-        return redirect()->route('admin.customer.profile.index')->with('success', 'Password updated successfully.');
+        return redirect()->route('customer.profile.index')->with('success', 'Password updated successfully.');
     }
 
     // post management 
