@@ -2165,10 +2165,10 @@ div.job-detail-page:last-child {
 	row-gap: 15px;
 }
 
-.tradertab.primary-btn[data-status="1"] {
+/* .tradertab.primary-btn[data-status="1"] {
 	color: #fff;
 	border: 0px;
-}
+} */
 
 .sort-btns .features-tradies {
 	margin: 0px;
@@ -4880,6 +4880,7 @@ header {
 	padding: 21px 0px 26px;
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
 }
 
 h2 {
@@ -5142,7 +5143,11 @@ h2 {
 	text-align: center;
 	margin-right: 13px;
 }
-
+.sort-btns .features-tradies.blue-button {
+    min-width: fit-content;
+	max-width: fit-content;
+    color: #000;
+}
 .white-button {
 	background-color: #fff;
 	margin-right: 13px;
@@ -5921,6 +5926,9 @@ a[data-toggle=collapse] {
 	border: 1px solid #ffeee0;
 	border-radius: 50%;
 	background-color: #ffeee0;
+	width: 32px;
+    height: 32px;
+    text-align: center;
 }
 
 .view-entry.active,
@@ -5991,12 +5999,17 @@ a[data-toggle=collapse] {
 	vertical-align: middle;
 
 	margin-bottom: 5px;
+	width: 32px;
+    height: 32px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
 
 }
 
 .skill-table-action:hover {
 
-	background: #612d8a;
+	background: #724726;
 
 	color: #fff;
 
@@ -6365,7 +6378,7 @@ ul.notification-list li {
 	background-color: #fff;
 	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 	display: flex;
-	border-left: 3px solid #612d8a;
+	border-left: 3px solid #ad7545;
 	border-radius: 5px;
 	margin-bottom: 20px;
 }
@@ -6378,7 +6391,7 @@ ul.notification-list li {
 }
 
 ul.notification-list li:nth-child(3n) {
-	border-left: 3px solid #202124;
+	border-left: 3px solid #ad7545;
 }
 
 ul.notification-list li img {
@@ -6832,6 +6845,7 @@ ul.notification-list li div:first {
 	padding: 5px 8px;
 
 	font-weight: bold;
+	text-decoration: none;
 
 }
 
@@ -6845,7 +6859,7 @@ ul.notification-list li div:first {
 
 .bi-check {
 
-	font-size: 30px;
+	font-size: 26px;
 
 	padding: 0px 3px;
 }
@@ -7625,7 +7639,7 @@ table.dataTable.no-footer {
 }
 
 .paginate_button.current {
-	background-color: #612d8a !important;
+	background-color: #945825 !important;
 	color: #fff !important;
 }
 
@@ -8206,6 +8220,7 @@ select[name="class_name"] option[value="sk-junior"] {
 	color: #e95d4f;
 	padding: 6px 8px;
 	font-weight: bold;
+	text-decoration: none;
 }
 
 .skill-yellow-warning {
@@ -8213,6 +8228,7 @@ select[name="class_name"] option[value="sk-junior"] {
 	color: #f0ae3e;
 	padding: 6px 8px;
 	font-weight: bold;
+	text-decoration: none;
 }
 
 .profile-detail {
@@ -8471,10 +8487,10 @@ input:checked+.slider:before {
 }
 
 .blue-border-btn {
-	border: 1px solid #612d8a !important;
+	border: 1px solid #724726 !important;
 	background-color: #fff;
 	box-shadow: none;
-	color: #612d8a;
+	color: #724726;
 	padding: 9px 10px;
 	margin-right: 5px;
 }
@@ -8632,7 +8648,7 @@ a.grey-button:hover {
 }
 
 .page-view a i.view-active {
-	color: #612d8a !important;
+	color: #a85617 !important;
 
 }
 

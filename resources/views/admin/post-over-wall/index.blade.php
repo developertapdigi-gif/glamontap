@@ -4,10 +4,10 @@
 <div class="container-fluid middle-content dashboard-content">
                 <div class="page-title">
                     <h2 class="mobile-hide"><i class="newjob-black"></i>Post Over Wall</h2>
+                    <h3>   <a href=""><button class="primary-btn blue-button me-0"><i class="bi bi-arrow-clockwise"></i>Refresh</button></a></h3>
                     
                 </div>
                 <div class="current-notifications">
-                    <h3>   <a href=""><button class="primary-btn blue-button"><i class="bi bi-arrow-clockwise"></i>Refresh</button></h3></a>
                     <ul class="notification-list post_overall_list">
                     @foreach($postwalls as $_postwall)
                         @if($_postwall->type == 1)

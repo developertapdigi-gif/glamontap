@@ -10,11 +10,17 @@ $userrole = User::ROLE['agency'];
 <div class="container-fluid middle-content dashboard-content">
     <div class="page-title mobile-page-title">
         <h2 class="desktop-content"><i class="traders-black"></i>Sub Users</h2>
-        <div class="middle-title job-middle-title">
+        <!-- <div class="middle-title job-middle-title">
         <input type="hidden" id="usertype" name="usertype" value="{{$usertype}}">
         <input type="hidden" id="role" name="role" value="{{$userrole}}">
-        </div>
+        </div> -->
         <h2 class="mobile-content"><i class="traders-black"></i>Sub Users</h2>
+                <div class="d-flex justify-content-end">
+        <div class="page-view">
+          
+        </div> <span id="job_count">&nbsp; Showing <span id="agent_count_value"> {{$agents->total()}}</span> Sub Users Results </span>
+            
+        </div>
         @if(Auth::user()->user_type == User::ROLE['agency'])
         <div class="right-title  me-0">
         <a href="{{ route('agent.create') }}" class="btn-primary">
@@ -25,12 +31,7 @@ $userrole = User::ROLE['agency'];
         @endif
         
     </div>
-        <div class="d-flex justify-content-end pb-2">
-        <div class="page-view">
-          
-        </div> <span id="job_count">&nbsp; Showing <span id="agent_count_value"> {{$agents->total()}}</span> Sub Users Results </span>
-            
-        </div>
+
    
 @if(!request()->mode || request()->mode=='list')
     <div class="skill-table-heading ps-4">Sub Users</div>

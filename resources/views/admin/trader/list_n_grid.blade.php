@@ -11,21 +11,22 @@ use App\Models\User;
         
         </div>
         <h2 class="mobile-content"><i class="traders-black"></i>Professionals</h2>
-        <div class="right-title  me-0"> </div>        
-    </div>
-    <div class="d-flex justify-content-end pb-2">
+        <div class="right-title  me-0"> </div>   
+            <div class="d-flex justify-content-end">
     <div class="page-view">
           
           <a href="{{request()->fullUrlWithQuery(['mode' => 'list'])}}"><i class="fa fa-list  @if(!request()->mode || request()->mode=='list') view-active @else  @endif"></i></a>
           <a href="{{request()->fullUrlWithQuery(['mode' => 'grid'])}}"><i class="fa fa-th-large @if(request()->mode=='grid') view-active @endif"></i></a>
       </div> &nbsp;  | &nbsp; <span id="job_count">Showing <span id="trader_count_value">{{$traders->total()}}</span> Professionals Results</span>
    
-</div>
+</div>     
+    </div>
+
 @if(!request()->mode || request()->mode=='list')
-    <div class="skill-table-heading ps-4">   
+    <div class="skill-table-heading">   
         <div class="sort-btns ms-auto">
             @if(User::ROLE['admin'])
-                 <a href="#" class="tradertab primary-btn white-button features-tradies" data-status="0">Featured Professionals</a>
+                 <a href="#" class="tradertab primary-btn features-tradies" data-status="0">Featured Professionals</a>
                 <input type="hidden" name="trader_status" id="trader_status" value="0">
             @endif
             <button class="primary-btn white-grey-btn"> 
