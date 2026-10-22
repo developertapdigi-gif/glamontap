@@ -36,9 +36,9 @@
                     @php  
                     $col = '';             
                            if(Auth::user()->user_type == '1'){
-                              $col = 'col-6';
+                              $col = 'col-md-6 col-12';
                            }else{
-                              $col = 'col-6';
+                              $col = 'col-md-6 col-12';
                            }                           
                         @endphp
               <div class="{{$col}}">
@@ -89,9 +89,9 @@
                            @php  
                             $col = '';             
                            if(Auth::user()->user_type == '1'){
-                              $col = 'col-6';
+                              $col = 'col-md-6 col-12';
                            }else{
-                              $col = 'col-4';
+                              $col = 'col-md-4 col-12';
                            }                           
                         @endphp
                 <div class="{{$col}}">

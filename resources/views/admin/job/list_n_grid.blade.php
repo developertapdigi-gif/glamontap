@@ -7,7 +7,9 @@ use Illuminate\Support\Facades\Auth;
 @section('content')
 <div class="container-fluid middle-content dashboard-content">
     <div class="page-title mobile-page-title">
-        <h2 class="desktop-content"><i class="jobs-black"></i>Jobs</h2>
+        <h2 class="desktop-content mb-0"><i class="jobs-black"></i>Jobs</h2>
+        <h2 class="mobile-content mb-0">
+        <i class="jobs-black"></i>Jobs</h2>
         <div class="middle-title job-middle-title">
             @if(request()->mode=='grid')
                 <a href="{{request()->fullUrlWithQuery(['type' => $text[5]])}}" class="jobtab primary-btn @if(request()->type==$text[5] || !request()->type) blue-button @else white-button @endif">{{$text[5]}}</a>
@@ -31,8 +33,7 @@ use Illuminate\Support\Facades\Auth;
             <input type="hidden" name="job_status" id="job_status" value="$text[5]d">  
             @endif          
         </div>
-        <h2 class="mobile-content">
-        <i class="jobs-black"></i>Jobs</h2>
+
         <div class="right-filter job-right-filter">
         
         <div class="page-view">
@@ -71,7 +72,9 @@ use Illuminate\Support\Facades\Auth;
     </div>
     @endif
 @if(!request()->mode || request()->mode=='list')
-    <div class="skill-table-heading ps-3 d-flex" id="acc_button">              
+
+    <div class="table-responsive-lg">    
+            <div class="skill-table-heading ps-3 d-flex align-items-center" id="acc_button">              
         <span>{{$text[5]}}</span>
         <div class="filteroptions">
             <div class="sort-btns ms-auto">
@@ -87,7 +90,6 @@ use Illuminate\Support\Facades\Auth;
             </div>
         </div>
     </div>
-    <div class="table-responsive-lg">    
         <table class="table skill-table-list job_completed" id="ajax_table">
             <thead>
                 <tr>

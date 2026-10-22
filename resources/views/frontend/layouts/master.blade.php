@@ -26,7 +26,7 @@
         </nav>
         @include('flash-message')
         @yield('content')
-        <div class="footer"> All Rights Reserved by Skill House @ 2024</div>
+        <div class="footer"> All Rights Reserved by Skill House @ 2026</div>
     </div>
 </div>
 <script src="{{ asset('js/jquery.js') }}"></script>

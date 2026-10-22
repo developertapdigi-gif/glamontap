@@ -80,9 +80,8 @@ Dashboard
                      </div>
                      <div class="table-responsive">
                      <table class="table table-no-wrap">
-                        <thead>
+                        <thead class="table-light2">
                            <tr>
-                              <th scope="col"></th>
                               <th scope="col">Name</th>
                               <th scope="col">Skill</th>
                               <th scope="col" class="text-center">Rating</th>
@@ -99,8 +98,7 @@ Dashboard
                            }
                         @endphp
                            <tr>
-                              <th scope="row"><img src="{{$thumbnail}}" class="profile-image"/></th>
-                              <td>{{$_trader->first_name}} {{$_trader->last_name}}</td>
+                              <td> <img src="{{$thumbnail}}" class="profile-image"/> {{$_trader->first_name}} {{$_trader->last_name}}</td>
                               <td>{{($_trader->SkillCategory)?$_trader->skillCategory->name:'NA'}}</td>
                               <td class="text-center">
                               <div class="full-stars-example">
@@ -118,14 +116,13 @@ Dashboard
                <div class="col-lg-6  col-sm-12 white-backgound">
                   <div class="dashboard-table fix-height-table">
                      <div class="table-title">
-                        <b> Registered Companies</b>
+                        <b> Registered Salons</b>
                         <a class="ms-auto" href="{{ route('agency.index') }}"><button class="transparent-button">View All</button></a>
                      </div>
                      <div class="table-responsive">
                         <table class="table table-no-wrap">
-                           <thead>
+                           <thead class="table-light2">
                               <tr>
-                                 <th scope="col"></th>
                                  <th scope="col">Name</th>
                                  <th scope="col">Location</th>
                                  <th scope="col">Jobs</th>
@@ -144,8 +141,7 @@ Dashboard
                                     }
                                  @endphp
                                  <tr>
-                                 <td><img src="{{$thumbnail}}" class="profile-image"/></td>
-                                    <td>{{$_agency->agency_name}}</td>
+                                    <td><img src="{{$thumbnail}}" class="profile-image"/> {{$_agency->agency_name}}</td>
                                     <td>{{mb_strimwidth(ucfirst($_agency->address),0,15,'...')}}</td>
                                     <td class="text-center">{{$_agency->completed_jobs??0}}</td>
                                     <td class="text-center">

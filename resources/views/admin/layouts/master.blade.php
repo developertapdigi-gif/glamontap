@@ -29,12 +29,12 @@ $model = Setting::setting();
         @include('admin.layouts.leftmenu')
     </nav>
     <div id="content">
-        <nav class="navbar navbar-expand-lg navbar-light">
+        <nav class="navbar navbar-expand-lg navbar-bg">
             @include('admin.layouts.topmenu')
         </nav>
         @include('flash-message')
         @yield('content')
-        <div class="footer"> All Rights Reserved by {{$model['name_of_website']}} @ 2024</div>
+        <div class="footer"> All Rights Reserved by {{$model['name_of_website']}} @ 2026</div>
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

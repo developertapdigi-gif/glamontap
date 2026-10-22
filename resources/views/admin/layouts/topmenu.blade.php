@@ -82,7 +82,7 @@ $unread = ChMessage::UnReadConversations(Auth::user()->id)->count();
            <!-- End Notification Dropdown Items -->
         </li>
         <!-- End Notification Nav -->
-        <li class="nav-item dropdown me-2">
+        <li class="nav-item dropdown">
            <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown" aria-expanded="false">
            <i class="bi bi-chat-left-text"></i>
            <span class="badge edit-profile-color bg-success badge-number">{{$unread}}</span>

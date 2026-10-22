@@ -9,17 +9,18 @@
         </div>
         <h2 class="mobile-content"><i class="agency-black"></i>Companies</h2>        
         <div class="right-filter job-right-filter">           
-        </div>     
-    </div>
-    <div class="d-flex justify-content-end pb-2">
-    <div class="page-view">
+        </div>  
+            <div class="d-flex justify-content-end">
+        <div class="page-view">
           
           <a href="{{request()->fullUrlWithQuery(['mode' => 'list'])}}"><i class="fa fa-list  @if(!request()->mode || request()->mode=='list') view-active @else  @endif"></i></a>
           <a href="{{request()->fullUrlWithQuery(['mode' => 'grid'])}}"><i class="fa fa-th-large @if(request()->mode=='grid') view-active @endif"></i></a>
       </div>  &nbsp;  | <span id="job_count">&nbsp; Showing <span id="company_count_value"> {{$agencies->total()}} </span> for Companies Results</span>
             
            
-    </div>        
+    </div>     
+    </div>
+      
 @if(!request()->mode || request()->mode=='list')
     <div class="skill-table-heading">
         <div class="d-flex"> 

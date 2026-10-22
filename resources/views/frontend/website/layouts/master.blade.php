@@ -113,7 +113,7 @@ use Illuminate\Support\Facades\Auth;
   </section>
   <footer class="skill-website-footer">
     <div class="container">
-      <p class="footer-text-left">© 2024 SkillHouse. All Right Reserved.</p>
+      <p class="footer-text-left">© 2026 SkillHouse. All Right Reserved.</p>
       <p class="footer-text-right">Community Guidelines</p>
     </div>
   </footer>
