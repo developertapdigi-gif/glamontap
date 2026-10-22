@@ -24,14 +24,14 @@
             }   
             @endphp
             <div class="col-4">
-            <img src="{{$thumbnail_logo}}" height="80px" width="100px"/>
+            <img src="{{$thumbnail_logo}}" height="80px" width="100px" class="mb-2"/>
           </div>
              <div class="form-group">
                 <input type="file" class="form-control @error('site_logo') is-invalid @enderror" name="site_logo" accept="image/*">
              </div>
          </div>
             <div class="row">
-              <div class="col-4">
+              <div class="col-12">
                 <label class="form-label">Website Name<span class="text-danger">*</span></label>
                 <div class="input-group">
                   <input id="site_name" name="site_name" class="form-control @error('site_name') is-invalid @enderror" type="site_name" value="{{ $model->site_name }}">
@@ -53,7 +53,7 @@
             }   
             @endphp
             <div class="col-4">
-            <img src="{{$thumbnail}}" height="70px" width="100px"/>
+            <img src="{{$thumbnail}}" height="70px" width="100px" class ="mb-2"/>
           </div>
              <div class="form-group">
                 <input type="file" class="form-control @error('favicon') is-invalid @enderror" name="favicon" accept="image/*">

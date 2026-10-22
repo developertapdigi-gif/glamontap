@@ -54,7 +54,7 @@
                             <th>Time</th>
                             {{-- <th>Message</th> --}}
                             <th>Status</th>
-                            <th></th>
+                            <th>Action</th>
                         </tr>
                     </thead>
 

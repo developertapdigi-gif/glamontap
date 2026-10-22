@@ -15,19 +15,20 @@
     <h2 class="mobile-content">
         <i class="skill-black"></i> Services
     </h2>
-</div>
+    <div class="d-flex justify-content-between">
 
-<div class="d-flex justify-content-between pb-2">
-
-    <a href="{{ route('service.create') }}" class="btn btn-primary">
+    <a href="{{ route('service.create') }}" class="primary-btn blue-button me-0">
         Add New
     </a>
-
+<!-- 
     <span>
         Showing {{ $services->total() }} Service Results
-    </span>
+    </span> -->
 
 </div>
+</div>
+
+
 
 <div class="skill-table-heading">
 

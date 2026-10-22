@@ -9,7 +9,7 @@
 
                     <h2 class="mobile-content"><i class="profile-black"></i>Profile</h2>
                     <div class="right-title me-0">
-                        <a href="{{route('profile')}}"><button class="primary-btn blue-button"><i class="bi bi-eye bi bi-pencil-square"></i>Edit Profile</button></a>
+                        <a href="{{route('profile')}}"><button class="primary-btn blue-button edit-profile"><i class="bi bi-eye bi bi-pencil-square"></i>Edit Profile</button></a>
 
                     </div>
                 </div>
@@ -35,11 +35,11 @@
                                 </div>
                                 @endif
                                 <div class="row mt-3">
-                                    <div class="col-md-12  mt-4  mb-3 d-flex center-align"><i class="bi bi-telephone-fill me-1 border-icon "></i> <div class="tradies_profile_text">{{$model->mobile}}</div></div>
-                                    <div class="col-md-12  mt-4  mb-4 d-flex center-align"><i class="bi bi-envelope-fill me-1 border-icon "></i><div class="tradies_profile_text">{{ $model->email }}</div></div>
+                                    <div class="col-md-12  mt-4  mb-3 d-flex center-align"><i class="bi bi-telephone-fill me-2 border-icon "></i> <div class="tradies_profile_text">{{$model->mobile}}</div></div>
+                                    <div class="col-md-12  mt-4  mb-4 d-flex center-align"><i class="bi bi-envelope-fill me-2 border-icon "></i><div class="tradies_profile_text">{{ $model->email }}</div></div>
                                 </div>
                                 <div class="mt-5 profile_logout">
-                                 <a class="primary-btn blue-button mt-5 ms-auto me-auto text-white" href="javascript:void(0);" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                 <a class="primary-btn blue-button mt-5 ms-auto me-auto text-black" href="javascript:void(0);" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
             
                                     <i class="bi bi-box-arrow-left"></i>Logout</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
