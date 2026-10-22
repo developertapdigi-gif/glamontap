@@ -5858,6 +5858,7 @@ a[data-toggle=collapse] {
 	overflow: scroll;
 	border-radius: 5px;
 	height: 100%;
+	overflow-x: hidden;
 }
 
 .fix-height-table {
