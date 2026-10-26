@@ -2324,7 +2324,9 @@ div.job-detail-page:last-child {
 		color: #b0adad;
 	}
 }
-
+.form-login-group .alert.alert-danger {
+	margin-top: 20px;
+}
 .skill-login-form {
 	padding-top: 25px;
 
