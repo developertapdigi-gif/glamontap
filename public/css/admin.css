@@ -6,7 +6,7 @@
 	--bs-primary-rgb: 97, 45, 138;
 	--bs-success: #c5a059;
 	--bs-success-rgb: 230, 48, 138;
-	--bs-info: #612D8A;
+	--bs-info: #945825;
 	--bs-info-rgb: 97, 45, 138;
 	--bs-warning: #C5A059;
 	--bs-warning-rgb: 197, 160, 89;
@@ -121,7 +121,7 @@ footer.skill-website-footer a,
 
 footer.skill-website-footer a:hover,
 .reserved a:hover {
-	color: #612d8a;
+	color: #945825;
 }
 
 @keyframes slideflash {
@@ -525,7 +525,7 @@ body .job-card:hover {
 }
 
 .bg-primary-gradient {
-	background: linear-gradient(135deg, #612D8A 0%, #1A091F 100%);
+	background: linear-gradient(135deg, #945825 0%, #1A091F 100%);
 	position: relative;
 	overflow: hidden;
 	min-height: 140px;
@@ -1034,7 +1034,7 @@ body .job-card:hover {
 }
 
 .btn-primary-gradient {
-	background: linear-gradient(135deg, #612D8A 0%, #E6308A 100%);
+	background: linear-gradient(135deg, #945825 0%, #E6308A 100%);
 	color: #fff;
 	border: none;
 }
@@ -1161,7 +1161,7 @@ body .job-card:hover {
    ------------------------------------------------------------- */
 .modal-sidebar-brand {
 	display: none;
-	background: linear-gradient(135deg, #612D8A 0%, #1A091F 100%);
+	background: linear-gradient(135deg, #945825 0%, #1A091F 100%);
 	position: relative;
 	overflow: hidden;
 	padding: 48px;
@@ -1374,7 +1374,7 @@ body .job-card:hover {
 }
 
 .job-post-prize {
-	color: #612d8a;
+	color: #945825;
 	font-size: 18px;
 	font-weight: 500;
 }
@@ -1935,7 +1935,7 @@ section {
 	position: absolute;
 	right: 6px;
 	top: 6px;
-	color: #612d8a;
+	color: #945825;
 	background-color: #fff;
 	padding: 3px 8px;
 	border-radius: 6px;
@@ -2001,7 +2001,7 @@ section {
 }
 
 .switch-field input:checked+label {
-	background-color: #612d8a;
+	background-color: #945825;
 	box-shadow: none;
 	color: #fff;
 }
@@ -2098,7 +2098,7 @@ div.job-detail-page:last-child {
 }
 
 .hired {
-	background-color: #612d8a;
+	background-color: #945825;
 	padding: 10px 30px;
 	border-radius: 9px;
 	width: 100%;
@@ -2107,7 +2107,7 @@ div.job-detail-page:last-child {
 
 .hired:hover {
 	color: #fff;
-	background-color: #612d8a;
+	background-color: #945825;
 	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -2324,7 +2324,9 @@ div.job-detail-page:last-child {
 		color: #b0adad;
 	}
 }
-
+.form-login-group .alert.alert-danger {
+	margin-top: 20px;
+}
 .skill-login-form {
 	padding-top: 25px;
 
@@ -2382,7 +2384,7 @@ div.job-detail-page:last-child {
 }
 
 .form-check-input:checked {
-	background: #612d8a;
+	background: #945825;
 }
 
 .form-check-input {
@@ -2401,6 +2403,7 @@ button.btn-primary {
 	color: #000;
 	border: 1px solid #d2a46f;
 	font-family: 'Inter';
+	text-decoration: none;
 }
 
 #heroSearchBtn {
@@ -2511,7 +2514,7 @@ header {
 
 .top-content a.btn-white {
 	/* background-color: #fff;
-	color: #612d8a; */
+	color: #945825; */
 	background: #372315;
 	color: #fff;
 	border-color: #fff;
@@ -2874,7 +2877,7 @@ header {
 	.navmenu .dropdown ul a:hover,
 	.navmenu .dropdown ul .active:hover,
 	.navmenu .dropdown ul li:hover>a {
-		color: #612d8a;
+		color: #945825;
 	}
 
 	.navmenu .dropdown:hover>ul {
@@ -3225,7 +3228,7 @@ header {
 }
 
 .banner h3 {
-	color: #612d8a;
+	color: #945825;
 	font-size: 20px;
 	margin-bottom: 25px;
 	font-weight: 400;
@@ -3379,7 +3382,7 @@ header {
 
 	background-color: #fff !important;
 
-	color: #612d8a !important;
+	color: #945825 !important;
 
 	font-size: 24px;
 
@@ -3393,7 +3396,7 @@ header {
 
 	border-radius: 50%;
 
-	background: #612d8a;
+	background: #945825;
 
 	padding: 10px 10px 8px 7px;
 
@@ -3543,9 +3546,9 @@ header {
 
 .skill-sub-footer-icons p.blue-circle {
 
-	background-color: #612d8a !important;
+	background-color: #945825 !important;
 
-	border-color: #612d8a !important;
+	border-color: #945825 !important;
 }
 
 .skill-sub-footer-icons p:hover i.bi-only-linkdin {
@@ -3559,8 +3562,8 @@ header {
 .skill-sub-footer-icons p:hover {
 
 	color: #fff;
-	background-color: #612d8a !important;
-	border-color: #612d8a;
+	background-color: #945825 !important;
+	border-color: #945825;
 	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 }
@@ -3650,7 +3653,7 @@ header {
 
 	border-radius: 50%;
 
-	background-color: #612d8a
+	background-color: #945825
 }
 
 .carousel-item.active .skil-slide:nth-child(2) img {
@@ -3834,7 +3837,7 @@ header {
 }
 
 .skill-tiles.email-cnt a:hover {
-	color: #612d8a;
+	color: #945825;
 }
 
 .skill-tiles .contact-icon {
@@ -4592,7 +4595,7 @@ header {
 
 	font-size: 28px;
 
-	color: #612d8a;
+	color: #945825;
 
 	padding: 10px 25px 10px 0px;
 
@@ -5003,8 +5006,8 @@ h2 {
 }
 
 .form-check-input:checked {
-	background-color: #612d8a;
-	border-color: #612d8a;
+	background-color: #945825;
+	border-color: #945825;
 }
 
 .dropdown-menu.show {
@@ -5074,7 +5077,7 @@ h2 {
 
 .chart-total {
 	font-size: 25px;
-	color: #612d8a;
+	color: #945825;
 
 }
 
@@ -5186,11 +5189,13 @@ h2 {
 
 .page-link {
 	border-radius: 5px;
-	color: #636364;
+	color: #636364;	
 }
-
+.pagination .page-link {
+    color: #945825;
+}
 .page-link.active {
-	background-color: #612d8a;
+	background-color: #945825;
 	color: #fff;
 }
 
@@ -5218,7 +5223,7 @@ h2 {
 	-o-transition: all .3s;
 	transition: all .3s;
 	position: sticky;
-	z-index: 996;
+	z-index: 10;
 	top: 0;
 	height: 100vh;
 	overflow-y: scroll;
@@ -5639,7 +5644,10 @@ a[data-toggle=collapse] {
 .edit-profile-color.bg-primary {
 	background-color: #b06b37 !important;
 }
-
+.edit-profile {
+	max-width: fit-content;
+	min-width: fit-content;
+}
 .bg-success {
 	background-color: #202124 !important;
 }
@@ -5852,6 +5860,7 @@ a[data-toggle=collapse] {
 	overflow: scroll;
 	border-radius: 5px;
 	height: 100%;
+	overflow-x: hidden;
 }
 
 .fix-height-table {
@@ -6186,7 +6195,8 @@ a[data-toggle=collapse] {
 	background-color: #fff;
 	overflow: auto;
 	border-radius: 5px;
-	height: 100%;
+    min-height: 390px;
+	overflow-y: scroll;
 }
 
 .listing-item {
@@ -6532,13 +6542,13 @@ ul.notification-list li div:first {
 
 .page-item.active .page-link {
 
-	color: #612d8a;
+	color: #945825;
 
 }
 
 .bi-sliders::before {
 
-	color: #612d8a;
+	color: #945825;
 
 }
 
@@ -6582,7 +6592,7 @@ ul.notification-list li div:first {
 
 .amount {
 
-	color: #612d8a;
+	color: #945825;
 	font-size: 14px;
 	font-weight: 700;
 	margin-top: 20px;
@@ -6645,7 +6655,7 @@ ul.notification-list li div:first {
 
 	rotate: -45deg;
 
-	color: #612d8a;
+	color: #945825;
 
 	font-size: 34px;
 
@@ -6768,7 +6778,7 @@ ul.notification-list li div:first {
 
 .applestore {
 
-	background: #612d8a;
+	background: #945825;
 
 }
 
@@ -6893,7 +6903,7 @@ ul.notification-list li div:first {
 
 	width: 120px;
 
-	background-color: #612d8a;
+	background-color: #945825;
 
 	color: #fff;
 
@@ -6940,7 +6950,7 @@ ul.notification-list li div:first {
 
 	border-style: solid;
 
-	border-color: #612d8a transparent transparent transparent;
+	border-color: #945825 transparent transparent transparent;
 
 	transform: rotate(180deg);
 
@@ -7016,10 +7026,10 @@ ul.notification-list li div:first {
 }
 
 .grey-button {
-	background-color: #8d9aaa;
-	color: #fff;
-	border-color: #8d9aaa;
-	margin-right: 8px;
+    background: linear-gradient(135deg, #f4cb9e 0%, #ffefd5 100%);
+    color: #000000;
+    border-color: #8d9aaa;
+    margin-right: 8px;
 }
 
 .regular-form .btn-primary {
@@ -7120,7 +7130,7 @@ i.bold-upload-logo {
 }
 
 .company-detail img {
-	border: 5px solid #0035a3;
+	border: 5px solid #945825;
 	border-radius: 50%;
 	width: 150px;
 	height: 150px;
@@ -7334,8 +7344,8 @@ a[data-tooltip]:hover::after {
 }
 
 .blue-tag {
-	color: #612d8a;
-	border: 4px solid #612d8a;
+	color: #945825;
+	border: 4px solid #945825;
 }
 
 .blue-tag:before {
@@ -7413,7 +7423,7 @@ a[data-tooltip]:hover::after {
 }
 
 .subscription-btn.blue-button {
-	background-color: #612d8a;
+	background-color: #945825;
 
 }
 
@@ -7462,7 +7472,7 @@ a[data-tooltip]:hover::after {
 }
 
 .blue-plan-detail i::before {
-	color: #612d8a;
+	color: #945825;
 	background-color: #dfe8f5;
 }
 
@@ -7511,7 +7521,7 @@ a[data-tooltip]:hover::after {
 }
 
 .blue-plan-desc b {
-	color: #612d8a;
+	color: #945825;
 }
 
 .notification-list img {
@@ -7692,7 +7702,7 @@ html {
 
 .strt-now text {
 	margin-top: 3px;
-	color: #612d8a !important;
+	color: #945825 !important;
 }
 
 table.dataTable thead>tr>th.sorting:before,
@@ -7728,8 +7738,9 @@ table.dataTable thead>tr>td.sorting_desc_disabled:after {
 }
 
 .page-item.active .page-link {
-	background-color: #612d8a;
+	background-color: #945825;
 	color: #fff;
+	border-color: #945825;
 }
 
 /******************27 aug end****************************/
@@ -7749,7 +7760,7 @@ table.dataTable thead>tr>td.sorting_desc_disabled:after {
 }
 
 .fa-sliders-h:before {
-	color: #612d8a !important;
+	color: #945825 !important;
 }
 
 .bg-warning {
@@ -7846,10 +7857,10 @@ a.primary-btn {
 	rotate: -45deg;
 }
 
-.skill-table-heading>div:first-child {
+/* .skill-table-heading>div:first-child {
 	padding-left: 20px;
 	padding-right: 15px;
-}
+} */
 
 select.no-border {
 	border: 0px;
@@ -7889,7 +7900,7 @@ select.no-border :active {
 
 .blue-button:hover {
 	color: #000 !important;
-	background-color: #431665;
+	background: linear-gradient(135deg, #f4cb9e 0%, #ffefd5 100%);
 }
 
 .position-absolute.invisible {
@@ -8035,7 +8046,7 @@ select.no-border {
 }
 
 select[name="class_name"] option[value="blue"] {
-	background: #612d8a;
+	background: #945825;
 }
 
 select[name="class_name"] option[value="red"] {
@@ -8141,7 +8152,7 @@ select[name="class_name"] option[value="sk-junior"] {
 }
 
 .plan-blue .price {
-	color: #612d8a;
+	color: #945825;
 }
 
 .plan-header>i {
@@ -8201,13 +8212,13 @@ select[name="class_name"] option[value="sk-junior"] {
 }
 
 .plan-blue-button {
-	background-color: #612d8a;
+	background-color: #945825;
 	color: #fff;
 }
 
 .plan-white-button {
 	background-color: #fff;
-	color: #612d8a;
+	color: #945825;
 }
 
 .cross-icon {
@@ -8239,7 +8250,8 @@ select[name="class_name"] option[value="sk-junior"] {
 }
 
 .profile-detail a {
-	color: #612d8a;
+	color: #945825;
+	text-decoration: none;
 }
 
 .profile-detail-desc .white-background {
@@ -8258,12 +8270,16 @@ select[name="class_name"] option[value="sk-junior"] {
 }
 
 .border-icon {
-	padding: 14px;
-	border-radius: 50%;
-	border: 1px solid #e5e7f1;
-	font-size: 20px;
-	max-height: 54px;
-	padding-top: 12px;
+    padding: 14px;
+    border-radius: 50%;
+    border: 1px solid #e5e7f1;
+    font-size: 20px;
+    height: 50px;
+    padding-top: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
 }
 
 .bi-bold::before {
@@ -8310,7 +8326,7 @@ select[name="class_name"] option[value="sk-junior"] {
 }
 
 .blue-font {
-	color: #612d8a !important;
+	color: #945825 !important;
 }
 
 .subscription-detail p {
@@ -8318,8 +8334,8 @@ select[name="class_name"] option[value="sk-junior"] {
 }
 
 .half-circle {
-	border-top: 8px solid #612d8a;
-	border-right: 8px solid #612d8a;
+	border-top: 8px solid #945825;
+	border-right: 8px solid #945825;
 	border-bottom: 8px solid #dce1e7;
 	border-left: 8px solid #dce1e7;
 	border-radius: 50%;
@@ -8339,7 +8355,7 @@ select[name="class_name"] option[value="sk-junior"] {
 .complete-per {
 	position: absolute;
 	font-weight: bold;
-	color: #612d8a !important;
+	color: #945825 !important;
 	font-weight: 700;
 	left: 50%;
 	top: 50%;
@@ -8423,7 +8439,7 @@ select[name="class_name"] option[value="sk-junior"] {
 }
 
 input:checked+.slider {
-	background-color: #612d8a;
+	background-color: #945825;
 }
 
 input:checked+.slider:before {
@@ -8479,7 +8495,7 @@ input:checked+.slider:before {
 }
 
 .blue-border {
-	border-color: #612d8a !important;
+	border-color: #945825 !important;
 }
 
 .skill-sub-plan {
@@ -8629,7 +8645,7 @@ td.sorting_1 img {
 }
 
 a.grey-button:hover {
-	color: #fff;
+	color: #000;
 }
 
 .job-listing .bi-pencil-square {
@@ -11061,7 +11077,7 @@ i.person-gear::before {
 }
 
 .app-image-indicators button.active {
-	background: #612d8a !important;
+	background: #945825 !important;
 
 }
 
@@ -11200,7 +11216,7 @@ i.person-gear::before {
 	border: none;
 	font-size: 13px;
 	line-height: 18px;
-	background-color: #612d8a;
+	background-color: #945825;
 	color: #fff;
 }
 
@@ -11439,7 +11455,7 @@ html .tooltip-inner {
 
 .tooltip.bs-tooltip-auto {
 	--bs-tooltip-max-width: 351px;
-	--bs-tooltip-bg: #612d8a;
+	--bs-tooltip-bg: #945825;
 	padding: 0px;
 }
 

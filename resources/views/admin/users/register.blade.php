@@ -46,6 +46,7 @@ $model = Setting::setting();
             width: 100%;
             display: flex;
             align-items: center;
+            justify-content: center;
         }
         .toggle-btn i {
             margin-right: 6px;
