@@ -15,12 +15,12 @@ $userrole = User::ROLE['agency'];
         <input type="hidden" id="role" name="role" value="{{$userrole}}">
         </div> -->
         <h2 class="mobile-content"><i class="traders-black"></i>Sub Users</h2>
-                <div class="d-flex justify-content-end">
+                <!-- <div class="d-flex justify-content-end">
         <div class="page-view">
           
         </div> <span id="job_count">&nbsp; Showing <span id="agent_count_value"> {{$agents->total()}}</span> Sub Users Results </span>
             
-        </div>
+        </div> -->
         @if(Auth::user()->user_type == User::ROLE['agency'])
         <div class="right-title  me-0">
         <a href="{{ route('agent.create') }}" class="btn-primary">

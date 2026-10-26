@@ -4,13 +4,13 @@
 <div class="container-fluid middle-content dashboard-content">
     <div class="page-title mobile-page-title">
         <h2 class="desktop-content"><i class="agency-black"></i>Companies</h2>
-        <div class="middle-title job-middle-title">
+        <!-- <div class="middle-title job-middle-title"> -->
             
         </div>
         <h2 class="mobile-content"><i class="agency-black"></i>Companies</h2>        
         <div class="right-filter job-right-filter">           
         </div>  
-            <div class="d-flex justify-content-end">
+            <!-- <div class="d-flex justify-content-end">
         <div class="page-view">
           
           <a href="{{request()->fullUrlWithQuery(['mode' => 'list'])}}"><i class="fa fa-list  @if(!request()->mode || request()->mode=='list') view-active @else  @endif"></i></a>
@@ -18,7 +18,7 @@
       </div>  &nbsp;  | <span id="job_count">&nbsp; Showing <span id="company_count_value"> {{$agencies->total()}} </span> for Companies Results</span>
             
            
-    </div>     
+    </div>      -->
     </div>
       
 @if(!request()->mode || request()->mode=='list')

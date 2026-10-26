@@ -10,14 +10,13 @@ $userrole = User::ROLE['customer'];
 <div class="container-fluid middle-content dashboard-content">
     <div class="page-title mobile-page-title">
         <h2 class="desktop-content"><i class="traders-black"></i>Customers</h2>
-        <div class="middle-title job-middle-title">
+        <!-- <div class="middle-title job-middle-title">
             <input type="hidden" id="usertype" name="usertype" value="{{$usertype}}">
             <input type="hidden" id="role" name="role" value="{{$userrole}}">
-        </div>
+        </div> -->
         <h2 class="mobile-content"><i class="traders-black"></i>Customers</h2>
-            <div class="d-flex justify-content-end">
+            <!-- <div class="d-flex justify-content-end">
         <div class="page-view">
-            <!-- View toggle buttons -->
             <button class="btn btn-sm btn-outline-secondary mode_radio" value="list" id="list_view">
                 <i class="bi bi-list"></i> List
             </button>
@@ -26,7 +25,7 @@ $userrole = User::ROLE['customer'];
             </button>
         </div> 
         <span id="job_count">&nbsp; Showing <span id="customer_count_value">{{ $customerlist->total() }}</span> Customers Results </span>
-    </div>
+    </div> -->
         @if(Auth::user()->user_type == User::ROLE['customer'])
         <div class="right-title me-0">
             <a href="{{ route('agent.create') }}" class="btn-primary">

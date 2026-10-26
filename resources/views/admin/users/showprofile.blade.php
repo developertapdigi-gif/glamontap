@@ -83,12 +83,13 @@
 
                         <div class="row">
                             <div class="col-md-12 col-lg-7 col-xl-8 ps-md-0 ps-lg-0 mt-3">
-                                <div class="table-responsive dashboard-table">
+                                <div class="dashboard-table">
 
                                     <div class="table-title">
                                         <b> Recent Subscription</b>
                                         <a class = "ms-auto" href="{{ route('subscriber.view',['status'=>'5']) }}" ><button class="transparent-button">View All</button></a>
                                     </div>
+                                    <div class="table-responsive">
                                     <table class="table mb-0 skill-table-list"  id="ajax_table">
                                         <thead>
                                             <tr>
@@ -102,7 +103,7 @@
                                         </thead>
                                         
                                     </table>
-                                    
+                                </div>
 
 
                                 </div>

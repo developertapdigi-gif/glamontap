@@ -15,7 +15,7 @@
           @csrf
           @method('PATCH')
               <div class="row">
-                <div class="col-6">
+                <div class="col-md-6 col-12">
                   <label class="form-label">SMTP Username<span class="text-danger">*</span></label>
                   <div class="input-group">
                   <input id="smtp_username" name="smtp_username" class="form-control @error('smtp_username') is-invalid @enderror" type="email" value="{{ $model->smtp_username }}">
@@ -24,7 +24,7 @@
                       <div class="alert alert-danger">{{ $message }}</div>
                   @enderror
                 </div>
-                <div class="col-6">
+                <div class="col-md-6 col-12">
                   <label class="form-label">SMTP Password<span class="text-danger">*</span></label>
                   <div class="input-group">
                     <input id="smtp_password" name="smtp_password" class="form-control @error('smtp_password') is-invalid @enderror" type="password" value="{{ $model->smtp_password }}">
@@ -35,7 +35,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-6">
+              <div class="col-md-6 col-12">
                   <label class="form-label">SMTP From Email<span class="text-danger">*</span></label>
                   <div class="input-group">
                   <input id="smtp_from_address" name="smtp_from_address" class="form-control @error('smtp_from_address') is-invalid @enderror" type="email" value="{{ $model->smtp_from_address }}">
@@ -44,7 +44,7 @@
                       <div class="alert alert-danger">{{ $message }}</div>
                   @enderror
                 </div>
-              <div class="col-6">
+              <div class="col-md-6 col-12">
                 <label class="form-label">SMTP Host<span class="text-danger">*</span></label>
                 <div class="input-group">
                   <input id="smtp_host" name="smtp_host" class="form-control @error('smtp_host') is-invalid @enderror" type="text" value="{{ $model->smtp_host }}" >
@@ -56,7 +56,7 @@
               </div>         
             
             <div class="row">   
-                   <div class="col-6">
+                   <div class="col-md-6 col-12">
                 <label class="form-label">SMTP Port<span class="text-danger">*</span></label>
                 <div class="input-group">
                   <input id="smtp_port" name="smtp_port" class="form-control @error('smtp_port') is-invalid @enderror" type="text" value="{{ $model->smtp_port }}" >
@@ -65,7 +65,7 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
               </div>
-                <div class="col-6">
+                <div class="col-md-6 col-12">
                   <label class="form-label">SMTP Encryption<span class="text-danger">*</span></label>
                   <div class="input-group">
                   <input id="smtp_encryption" name="smtp_encryption" class="form-control @error('smtp_encryption') is-invalid @enderror" type="text" value="{{ $model->smtp_encryption }}" >

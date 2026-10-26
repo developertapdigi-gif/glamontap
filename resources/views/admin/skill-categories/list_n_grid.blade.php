@@ -15,14 +15,14 @@
         </div>
      
     </div>
-    <div class="d-flex justify-content-end pb-2">
+    <!-- <div class="d-flex justify-content-end pb-2">
     <div class="page-view">
           
           <a href="{{request()->fullUrlWithQuery(['mode' => 'list'])}}"><i class="fa fa-list  @if(!request()->mode || request()->mode=='list') view-active @else  @endif"></i></a>
           <a href="{{request()->fullUrlWithQuery(['mode' => 'grid'])}}"><i class="fa fa-th-large @if(request()->mode=='grid') view-active @endif"></i></a>
       </div> &nbsp; | &nbsp; <span id="job_count">Showing <span id="skill_count_value">{{$skill_categories->total()}}</span> Skill Categories Results</span>
             
-    </div>        
+    </div>         -->
     @if(!request()->mode || request()->mode=='list')
     <div class="skill-table-heading">
     <div class="d-flex">

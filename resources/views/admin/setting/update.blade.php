@@ -14,7 +14,7 @@
         <form id="createform" class="regular-form" action="{{ route('setting.update',$model->id) }}" method="POST" enctype="multipart/form-data">
           @csrf
           @method('PUT')
-          <div class="row mt-3">
+          <div class="row">
             <label for="site_logo">Website Logo</label>
             @php
             if($model->site_logo && (File::exists(public_path($model->site_logo)))){
@@ -43,7 +43,7 @@
               
 
               </div>
-              <div class="row mt-3">
+              <div class="row">
             <label for="site_logo">Website Favicon</label>
             @php
             if($model->favicon && (File::exists(public_path($model->favicon)))){

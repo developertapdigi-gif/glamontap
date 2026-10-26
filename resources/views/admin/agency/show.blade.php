@@ -33,12 +33,12 @@ use App\Models\User;
                                <!--  <p><a href="#">{{ 'Construction Company' }}</a></p> -->
                                 <div class="row">
                                     <div class="col-md-12 mt-5  mb-4 d-flex center-align">
-                                        <i class="bi bi-geo-alt-fill me-1 border-icon "></i> {{$model->address}}
+                                        <i class="bi bi-geo-alt-fill me-3 border-icon "></i> {{$model->address}}
                                     </div>
                                 </div>
                                 <div class="row mt-3">
                                     @if($model->mobile)
-                                    <div class="col-md-12  mt-4  mb-3 d-flex center-align"><i class="bi bi-telephone-fill me-1 border-icon "></i> {{$model->mobile}}</div>
+                                    <div class="col-md-12  mt-4  mb-3 d-flex center-align"><i class="bi bi-telephone-fill me-3 border-icon "></i> {{$model->mobile}}</div>
                                     @endif
                                     <div class="col-md-12  mt-4  mb-4 d-flex center-align"><i class="bi bi-envelope-fill me-1 border-icon "></i>{{ $model->email }}</div>
                                 </div>

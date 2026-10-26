@@ -33,7 +33,7 @@ use Illuminate\Support\Facades\Auth;
         </div>
         <h2 class="mobile-content">
         <i class="jobs-black"></i>Jobs</h2>
-        <div class="right-filter job-right-filter">
+        <!-- <div class="right-filter job-right-filter">
         
         <div class="page-view">
         
@@ -43,7 +43,7 @@ use Illuminate\Support\Facades\Auth;
             | <span id="job_count">&nbsp; Showing <span id="job_count_value">{{$jobs->total()}}</span> Jobs Results</span>
 
             
-        </div>
+        </div> -->
     </div>
     @if(request()->mode=='grid')
     <div class="row">

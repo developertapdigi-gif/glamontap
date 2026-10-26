@@ -9,8 +9,8 @@
     <h2 class="desktop-content">
         <i class="skill-black"></i> Services
     </h2>
-
-    <div class="middle-title job-middle-title"></div>
+<!-- 
+    <div class="middle-title job-middle-title"></div> -->
 
     <h2 class="mobile-content">
         <i class="skill-black"></i> Services

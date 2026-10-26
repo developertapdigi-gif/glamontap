@@ -2163,6 +2163,7 @@ div.job-detail-page:last-child {
 	justify-content: end;
 	flex-wrap: wrap;
 	row-gap: 15px;
+	margin-right: 15px;
 }
 
 /* .tradertab.primary-btn[data-status="1"] {
@@ -5136,15 +5137,14 @@ h2 {
 	background: linear-gradient(135deg, #f4cb9e 0%, #ffefd5 100%);
     padding: 8px 15px;
     border-radius: 9px;
-    min-width: 110px;
-	max-width: 110px;
+    min-width: fit-content;
+	max-width: fit-content;
     border-color: unset;
     font-weight: 500;
     color: #000;
     border: 1px solid #d2a46f;
     font-family: 'Inter';
 	text-align: center;
-	margin-right: 13px;
 }
 .sort-btns .features-tradies.blue-button {
     min-width: fit-content;
@@ -5924,6 +5924,7 @@ a[data-toggle=collapse] {
 .dashboard-table table tbody td {
 	padding: 12px 20px;
 	vertical-align: middle;
+	white-space: nowrap;
 }
 
 /* .dashboard-table table {
@@ -5967,16 +5968,12 @@ a[data-toggle=collapse] {
 }
 
 .skill-table-list thead tr th {
-
 	font-size: 14px;
-
 	color: #202124;
-
 	padding: 15px 22px !important;
-
 	background: #f7f7f7;
-
 	border: none;
+	white-space: nowrap;
 
 }
 
@@ -5990,6 +5987,7 @@ a[data-toggle=collapse] {
 
 	background: #fff;
 	font-weight: normal;
+	white-space: nowrap;
 
 }
 
@@ -6266,8 +6264,8 @@ filter: brightness(0) saturate(100%) invert(31%) sepia(45%) saturate(1310%) hue-
 .orange-card {
 	border-color: #f7b84b;
 }
-.orange-card .agencies-tile{
-	filter: brightness(0) saturate(100%) invert(69%) sepia(69%) saturate(425%) hue-rotate(350deg) brightness(90%) contrast(94%);
+.orange-card .agencies-tile {
+    filter: brightness(0) saturate(100%) invert(69%) sepia(90%) saturate(430%) hue-rotate(350deg) brightness(85%) contrast(94%);
 }
 .green-card {
 	border-color: #0ab39c;
@@ -8579,7 +8577,11 @@ ul.notification-list li {
 	float: left;
 	margin-left: 15px;
 }
-
+.jobtab.blue-button {
+	margin-right: 13px;
+	min-width: 110px;
+    max-width: 110px;
+}
 .tick-check img {
 	margin-top: 8px;
 	margin-left: 8px;
@@ -8844,11 +8846,12 @@ a.grey-button:hover {
 
 .profile-image {
 	border-radius: 50%;
-	width: 40px;
+	min-width: 40px;
 	height: 40px;
 	max-width: 100%;
 	object-fit: cover;
 	margin-right: 15px;
+	width: 40px;
 }
 
 .profile-image1 {
@@ -9762,9 +9765,6 @@ i.person-gear::before {
 	/* .banner-outer{
 		margin-top: 83px;
 	} */
-	.table-responsive {
-		overflow: auto !important;
-	}
 
 	.banner-outer {
 		margin-top: 80px;
@@ -10016,7 +10016,13 @@ i.person-gear::before {
 		scale: unset;
 		margin-left: 0px;
 	}
-
+.page-title {
+	flex-wrap: wrap;
+	justify-content: start;
+}
+.right-title {
+    margin-left: unset;
+}
 	/* .download-btn.social-ads a {
 	width: 100%;
 } */
@@ -10213,10 +10219,9 @@ i.person-gear::before {
 	}
 .middle-title {
     flex-wrap: wrap;
-    justify-content: center;
-	column-gap: 10px;
-	row-gap: 10px;
-	margin-bottom: 0px;
+    justify-content: space-between;
+    row-gap: 10px;
+    margin-bottom: 0px;
 }
 	.about-blue-footer h3 {
 		font-size: 25px;
@@ -10460,7 +10465,16 @@ i.person-gear::before {
 	input.location-select:focus {
 		box-shadow: 0 2px 14px 0px #0000000d !important;
 	}
-
+.sort-btns {
+	margin-right: 5px;
+}
+.middle-content .page-title {
+	justify-content: space-between;
+	column-gap: 15px;
+}
+.post_overall_list li{
+	    flex-wrap: wrap;
+}
 	.search-outside .job-search .form-control.search-jobs {
 		width: 100%;
 		border-right: 0px;
@@ -10987,6 +11001,7 @@ i.person-gear::before {
 		display: block !important;
 		width: 100%;
 		margin-bottom: 10px;
+		margin-right: 0px;
 	}
 
 	.sort-btns button {

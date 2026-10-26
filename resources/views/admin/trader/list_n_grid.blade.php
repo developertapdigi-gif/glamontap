@@ -7,19 +7,19 @@ use App\Models\User;
 <div class="container-fluid middle-content dashboard-content">
     <div class="page-title mobile-page-title">
         <h2 class="desktop-content"><i class="traders-black"></i>Professionals</h2>
-        <div class="middle-title job-middle-title">
+        <!-- <div class="middle-title job-middle-title">
         
-        </div>
+        </div> -->
         <h2 class="mobile-content"><i class="traders-black"></i>Professionals</h2>
         <div class="right-title  me-0"> </div>   
-            <div class="d-flex justify-content-end">
+            <!-- <div class="d-flex justify-content-end">
     <div class="page-view">
           
           <a href="{{request()->fullUrlWithQuery(['mode' => 'list'])}}"><i class="fa fa-list  @if(!request()->mode || request()->mode=='list') view-active @else  @endif"></i></a>
           <a href="{{request()->fullUrlWithQuery(['mode' => 'grid'])}}"><i class="fa fa-th-large @if(request()->mode=='grid') view-active @endif"></i></a>
       </div> &nbsp;  | &nbsp; <span id="job_count">Showing <span id="trader_count_value">{{$traders->total()}}</span> Professionals Results</span>
    
-</div>     
+</div>      -->
     </div>
 
 @if(!request()->mode || request()->mode=='list')

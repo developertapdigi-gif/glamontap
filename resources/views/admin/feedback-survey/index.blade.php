@@ -12,13 +12,13 @@
         </div>
         <h2 class="mobile-content"><img src="{{ asset('images/icons/feedback.svg')}}" alt="">Feedback</h2>
         
-     <div class="right-filter job-right-filter">
+     <!-- <div class="right-filter job-right-filter">
     <div class="page-view">
           
        
       </div> <span id="job_count">Showing <span id="skill_count_value">{{$skill_categories->total()}}</span> Feedback Results</span>
       
-    </div>
+    </div> -->
           
     </div>        
     @if(!request()->mode || request()->mode=='list')

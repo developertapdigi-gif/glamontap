@@ -12,14 +12,14 @@
             <i class="skill-black"></i> Appointments
         </h2>
 
-        <div class="middle-title job-middle-title"></div>
+        <!-- <div class="middle-title job-middle-title"></div> -->
 
         <h2 class="mobile-content">
             <i class="skill-black"></i> Appointments
         </h2>
     </div>
 
-    <div class="d-flex justify-content-end pb-2">
+    <!-- <div class="d-flex justify-content-end pb-2">
         <div class="page-view">
             <a href="{{ request()->fullUrlWithQuery(['mode' => 'list']) }}">
                 <i class="fa fa-list @if(!request()->mode || request()->mode=='list') view-active @endif"></i>
@@ -35,7 +35,7 @@
         <span>
             Showing {{ $appointments->total() }} Appointment Results
         </span>
-    </div>
+    </div> -->
 
     @if(!request()->mode || request()->mode == 'list')
 
