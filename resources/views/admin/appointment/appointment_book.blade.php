@@ -1,8 +1,7 @@
+
 @extends('admin.layouts.master')
 
-
-@section('title','Appointments')
-
+@section('title', 'Appointments')
 
 @section('content')
 <div class="container-fluid middle-content dashboard-content">
@@ -22,11 +21,11 @@
     <!-- <div class="d-flex justify-content-end pb-2">
         <div class="page-view">
             <a href="{{ request()->fullUrlWithQuery(['mode' => 'list']) }}">
-                <i class="fa fa-list @if(!request()->mode || request()->mode=='list') view-active @endif"></i>
+                <i class="fa fa-list @if(!request()->mode || request()->mode == 'list') view-active @endif"></i>
             </a>
 
             <a href="{{ request()->fullUrlWithQuery(['mode' => 'grid']) }}">
-                <i class="fa fa-th-large @if(request()->mode=='grid') view-active @endif"></i>
+                <i class="fa fa-th-large @if(request()->mode == 'grid') view-active @endif"></i>
             </a>
         </div>
 
@@ -39,20 +38,20 @@
 
     @if(!request()->mode || request()->mode == 'list')
 
+        {{-- LIST VIEW --}}
         <div class="skill-table-heading">
-
             <div class="table-responsive-lg">
+
                 <table class="table align-middle table-row-dashed fs-6 gy-5 skill-table-list">
+
                     <thead>
                         <tr>
-                            {{-- <th>ID</th> --}}
                             <th>Name</th>
                             <th>Phone</th>
                             <th>Email</th>
                             <th>Service</th>
                             <th>Date</th>
                             <th>Time</th>
-                            {{-- <th>Message</th> --}}
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -60,11 +59,15 @@
 
                     <tbody>
                         @forelse($appointments as $appointment)
-                            <tr>
-                                {{-- <td>{{ $appointment->id }}</td> --}}
+
+                            <tr data-appointment-id="{{ $appointment->id }}">
+
                                 <td>{{ $appointment->name }}</td>
+
                                 <td>{{ $appointment->phone }}</td>
+
                                 <td>{{ $appointment->email }}</td>
+
                                 <td>{{ $appointment->service }}</td>
 
                                 <td>
@@ -75,65 +78,98 @@
                                     {{ \Carbon\Carbon::parse($appointment->appointment_time)->format('h:i A') }}
                                 </td>
 
-                                {{-- <td>
-                                    {{ $appointment->message }}
-                                </td> --}}
-
-                                @if(auth()->user()->user_type == 1)
-                                    <td>
-                                        {{ $appointment->status }}
-                                    </td>
-                                @else 
                                 <td>
-                                    <form action="{{ route('appointments.update-status', $appointment->id) }}" method="POST" class="status-update-form">
-                                        @csrf
-                                        <select name="status" class="form-select form-select-sm status-dropdown" 
-                                                data-appointment-id="{{ $appointment->id }}">
-                                            <option value="pending" {{ $appointment->status == 'pending' ? 'selected' : '' }}>Pending</option>
-                                            <option value="confirmed" {{ $appointment->status == 'confirmed' ? 'selected' : '' }}>Confirmed</option>
-                                            <option value="completed" {{ $appointment->status == 'completed' ? 'selected' : '' }}>Completed</option>
-                                            <option value="cancelled" {{ $appointment->status == 'cancelled' ? 'selected' : '' }}>Cancelled</option>
-                                        </select>
-                                    </form>
+                                    @if(auth()->user()->user_type == 1)
+
+                                        <span class="status-text">
+                                            {{ ucfirst($appointment->status) }}
+                                        </span>
+
+                                    @else
+
+                                        <form
+                                            action="{{ route('appointments.update-status', $appointment->id) }}"
+                                            method="POST"
+                                            class="status-update-form"
+                                        >
+                                            @csrf
+
+                                            <select
+                                                name="status"
+                                                class="form-select form-select-sm status-dropdown"
+                                                data-appointment-id="{{ $appointment->id }}"
+                                            >
+                                                <option value="pending"
+                                                    {{ $appointment->status == 'pending' ? 'selected' : '' }}>
+                                                    Pending
+                                                </option>
+
+                                                <option value="confirmed"
+                                                    {{ $appointment->status == 'confirmed' ? 'selected' : '' }}>
+                                                    Confirmed
+                                                </option>
+
+                                                <option value="completed"
+                                                    {{ $appointment->status == 'completed' ? 'selected' : '' }}>
+                                                    Completed
+                                                </option>
+
+                                                <option value="cancelled"
+                                                    {{ $appointment->status == 'cancelled' ? 'selected' : '' }}>
+                                                    Cancelled
+                                                </option>
+                                            </select>
+                                        </form>
+
+                                    @endif
                                 </td>
-                                @endif
 
-                                {{-- <td>
-                                    {{ $appointment->created_at->format('d M Y h:i A') }}
-                                </td> --}}
                                 <td>
-                                    <a href="{{ route('appointments.show', $appointment->id) }}" class="btn btn-info btn-sm">
-                                     View </a>
-                                    </td>
-                                
+                                    <a
+                                        href="{{ route('appointments.show', $appointment->id) }}"
+                                        class="btn btn-info btn-sm"
+                                    >
+                                        View
+                                    </a>
+                                </td>
+
                             </tr>
+
                         @empty
+
                             <tr>
-                                <td colspan="10" class="text-center">
+                                <td colspan="8" class="text-center">
                                     No appointments found.
                                 </td>
                             </tr>
+
                         @endforelse
                     </tbody>
+
                 </table>
             </div>
 
+            {{-- Pagination --}}
             <div class="skill-table-pagintion d-flex">
                 {{ $appointments->links() }}
             </div>
-
         </div>
 
     @else
 
+        {{-- GRID VIEW --}}
         <div class="row">
 
-            @foreach($appointments as $appointment)
+            @forelse($appointments as $appointment)
 
                 <div class="col-md-6 col-lg-4 col-xl-3">
-                    <div class="job-listing">
 
+                    <div
+                        class="job-listing"
+                        data-appointment-id="{{ $appointment->id }}"
+                    >
                         <div class="sub-list">
+
                             <h3>{{ $appointment->name }}</h3>
 
                             <p>
@@ -161,20 +197,59 @@
                                 {{ \Carbon\Carbon::parse($appointment->appointment_time)->format('h:i A') }}
                             </p>
 
-                            <p>
-                                <strong>Status:</strong><br>
-                                <form action="{{ route('appointments.update-status', $appointment->id) }}" method="POST" class="status-update-form">
-                                    @csrf
-                                   
-                                    <select name="status" class="form-select form-select-sm status-dropdown" 
-                                            data-appointment-id="{{ $appointment->id }}">
-                                        <option value="pending" {{ $appointment->status == 'pending' ? 'selected' : '' }}>Pending</option>
-                                        <option value="confirmed" {{ $appointment->status == 'confirmed' ? 'selected' : '' }}>Confirmed</option>
-                                        <option value="completed" {{ $appointment->status == 'completed' ? 'selected' : '' }}>Completed</option>
-                                        <option value="cancelled" {{ $appointment->status == 'cancelled' ? 'selected' : '' }}>Cancelled</option>
-                                    </select>
-                                </form>
-                            </p>
+                            <div class="appointment-status mb-3">
+
+                                <strong>Status:</strong>
+
+                                <div class="mt-2">
+
+                                    @if(auth()->user()->user_type == 1)
+
+                                        <span class="status-text">
+                                            {{ ucfirst($appointment->status) }}
+                                        </span>
+
+                                    @else
+
+                                        <form
+                                            action="{{ route('appointments.update-status', $appointment->id) }}"
+                                            method="POST"
+                                            class="status-update-form"
+                                        >
+                                            @csrf
+
+                                            <select
+                                                name="status"
+                                                class="form-select form-select-sm status-dropdown"
+                                                data-appointment-id="{{ $appointment->id }}"
+                                            >
+                                                <option value="pending"
+                                                    {{ $appointment->status == 'pending' ? 'selected' : '' }}>
+                                                    Pending
+                                                </option>
+
+                                                <option value="confirmed"
+                                                    {{ $appointment->status == 'confirmed' ? 'selected' : '' }}>
+                                                    Confirmed
+                                                </option>
+
+                                                <option value="completed"
+                                                    {{ $appointment->status == 'completed' ? 'selected' : '' }}>
+                                                    Completed
+                                                </option>
+
+                                                <option value="cancelled"
+                                                    {{ $appointment->status == 'cancelled' ? 'selected' : '' }}>
+                                                    Cancelled
+                                                </option>
+                                            </select>
+                                        </form>
+
+                                    @endif
+
+                                </div>
+                            </div>
+
                             @if($appointment->message)
                                 <p>
                                     <strong>Message:</strong><br>
@@ -182,14 +257,28 @@
                                 </p>
                             @endif
 
+                            <a
+                                href="{{ route('appointments.show', $appointment->id) }}"
+                                class="btn btn-info btn-sm"
+                            >
+                                View
+                            </a>
+
                         </div>
                     </div>
                 </div>
 
-            @endforeach
+            @empty
+
+                <div class="col-12 text-center">
+                    <p>No appointments found.</p>
+                </div>
+
+            @endforelse
 
         </div>
 
+        {{-- Grid pagination --}}
         <div class="row">
             <div class="skill-table-pagintion grid-pagintion d-flex">
                 {{ $appointments->links() }}
@@ -200,140 +289,164 @@
 
 </div>
 @endsection
+
+
 @section('script')
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
+
+    /*
+     * AJAX appointment status update.
+     * No page reload is required.
+     */
+
     const dropdowns = document.querySelectorAll('.status-dropdown');
-    
-    dropdowns.forEach(dropdown => {
-        dropdown.addEventListener('change', function() {
-            const form = this.closest('.status-update-form');
-            const appointmentId = this.dataset.appointmentId;
-            const status = this.value;
-            
-            // Show loading state
-            const originalHtml = this.innerHTML;
-            this.innerHTML = '<option>Updating...</option>';
-            this.disabled = true;
-            
-            // Use fetch API for AJAX with POST method (not PATCH)
-            fetch(`/appointments/${appointmentId}/status`, {
-                method: 'POST',  // Changed from PATCH to POST
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
-                    'X-Requested-With': 'XMLHttpRequest'  // Add this for AJAX detection
-                },
-                body: JSON.stringify({ status: status })
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (data.success) {
-                    // Show success message
-                    showToast('Status updated successfully!', 'success');
-                    
-                    // Update the status display in the same cell
-                    const td = this.closest('td');
-                    if (td) {
-                        // Remove old status text if exists
-                        const statusText = td.querySelector('.status-text');
-                        if (statusText) {
-                            statusText.textContent = status.charAt(0).toUpperCase() + status.slice(1);
-                        }
-                    }
-                    
-                    // Also handle grid view
-                    const parentDiv = this.closest('.job-listing');
-                    if (parentDiv) {
-                        const statusParagraph = parentDiv.querySelector('p strong:contains("Status")');
-                        if (statusParagraph) {
-                            const parentP = statusParagraph.closest('p');
-                            if (parentP) {
-                                const statusSpan = parentP.querySelector('.status-text');
-                                if (statusSpan) {
-                                    statusSpan.textContent = status.charAt(0).toUpperCase() + status.slice(1);
-                                }
-                            }
-                        }
-                    }
-                    
-                    // Optionally reload the page after a short delay to reflect changes
-                    // setTimeout(() => location.reload(), 1500);
-                } else {
-                    showToast(data.message || 'Error updating status', 'error');
-                    // Revert dropdown
-                    this.value = this.dataset.previousValue || this.value;
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                showToast('Error updating status. Please try again.', 'error');
-                // Revert dropdown
-                this.value = this.dataset.previousValue || this.value;
-            })
-            .finally(() => {
-                // Reset dropdown
-                this.innerHTML = originalHtml;
-                this.disabled = false;
-                // Store current value for potential rollback
-                this.dataset.previousValue = status;
-            });
-        });
-        
-        // Store initial value
+
+    dropdowns.forEach(function (dropdown) {
+
+        // Save the original status for error handling.
         dropdown.dataset.previousValue = dropdown.value;
-    });
-    
-    // Toast notification function with Bootstrap
-    function showToast(message, type = 'success') {
-        // Check if Bootstrap Toast is available
-        if (typeof bootstrap !== 'undefined' && bootstrap.Toast) {
-            // Create toast container if not exists
-            let toastContainer = document.querySelector('.toast-container');
-            if (!toastContainer) {
-                toastContainer = document.createElement('div');
-                toastContainer.className = 'toast-container position-fixed bottom-0 end-0 p-3';
-                toastContainer.style.zIndex = '9999';
-                document.body.appendChild(toastContainer);
+
+        dropdown.addEventListener('change', async function () {
+
+            const select = this;
+            const form = select.closest('.status-update-form');
+
+            if (!form) {
+                console.error('Appointment status form not found.');
+                return;
             }
-            
-            const toastEl = document.createElement('div');
-            const bgColor = type === 'success' ? 'bg-success' : 'bg-danger';
-            toastEl.className = `toast align-items-center text-white ${bgColor} border-0`;
-            toastEl.setAttribute('role', 'alert');
-            toastEl.setAttribute('aria-live', 'assertive');
-            toastEl.setAttribute('aria-atomic', 'true');
-            
-            toastEl.innerHTML = `
-                <div class="d-flex">
-                    <div class="toast-body">
-                        <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'} me-2"></i>
-                        ${message}
-                    </div>
-                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-                </div>
-            `;
-            
-            toastContainer.appendChild(toastEl);
-            const toast = new bootstrap.Toast(toastEl, { delay: 3000 });
-            toast.show();
-            
-            // Remove toast after it's hidden
-            toastEl.addEventListener('hidden.bs.toast', function() {
-                this.remove();
-            });
-        } else {
-            // Fallback to alert or custom notification
-            alert(message);
+
+            const previousStatus = select.dataset.previousValue;
+            const newStatus = select.value;
+            const csrfInput = form.querySelector('input[name="_token"]');
+
+            if (!csrfInput) {
+                select.value = previousStatus;
+                showToast('CSRF token not found. Please refresh the page.', 'error');
+                return;
+            }
+
+            // Prevent multiple requests while updating.
+            select.disabled = true;
+
+            try {
+
+                const response = await fetch(form.action, {
+                    method: 'POST',
+
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                        'X-CSRF-TOKEN': csrfInput.value,
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+
+                    body: JSON.stringify({
+                        status: newStatus
+                    })
+                });
+
+                // Read JSON returned by Laravel.
+                const data = await response.json();
+
+                if (!response.ok || !data.success) {
+                    throw new Error(
+                        data.message || 'Unable to update appointment status.'
+                    );
+                }
+
+                // Save the new status only after successful database update.
+                select.dataset.previousValue = newStatus;
+
+                // Update any separate status label in the same row/card.
+                const container =
+                    select.closest('tr') ||
+                    select.closest('.job-listing');
+
+                if (container) {
+
+                    const statusText = container.querySelector('.status-text');
+
+                    if (statusText) {
+                        statusText.textContent =
+                            newStatus.charAt(0).toUpperCase() +
+                            newStatus.slice(1);
+                    }
+                }
+
+                showToast(
+                    data.message || 'Appointment status updated successfully.',
+                    'success'
+                );
+
+            } catch (error) {
+
+                // Restore the previous selection if saving fails.
+                select.value = previousStatus;
+
+                console.error('Status update error:', error);
+
+                showToast(
+                    error.message || 'Something went wrong. Please try again.',
+                    'error'
+                );
+
+            } finally {
+
+                // Keep the original options and re-enable the dropdown.
+                select.disabled = false;
+            }
+
+        });
+
+    });
+
+
+    /*
+     * Success and error notification.
+     */
+
+    function showToast(message, type = 'success') {
+
+        let container = document.querySelector('.toast-container');
+
+        if (!container) {
+
+            container = document.createElement('div');
+
+            container.className =
+                'toast-container position-fixed bottom-0 end-0 p-3';
+
+            container.style.zIndex = '99999';
+
+            document.body.appendChild(container);
         }
+
+        const toast = document.createElement('div');
+
+        toast.className =
+            'alert ' +
+            (type === 'success' ? 'alert-success' : 'alert-danger') +
+            ' shadow';
+
+        toast.setAttribute('role', 'alert');
+
+        // Display the server message safely.
+        toast.textContent = message;
+
+        container.appendChild(toast);
+
+        setTimeout(function () {
+            toast.remove();
+
+            // Remove the container if it is empty.
+            if (container.children.length === 0) {
+                container.remove();
+            }
+        }, 3000);
     }
+
 });
 </script>
 @endsection
-
-

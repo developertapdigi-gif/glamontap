@@ -217,8 +217,8 @@ Route::prefix('customer')->group(function () {
     Route::post('posts/{id}', [CustomerController::class, 'update'])->name('customer.posts.update');
     Route::post('posts/{id}/delete', [TradiePost::class, 'destroy'])->name('posts.destroy');
 
-     // Customer Jobs Routes
     
+
   });
 
 

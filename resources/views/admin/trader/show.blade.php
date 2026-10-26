@@ -18,9 +18,9 @@ if($model->profile_picture)
 <div class="container-fluid middle-content dashboard-content">
 <input type="hidden" name="trader_id" id="trader_id" value="{{$model->id}}">
                 <div class="page-title">
-                    <h2 class="desktop-content"><i class="profile-black"></i>Tradies Profile</h2>
+                    <h2 class="desktop-content"><i class="profile-black"></i>Professionals Profile</h2>
 
-                    <h2 class="mobile-content"><i class="profile-black"></i>Tradies Profile</h2>
+                    <h2 class="mobile-content"><i class="profile-black"></i>Professionals Profile</h2>
                     <div class="right-title me-0">
                         @if(Auth::user()->user_type == User::ROLE['admin'])
                         <a href="{{route('trader.edit',$model->id)}}"><button class="primary-btn blue-button"><i class="bi bi-eye bi bi-pencil-square"></i>Edit Profile</button></a>

@@ -44,19 +44,19 @@ $model = Setting::setting();
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12">
-                    <h4>Welcome to Tradehook</h4>
+                    <h4>Welcome to GlamOnTap</h4>
 
                     <div class="about-detail">
-                        <h5>Your gateway to quality tradespeople services and job opportunities!</h5>
-                        <p>At Tradehook, we believe in the power of skilled tradespeople and the difference they make in our daily lives. From crafting beautiful homes to fixing essential utilities, tradies are the backbone of our communities. We are dedicated to connecting these talented professionals with the opportunities they deserve and providing clients with access to the best tradesmen for their needs</p>
+                        <h5>Your gateway to quality professionals services and job opportunities!</h5>
+                        <p>At GlamOnTap, we believe in the power of skilled professionals and the difference they make in our daily lives. From crafting beautiful homes to fixing essential utilities, professionals are the backbone of our communities. We are dedicated to connecting these talented professionals with the opportunities they deserve and providing clients with access to the best tradesmen for their needs</p>
 
                         <br>
                          <h5>Our Mission</h5>
-                        <p>Our mission is simple yet profound: to create a seamless, reliable, and efficient platform where tradies can find meaningful work and companies can hire the best talent for their projects. We aim to bridge the gap between demand and supply in the trades industry, fostering a community of trust, excellence, and mutual benefit.</p>
+                        <p>Our mission is simple yet profound: to create a seamless, reliable, and efficient platform where professionals can find meaningful work and companies can hire the best talent for their projects. We aim to bridge the gap between demand and supply in the trades industry, fostering a community of trust, excellence, and mutual benefit.</p>
 
                             <br>
                          <h5>Our Story</h5>
-                        <p>Tradehook was born out of a passion for supporting skilled workers and recognizing their invaluable contributions. Our founder saw a need for a centralised platform that could not only help tradies showcase their skills but also streamline the job-finding process.</p>
+                        <p>GlamOnTap was born out of a passion for supporting skilled workers and recognizing their invaluable contributions. Our founder saw a need for a centralised platform that could not only help professionals showcase their skills but also streamline the job-finding process.</p>
 
                     </div>
 
