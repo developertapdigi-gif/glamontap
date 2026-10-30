@@ -127,9 +127,9 @@
                                 <td>
                                     <a
                                         href="{{ route('appointments.show', $appointment->id) }}"
-                                        class="btn btn-info btn-sm"
+                                        class=" btn btn-icon btn-sm btn-color-dark"
                                     >
-                                        View
+                                        <i class="skill-table-action bi bi-eye-fill"></i>
                                     </a>
                                 </td>
 
@@ -261,7 +261,7 @@
                                 href="{{ route('appointments.show', $appointment->id) }}"
                                 class="btn btn-info btn-sm"
                             >
-                                View
+                            <i class="bi bi-eye-fill"></i>
                             </a>
 
                         </div>

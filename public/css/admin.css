@@ -5200,6 +5200,69 @@ h2 {
 	color: #fff;
 }
 
+
+.skill-table-pagintion {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.skill-table-pagintion .pagination {
+    margin-bottom: 0;
+    gap: 5px;
+}
+
+.skill-table-pagintion .page-link {
+    color: #a45b1c;
+    background: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 5px !important;
+    min-width: 36px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.skill-table-pagintion .page-item.active .page-link {
+    background-color: #a45b1c;
+    border-color: #a45b1c;
+    color: #fff;
+}
+
+.skill-table-pagintion .page-item.disabled .page-link {
+    color: #999;
+    background: #fff;
+}
+
+.skill-table-pagintion .page-link:hover {
+    background-color: #a45b1c;
+    border-color: #a45b1c;
+    color: #fff;
+}
+
+.pagination-results {
+    color: #666;
+    font-weight: 600;
+}
+
+@media(max-width: 576px) {
+    .skill-table-pagintion {
+        justify-content: center;
+    }
+
+    .pagination-results {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+}
 @media screen and (max-width:560px) {
 	.middle-content {
 		padding: 10px 10px 40px 10px;
